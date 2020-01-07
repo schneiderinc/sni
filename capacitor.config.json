@@ -3,6 +3,6 @@
   "appName": "Ionic4-Reactjs-Boilerplate",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "build",
+  "webDir": "/SCHNEIDER-MVP/build",
   "cordova": {}
 }
