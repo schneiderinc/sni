@@ -64,6 +64,7 @@ COPY . /SCHNEIDER-MVP
 RUN npm install
 
 #RUN npm audit fix
+RUN npx cap add android
 RUN npx cap copy android
 RUN npx cap open andriod
 
