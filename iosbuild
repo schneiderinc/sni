@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ionic build
+npx cap add ios
+npx cap copy

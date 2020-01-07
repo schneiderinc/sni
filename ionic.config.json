@@ -1,0 +1,7 @@
+{
+  "name": "Ionic4-Reactjs-Boilerplate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
