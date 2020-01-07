@@ -63,16 +63,16 @@ COPY . /SCHNEIDER-MVP
 
 RUN npm install
 
+#RUN npm audit fix
+RUN npx cap copy android
+RUN npx cap open andriod
 
-RUN npx cap add android
-#RUN npx cap copy
 
-
-RUN /bin/sh -c "apk add --no-cache bash"
+#RUN /bin/sh -c "apk add --no-cache bash"
 
 
 #FROM gradle:5.0.0-jdk8
 #WORKDIR /SCHNEIDER-MVP/android
-RUN cd android
-CMD ["gradlew", "clean", "build"]
+#RUN cd android
+#CMD ["gradlew", "clean", "build"]
 
