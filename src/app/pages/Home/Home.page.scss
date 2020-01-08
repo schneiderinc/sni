@@ -48,7 +48,8 @@ ion-header {
   font-weight:bold;
 }
 .short-div{
-  padding:15px 15px 10px 13px;
+  padding:20px 15px 10px 13px;
+  background-color:#FCFCFC;
   ion-col{
     padding: 0;
   }
@@ -211,22 +212,22 @@ ion-header {
 }
 .recommended{
   width: 239px;
- 
 }
-
 ion-item-divider{
   min-height: 1px!important;
 }
 .recommended-Error{
   font-size: 18px;
     padding: 0px;
+    margin-top:35px;
 }
 .recommended-Error-img{
   opacity: 100%;
 }
 .No-Recommended{
   text-align: center;
-  padding: 22px;
+  padding: 21px;
+  padding-top:60px;
 }
 .RecommendedSearch{
   text-transform: inherit;
@@ -237,7 +238,7 @@ ion-item-divider{
   height: 55px;
 }
 .SearchLoadBtn{
-    padding-top: 46px;
+    padding-top: 65px;
 }
 .load-search{
   font-size:2.0rem;
@@ -280,15 +281,17 @@ ion-item-divider{
   margin-left: 40px;
 }
 .header_edit_search_button {
-  width: 122px;
-  height: 36px;
+  width: 115px;
+  height: 32px;
   --border-radius: 17px;
   font-size: 12px;
   margin-top: 0;
   margin-right: 21px;
+  --background:#FF7C3B;
+  letter-spacing: 0.7px;
   float: right;
-  background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
   margin-top: -40px;
+  border:1.2px solid #FFFFFF;
   .button_solid {
     border-radius: 17px;
   }

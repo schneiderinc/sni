@@ -1,2 +1,3 @@
-export {default as SearchPage} from './search.page';
-
+//import MockAdapters from "app/adapters/index";
+export {default  as App} from './App';
+//MockAdapters();

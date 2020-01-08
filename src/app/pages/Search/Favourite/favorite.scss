@@ -1,8 +1,10 @@
-.card-content-favorite{
-    width:325px;
-    margin-left:-10px;
-    padding:0px;
- }
-.delete_icon{
-    height:22px;
-}
+    .card-content-favorite{
+        width:100%;
+        padding:0px;
+        ion-grid, ion-col{
+            padding-left: 0;
+        }
+    }
+    .delete_icon{
+        height:22px;
+    }

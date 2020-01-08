@@ -79,7 +79,7 @@ class TabHeader extends React.Component<any, State> {
               <IonLabel>Recent</IonLabel>
             </IonTabButton>
             <IonTabButton tab="favorite" href="/app/search/favorite">
-              <IonLabel>Watchlist</IonLabel>
+              <IonLabel>Favorite</IonLabel>
             </IonTabButton>
           </IonTabBar>
         )}

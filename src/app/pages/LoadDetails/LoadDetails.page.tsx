@@ -40,7 +40,7 @@ class LoadDetailsPage extends Component<any, any> {
 			<>
 				{loadDetails ?
 						<IonPage >
-							<TabHeader Title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} loadDetailsTab={true} {...this.props} />
+							<TabHeader className="load_details_header" Title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} loadDetailsTab={true} {...this.props} />
 							<IonContent className="ion-padding">
 								<IonCard className="ion-card">
 									<IonCardContent className="card-content">
@@ -53,10 +53,10 @@ class LoadDetailsPage extends Component<any, any> {
 													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/call.png" className="load_btn_img" />CALL</IonButton>
 												</IonCol>
 												<IonCol>
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/call.png" className="load_btn_img" />CHAT</IonButton>
+													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/chat.png" className="load_btn_img" />CHAT</IonButton>
 												</IonCol>
 												<IonCol>
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/watched.png" />WATCHLIST</IonButton>
+													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/watched.png" className="load_btn_img"/>WATCH</IonButton>
 												</IonCol>
 											</IonRow>
 										</IonGrid>

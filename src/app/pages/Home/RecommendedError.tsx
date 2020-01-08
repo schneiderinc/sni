@@ -6,8 +6,7 @@ export class RecommendedError extends PureComponent<any, any> {
   render(){
 return(
     <div className="No-Recommended">
-    <img  alt="logo" src="assets/icon/no search@2x.png" width="176px"
-      height="133px" />
+     <img  alt="logo" src="assets/icon/No-Search icon.png" width="79.01px" height="84.59px" />
     <p className="recommended-Error">
       We don't have any recommendations right now. Please come back later.
     </p>
