@@ -63,11 +63,11 @@ COPY . /SCHNEIDER-MVP
 
 RUN npm install
 
-RUN ionic build --verbose
+#RUN ionic build
 #RUN npm audit fix
-RUN npx cap add android
-RUN npx cap copy android
-RUN npx cap open andriod
+#RUN npx cap add android
+#RUN npx cap copy android
+#RUN npx cap open andriod
 
 
 #RUN /bin/sh -c "apk add --no-cache bash"
