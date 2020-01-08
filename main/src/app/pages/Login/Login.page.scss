@@ -1,0 +1,180 @@
+/*Modified Styles*/
+@import  "../../../theme/variables.scss";
+@import  "../../../theme/responsive-styles.scss";
+
+.main-title {
+  font-size: 8vw;
+  font-weight: bold;
+  color: $white;
+}
+.page-header {
+  ion-toolbar
+  {
+    background-color: $primary;
+    --background: transparent;
+  }
+}
+.root-page {
+  .login-contianer {
+      background: #FCFCFC;
+      padding: 10px 1vw;
+      .login_form_feild{
+        background-color: #FCFCFC;
+        ion-item{
+          --background: #FCFCFC;
+        }
+      }
+      input{
+          color: $black;
+      } ion-label {
+          color: $lightBlack;
+          font-family: $font-stack;
+          font-size:16px;
+          
+      }
+      ion-item:first-child {
+        margin-bottom: 15px;
+      }
+      span{
+        font-size: 13px;
+        font-family: $font-stack;
+        float: right;
+        color: $black;
+        margin-right: 6px;
+        margin-top:7px;
+
+      }
+      
+  }
+  .login_remember_link{
+    ion-col{
+      padding: 0
+    }
+    padding-bottom: 50px;
+    .login_remember_text{
+      float:left;
+      padding-left: 5px;
+    }
+  }
+  .-container {
+      margin: 3vh 0px;
+  }
+  .login-btn {
+    --border-radius: 20px;
+    height: 45px;
+    font-size: 18px;
+    background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
+  }
+  .login_alternate {
+    padding: 0 1vh;
+    clear: both;
+    margin-top: 21px;
+    @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+      margin: auto;
+      width:  map-get($grid-breakpoints, xs);
+      margin-top: 21px;
+    }
+    .login_withmobile_btn {
+      --background:  white;
+      --background-focused: white;
+      --background-hover: white;
+      color: $primary;
+      border: 1px solid;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    .sign_up{
+      text-align: center;
+      .signup_link{
+        font-size: 15px;
+        font-family: $font-stack;
+      }
+  }
+}
+.list-ios{
+  margin-bottom: 10px;
+}
+.container-title {
+  font-size: 2vw;
+  color: $primary;
+}
+.login_input_icon{
+  padding-bottom: 5px;
+  margin-top: 35px;
+}
+.img_div{
+  float:left;
+}
+.login_devider_line{
+  background-color: $silver;
+  width:40%;
+  float:left;
+}
+.login_devider_text{
+  float:left;
+  font-size:16px;
+  color: $nobel;
+  padding: 0 12px;
+}
+
+.login_logo_container{
+  background: linear-gradient(180deg, $gradientTop, $gradientBottom);
+  height: 183px;
+  #header_logo {
+    margin-top:75px;
+  }
+}
+ion-toggle{
+  --background-checked: #F6D679;
+  zoom: 0.8;
+  float: right;
+}
+
+
+#header_logo
+{
+  align-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+    width:10%;
+  }
+  @media only screen  and (min-width : map-get($grid-breakpoints,md) ) {
+    width: 25%;
+  }
+}
+
+.login_devider {
+  padding: 5vh 0 0 3vh;
+}
+
+
+/* Desktops and laptops ----------- */
+
+
+
+@media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+  /* Styles */
+
+       .login-contianer
+       {
+         margin: auto;
+         width:  map-get($grid-breakpoints, xs);
+       }
+       @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+         /* Styles */
+       
+            
+       ion-content
+       {
+          margin: auto;
+          padding-right: calc((100% - #{map-get($grid-breakpoints, lg)}) /2);
+          padding-left: calc((100% - #{map-get($grid-breakpoints, lg)}) / 2);
+          
+       
+       }
+       }
+}
+}

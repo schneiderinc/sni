@@ -1,0 +1,1 @@
+export {default as FavouritePage} from './Favorite.page';

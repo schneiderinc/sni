@@ -1,0 +1,38 @@
+import React, {Component} from 'react';
+import LoadDetailsPage from 'app/pages/LoadDetails/LoadDetails.page';
+import { StopDetails } from 'app/schemas/Loads/Loads.schema';
+
+class LoadDetailsContainer extends Component<any, any> {
+
+    constructor(props: any){
+        super(props);
+        this.state={};
+    }
+    render() {
+        const loadDetails = this.props.location.state;
+		var stopCount = 0;
+		var stop_details = [];
+		var origin_details:StopDetails = {};
+        var destination_details:StopDetails = {};
+        if(loadDetails){
+			stopCount =  2 + parseInt(loadDetails.total_stops);
+			origin_details.city = loadDetails.origin_city;
+			origin_details.state = loadDetails.origin_state;
+			origin_details.from_date = loadDetails.origin_from_date;
+			origin_details.from_date_time = loadDetails.origin_to_date_time;
+
+			destination_details.city = loadDetails.destination_city;
+			destination_details.state = loadDetails.destination_state;
+			destination_details.from_date = loadDetails.destination_from_date;
+			destination_details.from_date_time = loadDetails.destination_to_date_time;
+			stop_details.push(origin_details);
+			for(let i =0; i <= parseInt(loadDetails.total_stops); i++){
+				stop_details.push(destination_details);
+            }
+		}
+        return (<LoadDetailsPage {...this.props} loadDetails={loadDetails} stopDetails={stop_details} stopCount={stopCount}/>)
+    }
+}
+;
+
+export default (LoadDetailsContainer);
