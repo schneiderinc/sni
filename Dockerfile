@@ -63,6 +63,7 @@ COPY . /SCHNEIDER-MVP
 
 RUN npm install
 
+RUN ionic build
 #RUN npm audit fix
 RUN npx cap add android
 RUN npx cap copy android
