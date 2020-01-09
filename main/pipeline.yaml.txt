@@ -23,7 +23,7 @@ steps:
     filename: npm
     arguments: 'install --g @capacitor/core @capacitor/cli'
 	
-- script: |
+- script:
     ionic build
 	npx cap init
   displayName: 'npm install and build'
