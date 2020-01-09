@@ -14,10 +14,14 @@ export interface Isearch {
 export interface ActionType {
     type: string;
     payload?: object;
+   
+  
   }
 
   
 export interface SearchState {
     loads?: object;
-    params:any
+    params:any;
+   
+  
 }

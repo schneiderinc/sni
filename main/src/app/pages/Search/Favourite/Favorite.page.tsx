@@ -1,6 +1,5 @@
 import React from 'react';
 import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemOptions, IonItemOption, IonItemSliding, IonItem } from '@ionic/react';
-import favoriteData from './favoriteData.json';
 import './favorite.scss';
 
 
@@ -49,7 +48,7 @@ class FavouritePage extends React.Component<any, any>{
 	}
 
 	componentDidMount() {
-		this.setState({ favoriteData: favoriteData })
+		this.setState({ favoriteData: this.props.data.Favorite })
 	}
 
 	favoriteRemove = (x: any) => {

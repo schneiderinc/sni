@@ -22,7 +22,7 @@ ion-header {
     width: 239px;
     margin: auto;
     padding-bottom: 10px;
-    margin-top: 16px;
+    margin-top: 14px;
     @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
       margin-top:42px;
     }
@@ -42,7 +42,6 @@ ion-header {
   margin-left:10px;
   margin-top:5px;
   font-size:11px;
-  font-weight:bold;
 }
 .sort_label_search{
   font-weight:bold;
@@ -60,9 +59,6 @@ ion-header {
     font-size: 12px;
     opacity: 0.7;
     padding-top:3px;
-  }
-  .rec_text1{
-    left: 46px;
   }
   ion-badge{
     margin-left: 5px;
@@ -125,6 +121,7 @@ ion-header {
   color: #FFFFFF;
   margin-left:13px;
   margin-top:40px;
+  text-align: center;
 }
 
 .card_arrow_img {
@@ -227,7 +224,7 @@ ion-item-divider{
 .No-Recommended{
   text-align: center;
   padding: 21px;
-  padding-top:60px;
+  padding-top:40px;
 }
 .RecommendedSearch{
   text-transform: inherit;
@@ -281,17 +278,9 @@ ion-item-divider{
   margin-left: 40px;
 }
 .header_edit_search_button {
-  width: 115px;
-  height: 32px;
-  --border-radius: 17px;
-  font-size: 12px;
-  margin-top: 0;
-  margin-right: 21px;
-  --background:#FF7C3B;
-  letter-spacing: 0.7px;
+  margin-right: 16px;
   float: right;
-  margin-top: -40px;
-  border:1.2px solid #FFFFFF;
+  margin-top: -35px;
   .button_solid {
     border-radius: 17px;
   }
@@ -299,15 +288,6 @@ ion-item-divider{
 .search_results_container{
   margin-left:11px;
   margin-right:11px;
-}
-.search_sortby_select{
-  height: 22px;
-  width: 185px;
-  text-align: left;
-  border-radius: 12px;
-  color: var(--ion-color-primary);
-  float: right;
-  margin-right:13px;
 }
 .header_search_bubble{
   width: 100%;

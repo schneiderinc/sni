@@ -14,3 +14,7 @@ export const LOGOUT = 'LOGOUT';
 export const UPDATE_DATA = "UPDATE_DATA";
 export const LOAD_DATA = "LOAD_DATA";
 export const SEARCH_DATA = "SEARCH_DATA";
+export const RECENT_LOADS = "RECENT_LOADS";
+export const GET_RECENT = "GET_RECENT";
+export const FAVORITE_LOADS = "FAVORITE_LOADS";
+export const GET_FAVORITE = "GET_FAVORITE";

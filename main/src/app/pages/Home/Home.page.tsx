@@ -17,13 +17,11 @@ this.handleScroll = this.handleScroll.bind(this);
     prevScrollpos: window.pageYOffset,
     visible: true,
     title: "Recommended Loads",
-    selectedValue:'',
     tab:true,
     toggleBtn:true,
     loadData:[],
     toggleValue: "Recommended",
     loadSize: props.data.length,
-    asc:false
   };
   }
   componentDidMount() {
@@ -55,25 +53,8 @@ this.handleScroll = this.handleScroll.bind(this);
    this.props.getLoads();
  }
 
- sortBy = (x: any) => {
-  this.setState({asc:!this.state.asc});
-  let arrayCopy = [...this.state.loadData];
-  arrayCopy.sort(this.compareBy(x));
-  this.setState({loadData: arrayCopy,asc:!this.state.asc});
-  console.log(this.state.loadData)
-}
-compareBy(key:any) {
-  const { asc } = this.state;
-  return function (a:any, b:any) {
-    if (a[key] < b[key]) return asc ? -1 : 1;
-    if (a[key] > b[key]) return asc ? 1 : -1;
-    return 0;
-  };
-}
-
  handleToggleStateChange = (value:any) => {
   this.setState({toggleValue : value});
-  console.log("HomePage ::: handleToggleChange ::: " + this.state.toggleValue);
   if(this.state.toggleValue === "Recommended"){
     this.setState({title: "Liked Loads",
     loadSize: this.state.loadData.filter((c:any) => c.price !== "TBD").length});
@@ -82,19 +63,20 @@ compareBy(key:any) {
     this.setState({title: "Recommended Loads", loadSize: this.state.loadData.length});
   }
 }
+  sortedData=(data:any)=>{
+    this.setState({ loadData: data});
+  }
 
 render(){
   
   const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
-  const contextOptions = [{ value: "context", name: "Context" }, { value: "distance", name: "Distance" }];
+  // const contextOptions = [{ value: "context", name: "Context" }, { value: "distance", name: "Distance" }];
   return (
    
 
     <IonPage>
     <TabHeader className={!this.state.visible ? "hide-header":''} Title= {this.state.title} loadSize={this.state.loadSize>0? this.state.loadSize : this.state.loadData.length} LoadsList={LoadsList}  
-     
-     sortBy={this.sortBy}  toggleBtn={this.state.toggleBtn}
-     onToggleStateChange = {this.handleToggleStateChange}  />
+     toggleBtn={this.state.toggleBtn} onToggleStateChange = {this.handleToggleStateChange}  />
         {this.state.loadData.length>0 &&   <div className="short-div">
          
          {this.state.tab?
@@ -102,18 +84,16 @@ render(){
            <IonCol size="4" class="rec_text">
                <b>{this.state.loadSize>0? this.state.loadSize : this.state.loadData.length}  </b>Recommendations
            </IonCol>
-           <IonLabel className="sort_label">Sort:</IonLabel>
-            <IonCol size="4">
-              <div className="sortby_select_div select_div">
-                  <Dropdown options = {sortByOptions} lable = {true}  sortBy={this.sortBy}/>
-              </div>
-            </IonCol>
-            <IonCol className="dropDown_col" size="4">
-              <div className="sortby_select_div last_select_div">
-                <Dropdown options={contextOptions} lable = {false}  sortBy={this.sortBy}/>
-              </div>
-              
-            </IonCol>
+           <IonCol size="8" class="sort_select">
+              <IonRow>
+                  <IonCol size="2.5">
+                      <IonLabel className="sort_label">Sort:</IonLabel>
+                  </IonCol>
+                  <IonCol size="9">
+                      <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData}/>
+                  </IonCol>
+              </IonRow>
+          </IonCol>
          </IonRow>:null}
         </div>}
 
@@ -144,8 +124,6 @@ render(){
           )}
       </div>
       {!this.state.loadData.length && <RecommendedError loads={this.getLoads.bind(this)} />}
-      {/* <IonLabel>For Demo</IonLabel>
-    <RecommendedError /> */}
     </IonContent>
     
     </IonPage>

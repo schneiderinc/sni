@@ -1,8 +1,6 @@
 import React from 'react';
 import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonItemSliding, IonItem, IonItemOptions, IonItemOption } from '@ionic/react';
 import './Recent.scss';
-import recentData from './recentData.json';
-
 const RecentTab = (props: any) => {
 	return (
 <IonItemSliding>
@@ -40,13 +38,13 @@ const RecentTab = (props: any) => {
 
 class RecentSearch extends React.Component<any, any>{
 	render() {
-
+		
 		return (
 			<IonContent className="ion-padding" class="background">
 				<div className="contianer">
 					<div className="EnterLoad_recent">Select one of your recent searches to see matching loads.</div>
 					{
-						recentData.map((detail, index) => (
+						this.props.data.map((detail:any, index:number) => (
 							<IonCard className="ion-card" key={index}>
 								<RecentTab recentData={detail} />
 							</IonCard>

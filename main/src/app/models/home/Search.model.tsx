@@ -61,6 +61,22 @@ export class Search {
     getLoads() {
         return getObject('Search-Loads');
     }
+    recentLoads(_loads: []) {
+       
+        return setObject('Recent-Loads', _loads);
+    }
+    getRecentLoads() {
+     
+        return getObject('Recent-Loads');
+    }
+    favoriteLoads(_loads: []) {
+       
+        return setObject('Favorite-Loads', _loads);
+    }
+    getfavoriteLoadss() {
+     
+        return getObject('Favorite-Loads');
+    }
 
 }
 const searchModel = new Search();

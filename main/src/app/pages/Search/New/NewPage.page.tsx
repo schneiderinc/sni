@@ -169,10 +169,10 @@ class NewPage extends PureComponent<any, any> {
             <div className="EnterLoad"> Enter new Search criteria and apply search to see matching loads</div>
 
             <form className="search-form"  >
-              <IonList className="new_list">
+              <IonList className="new_page_list">
 
-                <IonItem class="ion-item">
-                  <IonLabel position="floating" className="new_label">Origin</IonLabel>
+                <IonItem className="ion-item">
+                  <IonLabel position="floating">Origin</IonLabel>
                   <IonInput type="text" className="cts-form-control" name="origin" value={this.state.origin} onIonChange={(e) => this.handleOrigin(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
@@ -197,14 +197,14 @@ class NewPage extends PureComponent<any, any> {
                 </div>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating" className="new_label">Pickup Date</IonLabel>
+                  <IonLabel position="floating" className="new_page_label">Pickup Date</IonLabel>
                   <IonDatetime displayFormat="DD/MM/YYYY" name="pickUpdate" value={this.state.pickUpdate}
                     onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating" className="new_label">Destination</IonLabel>
+                  <IonLabel position="floating">Destination</IonLabel>
                   <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(e) => this.handleDestination(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
@@ -222,13 +222,13 @@ class NewPage extends PureComponent<any, any> {
                 </div>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating" className="new_label">Delivery Date</IonLabel>
+                  <IonLabel position="floating" className="new_page_label">Delivery Date</IonLabel>
                   <IonDatetime displayFormat="DD/MM/YYYY" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating" class="textColor new_label">Trailer Type</IonLabel>
+                  <IonLabel position="floating" class="trailer_type_label">Trailer Type</IonLabel>
                   <IonSelect okText="Okay" cancelText="Dismiss" interface="popover" className="ion-select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
                     <IonSelectOption value="Dry Van">Dry Van</IonSelectOption>
                     <IonSelectOption value="Wet Van">Wet Van</IonSelectOption>
@@ -244,7 +244,7 @@ class NewPage extends PureComponent<any, any> {
         <IonFooter>
           <div className="search_alternate">
             <IonRow className="save_as_favorite">
-              <IonCol size="2"> <IonToggle name="favorite" checked={this.state.favorite} onIonChange={(e) => this.ToggleChange(e)}> </IonToggle> </IonCol>
+              <IonCol size="2"> <IonToggle mode="ios" name="favorite" checked={this.state.favorite} onIonChange={(e) => this.ToggleChange(e)}> </IonToggle> </IonCol>
               <IonCol size="10" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol>
             </IonRow>
             <IonRow>
@@ -257,14 +257,11 @@ class NewPage extends PureComponent<any, any> {
             </IonRow>
 
           </div>
-
-
         </IonFooter>
       </>
     );
   }
 }
-
 
 export default NewPage;
 
