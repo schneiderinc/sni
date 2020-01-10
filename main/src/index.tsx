@@ -26,6 +26,7 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "theme/variables.css";
 
+
 import configureStore from "app/store";
 import { LoginContainer } from "app/containers/LoginContainer";
 import { PrivateRoute } from 'app/containers/PrivateRoute';
