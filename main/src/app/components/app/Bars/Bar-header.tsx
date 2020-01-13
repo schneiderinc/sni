@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IonHeader, IonButton, IonIcon, IonRow, IonCol, IonImg} from "@ionic/react";
+import { IonHeader, IonIcon, IonRow, IonCol, IonImg} from "@ionic/react";
 import Toggle from 'app/components/shared/toggle/Toggle';
 import { IonLabel, IonTabBar, IonTabButton } from '@ionic/react';
 import './search-header.scss';

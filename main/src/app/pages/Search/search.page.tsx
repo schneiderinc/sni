@@ -9,9 +9,7 @@ import { RecentContainer } from 'app/containers/SearchContainer/RecentContainer'
 import { FavouriteContainer } from 'app/containers/SearchContainer/FavouriteContainer';
 
 class SearchPage extends Component<any, any> {
-	constructor(props: any) {
-		super(props);
-	}
+	
 	render() {
 		return (
 			<IonPage>

@@ -16,6 +16,7 @@ import { DomainConverter } from 'app/utils/common';
 import { RECENT_LOADS } from "app/actions/Search/action";
 import { FAVORITE_LOADS } from "app/actions/Search/action";
 import { Redirect } from "react-router";
+import {LOAD_DATA} from 'app/utils/mock_Data'
 
 const key = "search";
 class NewContainer extends PureComponent<any, any> {
@@ -29,7 +30,14 @@ class NewContainer extends PureComponent<any, any> {
   }
   __params: Isearch = {};
   __onSearch: any = false;
-
+  async __recentOfflineData(__props:any){
+    await this.__model.recentLoads(__props);
+    return __props;
+  }
+  async __favoriteOfflineData2(__props:any){
+    await this.__model.favoriteLoads(__props);
+    return __props;
+  }
   onsubmit(data: any) {
     this.__onSearch = true;
     var __model = DomainConverter.dataToDomain<Search>(Search, data);
@@ -37,25 +45,26 @@ class NewContainer extends PureComponent<any, any> {
     this.props.searchData(this.__params);
      this.props.Recentdata()
      this.props.favoriteData()
-    // this.setState({ favoriteData: this.state.favoriteData.push(this.__params) })
-    //  console.log(this.state.favoriteData, "favoriteData")
-     
-  
+     this.__recentOfflineData(LOAD_DATA)
+     this.__favoriteOfflineData2(LOAD_DATA)
    
     if (data.favorite) {
       this.setState({ favoriteData: this.state.favoriteData.push(data) })
-      console.log(this.state.favoriteData, "favoriteData")
-     
     }
   }
+
+
+
+
   render() {
+
     return (this.props.data.length !== 0 && this.__onSearch) ? (this.__onSearch = false, <Redirect to={{ pathname: "/app/results", state: { data: this.props.data, params: this.__params } }} />) : (<NewPage data={this.props.location.state ? this.props.location.state.data : {}} search_Submit={(data: any) => { this.onsubmit(data) }} />)
   }
 }
 
 const mapStateToProps = createStructuredSelector({
   loading: getLoading(),
-  data: makeSearch()
+  data: makeSearch() 
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({

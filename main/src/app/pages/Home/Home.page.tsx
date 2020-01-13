@@ -21,7 +21,7 @@ this.handleScroll = this.handleScroll.bind(this);
     toggleBtn:true,
     loadData:[],
     toggleValue: "Recommended",
-    loadSize: props.data.length,
+    loadSize: 0,
   };
   }
   componentDidMount() {
@@ -81,18 +81,14 @@ render(){
          
          {this.state.tab?
          <IonRow class="short-row">
-           <IonCol size="4" class="rec_text">
+           <IonCol size="5" class="rec_text">
                <b>{this.state.loadSize>0? this.state.loadSize : this.state.loadData.length}  </b>Recommendations
            </IonCol>
-           <IonCol size="8" class="sort_select">
-              <IonRow>
-                  <IonCol size="2.5">
-                      <IonLabel className="sort_label">Sort:</IonLabel>
-                  </IonCol>
-                  <IonCol size="9">
-                      <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData}/>
-                  </IonCol>
-              </IonRow>
+           <IonCol size="7" class="sort_select">
+              <div className="select_div">
+                <IonLabel className="sort_label">Sort:</IonLabel>
+                <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData}/>
+              </div>
           </IonCol>
          </IonRow>:null}
         </div>}

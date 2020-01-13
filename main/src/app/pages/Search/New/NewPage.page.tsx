@@ -1,4 +1,4 @@
-import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonButton, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonSearchbar, IonIcon, IonFooter } from '@ionic/react';
+import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonButton, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonFooter } from '@ionic/react';
 import React, { PureComponent } from 'react';
 import './NewPage.scss';
 
@@ -73,7 +73,7 @@ class NewPage extends PureComponent<any, any> {
 
   }
   Apply = (e: any) => {
-    const { origin, distance, pickUpdate, TrailerType, dropdate, Destination_Radius, favorite, destination, searchResultPage } = this.state;
+    const { origin, distance, pickUpdate, TrailerType, dropdate, Destination_Radius, favorite, destination } = this.state;
     e.preventDefault();
 
     const __searchParams = {
@@ -113,7 +113,7 @@ class NewPage extends PureComponent<any, any> {
       this.setState({ showSuggestions: true })
       this.setState({
         originSearchResults: this.state.searchabarList.filter((item, index) => {
-          if (item.city.toLowerCase().indexOf(this.state.origin) != -1) {
+          if (item.city.toLowerCase().indexOf(this.state.origin) !== -1) {
             return item;
           }
         })
@@ -132,7 +132,7 @@ class NewPage extends PureComponent<any, any> {
       this.setState({ showSuggestions2: true })
       this.setState({
         destinationSearchResults: this.state.searchabarList.filter((item, index) => {
-          if (item.city.toLowerCase().indexOf(this.state.destination) != -1) {
+          if (item.city.toLowerCase().indexOf(this.state.destination) !== -1) {
             return item;
           }
         })
@@ -178,9 +178,9 @@ class NewPage extends PureComponent<any, any> {
                 </IonItem>
                 {/* {this.state.showSuggestions ? <div className="suggestions_div">
                 <IonItem className="suggestions_input_item">
-                  <IonLabel position="floating">Your Location</IonLabel>
+                  <IonLabel position="floating"> <IonImg slot ="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
                   <IonInput className="cts-form-control" type="text"/>
-                  <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />
+                
                 </IonItem>
                 <ul className="suggestions">
                   {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item">

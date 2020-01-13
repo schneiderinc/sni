@@ -117,11 +117,19 @@ font-size: 13px;
   font-size: 10px;
   margin-top: 9px;
 }
+.tab_footer_label_manage{
+  font-size: 10px;
+  margin-top: 4px;
+}
+.tab_footer_label_more{
+  font-size: 10px;
+  margin-top: 13px;
+}
 .tab-selected{
   color: $primary;
 }
 ion-tab-bar{
-  height: 70px;
+  height: 64px;
 }
 .ion-card{
   margin: 0px 1px 10px 1px !important;

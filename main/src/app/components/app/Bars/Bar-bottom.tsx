@@ -74,16 +74,16 @@ class Tabs extends React.Component<any> {
                 </IonTabButton>
 
                 <IonTabButton tab="execute" href="/app/execute" >
-                  <img alt="logo" src="assets/icon/truck@2x.png" width="27px" height="23.71px" />
+                  <img alt="logo" src="assets/icon/Execute icon@2x.png" width="27px" height="23.71px" />
                   <IonLabel class="tab_footer_label">EXECUTE</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="manage" href="/app/manage" >
                   <img alt="logo" src="assets/icon/Manage@2x.png" width="26.95px" height="27.21px" />
-                  <IonLabel class="tab_footer_label">MANAGE</IonLabel>
+                  <IonLabel class="tab_footer_label_manage">MANAGE</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="more" href="/app/more">
                   <img alt="logo" src="assets/icon/menu@2x.png" width="22px" height="17px" />
-                  <IonLabel class="tab_footer_label">MORE</IonLabel>
+                  <IonLabel class="tab_footer_label_more">MORE</IonLabel>
                 </IonTabButton>
 
               </IonTabBar>

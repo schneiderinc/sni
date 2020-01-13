@@ -10,9 +10,7 @@ var HOST_URL:string[];
     "https://schneider-api", //PROD
     "https://qa.schneider-api", // QA
      "https://int.schneider-api", //DEV
-     "https://api.github.com/repos/suneelc/apis/git/blobs" ,// ADAPTER
-    "https://localhost:8100"
-    
+     "https://schneiderapp.herokuapp.com" // ADAPTER    
  ];
  interface EndPoints {
      [index:string]:any;
@@ -26,13 +24,16 @@ var HOST_URL:string[];
 
  export const URL_ENDPOINTS:EndPoints = {
      HOME:{
-        RECOMMENDED_LOADS: "/820e3eacce7230627022edfa40075a6b9729680d"
+        RECOMMENDED_LOADS: "/loads"
      },
      SEARCH:{
-        SEARCH_LOADS: "/676db37069dc3393c69595bb5566449e11a34aa8"
+        SEARCH_LOADS: "/search-results"
      },
      RECENT:{
-         RECENT_LOADS: "/xyz"
+         RECENT_LOADS: "/recent"
+     },
+     FAVORITE:{
+         FAVORITE_LOADS: "/favorite"
      }
 };
 
@@ -41,7 +42,6 @@ export default function getURLDetails(endPoint:string, urlKey:string, value?:any
         get_Service_Url: function () {
             var _url = "";
                 _url = HOST_URL[environmentVariable] + URL_ENDPOINTS[endPoint][urlKey];
-                console.log(_url,"url");
             _url = value ? _url.replace('{rcmd}', value): _url;
             return _url;
         }

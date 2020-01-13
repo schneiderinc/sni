@@ -14,7 +14,7 @@ export function* updateData() {
     const repos = yield call(request, ["HOME","RECOMMENDED_LOADS"]);
     //console.log(repos);
     //const repos = LOAD_DATA;
-    yield put(loadData(repos));
+    yield put(loadData(repos.data));
     yield put(hideLoading());
   } catch(e) {
    // yield __model.getLoads() && put(loadData(__model.getLoads()));

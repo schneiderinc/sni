@@ -123,8 +123,8 @@
   }
   .button-solid {
     background: $primary;
-    background-focused: $primary;
-    background-hover:$primary;
+    --background-focused: $primary;
+    --background-hover:$primary;
     border-radius: 22px;
     background-color: rgba(255,132,71,1);
     background:  filter-gradient(#ff8447, #ff6e25, vertical);
@@ -270,9 +270,6 @@
   }
   .cardRowLoad{
     margin-top:0px;
-  }
-  .sort_select{
-    left: 6%;
   }
   .sort_dropdown{
     height: 22px;

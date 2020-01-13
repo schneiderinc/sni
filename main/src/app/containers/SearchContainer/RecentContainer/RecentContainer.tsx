@@ -26,11 +26,11 @@ class RecentContainer extends PureComponent<any, any> {
   }
   getLoads(){
     if (this.props.data.length === 0 && !this.props.loading) {
-      console.log(this.props.updateData());
+  
     }
   }
   render() {
-     
+    
     return <RecentPage {...this.props} getLoads={this.getLoads.bind(this)} />;
   }
 } 

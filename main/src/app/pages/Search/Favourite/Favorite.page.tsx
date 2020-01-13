@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemOptions, IonItemOption, IonItemSliding, IonItem } from '@ionic/react';
 import './favorite.scss';
-
+import  moment from "moment"; 
 
 const FovoriteTab = (props: any) => {
 	return (
@@ -11,19 +11,19 @@ const FovoriteTab = (props: any) => {
 					<IonGrid>
 						<IonRow class="recent_row">
 							<IonCol className="card-col">
-								<div className="card-name"><b>{props.favoriteData.fromAddress}</b></div>
-								<div className="card-dt">Radius: {props.favoriteData.fromRadius}</div>
-								<div className="card-dist">{props.favoriteData.pickupDate}</div>
+								<div className="card-name"><b>{props.favoriteData.origin_city}</b></div>
+								<div className="card-dt">Radius: {props.favoriteData.origin_deadhead}</div>
+								<div className="card-dist">{moment(props.favoriteData.origin_from_date).format("MMM DD")}</div>
 							</IonCol>
 							<IonCol size="3" className="loadCardArrow">
 								<img alt="logo" className="card_arrow_img1" src="assets/icon/van.png" />
-								<div className="vehicle_type">{props.favoriteData.vehicleType}</div>
+								<div className="vehicle_type">{props.favoriteData.trailer}</div>
 								<img alt="logo" className="card-arrow" src="assets/icon/Path 100.png" />
 							</IonCol>
 							<IonCol className=" card-col right">
-								<div className="card-name"><b>{props.favoriteData.toAddress}</b></div>
-								<div className="card-dt">Radius: {props.favoriteData.toRadius}</div>
-								<div className="card-dist">{props.favoriteData.pickupDate}</div>
+								<div className="card-name"><b>{props.favoriteData.destination_city}</b></div>
+								<div className="card-dt">Radius: {props.favoriteData.destination_deadhead}</div>
+								<div className="card-dist">{moment(props.favoriteData.destination_from_date).format("MMM DD")}</div>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
@@ -48,7 +48,7 @@ class FavouritePage extends React.Component<any, any>{
 	}
 
 	componentDidMount() {
-		this.setState({ favoriteData: this.props.data.Favorite })
+		this.setState({ favoriteData: this.props.data.Favorite.data })
 	}
 
 	favoriteRemove = (x: any) => {
@@ -58,13 +58,13 @@ class FavouritePage extends React.Component<any, any>{
 		
 	}
 	render() {
-
+    
 		return (
 			<IonContent className="ion-padding" class="background">
 				<div className="contianer">
 					<div className="EnterLoad_recent">Select one of your saved favorite searches to see matching loads.</div>
 					{
-						this.state.favoriteData.map((detail: any, index: any) => (
+						this.state.favoriteData && this.state.favoriteData.map((detail: any, index: any) => (
 							<IonCard className="ion-card" key={index}>
 								<FovoriteTab favoriteData={detail} favoriteRemove={() => this.favoriteRemove(index)} />
 							</IonCard>

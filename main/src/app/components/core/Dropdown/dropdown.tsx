@@ -16,9 +16,9 @@ class Dropdown extends Component<any, any>{
     hideDropdownMenu = (option: any) => {
         this.setState({ clickedOption: option });
     }
-    onConfrim=()=>{
+    onConfrim=(value: any)=>{
         this.setState({selectedOption:this.state.clickedOption});
-        this.sortBy(this.state.selectedOption.value);
+        this.sortBy(value);
     }
     dropdownClick = () => {
         this.setState({ isDropdown: true })
@@ -58,7 +58,7 @@ class Dropdown extends Component<any, any>{
                                 <span onClick={() => (this.setState({isDropdown:false,clickedOption: this.state.selectedOption}))}>Cancle</span>
                             </IonCol>
                             <IonCol size="6">
-                                <span onClick={this.onConfrim}><b>OK</b></span>
+                                <span onClick={()=>this.onConfrim(this.state.clickedOption.value)}><b>OK</b></span>
                             </IonCol>
                         </IonRow>
                     </div>

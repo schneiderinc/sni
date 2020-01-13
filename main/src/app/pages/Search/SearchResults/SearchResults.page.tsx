@@ -57,14 +57,10 @@ class SearchResultPage extends PureComponent<any, any> {
                                 <b>10</b> Matches
                             </IonCol>
                             <IonCol size="8" class="sort_select">
-                                <IonRow>
-                                    <IonCol size="2.5">
-                                        <IonLabel className="sort_label">Sort:</IonLabel>
-                                    </IonCol>
-                                    <IonCol size="9">
-                                        <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData}/>
-                                    </IonCol>
-                                </IonRow>
+                                <div className="select_div">
+                                    <IonLabel className="sort_label">Sort:</IonLabel>
+                                    <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData}/>
+                                </div>
                             </IonCol>
                         </IonRow>
                     </div>

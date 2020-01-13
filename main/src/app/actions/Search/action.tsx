@@ -16,5 +16,5 @@ export const RECENT_LOADS = () => ({
 })
 export const FAVORITE_LOADS = () => ({
     type: Constants.FAVORITE_LOADS
-  
+    
 })
