@@ -12,7 +12,7 @@
   }
 .contianer{
     .EnterLoad{
-      padding: 17px 11px 11px 11px;
+      padding: 17px 7px 11px 7px;
       font-size: 14px;
       color:#4A4A4A;
       font-family: $font-stack; 
@@ -35,23 +35,24 @@
              }
             input{
                 --padding-top:0px;
-                --padding-bottom:0px;
                 margin-top:8px;
+                padding-bottom:4px;
            }
             ion-label {
                 color:#000000 !important;
                 font-family: $font-stack !important;
                 font-size:15px !important;  
                 opacity:0.84;
-                padding-top:9px;
+                margin-top:17px;
             }
             .input_icon{
-                margin-top: 48px;
-                margin-bottom:0px;
+                margin-top: 47px;
+                margin-right: -5px;
+                margin-bottom:4px;
                 width: 16px;
                 height: 16px;
             }
-
+           
           .position_icon{
               width: 20px;
               float: left;
@@ -113,6 +114,7 @@
               --padding-top:0px;
               --padding-bottom:0px;
             }
+         
         }
       }
   }

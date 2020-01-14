@@ -39,9 +39,9 @@ class LoadDetailsPage extends Component<any, any> {
 		return (
 			<>
 				{loadDetails ?
-						<IonPage >
+						<IonPage>
 							<TabHeader className="load_details_header" Title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} loadDetailsTab={true} {...this.props} />
-							<IonContent className="ion-padding">
+							<IonContent className="ion-padding custom-padding load-page-content">
 								<IonCard className="ion-card">
 									<IonCardContent className="card-content">
 										<IonGrid>
@@ -49,13 +49,13 @@ class LoadDetailsPage extends Component<any, any> {
 											<IonItemDivider no-padding />
 											<LoadTileFooter price={loadDetails.price} stops={loadDetails.total_stops} trailer={loadDetails.trailer} total_distance={loadDetails.total_distance} />
 											<IonRow>
-												<IonCol>
+												<IonCol size="4">
 													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/call.png" className="load_btn_img" />CALL</IonButton>
 												</IonCol>
-												<IonCol>
+												<IonCol size="4">
 													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/chat.png" className="load_btn_img" />CHAT</IonButton>
 												</IonCol>
-												<IonCol>
+												<IonCol size="4">
 													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/watched.png" className="load_btn_img"/>WATCH</IonButton>
 												</IonCol>
 											</IonRow>

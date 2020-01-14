@@ -6,7 +6,7 @@ import './Home.page.scss';
 import {TabHeader} from 'app/components/app/Bars/Bar-header'
 import {RecommendedError} from './RecommendedError';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
-const LoadsList = ["Recommended", "Watchlist"];
+const LoadsList = ["Recommended", "Watched"];
 class HomePage extends PureComponent<any, any> {
 
 
@@ -56,7 +56,7 @@ this.handleScroll = this.handleScroll.bind(this);
  handleToggleStateChange = (value:any) => {
   this.setState({toggleValue : value});
   if(this.state.toggleValue === "Recommended"){
-    this.setState({title: "Liked Loads",
+    this.setState({title: "Watched Loads",
     loadSize: this.state.loadData.filter((c:any) => c.price !== "TBD").length});
     
   } else {
@@ -93,7 +93,7 @@ render(){
          </IonRow>:null}
         </div>}
 
-    <IonContent className="ion-padding">
+    <IonContent className="ion-padding custom-padding">
    
       
       <div>

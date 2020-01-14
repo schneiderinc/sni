@@ -7,7 +7,7 @@ const StopDetailsCard = (props: any) =>{
 		}else if(pos === last){
 			return "Destination";
 		}else{
-			return "Stop off " + pos;
+			return "Stop-off " + pos;
 		}
 	  }
 	return (

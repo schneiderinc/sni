@@ -166,12 +166,12 @@ class NewPage extends PureComponent<any, any> {
       <>
         <IonContent className="ion-padding search_form_container" class="background">
           <div className="contianer">
-            <div className="EnterLoad"> Enter new Search criteria and apply search to see matching loads</div>
+            <div className="EnterLoad">Enter criteria and click apply to see matching loads.</div>
 
             <form className="search-form"  >
               <IonList className="new_page_list">
 
-                <IonItem className="ion-item">
+                <IonItem mode="ios" className="ion-item">
                   <IonLabel mode="ios" position="floating">Origin</IonLabel>
                   <IonInput type="text" className="cts-form-control" name="origin" value={this.state.origin} onIonChange={(e) => this.handleOrigin(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
@@ -196,14 +196,14 @@ class NewPage extends PureComponent<any, any> {
                   <IonRange min={1} max={300} step={1} snaps={true} ticks={false} name="distance" color="primary" value={this.state.distance} className="search_range" onIonChange={this.handleChange} />
                 </div>
 
-                <IonItem class="ion-item">
+                <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" className="new_page_label">Pickup Date</IonLabel>
                   <IonDatetime displayFormat="YYYY/MM/DD" name="pickUpdate" value={this.state.pickUpdate}
                     onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
-                <IonItem class="ion-item">
+                <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating">Destination</IonLabel>
                   <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(e) => this.handleDestination(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
@@ -221,13 +221,13 @@ class NewPage extends PureComponent<any, any> {
                   <IonRange min={1} max={300} step={1} snaps={true} ticks={false} name="Destination_Radius" color="primary" value={this.state.Destination_Radius} className="search_range" onIonChange={this.handleChange} />
                 </div>
 
-                <IonItem class="ion-item">
+                <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" className="new_page_label">Delivery Date</IonLabel>
                   <IonDatetime displayFormat="YYYY/MM/DD" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
-                <IonItem class="ion-item">
+                <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" class="trailer_type_label">Trailer Type</IonLabel>
                   <IonSelect okText="Okay" cancelText="Dismiss" interface="popover" className="ion-select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
                     <IonSelectOption value="Dry Van">Dry Van</IonSelectOption>

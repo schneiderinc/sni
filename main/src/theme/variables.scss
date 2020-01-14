@@ -93,7 +93,7 @@ $white:     #fff;
 
 // @import "Helvetica";
 $font-stack: "Helvetica Neue";
-
+$font-roboto: "Roboto Medium";
 /*
 body {
   font: 100% $font-stack;
@@ -139,4 +139,9 @@ ion-tab-bar{
 }
 ion-content{
   --background:#FCFCFC;
+}
+.custom-padding{
+ --padding-top: 1px !important;
+  --padding-start: 10px !important;
+  --padding-end: 10px !important;
 }

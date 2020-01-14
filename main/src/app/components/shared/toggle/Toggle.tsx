@@ -18,7 +18,7 @@ const Toggle = (props: any) => {
                 {
                    tabNames.map((tab:any, index:any) => (
                         <IonCol size = {colsize} key={index}>
-                            <button id={tab} onClick={(e)=>handleClick(e, tab)} className={`${showActive === tab ?"header_toggle_layer_button":""} ${tab === 'Watchlist' ?"header_tab_like":""}`}>{tab} </button>
+                            <button id={tab} onClick={(e)=>handleClick(e, tab)} className={`${showActive === tab ?"header_toggle_layer_button":""} ${tab === 'Watched' ?"header_tab_like":""}`}>{tab} </button>
                         </IonCol>
                     ))
                 }

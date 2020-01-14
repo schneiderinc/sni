@@ -29,7 +29,7 @@ class TabHeader extends React.Component<any, State> {
     if (value === "Recommended") {
         this.setState({ subtitle: "Recommended", isContextsearchvisible: true })
     } else {
-        this.setState({ subtitle: "Liked", isContextsearchvisible: false })
+        this.setState({ subtitle: "Watched", isContextsearchvisible: false })
     }
 }
   editSearch = (values: any) => {

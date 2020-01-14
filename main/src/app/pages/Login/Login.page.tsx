@@ -53,7 +53,7 @@ class LoginPage extends Component<propTypes> {
                         {/* <p className="ion-text-center container-title">Login</p> */}
                         <form className="login-form" onSubmit={(event)=> this.handleSubmit(event)}>
                             <IonList class="login_form_feild" mode="ios">
-                                <IonItem>
+                                <IonItem mode="ios">
                                     <IonLabel mode="ios" position="floating">Enter Your Email ID</IonLabel>
                                     <IonInput className="cts-form-control" name="username" type="text" value={this.state.username} onKeyUp={(event)=> this.handleChange(event)} />
                                     <IonImg slot="end" alt="logo" src="../../assets/icon/User.png" className="login_input_icon"/>

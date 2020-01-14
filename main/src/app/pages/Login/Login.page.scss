@@ -26,10 +26,12 @@
       }
       input{
           color: $black;
+          padding-bottom: 10px;
       } ion-label {
           color: $lightBlack;
           font-family: $font-stack;
-          font-size:16px;
+          font-size:14px;
+          margin-top:12px;
           
       }
       ion-item:first-child {
@@ -100,8 +102,9 @@
   color: $primary;
 }
 .login_input_icon{
-  padding-bottom: 5px;
+  padding-bottom: 0;
   margin-top: 35px;
+  margin-right: -4px;
 }
 .img_div{
   float:left;

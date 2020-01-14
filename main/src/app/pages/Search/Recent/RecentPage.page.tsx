@@ -11,8 +11,8 @@ const RecentTab = (props: any) => {
 				<IonRow class="recent_row">
 					<IonCol className="card-col">
 						<div className="card-name"><b>{props.recentData.origin_city}</b></div>
-						<div className="card-dt">Radius: {props.recentData.origin_deadhead}</div>
-						<div className="card-dist">{moment(props.recentData.origin_from_date).format("MMM DD")}</div>
+						<div className="card-dt-recent">Radius: {props.recentData.origin_deadhead}</div>
+						<div className="card-dist-recent">{moment(props.recentData.origin_from_date).format("MMM DD")}</div>
 					</IonCol>
 					<IonCol size="3" className="loadCardArrow">
 						<img alt="logo" className="card_arrow_img1" src="assets/icon/van.png" />
@@ -21,8 +21,8 @@ const RecentTab = (props: any) => {
 					</IonCol>
 					<IonCol className=" card-col right">
 						<div className="card-name"><b>{props.recentData.destination_city}</b></div>
-						<div className="card-dt">Radius: {props.recentData.destination_deadhead}</div>
-						<div className="card-dist" >{moment(props.recentData.destination_from_date).format("MMM DD")}</div>
+						<div className="card-dt-recent">Radius: {props.recentData.destination_deadhead}</div>
+						<div className="card-dist-recent" >{moment(props.recentData.destination_from_date).format("MMM DD")}</div>
 					</IonCol>
 				</IonRow>
 			</IonGrid>
@@ -46,9 +46,9 @@ class RecentSearch extends React.Component<any, any>{
 	render() {
 
 		return (
-			<IonContent className="ion-padding" class="background">
+			<IonContent className="ion-padding custom-padding" class="background">
 				<div className="contianer">
-					<div className="EnterLoad_recent">Select one of your recent searches to see matching loads.</div>
+					<div className="EnterLoad_recent">Select a recent search to see matching loads.</div>
 					{
 						this.props.data.data &&this.props.data.data.map((detail:any, index:number) => (
 							<IonCard className="ion-card" key={index}>
