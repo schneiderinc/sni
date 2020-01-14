@@ -53,7 +53,7 @@ class TabHeader extends React.Component<any, State> {
     return (
       <IonHeader className={`page-header ${this.props.loadDetailsTab ? "load_details_header":""}`}>
       {this.props.loadDetailsTab ? 
-        <div className="header_title">
+        <div className="header_title header_back_button">
         <IonRow>
          
           <IonCol size="1"><IonIcon icon={arrowBack} mode="md" onClick={()=>{this.props.history.goBack();}}></IonIcon></IonCol>

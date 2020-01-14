@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg } from '@ionic/react';
+import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg,IonAlert } from '@ionic/react';
 import PropTypes from 'prop-types'
 import './Login.page.scss';
 
 const props = {
     loading: PropTypes.bool,
+    loginError: PropTypes.bool,
     handleSubmit: PropTypes.func.isRequired
 }  
 
@@ -41,16 +42,24 @@ class LoginPage extends Component<propTypes> {
                     
                     {/* <img alt="logo"   src="assets/images/logo-white.png"></img> */}
                     <div className="login-contianer">
+                    <IonAlert
+                            isOpen={this.props.loginError ? true : false}
+                            // onDidDismiss={() => setShowAlert1(false)}
+                            header={'Alert'}
+                            // subHeader={'Subtitle'}
+                            message={"Please enter valid credentials."}
+                            buttons={['OK']}
+                            />
                         {/* <p className="ion-text-center container-title">Login</p> */}
                         <form className="login-form" onSubmit={(event)=> this.handleSubmit(event)}>
-                            <IonList class="login_form_feild">
+                            <IonList class="login_form_feild" mode="ios">
                                 <IonItem>
-                                    <IonLabel position="floating">Enter Your Email ID</IonLabel>
+                                    <IonLabel mode="ios" position="floating">Enter Your Email ID</IonLabel>
                                     <IonInput className="cts-form-control" name="username" type="text" value={this.state.username} onKeyUp={(event)=> this.handleChange(event)} />
                                     <IonImg slot="end" alt="logo" src="../../assets/icon/User.png" className="login_input_icon"/>
                                 </IonItem>
-                                <IonItem>
-                                    <IonLabel position="floating">Enter Your Password</IonLabel>
+                                <IonItem mode="ios">
+                                    <IonLabel mode="ios" position="floating">Enter Your Password</IonLabel>
                                     <IonInput className="cts-form-control"  name="password" type="password" value={this.state.password} onKeyUp={(event)=> this.handleChange(event)}/>
                                     <IonImg slot="end" alt="logo" src="../../assets/icon/pass-icon.png" item-right className="login_input_icon" />
                                 </IonItem>
@@ -58,7 +67,7 @@ class LoginPage extends Component<propTypes> {
                             <IonRow class="login_remember_link">     
                                 <IonCol>
                                     <IonRow>
-                                        <IonCol size="4"> <IonToggle> </IonToggle> </IonCol>
+                                        <IonCol size="4"> <IonToggle mode="ios"> </IonToggle> </IonCol>
                                         <IonCol size="8"><span className="login_remember_text"> Remember me</span></IonCol>
                                     </IonRow>
                                 </IonCol>

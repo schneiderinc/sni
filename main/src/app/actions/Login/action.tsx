@@ -16,8 +16,8 @@ export const hideLoading = () => ({
 });
 
 
-export const doLogin = () => ({
-    type: constants.LOGIN_INPROGRESS
+export const doLogin = (username:string, password:string) => ({
+    type: constants.LOGIN_INPROGRESS, username, password
 })
 
 export const loginSuccess = (data:any) => ({
@@ -25,8 +25,9 @@ export const loginSuccess = (data:any) => ({
     data
 });
 
-export const loginError = () => ({
+export const loginError = (data:any) => ({
     type: constants.LOGIN_ERROR,
+    data
 })
 
 export const logout = () => ({

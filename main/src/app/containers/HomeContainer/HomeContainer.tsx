@@ -23,13 +23,16 @@ class HomeContainer extends PureComponent<any, any> {
     await this.__model.persistLoads(__props.data);
     return __props;
   }
-  getLoads(){
+  componentDidMount(){
     if (this.props.data.length === 0 && !this.props.loading) {
       this.props.updateData();
     }
   }
+  navigateNew(){
+    this.props.history && this.props.history.push("/app/search/new", {});
+  }
   render() {
-    return <HomePage {...this.props} getLoads={this.getLoads.bind(this)} />;
+    return <HomePage {...this.props} getLoads={this.navigateNew.bind(this)} />;
   }
 } 
 

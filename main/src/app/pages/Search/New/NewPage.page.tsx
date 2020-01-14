@@ -172,7 +172,7 @@ class NewPage extends PureComponent<any, any> {
               <IonList className="new_page_list">
 
                 <IonItem className="ion-item">
-                  <IonLabel position="floating">Origin</IonLabel>
+                  <IonLabel mode="ios" position="floating">Origin</IonLabel>
                   <IonInput type="text" className="cts-form-control" name="origin" value={this.state.origin} onIonChange={(e) => this.handleOrigin(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
@@ -191,20 +191,20 @@ class NewPage extends PureComponent<any, any> {
               </div> : null} */}
 
                 <div className="ion-item1">
-                  <IonLabel position="floating" className="ion-label-radius">Origin Radius</IonLabel>
+                  <IonLabel mode="ios" position="floating" className="ion-label-radius">Origin Radius</IonLabel>
                   <div className="pickRadius" >{this.state.distance} mi</div>
                   <IonRange min={1} max={300} step={1} snaps={true} ticks={false} name="distance" color="primary" value={this.state.distance} className="search_range" onIonChange={this.handleChange} />
                 </div>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating" className="new_page_label">Pickup Date</IonLabel>
-                  <IonDatetime displayFormat="DD/MM/YYYY" name="pickUpdate" value={this.state.pickUpdate}
+                  <IonLabel mode="ios" position="floating" className="new_page_label">Pickup Date</IonLabel>
+                  <IonDatetime displayFormat="YYYY/MM/DD" name="pickUpdate" value={this.state.pickUpdate}
                     onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating">Destination</IonLabel>
+                  <IonLabel mode="ios" position="floating">Destination</IonLabel>
                   <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(e) => this.handleDestination(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
@@ -216,19 +216,19 @@ class NewPage extends PureComponent<any, any> {
                 </ul> : null}
 
                 <div className="ion-item1">
-                  <IonLabel position="floating" className="ion-label-radius">Destination Radius</IonLabel>
+                  <IonLabel mode="ios" position="floating" className="ion-label-radius">Destination Radius</IonLabel>
                   <div className="pickRadius">{this.state.Destination_Radius} mi</div>
                   <IonRange min={1} max={300} step={1} snaps={true} ticks={false} name="Destination_Radius" color="primary" value={this.state.Destination_Radius} className="search_range" onIonChange={this.handleChange} />
                 </div>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating" className="new_page_label">Delivery Date</IonLabel>
-                  <IonDatetime displayFormat="DD/MM/YYYY" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange}></IonDatetime>
+                  <IonLabel mode="ios" position="floating" className="new_page_label">Delivery Date</IonLabel>
+                  <IonDatetime displayFormat="YYYY/MM/DD" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
                 <IonItem class="ion-item">
-                  <IonLabel position="floating" class="trailer_type_label">Trailer Type</IonLabel>
+                  <IonLabel mode="ios" position="floating" class="trailer_type_label">Trailer Type</IonLabel>
                   <IonSelect okText="Okay" cancelText="Dismiss" interface="popover" className="ion-select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
                     <IonSelectOption value="Dry Van">Dry Van</IonSelectOption>
                     <IonSelectOption value="Wet Van">Wet Van</IonSelectOption>

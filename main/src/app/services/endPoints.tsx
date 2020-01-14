@@ -5,6 +5,7 @@
 //4: ADAPTER
 
 const environmentVariable:number = 3;
+var azureB2C_URL = "https://cors-anywhere.herokuapp.com/https://schneiderappb2c.b2clogin.com/schneiderappb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_schneider";
 var HOST_URL:string[];
  HOST_URL = [
     "https://schneider-api", //PROD
@@ -41,8 +42,14 @@ export default function getURLDetails(endPoint:string, urlKey:string, value?:any
     return {
         get_Service_Url: function () {
             var _url = "";
+            if(endPoint !== "LOGIN"){
                 _url = HOST_URL[environmentVariable] + URL_ENDPOINTS[endPoint][urlKey];
-            _url = value ? _url.replace('{rcmd}', value): _url;
+                _url = value ? _url.replace('{rcmd}', value): _url;            
+
+            } else {
+                _url = azureB2C_URL;
+                
+            }
             return _url;
         }
     }

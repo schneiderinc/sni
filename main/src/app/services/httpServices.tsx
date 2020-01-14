@@ -21,23 +21,43 @@ class __HTTP_SERVICES {
         } else {
             requests[key] = http.CancelToken.source();
         }
-        var values:any = {
-            //Http methods
-            method: method,
-            //Service endpoint URL
-            url: _serviceUrl,
-            //Consolidated Headers
-            headers: headers,
-            //Request data
-            data: data,
-            //Download progress event
-            onDownloadProgress: progress,
-            //Upload progress evnt
-            onUploadProgress : progress,
-            //setting timeout for request
-            timeout: duration
-          }
-        return http(values);
+
+        var values:any;
+
+        if(key === "LOGIN"){
+            values = {
+                //Http methods
+                method: method,
+                //Service endpoint URL
+                url: _serviceUrl,
+                //Consolidated Headers
+                headers: headers,
+                //Request data
+                data: data,
+                //setting timeout for request
+                timeout: duration
+              }
+              return http(values);            
+        } else {
+
+            values = {
+                //Http methods
+                method: method,
+                //Service endpoint URL
+                url: _serviceUrl,
+                //Consolidated Headers
+                headers: headers,
+                //Request data
+                data: data,
+                //Download progress event
+                onDownloadProgress: progress,
+                //Upload progress evnt
+                onUploadProgress : progress,
+                //setting timeout for request
+                timeout: duration
+            }
+            return http(values);
+        }
     }
 };
 export default __HTTP_SERVICES;

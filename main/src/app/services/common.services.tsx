@@ -22,7 +22,7 @@ class commonService {
         var _this =  this;
         return new Promise(function (resolve:any, reject:any) {
             if (_endPointEntity) {
-                (new HTTP()).__request(_endPointEntity.get_Service_Url(), _this.getHeaders(token, responseType), 'get', null, urlKey, serviceRequests, _this.set_TimeOut(), function (pgr:any) {
+                (new HTTP()).__request(_endPointEntity.get_Service_Url(), _this.getHeaders(endPoint, token, responseType), 'get', null, urlKey, serviceRequests, _this.set_TimeOut(), function (pgr:any) {
                     serviceProgress && serviceProgress(pgr);
                 }).then((response:any) => {
                     // Success
@@ -52,12 +52,22 @@ class commonService {
         var _endPointEntity = getURLDetails(endPoint, urlKey, data);
         var _dataString = JSON.stringify(requestData);
         var _this =  this;
+        if(endPoint === "LOGIN"){
+            _dataString = requestData;
+        }
         return new Promise(function (resolve:any, reject:any) {
             if (_endPointEntity) {
-                (new HTTP()).__request(_endPointEntity.get_Service_Url(), _this.getHeaders(token, responseType), 'post', _dataString, urlKey, serviceRequests, _this.set_TimeOut(), function (pgr:any) {
+                (new HTTP()).__request(_endPointEntity.get_Service_Url(), _this.getHeaders(endPoint, token, responseType), 'post', _dataString, urlKey, serviceRequests, _this.set_TimeOut(), function (pgr:any) {
                     serviceProgress && serviceProgress(pgr);
                 }).then((response) => {
                     resolve(response.data);
+                    // console.log("Response:::", JSON.stringify(response.data));
+                    console.log("access_token:::", response.data.access_token);
+                    console.log("token_type:::", response.data.token_type);
+                    console.log("expires_in:::", response.data.expires_in);
+                    console.log("refresh_token:::", response.data.refresh_token);
+                    console.log("id_token:::", response.data.id_token);
+                    // console.log(response.data.access_token.de);
                 }).catch((error) => {
                     reject(error);
                 });
@@ -73,13 +83,18 @@ class commonService {
  * @param {*} responseType response type. 
  * @returns {object} consolidated header list.
  */
-    getHeaders (token?:string, responseType?:string) {
+    getHeaders (endPoint?:string, token?:string, responseType?:string) {
         var headers = {
             "Content-Type": "application/json",
             "accept":"application/vnd.github.VERSION.raw"
         };
         if (token != null) {
             JSON.parse(JSON.stringify(headers)).Authorization = "Bearer " + token;
+        }
+        if(endPoint === "LOGIN"){
+            return {
+                token : responseType
+            };
         }
         return headers;
     }
