@@ -31,7 +31,7 @@ class FavouriteContainer extends PureComponent<any, any> {
   }
   render() {
      
-    return <FavouritePage {...this.props} getLoads={this.getLoads.bind(this)} />;
+    return <FavouritePage getLoads={this.getLoads.bind(this)} />;
   }
 } 
 

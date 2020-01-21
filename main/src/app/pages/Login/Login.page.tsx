@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg,IonAlert } from '@ionic/react';
+import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg, getPlatforms } from '@ionic/react';
 import PropTypes from 'prop-types'
 import './Login.page.scss';
 
@@ -31,8 +31,35 @@ class LoginPage extends Component<propTypes> {
         this.props.handleSubmit(username, password)
     }
 
-    render() {
+    showPassword = () =>{
+        console.log('onclick');
+        console.log('platform::'+getPlatforms());
+        let element = document.getElementsByName("password")[0];
+        if(element instanceof HTMLElement){
+            console.log('onclick if');
+            console.log('platform::'+getPlatforms());
+            element.setAttribute("type","text");
+            setTimeout(() => {
+                element.setAttribute("type","password");
+            }, 300);
+        }
+    }
+    keyboardshowHandler = () =>{
+        console.log('keyboardShow');
+        console.log('platform::'+getPlatforms());
+        const headerDiv = document.getElementsByClassName("login_logo_container")[0];
+        headerDiv.setAttribute("class","login_logo_container login_logo_container_change");
        
+    }
+    keyboardhideHandler =() => {
+        console.log('keyboardHide');
+        console.log('platform::'+getPlatforms());
+        const headerDiv = document.getElementsByClassName("login_logo_container")[0];
+        headerDiv.setAttribute("class","login_logo_container");
+    }
+    render() {
+        window.addEventListener('keyboardWillShow',this.keyboardshowHandler);
+        window.addEventListener('keyboardWillHide',this.keyboardhideHandler);
         return (
             <IonPage className="root-page">
                 <div className="login_logo_container">
@@ -41,27 +68,19 @@ class LoginPage extends Component<propTypes> {
                 <IonContent className="ion-padding" class="background">
                     
                     {/* <img alt="logo"   src="assets/images/logo-white.png"></img> */}
-                    <div className="login-contianer">
-                    <IonAlert
-                            isOpen={this.props.loginError ? true : false}
-                            // onDidDismiss={() => setShowAlert1(false)}
-                            header={'Alert'}
-                            // subHeader={'Subtitle'}
-                            message={"Please enter valid credentials."}
-                            buttons={['OK']}
-                            />
+                    <div className="login-contianer">                    
                         {/* <p className="ion-text-center container-title">Login</p> */}
                         <form className="login-form" onSubmit={(event)=> this.handleSubmit(event)}>
                             <IonList class="login_form_feild" mode="ios">
                                 <IonItem mode="ios">
                                     <IonLabel mode="ios" position="floating">Enter Your Email ID</IonLabel>
-                                    <IonInput className="cts-form-control" name="username" type="text" value={this.state.username} onKeyUp={(event)=> this.handleChange(event)} />
+                                    <IonInput className="cts-form-control" name="username" type="text" value={this.state.username} onKeyUp={(event)=> this.handleChange(event)} onBlur={(event)=>this.handleChange(event)} />
                                     <IonImg slot="end" alt="logo" src="../../assets/icon/User.png" className="login_input_icon"/>
                                 </IonItem>
                                 <IonItem mode="ios">
                                     <IonLabel mode="ios" position="floating">Enter Your Password</IonLabel>
-                                    <IonInput className="cts-form-control"  name="password" type="password" value={this.state.password} onKeyUp={(event)=> this.handleChange(event)}/>
-                                    <IonImg slot="end" alt="logo" src="../../assets/icon/pass-icon.png" item-right className="login_input_icon" />
+                                    <IonInput className="cts-form-control"  name="password" type="password" value={this.state.password} onKeyUp={(event)=> this.handleChange(event)} onBlur={(event)=>this.handleChange(event)}/>
+                                    <IonImg slot="end" alt="logo" src="../../assets/icon/pass-icon.png" item-right className="login_input_icon" onClick={()=>this.showPassword()} />
                                 </IonItem>
                             </IonList>
                             <IonRow class="login_remember_link">     
@@ -73,6 +92,8 @@ class LoginPage extends Component<propTypes> {
                                 </IonCol>
                                 <IonCol> <span>Forgot Password?</span></IonCol>
                             </IonRow>
+
+                             {this.props.loginError && <div id="errorMsg"><div className="dot" id= "errorDot">!</div>  Incorrect email or Credential</div>}
 
                             <div className="button-container ion-text-center">
                                 {/* disabled={this.state.loginValid} */}

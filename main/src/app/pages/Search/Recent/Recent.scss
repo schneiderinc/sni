@@ -1,9 +1,9 @@
 @import  "../../../../theme/variables.scss";
 @import  "../../../../theme/responsive-styles.scss";
 
-
+.recent_container{
 .EnterLoad_recent{
-    padding: 17px 23git statpx;
+    padding: 17px 23px;
     font-size: 14px;
     color:#4A4A4A;
     font-family: $font-stack;
@@ -36,3 +36,27 @@
     margin-left: 5px;
     margin-top: -4px;
   }
+  ion-tab-bar{
+    border-top: 1px solid #DEDEDE;
+    padding:0px;
+    height:43px;
+    ion-tab-button{
+        --background: #FCFCFC;
+        color: black;
+    }
+    ion-label{
+        font-size:14px;
+    }
+    .tabButton_add{
+        border-right:0.5px solid #DEDEDE;
+       
+        .tabButton_col{
+            padding-right:1px;
+        }
+        .tabButtonImg{
+            width:100%;
+          
+        }
+    }
+}
+}

@@ -50,13 +50,13 @@ class LoadDetailsPage extends Component<any, any> {
 											<LoadTileFooter price={loadDetails.price} stops={loadDetails.total_stops} trailer={loadDetails.trailer} total_distance={loadDetails.total_distance} />
 											<IonRow>
 												<IonCol size="4">
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/call.png" className="load_btn_img" />CALL</IonButton>
+													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Call.png" className="load_btn_img" />CALL</IonButton>
 												</IonCol>
 												<IonCol size="4">
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/chat.png" className="load_btn_img" />CHAT</IonButton>
+													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Chat.png" className="load_btn_img" />CHAT</IonButton>
 												</IonCol>
 												<IonCol size="4">
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="../../assets/icon/watched.png" className="load_btn_img"/>WATCH</IonButton>
+													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Watched.png" className="load_btn_img"/>WATCH</IonButton>
 												</IonCol>
 											</IonRow>
 										</IonGrid>

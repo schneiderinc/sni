@@ -1,4 +1,4 @@
-import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonButton, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonFooter } from '@ionic/react';
+import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonButton, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonFooter, IonBadge } from '@ionic/react';
 import React, { PureComponent } from 'react';
 import './NewPage.scss';
 
@@ -193,12 +193,12 @@ class NewPage extends PureComponent<any, any> {
                 <div className="ion-item1">
                   <IonLabel mode="ios" position="floating" className="ion-label-radius">Origin Radius</IonLabel>
                   <div className="pickRadius" >{this.state.distance} mi</div>
-                  <IonRange min={1} max={300} step={1} snaps={true} ticks={false} name="distance" color="primary" value={this.state.distance} className="search_range" onIonChange={this.handleChange} />
+                  <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="distance" color="primary" value={this.state.distance} className="search_range" onIonChange={this.handleChange} />
                 </div>
 
                 <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" className="new_page_label">Pickup Date</IonLabel>
-                  <IonDatetime displayFormat="YYYY/MM/DD" name="pickUpdate" value={this.state.pickUpdate}
+                  <IonDatetime displayFormat="MMMM/DD/YYYY" name="pickUpdate" value={this.state.pickUpdate}
                     onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
@@ -223,7 +223,7 @@ class NewPage extends PureComponent<any, any> {
 
                 <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" className="new_page_label">Delivery Date</IonLabel>
-                  <IonDatetime displayFormat="YYYY/MM/DD" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange}></IonDatetime>
+                  <IonDatetime displayFormat="MMMM/DD/YYYY" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange}></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
@@ -231,9 +231,9 @@ class NewPage extends PureComponent<any, any> {
                   <IonLabel mode="ios" position="floating" class="trailer_type_label">Trailer Type</IonLabel>
                   <IonSelect okText="Okay" cancelText="Dismiss" interface="popover" className="ion-select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
                     <IonSelectOption value="Dry Van">Dry Van</IonSelectOption>
-                    <IonSelectOption value="Wet Van">Wet Van</IonSelectOption>
-                    <IonSelectOption value="Lorry">Lorry</IonSelectOption>
-                    <IonSelectOption value="Container Lorry">Container Lorry</IonSelectOption>
+                    <IonSelectOption value="Wet Van">Refer</IonSelectOption>
+                    {/* <IonSelectOption value="Lorry">Lorry</IonSelectOption>
+                    <IonSelectOption value="Container Lorry">Container Lorry</IonSelectOption> */}
                   </IonSelect>
                 </IonItem>
 
@@ -245,16 +245,21 @@ class NewPage extends PureComponent<any, any> {
           <div className="search_alternate">
             <IonRow className="save_as_favorite">
               <IonCol size="2"> <IonToggle mode="ios" name="favorite" checked={this.state.favorite} onIonChange={(e) => this.ToggleChange(e)}> </IonToggle> </IonCol>
-              <IonCol size="10" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol>
+              <IonCol size="4" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol>
+              <IonCol size="6">
+                <IonBadge  onClick={this.Reset} class="new_badges new_badges_cancel"><IonImg className="cancel_img" alt="logo" src="../../assets/icon/cancel.png"/></IonBadge>
+                <IonBadge class="new_badges new_badge_reset" onClick={this.Reset}><IonImg className="reset_img" alt="logo" src="../../assets/icon/reset.png"/></IonBadge>
+                <IonBadge class="new_badges new_badge_apply" onClick={(e) => this.Apply(e)}><IonImg className="apply_img" alt="logo" src="../../assets/icon/tick.png"/></IonBadge>
+              </IonCol>
             </IonRow>
-            <IonRow>
+            {/* <IonRow>
               <IonCol>
                 <IonButton class="search_buttons reset_btn" data-kind="primary" type="submit" expand="block" onClick={this.Reset}>RESET</IonButton>
               </IonCol>
               <IonCol>
                 <IonButton class="cts-btn search_buttons" data-kind="primary" type="submit" expand="block" disabled={!this.state.origin || !this.state.destination} onClick={(e) => this.Apply(e)}>APPLY</IonButton>
               </IonCol>
-            </IonRow>
+            </IonRow> */}
 
           </div>
         </IonFooter>

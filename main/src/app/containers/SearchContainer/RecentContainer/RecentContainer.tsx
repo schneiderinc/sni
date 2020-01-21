@@ -31,7 +31,7 @@ class RecentContainer extends PureComponent<any, any> {
   }
   render() {
     
-    return <RecentPage {...this.props} getLoads={this.getLoads.bind(this)} />;
+    return <RecentPage getLoads={this.getLoads.bind(this)} />;
   }
 } 
 

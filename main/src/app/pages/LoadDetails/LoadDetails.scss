@@ -65,9 +65,6 @@
     font-size: 11px;
     height:28px;
     width:100px;
-    @media only screen  and (min-width :map-get($grid-breakpoints, xs)) {
-      width: 80px;
-    }
    .load_btn_img{
       padding-right:7px;
    }

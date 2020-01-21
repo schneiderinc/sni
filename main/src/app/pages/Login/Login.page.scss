@@ -23,6 +23,9 @@
         ion-item{
           --background: #FCFCFC;
         }
+        ion-img:last-child{
+          cursor: pointer;
+        }
       }
       input{
           color: $black;
@@ -128,12 +131,40 @@
     margin-top:75px;
   }
 }
+.login_logo_container_change{
+  height: 100px;
+  #header_logo {
+    margin-top:30px;
+  }
+}
 ion-toggle{
   --background-checked: #F6D679;
   zoom: 0.8;
   float: right;
 }
 
+#errorMsg
+{
+  margin: auto;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: red;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+#errorDot{
+  margin: auto;
+  text-align: center;
+  font-size: 11px;
+  color: white;
+}
 
 #header_logo
 {

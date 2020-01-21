@@ -1,4 +1,4 @@
-import {all, put, call, takeLatest} from 'redux-saga/effects';
+import {all, put, takeLatest} from 'redux-saga/effects';
 import {showLoading, hideLoading} from 'app/actions/Login/action';
 
 import * as constants from 'app/utils/constants';

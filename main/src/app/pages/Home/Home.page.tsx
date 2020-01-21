@@ -82,7 +82,7 @@ render(){
          {this.state.tab?
          <IonRow class="short-row">
            <IonCol size="5" class="rec_text">
-               <b>{this.state.loadSize>0? this.state.loadSize : this.state.loadData.length}  </b>Recommendations
+               <b>{this.state.loadSize>0? this.state.loadSize : this.state.loadData.length}  </b>{this.state.toggleValue === "Recommended" ? "Recommendations" : "Watched loads"}
            </IonCol>
            <IonCol size="7" class="sort_select">
               <div className="select_div">
@@ -97,7 +97,7 @@ render(){
    
       
       <div>
-      {this.state.toggleValue === "Recommended" ? (
+      {this.state.loadData.length ? this.state.toggleValue === "Recommended" ? (
         <Loads loads={this.state.loadData} >{
           ({ loads }: { loads?: any }) => {
             return <IonList  className="loadTilePad">
@@ -117,9 +117,9 @@ render(){
             }
           }
           </Loads>   
-          )}
+          ):<RecommendedError loads={this.getLoads.bind(this)} />}
       </div>
-      {!this.state.loadData.length && <RecommendedError loads={this.getLoads.bind(this)} />}
+      
     </IonContent>
     
     </IonPage>

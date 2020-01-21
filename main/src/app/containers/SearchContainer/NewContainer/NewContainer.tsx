@@ -11,12 +11,13 @@ import React, { PureComponent } from 'react';
 import { Isearch } from 'app/schemas/Search/Search.schema';
 import NewPage from 'app/pages/Search/New/NewPage.page';
 import { getLoading } from "app/selectors/selector";
-import { Search } from 'app/models/home/Search.model';
+import searchModel, { Search } from 'app/models/home/Search.model';
 import { DomainConverter } from 'app/utils/common';
 import { RECENT_LOADS } from "app/actions/Search/action";
 import { FAVORITE_LOADS } from "app/actions/Search/action";
 import { Redirect } from "react-router";
-import {LOAD_DATA} from 'app/utils/mock_Data'
+import {LOAD_DATA} from 'app/utils/mock_Data';
+
 
 const key = "search";
 class NewContainer extends PureComponent<any, any> {
@@ -57,8 +58,9 @@ class NewContainer extends PureComponent<any, any> {
 
 
   render() {
-
-    return (this.props.data.length !== 0 && this.__onSearch) ? (this.__onSearch = false, <Redirect to={{ pathname: "/app/results", state: { data: this.props.data, params: this.__params } }} />) : (<NewPage data={this.props.location.state ? this.props.location.state.data : {}} search_Submit={(data: any) => { this.onsubmit(data) }} />)
+    const  __isLoads = (this.props.data.length !== 0 && this.__onSearch);
+    __isLoads && searchModel.setResults({ data: this.props.data, params: this.__params });
+    return __isLoads ? (this.__onSearch = false, <Redirect to="/app/search/results" />) : (<NewPage data={this.props.location.state ? this.props.location.state.data : {}} search_Submit={(data: any) => { this.onsubmit(data) }} />)
   }
 }
 

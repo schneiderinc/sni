@@ -1,0 +1,31 @@
+@import  "../../../theme/variables.scss";
+@import  "../../../theme/responsive-styles.scss";
+
+.menu_page{
+    .page-header{
+        height: 81px;
+    }
+}
+.menu_page_content{
+    --padding-top: 25px;
+}
+.menu_list_item{
+    --inner-padding-end: 6px;
+    --padding-end: 16PX;
+    --min-height: 41px;
+    color: #555555;
+    font-size: 14px;
+    --border-color: #0000003F;
+}
+.menu_list_heading{
+    font-size: 14px;
+    color: #FF8A51;
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-family: $font-roboto;
+    padding-left: 12px;
+}
+.menu_list_card{
+    margin-bottom: 15px;
+    margin-top: 6px;
+}

@@ -4,6 +4,7 @@ import Toggle from 'app/components/shared/toggle/Toggle';
 import { IonLabel, IonTabBar, IonTabButton } from '@ionic/react';
 import './search-header.scss';
 import { arrowBack } from "ionicons/icons";
+import searchModel from 'app/models/home/Search.model';
 
 interface State {
   subtitle: string;
@@ -44,6 +45,8 @@ class TabHeader extends React.Component<any, State> {
         return "Recent Search";
       case '/app/search/favorite':
         return "Favorite Search";
+      case '/app/search/results':
+          return "Search Results";
       default:
         return "New Search"; 
     }
@@ -66,7 +69,7 @@ class TabHeader extends React.Component<any, State> {
         <>
         <div id="header-title">{(this.props.location && /search/.test(this.props.location.pathname)) ? this.getTitle(this.props.location.pathname):this.props.Title}
         </div>
-        {this.props.isSearchRst ? <IonImg slot="end" alt="logo" src="../../assets/icon/Edit.png" item-right class="header_edit_search_button" onClick={() => this.editSearch(this.props.location.state.params)}/> : ''}
+        {this.props.location && /results/.test(this.props.location.pathname) ? <IonImg slot="end" alt="logo" src="../../assets/icon/Edit.png" item-right class="header_edit_search_button" onClick={() => this.editSearch(searchModel.searchResults.params)}/> : ''}
         {this.props.toggleBtn ? <Toggle onToggleStateChange={(value: any) => this.handleToggleStateChange(value)} data={this.props.LoadsList} /> : null}
 
         {this.props.route === "search" && srchScn && (

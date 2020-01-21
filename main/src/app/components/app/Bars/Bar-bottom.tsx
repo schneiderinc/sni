@@ -12,11 +12,11 @@ import {
 } from "@ionic/react";
 import { HomeContainer } from "app/containers/HomeContainer";
 import { SearchContainer } from "app/containers/SearchContainer";
-import { LogOutContainer } from "app/containers/LogOutContainer";
+// import { LogOutContainer } from "app/containers/LogOutContainer";
 import { ManageContainer } from "app/containers/ManageContainer";
 import { ExecuteContainer } from "app/containers/ExecuteContainer";
 import { LoadDetailsContainer } from "app/containers/LoadDetailsContainer";
-import { SearchResultContainer } from "app/containers/SearchContainer/SearchResultContainer";
+import MenuContainer from "app/containers/MenuContainer/MenuContainer";
 
 class Tabs extends React.Component<any> {
   // eslint-disable-next-line
@@ -36,11 +36,10 @@ class Tabs extends React.Component<any> {
               <IonRouterOutlet>
 
                 <Route path="/app/search" render={(props:any)=><SearchContainer {...props} />} />
-                <Route path="/app/results" component={(props:any)=><SearchResultContainer {...props} />}/>
                 <Route path="/app/loaddetails" component={(props:any)=><LoadDetailsContainer {...props} />}/>
                 <Route
                   path="/app/home"
-                  component={HomeContainer}
+                  render={()=>(<HomeContainer />)}
                   exact={true}
                 />
                 <Route
@@ -55,7 +54,7 @@ class Tabs extends React.Component<any> {
                 />
                 <Route
                   path="/app/more"
-                  component={LogOutContainer}
+                  component={MenuContainer}
                   exact={true}
                 />
 
