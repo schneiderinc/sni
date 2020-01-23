@@ -31,7 +31,6 @@ const appReducer = (state = initalState, action: any) =>
         break;
       case constants.LOGOUT:
         draft.currentUser = false;
-        draft.userData = null;
         break;
     }
   });

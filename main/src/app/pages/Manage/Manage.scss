@@ -1,3 +1,4 @@
+
 .manageHeader{
     background: linear-gradient(180deg, #FCA364, #FD7D4F);
   
@@ -63,7 +64,9 @@
     .carrier-profile{
         font-size: 16px;
         color: #FF6418;
-        margin-top: 8px;
+        margin-top: 5px;
+        padding: 0;
+
 
     }
     .lorem{
@@ -80,21 +83,10 @@
   
 }
 .profileCard .profileIcon{
-    width: 38.89px;
-    height: 50.89px;
+    width: 41.5px;
+    height:42px;
 }
-.profileCard  .CarrierprofileIcon{
-    width: 38px;
-    height: 45px;
-}
-.profileCard .manageprofileIcon{
-    width: 37.43px;
-    height: 38.07px;
-}
-.profileCard .truckprofileIcon{
-    width: 37.46px;
-    height: 26.95px;
-}
+
 .profile-card-row{
     
     padding-top: 14.54px;
@@ -112,4 +104,9 @@
     padding-top: 30.95px;
     padding-bottom: 22.1px;
 }
+.profile-arrow{
+    width: 9.12px;
+   height: 13.39px;
+    margin-top: 85%;
+}  
 

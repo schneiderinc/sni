@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemOptions, IonItemOption, IonItemSliding, IonItem, IonTabBar, IonTabButton, IonLabel } from '@ionic/react';
+import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemSliding, IonTabBar, IonTabButton, IonLabel } from '@ionic/react';
 import favoriteData from './favoriteData.json';
 import './favorite.scss';
 
@@ -50,16 +50,16 @@ class FavouritePage extends React.Component<any, any>{
     constructor(props: any) {
         super(props);
         this.state = {
-            showButtons: false,
-            cardColor: "#FFFFFF"
+            whiteColor: "#FFFFFF",
+            cardColor: "#FFF9F099",
+            selectedCardId:null
         }
     }
     add() {
         console.log("HAIIIII");
     }
-    cardClick = (x: any) => {
-        console.log(x, "index")
-        this.setState({ showButtons: !this.state.showButtons, cardColor: "#FFF9F099" });
+    cardClick = (selectedIndex: number) => {
+        this.setState({ selectedCardId:selectedIndex });
     }
     render() {
 
@@ -70,7 +70,7 @@ class FavouritePage extends React.Component<any, any>{
                     {
                         favoriteData.map((detail, index) => (
                             <IonCard className="ion-card" key={index}>
-                                <FovoriteTab favoriteData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={this.state.showButtons} cardColor={this.state.cardColor} />
+                                <FovoriteTab favoriteData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index===this.state.selectedCardId?true:false} cardColor={index===this.state.selectedCardId?this.state.cardColor:this.state.whiteColor} />
                             </IonCard>
                         ))
                     }

@@ -32,7 +32,8 @@ class HomeContainer extends PureComponent<any, any> {
     this.props.history && this.props.history.push("/app/search/new", {});
   }
   render() {
-    return <HomePage {...this.props} getLoads={this.navigateNew.bind(this)} />;
+    return "";
+    //return <HomePage {...this.props} getLoads={this.navigateNew.bind(this)} />;
   }
 } 
 

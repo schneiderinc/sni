@@ -1,9 +1,9 @@
 import React from 'react';
-import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonItem, IonTabBar, IonTabButton, IonLabel, IonItemSliding } from '@ionic/react';
+import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonTabBar, IonTabButton, IonLabel, IonItemSliding, IonInput } from '@ionic/react';
 import './Recent.scss';
 import recentData from './recentData.json';
 
-const RecentTab = (props: any) => {
+const RecentCard = (props: any) => {
     return (
         <IonItemSliding>
             <IonCardContent onClick={props.particularCardClick} className="card-content" style={{ background: props.cardColor }}>
@@ -28,7 +28,7 @@ const RecentTab = (props: any) => {
                 </IonGrid>
             </IonCardContent>
 
-            {(props.showButtons)&&(props.x===props.y) ?
+            {(props.showButtons) ?
                 <IonTabBar slot="bottom">
                     <IonTabButton className="tabButton_add" onClick={props.add} tab="add">
                         <IonRow>
@@ -58,18 +58,19 @@ class RecentSearch extends React.Component<any, any>{
     constructor(props: any) {
         super(props);
         this.state = {
-            showButtons: false,
-            cardColor: "#FFFFFF"
+           // showButtons: false,
+            whiteColor: "#FFFFFF",
+            cardColor: "#FFF9F099",
+            selectedCardId:null
+           
+          
         }
     }
     add() {
         console.log("HAIIIII");
     }
-    cardClick = (x: any) => {
-        console.log(x, "index")
-        const y= x;
-        console.log("y=",y)
-        this.setState({ showButtons: !this.state.showButtons, cardColor: "#FFF9F099" });
+    cardClick = (selectedIndex: number) => {
+        this.setState({selectedCardId:selectedIndex});
     }
 
     render() {
@@ -79,9 +80,9 @@ class RecentSearch extends React.Component<any, any>{
                 <div className="contianer">
                     <div className="EnterLoad">Select a recent search to see matching loads.</div>
                     {
-                        recentData.map((detail, index) => (
+                       recentData.map((detail: any, index: number) => (
                             <IonCard className="ion-card" key={index}>
-                                <RecentTab recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={this.state.showButtons} cardColor={this.state.cardColor} />
+                                <RecentCard recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add}  showButtons={index===this.state.selectedCardId?true:false} cardColor={index===this.state.selectedCardId?this.state.cardColor:this.state.whiteColor}/>
                             </IonCard>
                         ))
                     }

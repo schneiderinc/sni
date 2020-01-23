@@ -8,11 +8,11 @@ import { SearchResultContainer } from "app/containers/SearchContainer/SearchResu
 class SectionContainer extends Component<any, any>{	
     renderSwitch(section: string) {
         switch (section) {
-            case 'new':
+            case 'New':
                 return <NewContainer />;
-            case 'recent':
+            case 'Recent':
                 return <RecentContainer />;
-            case 'favorite':
+            case 'Favorite':
                 return <FavouriteContainer />;
             case 'results':
                 return <SearchResultContainer />
@@ -22,7 +22,7 @@ class SectionContainer extends Component<any, any>{
     }
     render() {
 
-        return (this.renderSwitch(this.props.match.params.section))
+        return (this.renderSwitch(this.props.section))
     }
 }
 

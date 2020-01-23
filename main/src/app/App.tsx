@@ -6,12 +6,12 @@ import { getLoading } from "./selectors/selector";
 
 import { connect } from "react-redux";
 
-import {Tabs } from 'app/components/app/Bars/Bar-bottom'
+import RootLevelTabs from 'app/components/app/Bars/Bar-bottom'
 const App: React.FC = (props:any) => {
   const {loading} = props;
   return (
     <React.Fragment>
-     <Tabs />
+     <RootLevelTabs />
       <IonLoading 
        isOpen={loading}
        message={'Loading...'}

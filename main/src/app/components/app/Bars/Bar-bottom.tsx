@@ -5,26 +5,21 @@ import {
   IonTabs,
   IonTabBar,
   IonTabButton,
-
   IonLabel
-
-
 } from "@ionic/react";
-import { HomeContainer } from "app/containers/HomeContainer";
+import Home from "app/pages/Home/Home.page";
 import { SearchContainer } from "app/containers/SearchContainer";
 // import { LogOutContainer } from "app/containers/LogOutContainer";
 import { ManageContainer } from "app/containers/ManageContainer";
 import { ExecuteContainer } from "app/containers/ExecuteContainer";
 import { LoadDetailsContainer } from "app/containers/LoadDetailsContainer";
 import MenuContainer from "app/containers/MenuContainer/MenuContainer";
+import { ProfileContainer } from "app/containers/ManageContainer/ProfileContainer";
+import { CarrierProfileContainer } from "app/containers/ManageContainer/CarrieProfileContainer";
 
-class Tabs extends React.Component<any> {
-  // eslint-disable-next-line
-  constructor(props: any) {
-    super(props);
-  }
+interface MainTabsProps { }
 
-  public render() {
+const RootLevelTabs : React.FC<MainTabsProps> = () => {
     return (
 
       <IonRouterOutlet>
@@ -36,12 +31,10 @@ class Tabs extends React.Component<any> {
               <IonRouterOutlet>
 
                 <Route path="/app/search" render={(props:any)=><SearchContainer {...props} />} />
-                <Route path="/app/loaddetails" component={(props:any)=><LoadDetailsContainer {...props} />}/>
-                <Route
-                  path="/app/home"
-                  render={()=>(<HomeContainer />)}
-                  exact={true}
-                />
+                <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
+                <Route path="/app/home/:id" component={LoadDetailsContainer} />
+                <Route path="/app/ProfileDetails" component={ProfileContainer} />
+                <Route path="/app/CarrierProfileDetails" component={CarrierProfileContainer} />
                 <Route
                   path="/app/execute"
                   component={ExecuteContainer}
@@ -63,12 +56,11 @@ class Tabs extends React.Component<any> {
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
                 <IonTabButton tab="home" href="/app/home" >
-
                   <img alt="logo" src="assets/icon/Path 1042@2x.png" width="26px" height="22.38px" color="var(--ion-color-primary)" />
                   <IonLabel class="tab_footer_label">HOME</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="search" href="/app/search">
-                  <img alt="logo" src="assets/icon/Search icon@2x.png" width="25px" height="25px" />
+                  <img alt="logo" src="assets/icon/Search icon@2x.png" width="25px" height="25px"  />
                   <IonLabel class="tab_footer_label">SEARCH</IonLabel>
                 </IonTabButton>
 
@@ -93,6 +85,5 @@ class Tabs extends React.Component<any> {
 
     );
   }
-}
 
-export { Tabs };
+export default RootLevelTabs;

@@ -16,8 +16,9 @@ export const hideLoading = () => ({
 });
 
 
-export const doLogin = (username:string, password:string) => ({
-    type: constants.LOGIN_INPROGRESS, username, password
+export const doLogin = (username: string, password: string, rememberme: boolean) => ({
+    type: constants.LOGIN_INPROGRESS,
+    payload: { username, password, rememberme }
 })
 
 export const loginSuccess = (data:any) => ({

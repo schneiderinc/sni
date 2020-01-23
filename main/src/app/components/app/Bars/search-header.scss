@@ -35,4 +35,7 @@
     box-shadow: 0px 2px 5px #00000038;
     margin-right:1px;
 }
+.tab-selected:active{
+    --background: #ffd8bc;
+}
 }

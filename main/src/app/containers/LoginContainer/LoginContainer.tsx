@@ -5,11 +5,12 @@ import { Redirect } from 'react-router';
 import { createStructuredSelector } from 'reselect';
 import useInjectSaga from 'app/utils/injectSaga';
 import saga from 'app/saga/Login/saga';
-import { getLoading, getCurrentUser,getLoginError } from 'app/selectors/selector';
-import { updateDate, doLogin, loginError } from 'app/actions/Login/action';
+import { getLoading, getCurrentUser, getLoginError, getUserData } from 'app/selectors/selector';
+import { updateDate, loginError, doLogin } from 'app/actions/Login/action';
 import { LoginPage } from 'app/pages/Login';
 
 interface LoginProps {
+    userData: any
     loading: boolean;
     currentUser: boolean;
     loginError: boolean;
@@ -26,13 +27,14 @@ class LoginContainer extends Component<LoginProps> {
         this.props.updateDate();
     }
 
-    handleSubmit = (username:string, password:string) => {
-        this.props.doLogin(username, password);
+    handleSubmit = (username: string, password: string, rememberme: boolean) => {
+        this.props.doLogin(username, password, rememberme);
     }
    
     render() {
-        const {loading, currentUser, loginError} = this.props;
+        const { loading, currentUser, loginError, userData } = this.props;
         const props = {
+            userData,
             loading,
             loginError,
             handleSubmit: this.handleSubmit
@@ -42,16 +44,17 @@ class LoginContainer extends Component<LoginProps> {
 }
 
 const mapStateToProps = createStructuredSelector({
+    userData: getUserData(),
     loading: getLoading(),
     currentUser: getCurrentUser(),
-    loginError: getLoginError() 
+    loginError: getLoginError(),
 
 });
    
 
 const mapDispatchToProps = (dispatch:any) => ({
     updateDate: () => dispatch(updateDate()),
-    doLogin: (username:string, password:string) => dispatch(doLogin(username, password)),
+    doLogin: (username: string, password: string, rememberme: boolean) => dispatch(doLogin(username, password, rememberme)),
     errorLogin: (data: any) => dispatch(loginError(data))
 })
 

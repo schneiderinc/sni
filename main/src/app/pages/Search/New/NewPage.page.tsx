@@ -1,4 +1,4 @@
-import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonButton, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonFooter, IonBadge } from '@ionic/react';
+import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonFooter, IonBadge } from '@ionic/react';
 import React, { PureComponent } from 'react';
 import './NewPage.scss';
 
@@ -16,28 +16,25 @@ class NewPage extends PureComponent<any, any> {
     favorite: false,
     searchResultPage: false,
     searchabarList: [{
-      city: "Hyderabad"
+      city: "54115 Eastview Drive, Bristol, IN"
     },
     {
-      city: "Hydernagar"
+      city: "54115 Burdette Street, South Bend, IN"
     },
     {
-      city: "Delhi"
+      city: "54115 Ivy Road, South Bend, IN"
     },
     {
-      city: "Kashmir"
+      city: "Dallas, TX"
     },
     {
-      city: "Vijayarai"
+      city: "Dayton, Bristol, IN"
     },
     {
-      city: "Vijayawada"
+      city: "Davie, South Bend, IN"
     },
     {
-      city: "Vijaya"
-    },
-    {
-      city: "Kurnool"
+      city: "Davenport, South Bend, IN"
     }],
     searchQuery: "",
     showSuggestions: false,
@@ -118,11 +115,7 @@ class NewPage extends PureComponent<any, any> {
           }
         })
       })
-
-
     }
-
-
   }
   handleDestination = (e: any) => {
 
@@ -137,18 +130,17 @@ class NewPage extends PureComponent<any, any> {
           }
         })
       })
-
-
     }
   }
   SelectedOrigin = (k: any) => {
-
     if (this.state.originSearchResults && this.state.originSearchResults.length > 0) {
       this.setState(() => (
         { origin: this.state.originSearchResults[k]["city"] }
       ))
-      this.setState({ showSuggestions: false })
+     
     }
+    this.setState({ showSuggestions: false });
+    console.log("show", this.state.showSuggestions, this.state.originSearchResults );
   }
   SelectedDestination = (k: any) => {
 
@@ -176,19 +168,19 @@ class NewPage extends PureComponent<any, any> {
                   <IonInput type="text" className="cts-form-control" name="origin" value={this.state.origin} onIonChange={(e) => this.handleOrigin(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
-                {/* {this.state.showSuggestions ? <div className="suggestions_div">
-                <IonItem className="suggestions_input_item">
-                  <IonLabel position="floating"> <IonImg slot ="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
-                  <IonInput className="cts-form-control" type="text"/>
-                
-                </IonItem>
-                <ul className="suggestions">
-                  {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item">
-                    <li className="suggestions_list" key={k} onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
-                  ))}
 
-                </ul>
-              </div> : null} */}
+                {this.state.showSuggestions ? <div className="suggestions_div">
+                  <IonItem className="suggestions_input_item">
+                    <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
+                    <IonInput className="cts-form-control suggestions_input" type="text" value={this.state.origin} />
+                  </IonItem>
+                  <ul className="suggestions">
+                    {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item">
+                      <li className="suggestions_list" key={k} onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
+                    ))}
+
+                  </ul>
+                </div> : null}
 
                 <div className="ion-item1">
                   <IonLabel mode="ios" position="floating" className="ion-label-radius">Origin Radius</IonLabel>
@@ -208,17 +200,25 @@ class NewPage extends PureComponent<any, any> {
                   <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(e) => this.handleDestination(e)} />
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
-                {this.state.showSuggestions2 ? <ul className="suggestions">
-                  {this.state.destinationSearchResults.map((v: any, k: number) => (
-                    <li key={k} onClick={() => this.SelectedDestination(k)}>{v.city}</li>
-                  ))}
 
-                </ul> : null}
+                {this.state.showSuggestions2 ? <div className="suggestions_div">
+                  <IonItem className="suggestions_input_item">
+                    <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
+                    <IonInput className="cts-form-control" type="text" value={this.state.destination} />
+
+                  </IonItem>
+                  <ul className="suggestions">
+                    {this.state.destinationSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item">
+                      <li className="suggestions_list" key={k} onClick={() => this.SelectedDestination(k)}>{v.city}</li> </IonItem>
+                    ))}
+
+                  </ul>
+                </div> : null}
 
                 <div className="ion-item1">
                   <IonLabel mode="ios" position="floating" className="ion-label-radius">Destination Radius</IonLabel>
                   <div className="pickRadius">{this.state.Destination_Radius} mi</div>
-                  <IonRange min={1} max={300} step={1} snaps={true} ticks={false} name="Destination_Radius" color="primary" value={this.state.Destination_Radius} className="search_range" onIonChange={this.handleChange} />
+                  <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="Destination_Radius" color="primary" value={this.state.Destination_Radius} className="search_range" onIonChange={this.handleChange} />
                 </div>
 
                 <IonItem mode="ios" class="ion-item">
@@ -247,9 +247,9 @@ class NewPage extends PureComponent<any, any> {
               <IonCol size="2"> <IonToggle mode="ios" name="favorite" checked={this.state.favorite} onIonChange={(e) => this.ToggleChange(e)}> </IonToggle> </IonCol>
               <IonCol size="4" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol>
               <IonCol size="6">
-                <IonBadge  onClick={this.Reset} class="new_badges new_badges_cancel"><IonImg className="cancel_img" alt="logo" src="../../assets/icon/cancel.png"/></IonBadge>
-                <IonBadge class="new_badges new_badge_reset" onClick={this.Reset}><IonImg className="reset_img" alt="logo" src="../../assets/icon/reset.png"/></IonBadge>
-                <IonBadge class="new_badges new_badge_apply" onClick={(e) => this.Apply(e)}><IonImg className="apply_img" alt="logo" src="../../assets/icon/tick.png"/></IonBadge>
+                <IonBadge onClick={this.Reset} class="new_badges new_badges_cancel"><IonImg className="cancel_img" alt="logo" src="../../assets/icon/cancel.png" /></IonBadge>
+                <IonBadge class="new_badges new_badge_reset" onClick={this.Reset}><IonImg className="reset_img" alt="logo" src="../../assets/icon/reset.png" /></IonBadge>
+                <IonBadge class="new_badges new_badge_apply" onClick={(e) => this.Apply(e)}><IonImg className="apply_img" alt="logo" src="../../assets/icon/tick.png" /></IonBadge>
               </IonCol>
             </IonRow>
             {/* <IonRow>

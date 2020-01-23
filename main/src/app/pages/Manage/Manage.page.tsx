@@ -1,9 +1,37 @@
 import React, { Component } from 'react';
 
-import { IonHeader, IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent, IonBadge, IonIcon } from '@ionic/react';
+import { IonHeader, IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent, IonBadge } from '@ionic/react';
 
 import './Manage.scss';
+import { Link } from 'react-router-dom';
 
+
+const cardData = [
+	{
+		cradImg: "assets/images/Profile_icon.png",
+		profileHeading: "User Profile",
+		profileRouting:"/app/ProfileDetails"
+	
+	},
+	{
+		cradImg: "assets/images/Carrier_profile_icon.png",
+		profileHeading: "Carrier Profile",
+		profileRouting:"/app/CarrierProfileDetails"
+		
+	},
+	{
+		cradImg: "assets/images/noun_Manage Account_1182506 (1).png",
+		profileHeading: "Manage Users",
+		profileRouting:"/app/ProfileDetails"
+	
+	},
+	{
+		cradImg: "assets/images/Post_truck.png",
+		profileHeading: "Manage Truck/ Lane Postings",
+		profileRouting:"/app/ProfileDetails"
+	
+	}
+]
 
 
 
@@ -11,10 +39,10 @@ class ManagePage extends Component<any, any> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
-
+           
 		};
 	}
-
+	
 	render() {
 		return (
 			<IonPage>
@@ -34,62 +62,31 @@ class ManagePage extends Component<any, any> {
 				</IonHeader>
 				<IonContent>
 					<div className="cardContent-space">
-						<IonCard className="profileCard">
-							<IonCardContent>
-								<IonRow className="profile-card-row">
-									<IonCol size='2'>
-										<img alt="profile" src="assets/images/Profile.png" className="profileIcon"></img>
-									</IonCol>
-									<IonCol size='10'>
-										<div className="carrier-profile">Profile</div>
+					{cardData.map((v:any, k:number) => (
+							<Link to={v.profileRouting}><IonCard  key={k} className="profileCard">
+								<IonCardContent>
+                                    <IonRow className="profile-card-row">
+										<IonCol size='2'>
+											<img alt="profile" src={v.cradImg} className="profileIcon"></img>
+									    </IonCol>
+										<IonCol size='10'>
+											<IonRow>
+											<IonCol size='11'><p className="carrier-profile">{v.profileHeading}</p></IonCol>
+											<IonCol size='1'><img src="assets/images/Arrow.png" alt="logo" className="profile-arrow" /></IonCol>
+											</IonRow>
+											
+											
+										</IonCol>
+									</IonRow>
+								</IonCardContent>
+							</IonCard>
+							</Link>
 
-									</IonCol>
-								</IonRow>
-							</IonCardContent>
-						</IonCard>
+						))}
 
-						<IonCard className="profileCard">
-							<IonCardContent>
-								<IonRow className="carrierprofile-card-row">
-									<IonCol size='2'>
-										<img alt="profile" src="assets/images/noun_Document_169857 (1).png" className="CarrierprofileIcon"></img>
-									</IonCol>
-									<IonCol size='10'>
-										<div className="carrier-profile">Carrier Profile</div>
-
-									</IonCol>
-								</IonRow>
-							</IonCardContent>
-						</IonCard>
-
-
-						<IonCard className="profileCard">
-							<IonCardContent>
-								<IonRow className="manageprofile-card-row">
-									<IonCol size='2'>
-										<img alt="profile" src="assets/images/noun_Manage Account_1182506 (1).png" className="manageprofileIcon"></img>
-									</IonCol>
-									<IonCol size='10'>
-										<div className="carrier-profile">Manage User</div>
-
-									</IonCol>
-								</IonRow>
-							</IonCardContent>
-						</IonCard>
-						<IonCard className="profileCard">
-							<IonCardContent>
-								<IonRow className="truckprofile-card-row">
-									<IonCol size='2'>
-										<img alt="profile" src="assets/images/noun_delivery truck_2292554 (1).png" className="truckprofileIcon"></img>
-									</IonCol>
-									<IonCol size='10'>
-										<div className="carrier-profile">Post Truck/ Lane</div>
-									</IonCol>
-								</IonRow>
-							</IonCardContent>
-						</IonCard>
 					</div>
 				</IonContent>
+			
 			</IonPage>
 		);
 	}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import './Login.page.scss';
 
 const props = {
+    userData: PropTypes.any,
     loading: PropTypes.bool,
     loginError: PropTypes.bool,
     handleSubmit: PropTypes.func.isRequired
@@ -14,21 +15,44 @@ type propTypes = PropTypes.InferProps<typeof props>;
 class LoginPage extends Component<propTypes> {
 
     state = {
-        username:'',
+        username: '',
         password: '',
+        rememberme: false
+    }
+    constructor(props: any){
+        super(props)
+        window.addEventListener('keyboardWillShow',this.keyboardshowHandler);
+        window.addEventListener('keyboardWillHide',this.keyboardhideHandler);
+    }
+    componentDidMount() {
+        if (!this.props.userData || !this.props.userData.rememberme)
+            return;
+        this.setState((state, props) => ({
+            username: props.userData.username,
+            password: props.userData.password,
+            rememberme: props.userData.rememberme
+        }))
     }
 
-    handleChange = (event:any) => {
-        const {name, value} = event.target;
+
+    handleChange = (event: any) => {
+        const { name, value } = event.target;
         this.setState({
             [name]: value
         });
     }
+    onRememberMe = (event: any) => {
+        console.log(event);
+        const { name, checked } = event.target;
+        this.setState({
+            [name]: checked
+        });
+    }
 
-    handleSubmit = (event:any) => {
-        event.preventDefault(); 
-        const {username, password} = this.state;
-        this.props.handleSubmit(username, password)
+    handleSubmit = (event: any) => {
+        event.preventDefault();
+        const { username, password, rememberme } = this.state;
+        this.props.handleSubmit(username, password, rememberme)
     }
 
     showPassword = () =>{
@@ -38,10 +62,11 @@ class LoginPage extends Component<propTypes> {
         if(element instanceof HTMLElement){
             console.log('onclick if');
             console.log('platform::'+getPlatforms());
-            element.setAttribute("type","text");
-            setTimeout(() => {
+            if(element.getAttribute("type") === "password"){
+                element.setAttribute("type","text");
+            }else {
                 element.setAttribute("type","password");
-            }, 300);
+            }
         }
     }
     keyboardshowHandler = () =>{
@@ -58,8 +83,6 @@ class LoginPage extends Component<propTypes> {
         headerDiv.setAttribute("class","login_logo_container");
     }
     render() {
-        window.addEventListener('keyboardWillShow',this.keyboardshowHandler);
-        window.addEventListener('keyboardWillHide',this.keyboardhideHandler);
         return (
             <IonPage className="root-page">
                 <div className="login_logo_container">
@@ -86,7 +109,10 @@ class LoginPage extends Component<propTypes> {
                             <IonRow class="login_remember_link">     
                                 <IonCol>
                                     <IonRow>
-                                        <IonCol size="4"> <IonToggle mode="ios"> </IonToggle> </IonCol>
+                                        <IonCol size="4">
+                                            <IonToggle checked={this.state.rememberme} mode="ios" name="rememberme" onIonChange={this.onRememberMe}>
+                                            </IonToggle>
+                                        </IonCol>
                                         <IonCol size="8"><span className="login_remember_text"> Remember me</span></IonCol>
                                     </IonRow>
                                 </IonCol>

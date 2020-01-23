@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IonHeader, IonIcon, IonRow, IonCol, IonImg} from "@ionic/react";
+import { IonHeader, IonIcon, IonRow, IonCol, IonImg, IonBackButton} from "@ionic/react";
 import Toggle from 'app/components/shared/toggle/Toggle';
 import { IonLabel, IonTabBar, IonTabButton } from '@ionic/react';
 import './search-header.scss';
@@ -59,7 +59,7 @@ class TabHeader extends React.Component<any, State> {
         <div className="header_title header_back_button">
         <IonRow>
          
-          <IonCol size="1"><IonIcon icon={arrowBack} mode="md" onClick={()=>{this.props.history.goBack();}}></IonIcon></IonCol>
+          <IonCol size="1"><IonBackButton icon={arrowBack} text="" defaultHref="/app/home"></IonBackButton></IonCol>
           <IonCol size="9">{this.props.Title}</IonCol>
           <IonCol size="2"><img src="assets/icon/Map.png" alt="icon"/></IonCol>
         </IonRow>

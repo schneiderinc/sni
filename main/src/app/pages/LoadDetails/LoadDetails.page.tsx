@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg, IonList, IonItem } from '@ionic/react';
 import { TabHeader } from 'app/components/app/Bars/Bar-header'
 import { LoadTileHeader } from 'app/components/app/home/Load-Tile-Header';
 import { LoadTileFooter } from 'app/components/app/home/Load-Tile-Footer';
@@ -33,101 +33,105 @@ class LoadDetailsPage extends Component<any, any> {
 	}
 	render() {
 		const loadDetails = this.props.loadDetails;
-		const stopCount =  this.props.stopCount;
+		const stopCount = this.props.stopCount;
 		const stop_details = this.props.stopDetails;
 
 		return (
 			<>
 				{loadDetails ?
-						<IonPage>
-							<TabHeader className="load_details_header" Title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} loadDetailsTab={true} {...this.props} />
-							<IonContent className="ion-padding custom-padding load-page-content">
-								<IonCard className="ion-card">
-									<IonCardContent className="card-content">
-										<IonGrid>
-											<LoadTileHeader {...loadDetails} />
-											<IonItemDivider no-padding />
-											<LoadTileFooter price={loadDetails.price} stops={loadDetails.total_stops} trailer={loadDetails.trailer} total_distance={loadDetails.total_distance} />
-											<IonRow>
-												<IonCol size="4">
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Call.png" className="load_btn_img" />CALL</IonButton>
-												</IonCol>
-												<IonCol size="4">
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Chat.png" className="load_btn_img" />CHAT</IonButton>
-												</IonCol>
-												<IonCol size="4">
-													<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Watched.png" className="load_btn_img"/>WATCH</IonButton>
-												</IonCol>
-											</IonRow>
-										</IonGrid>
-									</IonCardContent>
-								</IonCard>
-									<IonCard class="ion-card">
-										<IonCardHeader class="accordion-header" onClick={this.loadStops}>
-											<span>Stop Details</span>
-											{
-												this.state.showStops ?
-													<i className="down"></i>
-													:
-													<i className="up"></i>
-											}
-										</IonCardHeader>
-										<IonCardContent class={`load_detail_card ${this.state.showStops ? 'fadeout' : 'fadein'}`}>
-											<IonGrid class="load_details_grid">
-												<IonRow>
-													<IonCol size="1">
-														<StopTracker stopCount={stopCount}/>
-													</IonCol>
-													<IonCol size="11" class="load_details_col">
-														{
-															stop_details.map((details: StopDetails, index:any) => (
-																<div className={`load_stop_details ${index === 0 ? 'origin_details' : ''} ${index === stop_details.length - 1 ? 'destination_details' : ''}`} key={index}>
-																	<StopDetailsCard stopDetails={details} place={index} stopCount={stopCount}/>
-																</div>)
-															)
-														}
-													</IonCol>
-												</IonRow>
-											</IonGrid>
-                						</IonCardContent>
-									</IonCard>
-									<IonCard class="ion-card">
-										<IonCardHeader class="accordion-header"  onClick={this.loadDocuments}>
-											<span>Documents</span>
+					<IonPage>
+						<TabHeader className="load_details_header" Title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} loadDetailsTab={true} {...this.props} />
+						<IonContent className="ion-padding custom-padding load-page-content">
+							<IonCard className="loadDetails_card">
+								<IonCardContent className="card-content">
+									<IonGrid>
+										<LoadTileHeader {...loadDetails} />
+										<IonItemDivider no-padding />
+										<LoadTileFooter price={loadDetails.price} stops={loadDetails.total_stops} trailer={loadDetails.trailer} total_distance={loadDetails.total_distance} />
+										<IonRow>
+											<IonCol size="4">
+												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Call.png" className="load_btn_img" />CALL</IonButton>
+											</IonCol>
+											<IonCol size="4">
+												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/Chat.png" className="load_btn_img" />CHAT</IonButton>
+											</IonCol>
+											<IonCol size="4" className="watchToggle_col">
+												<div>
+													<label className="switch"><input type="checkbox" id="togBtn" /><div className="slider round"></div></label>
+												</div>
+											</IonCol>
+										</IonRow>
+									</IonGrid>
+								</IonCardContent>
+							</IonCard>
+							<IonCard class="ion-card">
+								<IonCardHeader class="accordion-header" onClick={this.loadStops}>
+									<span>Stop Details</span>
+									{
+										this.state.showStops ?
+											<i className="down"></i>
+											:
+											<i className="up"></i>
+									}
+								</IonCardHeader>
+								<IonCardContent class={`load_detail_card ${this.state.showStops ? 'fadeout' : 'fadein'}`}>
+									<IonGrid class="load_details_grid">
+										<IonRow>
+											<IonCol size="1">
+												<StopTracker stopCount={stopCount} />
+											</IonCol>
+											<IonCol size="11" class="load_details_col">
+												{
+													stop_details.map((details: StopDetails, index: any) => (
+														<div className={`load_stop_details ${index === 0 ? 'origin_details' : ''} ${index === stop_details.length - 1 ? 'destination_details' : ''}`} key={index}>
+															<StopDetailsCard stopDetails={details} place={index} stopCount={stopCount} />
+														</div>)
+													)
+												}
+											</IonCol>
+										</IonRow>
+									</IonGrid>
+								</IonCardContent>
+							</IonCard>
+							<IonCard class="ion-card">
+								<IonCardHeader class="accordion-header" onClick={this.loadDocuments}>
+									<span>Documents</span>
 
-											{
-												this.state.showDocument ?
-													<i className="down"></i>
-													:
-													<i className="up"></i>
-											}
-										</IonCardHeader>
-										<IonCardContent class={this.state.showDocument ? 'fadeout' : 'fadein'}>
-                						</IonCardContent>
-									</IonCard>
-									<IonCard class="ion-card" >
-										<IonCardHeader class="accordion-header" onClick={this.loadTerms}>
-											<span>Terms &amp; Conditions </span>
-											{
-												this.state.showTerms ?
-													<i className="down"></i>
-													:
-													<i className="up"></i>
-											}
-										</IonCardHeader>
-										<IonCardContent class={this.state.showTerms ? 'fadeout' : 'fadein'}>
-											<p>A shipment tender document will be sent to you once assigned within the Schneider Transportation Management System. The carrier must follow this shipment tender documentation, any changes to the shipment will cause an updated tender which would include updated payment information.</p>
-											<p>This transaction is subject to and governed by the written agreement between you and Schneider Transportation Management, a division of Schneider National Carriers, Inc. and the terms of this site.</p>
-                						</IonCardContent>
-									</IonCard>
-							</IonContent>
-						</IonPage>
-						: ""
+									{
+										this.state.showDocument ?
+											<i className="down"></i>
+											:
+											<i className="up"></i>
+									}
+								</IonCardHeader>
+								<IonCardContent class={this.state.showDocument ? 'fadeout' : 'fadein'}>
+									<IonList>
+										<IonItem>
+											DocumentName <IonButton slot="end" size="small">view</IonButton>
+										</IonItem>
+									</IonList>
+								</IonCardContent>
+							</IonCard>
+							<IonCard class="ion-card" >
+								<IonCardHeader class="accordion-header" onClick={this.loadTerms}>
+									<span>Terms &amp; Conditions </span>
+									{
+										this.state.showTerms ?
+											<i className="down"></i>
+											:
+											<i className="up"></i>
+									}
+								</IonCardHeader>
+								<IonCardContent class={this.state.showTerms ? 'fadeout' : 'fadein'}>
+									<p>A shipment tender document will be sent to you once assigned within the Schneider Transportation Management System. The carrier must follow this shipment tender documentation, any changes to the shipment will cause an updated tender which would include updated payment information.</p>
+									<p>This transaction is subject to and governed by the written agreement between you and Schneider Transportation Management, a division of Schneider National Carriers, Inc. and the terms of this site.</p>
+								</IonCardContent>
+							</IonCard>
+						</IonContent>
+					</IonPage>
+					: ""
 				}
 			</>
-
-
-
 		);
 	}
 }

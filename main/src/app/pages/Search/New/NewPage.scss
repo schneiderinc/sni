@@ -2,17 +2,17 @@
 @import  "../../../../theme/responsive-styles.scss";
 
 .search_form_container {
-    height: 82%;
+    height: 86%;
     @media (max-height: map-get($grid-height-breakpoints, xs)) {
-      height: 72%;
+      height: 75%;
     }
     @media (max-height: map-get($grid-height-breakpoints, md)) {
-      height: 77%;
+      height: 85%;
     }
   }
 .contianer{
     .EnterLoad{
-      padding: 17px 7px 11px 10px;
+      padding: 17px 4px 11px 13px;
       font-size: 14px;
       color:#4A4A4A;
       font-family: $font-stack; 
@@ -20,11 +20,13 @@
     .search-form{
         margin-top:-11px;
         padding: 0px 10px;
+        position:relative;
         .new_page_list{
            background-color:#FCFCFC;
+           margin-bottom:5px;
            padding:0px;
            .ion-item{
-              margin: 0px 2px 0px -14px;
+              margin: 0px 5px 0px -11px;
               --background:#FCFCFC;
               bottom:12px;
               letter-spacing: 0.6px;
@@ -37,6 +39,7 @@
                 --padding-top:0px;
                 margin-top:8px;
                 padding-bottom:4px;
+                font-size:15px;
            }
             ion-label {
                 color:#000000 !important;
@@ -63,6 +66,9 @@
                     padding-right: 25px;
                    --border-color:#0000003F;
                 }
+                .suggestions_input{
+                  font-size:12px;
+                }
                  .suggestions_div{
                       box-shadow: 0px 3px 6px #3A4C8230;
                       width: 100%;
@@ -71,11 +77,13 @@
                       border-bottom-left-radius: 9px;
                       border-bottom-right-radius: 9px;
                       background:white;
+                      z-index:9;
+                      position:absolute;
                    .suggestions{
                     list-style:none;
                     width:100%;
                     padding-left:10px;
-                    padding-bottom:19px;
+                    padding-bottom:3px;
                     padding-right: 7px;
                    .suggestions_item{
                      padding-right: 20px;
@@ -93,18 +101,18 @@
             .ion-label-radius{
                font-size:12px !important;
                margin-bottom: 15px;
+               margin-left:3px;
             }
             .pickRadius{
               padding-top:5px;
+              margin-left:3px;
             }
             .search_range{
              width: 105%;
-             margin-left: -12px;
-             zoom: 0.7;
              margin-top: -7px;
-             padding:1px 0px;
+             padding:1px 17px 1px 5px;
              --knob-background:#F56B01;
-             --knob-size:18px;
+             --knob-size:11px;
              --knob-box-shadow:0px 0px 8px 0px darkorange;  
             }
             .new_page_label{
@@ -120,7 +128,8 @@
   }
   ion-footer{
     position:fixed;
-      margin-top: 53px;
+    margin-top: 9px;
+    height: 71px;
       border-top: 0.5px solid #DEDEDE;
       ion-toggle{
         --background-checked: #F6D679;
@@ -137,6 +146,9 @@
             font-size:14px;
             color: #000000;
             }
+        }
+        .new_ion_badges_col{
+          padding-top:0px;
         }
     }
     .new_badges{
@@ -181,7 +193,7 @@
     //     background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
     // }
     .search_alternate {
-        padding:0 7px;
+        padding:11px 7px 0 7px;
         @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
           margin: auto;
           width:  map-get($grid-breakpoints, xs);

@@ -1,132 +1,89 @@
-import { IonContent,IonPage, IonList,IonRow, IonCol, IonLabel } from '@ionic/react';
-import React, {PureComponent} from 'react';
-import { LoadTile } from "app/components/app/home/Load-Tile";
-import { Loads } from "app/components/app/home/Loads";
+import { IonContent, IonPage, IonList, IonRow, IonSegment,IonIcon, IonSegmentButton, IonCol, IonTabBar, IonRouterOutlet, IonTabButton, IonLabel, IonTabs, IonHeader, IonToolbar, IonTab, IonTitle } from '@ionic/react';
+import reducer from "../../reducers/Home/reducer";
+import saga from "../../saga/Home/saga";
+import { updateData } from "app/actions/Home/action";
+import { getLoading } from "../../selectors/selector";
+import { createStructuredSelector } from "reselect";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import useInjectSaga from "app/utils/injectSaga";
+import useInjectReducer from "app/utils/injectReducer";
+import { makeSelectHome } from "../../selectors/Home/selector";
+import React, { useState } from 'react';
 import './Home.page.scss';
-import {TabHeader} from 'app/components/app/Bars/Bar-header'
-import {RecommendedError} from './RecommendedError';
+import { arrowBack } from "ionicons/icons";
+import { TabHeader } from 'app/components/app/Bars/Bar-header';
+import SegmentContent from 'app/pages/Home/Segment-content.page';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
-const LoadsList = ["Recommended", "Watched"];
-class HomePage extends PureComponent<any, any> {
 
+const key = "carrier";
+interface HomeProps { data: [], loading: any, updateData: any }
 
-   constructor (props:any) {
-    super(props);
-this.handleScroll = this.handleScroll.bind(this);
-   this.state = {
-    prevScrollpos: window.pageYOffset,
-    visible: true,
-    title: "Recommended Loads",
-    tab:true,
-    toggleBtn:true,
-    loadData:[],
-    toggleValue: "Recommended",
-    loadSize: 0,
-  };
+const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
+  const [segment, setSegment] = useState<any>({name:'Recommended', data:{}});
+  var __prevState:any ="";
+  function sortedData(data: any) {
+    //this.setState({ loadData: data});
   }
-  componentDidMount() {
-    //document.getElementsByTagName("ion-content")[0].addEventListener("scroll", this.handleScroll);
-  }
-  componentWillUnmount() {
-    //document.getElementsByTagName("ion-content")[0].removeEventListener("scroll", this.handleScroll);
-  }
-  componentDidUpdate(prevProps:any){
-    if(prevProps.data!==this.props.data){
-      this.setState({loadData:this.props.data})
-    }
-  }
-  handleScroll() {
-    const { prevScrollpos } = this.state;
-
-    const currentScrollPos = window.pageYOffset;
-    const visible = prevScrollpos > currentScrollPos;
-
-    this.setState({
-      prevScrollpos: currentScrollPos,
-      visible
-    });
-  };
-
-
- getLoads()
- {
-   this.props.getLoads();
- }
-
- handleToggleStateChange = (value:any) => {
-  this.setState({toggleValue : value});
-  if(this.state.toggleValue === "Recommended"){
-    this.setState({title: "Watched Loads",
-    loadSize: this.state.loadData.filter((c:any) => c.price !== "TBD").length});
-    
-  } else {
-    this.setState({title: "Recommended Loads", loadSize: this.state.loadData.length});
-  }
-}
-  sortedData=(data:any)=>{
-    this.setState({ loadData: data});
-  }
-
-render(){
-  
+ 
   const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
-  // const contextOptions = [{ value: "context", name: "Context" }, { value: "distance", name: "Distance" }];
+  if (data.length === 0 && !loading) {
+    updateData();
+  }
   return (
-   
-
     <IonPage>
-    <TabHeader className={!this.state.visible ? "hide-header":''} Title= {this.state.title} loadSize={this.state.loadSize>0? this.state.loadSize : this.state.loadData.length} LoadsList={LoadsList}  
-     toggleBtn={this.state.toggleBtn} onToggleStateChange = {this.handleToggleStateChange}  />
-        {this.state.loadData.length>0 &&   <div className="short-div">
-         
-         {this.state.tab?
-         <IonRow class="short-row">
-           <IonCol size="5" class="rec_text">
-               <b>{this.state.loadSize>0? this.state.loadSize : this.state.loadData.length}  </b>{this.state.toggleValue === "Recommended" ? "Recommendations" : "Watched loads"}
-           </IonCol>
-           <IonCol size="7" class="sort_select">
+      <IonHeader className="page-header">
+        <div id="header-title">{segment.name === "Recommended" ? "Recommended Loads" : "Watched Loads"}</div>
+        
+        <IonSegment onIonChange={(e) => setSegment({name:e.detail.value as any, data:{}})}>
+          <IonSegmentButton value="Recommended" checked={segment.name === 'Recommended'}>
+          <IonLabel>Recommended</IonLabel>
+            </IonSegmentButton>
+          <IonSegmentButton value="WatchList" checked={segment.name === 'WatchList'}>
+          <IonLabel>WatchList</IonLabel> 
+            </IonSegmentButton>
+        </IonSegment>
+      </IonHeader>
+      {data.length > 0 && <div className="short-div">
+        {segment.name === "Recommended" &&
+          <IonRow class="short-row">
+            <IonCol size="5" class="rec_text">
+              <b>{data.length}</b>  
+            </IonCol>
+            <IonCol size="7" class="sort_select">
               <div className="select_div">
                 <IonLabel className="sort_label">Sort:</IonLabel>
-                <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData}/>
+                <Dropdown options={sortByOptions} loadData={data} />
               </div>
-          </IonCol>
-         </IonRow>:null}
-        </div>}
-
-    <IonContent className="ion-padding custom-padding">
-   
-      
-      <div>
-      {this.state.loadData.length ? this.state.toggleValue === "Recommended" ? (
-        <Loads loads={this.state.loadData} >{
-          ({ loads }: { loads?: any }) => {
-            return <IonList  className="loadTilePad">
-              {loads.map((load: any, index:number) => <LoadTile key={index} {...load} />)}
-            </IonList>
-          }
-        }
-        </Loads>
-        ) : (
-          <Loads loads={this.state.loadData} >{
-            ({ loads }: { loads?: any }) => {
-              return <IonList className="loadTilePad">              
-            {loads
-            .filter((load: any) => load.price !== "TBD")
-            .map((load: any, index:number) => <LoadTile key={index} {...load} />)}
-              </IonList>
-            }
-          }
-          </Loads>   
-          ):<RecommendedError loads={this.getLoads.bind(this)} />}
-      </div>
-      
-    </IonContent>
-    
+            </IonCol>
+          </IonRow>}
+      </div>}
+      {segment.name !=="View" && (__prevState = "Recommended")}
+      <IonContent className="ion-padding custom-padding load-page-content">
+        <SegmentContent type={segment.name} isloaded={loading} loads={data} load={segment.data} setView={(load:any) =>{ setSegment({name:"View", data:load})}} />
+      </IonContent>
     </IonPage>
-
   );
-        }
-};
+}
 
-export default HomePage;
+const mapStateToProps = createStructuredSelector({
+  loading: getLoading(),
+  data: makeSelectHome()
+});
 
+const mapDispatchToProps = (dispatch: Function) => ({
+  updateData: () => dispatch(updateData())
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+const withReducer = useInjectReducer({ key, reducer });
+const withSaga = useInjectSaga({ key, saga });
+
+export default compose(
+  withSaga,
+  withReducer,
+  withConnect
+)(React.memo(Home));

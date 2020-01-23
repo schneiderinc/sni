@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import LoadDetailsPage from 'app/pages/LoadDetails/LoadDetails.page';
-import { StopDetails } from 'app/schemas/Loads/Loads.schema';
+import { StopDetails, ILoads } from 'app/schemas/Loads/Loads.schema';
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { withRouter, RouteComponentProps } from 'react-router';
+import { getLoad } from "../../selectors/Home/selector";
 
+interface OwnProps extends RouteComponentProps { };
 class LoadDetailsContainer extends Component<any, any> {
 
-    constructor(props: any){
+    constructor(props:any){
         super(props);
         this.state={};
     }
@@ -47,7 +52,7 @@ class LoadDetailsContainer extends Component<any, any> {
 				"from_date_time":"14:00 - 16:00",
 			}
 		]
-        const loadDetails = this.props.location.state;
+        const loadDetails = this.props.loadDetails;
 		var stopCount = 0;
 		var stop_details = [];
 		var origin_details:StopDetails = {};
@@ -73,4 +78,14 @@ class LoadDetailsContainer extends Component<any, any> {
 }
 ;
 
-export default (LoadDetailsContainer);
+  
+const mapStateToProps = (state:any, OwnProps:any) => ({
+	loadDetails: getLoad(state, OwnProps)
+  })
+  const withConnect = connect(
+	mapStateToProps
+  );
+  export default compose(
+	withConnect
+  )(withRouter(LoadDetailsContainer));
+  
