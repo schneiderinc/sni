@@ -16,6 +16,9 @@ import { LoadDetailsContainer } from "app/containers/LoadDetailsContainer";
 import MenuContainer from "app/containers/MenuContainer/MenuContainer";
 import { ProfileContainer } from "app/containers/ManageContainer/ProfileContainer";
 import { CarrierProfileContainer } from "app/containers/ManageContainer/CarrieProfileContainer";
+import FAQMenuPage from "app/pages/Menu/faq_menu.page";
+import { ManageTruckContainer } from "app/containers/ManageContainer/ManageTruckContainer";
+import { ManageUserContainer } from "app/containers/ManageContainer/ManageUserContainer";
 
 interface MainTabsProps { }
 
@@ -33,8 +36,12 @@ const RootLevelTabs : React.FC<MainTabsProps> = () => {
                 <Route path="/app/search" render={(props:any)=><SearchContainer {...props} />} />
                 <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
                 <Route path="/app/home/:id" component={LoadDetailsContainer} />
+                <Route path="/app/loaddetails" component={(props:any)=><LoadDetailsContainer {...props} />}/>
+                <Route path="/app/menu/faq" component={FAQMenuPage}/>
                 <Route path="/app/ProfileDetails" component={ProfileContainer} />
                 <Route path="/app/CarrierProfileDetails" component={CarrierProfileContainer} />
+                <Route path="/app/ManageTruck" component={ManageTruckContainer} />
+                <Route path="/app/ManageUser" component={ManageUserContainer} />
                 <Route
                   path="/app/execute"
                   component={ExecuteContainer}

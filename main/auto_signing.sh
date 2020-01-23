@@ -1,1 +1,0 @@
-sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/' ProjectName.xcodeproj/project.pbxproj

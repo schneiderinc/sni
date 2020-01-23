@@ -200,3 +200,34 @@ input:checked + .slider:after
   content:'WATCH';
   margin-left:-10px;
 }
+
+.document_details_card{
+  padding: 0;
+}
+.document_details{
+  padding: 1.36vh 0 1.85vh 3.2vw;
+  border-bottom: 1px solid #DEDEDE;
+  ion-col{
+    padding: 0;
+  }
+  ion-row{
+    color: #000000;
+    font-size: 14px;
+    font-family: $font-roboto;
+  }
+  ion-row:last-child{
+    font-size: 12px;
+  }
+  ion-row:nth-child(2){
+    color:#000000BF;
+    opacity: 0.84;
+  }
+  .document_view_button{
+    height: 3.5vh;
+    width: 5vw;
+    padding-top: 1.36vh;
+  }
+}
+.document_details:last-child{
+  margin-bottom: 2.46vh;
+}

@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { IonList } from '@ionic/react';
 import {RecommendedError} from './RecommendedError';
 import { LoadTile } from "app/components/app/home/Load-Tile";
 import { Loads } from "app/components/app/home/Loads";
 import { ILoads } from "app/schemas/Loads/Loads.schema";
-import { LoadDetailsContainer } from "app/containers/LoadDetailsContainer";
 
 interface SegmentProps {type:any, loads:any, setView:any, load:any, isloaded:any}
 function newSearch(){

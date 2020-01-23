@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg, IonList, IonItem } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg, IonIcon } from '@ionic/react';
 import { TabHeader } from 'app/components/app/Bars/Bar-header'
 import { LoadTileHeader } from 'app/components/app/home/Load-Tile-Header';
 import { LoadTileFooter } from 'app/components/app/home/Load-Tile-Footer';
@@ -7,6 +7,49 @@ import { StopDetails } from 'app/schemas/Loads/Loads.schema';
 import StopDetailsCard from 'app/components/app/StopDetails/StopDetails';
 import StopTracker from 'app/components/app/StopDetails/StopTracker';
 import './LoadDetails.scss';
+const mock_document_details =[
+	{
+		"document_name":"Tender Document Name",
+		"uploaded_by":"Joanne",
+		"uploaded_time":"Nov 16,10:00 AM",
+		"document_type":"Tender document",
+	},
+	{
+		"document_name":"Tender Document Name",
+		"uploaded_by":"Joanne",
+		"uploaded_time":"Nov 16,10:00 AM",
+		"document_type":"Tender document",
+	},
+	{
+		"document_name":"Tender Document Name",
+		"uploaded_by":"Joanne",
+		"uploaded_time":"Nov 16,10:00 AM",
+		"document_type":"Tender document",
+	},
+	
+]
+const DocumentDetailsCard = (props: any) => {
+	return (
+		<IonGrid class="document_details">
+			<IonRow>
+				<IonCol size="11">
+					<IonRow>
+						<IonCol>{props.details.document_name}></IonCol>
+					</IonRow>
+					<IonRow>
+						<IonCol>By {props.details.uploaded_by} | {props.details.uploaded_time}</IonCol>
+					</IonRow>
+					<IonRow>
+						<IonCol>Document Type : {props.details.document_type}</IonCol>
+					</IonRow>
+				</IonCol>
+				<IonCol size="1">
+					<IonIcon src="assets/icon/view.svg" class="document_view_button"></IonIcon>
+				</IonCol>
+			</IonRow>
+		</IonGrid>
+	)
+}
 class LoadDetailsPage extends Component<any, any> {
 	constructor(props: any) {
 		super(props);
@@ -104,12 +147,17 @@ class LoadDetailsPage extends Component<any, any> {
 											<i className="up"></i>
 									}
 								</IonCardHeader>
-								<IonCardContent class={this.state.showDocument ? 'fadeout' : 'fadein'}>
-									<IonList>
-										<IonItem>
-											DocumentName <IonButton slot="end" size="small">view</IonButton>
-										</IonItem>
-									</IonList>
+								<IonCardContent class={`document_details_card ${this.state.showDocument ? 'fadeout' : 'fadein'}`}>
+									{
+										mock_document_details.map((details: any, index: any) => (
+											<DocumentDetailsCard details = {details} key={index}/>
+										))
+									}
+									
+											{/* <div className="document_details_name"><b>Tender Document Name</b></div>
+											<div className="document_details_data">By Joanne | Nov 16,10:00 AM</div>
+											<div className="document_details_data">Document Type : <b>Tender document</b></div> */}
+									
 								</IonCardContent>
 							</IonCard>
 							<IonCard class="ion-card" >

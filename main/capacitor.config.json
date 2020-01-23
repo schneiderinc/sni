@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "Ionic4-Reactjs-Boilerplate",
+  "appId": "com.cognizantmobilityenterprise.schneider",
+  "appName": "Schneider",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",

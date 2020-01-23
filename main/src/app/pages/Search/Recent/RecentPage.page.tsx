@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonTabBar, IonTabButton, IonLabel, IonItemSliding, IonInput } from '@ionic/react';
+import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonTabBar, IonTabButton, IonLabel, IonItemSliding } from '@ionic/react';
 import './Recent.scss';
 import recentData from './recentData.json';
 
@@ -58,19 +58,20 @@ class RecentSearch extends React.Component<any, any>{
     constructor(props: any) {
         super(props);
         this.state = {
-           // showButtons: false,
+            // showButtons: false,
             whiteColor: "#FFFFFF",
             cardColor: "#FFF9F099",
-            selectedCardId:null
-           
-          
+            selectedCardId: null
+
+
         }
     }
     add() {
         console.log("HAIIIII");
     }
     cardClick = (selectedIndex: number) => {
-        this.setState({selectedCardId:selectedIndex});
+        const index = selectedIndex !== this.state.selectedCardId ? selectedIndex : null;
+        this.setState({ selectedCardId: index });
     }
 
     render() {
@@ -80,9 +81,9 @@ class RecentSearch extends React.Component<any, any>{
                 <div className="contianer">
                     <div className="EnterLoad">Select a recent search to see matching loads.</div>
                     {
-                       recentData.map((detail: any, index: number) => (
+                        recentData.map((detail: any, index: number) => (
                             <IonCard className="ion-card" key={index}>
-                                <RecentCard recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add}  showButtons={index===this.state.selectedCardId?true:false} cardColor={index===this.state.selectedCardId?this.state.cardColor:this.state.whiteColor}/>
+                                <RecentCard recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index === this.state.selectedCardId ? true : false} cardColor={index === this.state.selectedCardId ? this.state.cardColor : this.state.whiteColor} />
                             </IonCard>
                         ))
                     }

@@ -3,16 +3,16 @@
 
 .menu_page{
     .page-header{
-        height: 81px;
+        height: 9.98vh;
     }
 }
 .menu_page_content{
-    --padding-top: 25px;
+    --padding-top: 3.08vh;
 }
 .menu_list_item{
-    --inner-padding-end: 6px;
-    --padding-end: 16PX;
-    --min-height: 41px;
+    --inner-padding-end: 1.62vw;
+    --padding-end: 4.27vw;
+    --min-height: 5.05vh;
     color: #555555;
     font-size: 14px;
     --border-color: #0000003F;
@@ -21,11 +21,19 @@
     font-size: 14px;
     color: #FF8A51;
     text-transform: uppercase;
-    margin-left: 10px;
+    margin-left: 2.67vw;
     font-family: $font-roboto;
-    padding-left: 12px;
+    padding-left: 3.204vw;
 }
 .menu_list_card{
-    margin-bottom: 15px;
-    margin-top: 6px;
+    margin-bottom: 1.85vh;
+    margin-top: 0.74vh;
+}
+.list_row{
+    border-bottom: 1px solid #3A4C8212;
+}
+.list_row_heading{
+    font-size: 14px;
+    color: #232323;
+    font-family: $font-roboto;
 }

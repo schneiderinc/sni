@@ -5,7 +5,6 @@ import {LoadTileHeader} from "app/components/app/home/Load-Tile-Header";
 import {LoadTileFooter} from "app/components/app/home/Load-Tile-Footer";
 import {DomainConverter} from "app/utils/common";
 import { Recommended } from 'app/models/home/Loads.model';
-import { Link } from 'react-router-dom';
 
 class LoadTile extends React.Component<any, any> {
 

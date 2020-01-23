@@ -5,12 +5,11 @@ import {TabHeader} from 'app/components/app/Bars/Bar-header'
 
 
 
-class ProfilePage extends Component<any,any> {
+class ManageUserPage extends Component<any,any> {
 	constructor (props:any) {
 		super(props);
 	   	this.state = {
-			tab:false,
-			toggleBtn:false
+		
 		};
 	}
 	
@@ -18,13 +17,13 @@ class ProfilePage extends Component<any,any> {
 	
 		return (
 		  	<IonPage className="menu_page">
-			  	<TabHeader  Title="Profile"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab} ProfileDetailsTab={true} />
+			  	<TabHeader  Title="Manage User"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab} ProfileDetailsTab={true} />
 				<IonContent class="menu_page_content">
-					<h1>Profile page</h1>
+					<h1>Manage User page</h1>
                     
 				</IonContent>
     		</IonPage>
 		);
 	}
 }
-export default ProfilePage;
+export default ManageUserPage;

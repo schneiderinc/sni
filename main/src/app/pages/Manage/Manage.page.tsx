@@ -22,13 +22,13 @@ const cardData = [
 	{
 		cradImg: "assets/images/noun_Manage Account_1182506 (1).png",
 		profileHeading: "Manage Users",
-		profileRouting:"/app/ProfileDetails"
+		profileRouting:"/app/ManageUser"
 	
 	},
 	{
 		cradImg: "assets/images/Post_truck.png",
 		profileHeading: "Manage Truck/ Lane Postings",
-		profileRouting:"/app/ProfileDetails"
+		profileRouting:"/app/ManageTruck"
 	
 	}
 ]

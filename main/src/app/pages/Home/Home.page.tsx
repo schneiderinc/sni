@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonList, IonRow, IonSegment,IonIcon, IonSegmentButton, IonCol, IonTabBar, IonRouterOutlet, IonTabButton, IonLabel, IonTabs, IonHeader, IonToolbar, IonTab, IonTitle } from '@ionic/react';
+import { IonContent, IonPage, IonRow, IonSegment, IonSegmentButton, IonCol, IonLabel, IonHeader } from '@ionic/react';
 import reducer from "../../reducers/Home/reducer";
 import saga from "../../saga/Home/saga";
 import { updateData } from "app/actions/Home/action";
@@ -11,8 +11,6 @@ import useInjectReducer from "app/utils/injectReducer";
 import { makeSelectHome } from "../../selectors/Home/selector";
 import React, { useState } from 'react';
 import './Home.page.scss';
-import { arrowBack } from "ionicons/icons";
-import { TabHeader } from 'app/components/app/Bars/Bar-header';
 import SegmentContent from 'app/pages/Home/Segment-content.page';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
 
@@ -21,9 +19,12 @@ interface HomeProps { data: [], loading: any, updateData: any }
 
 const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
   const [segment, setSegment] = useState<any>({name:'Recommended', data:{}});
+  const [loadData,setSortedLoad]=useState<any>([])
   var __prevState:any ="";
-  function sortedData(data: any) {
-    //this.setState({ loadData: data});
+  const sortedData=(data: any)=> {
+  console.log(data,"data")
+    setSortedLoad(data);
+    console.log(loadData,"data")
   }
  
   const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
@@ -35,11 +36,11 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
       <IonHeader className="page-header">
         <div id="header-title">{segment.name === "Recommended" ? "Recommended Loads" : "Watched Loads"}</div>
         
-        <IonSegment onIonChange={(e) => setSegment({name:e.detail.value as any, data:{}})}>
-          <IonSegmentButton value="Recommended" checked={segment.name === 'Recommended'}>
+        <IonSegment mode="ios" onIonChange={(e) => setSegment({name:e.detail.value as any, data:{}})} class="segment_control_tabs">
+          <IonSegmentButton mode="ios" value="Recommended" checked={segment.name === 'Recommended'} class="segment_recommended">
           <IonLabel>Recommended</IonLabel>
             </IonSegmentButton>
-          <IonSegmentButton value="WatchList" checked={segment.name === 'WatchList'}>
+          <IonSegmentButton mode="ios" value="WatchList" checked={segment.name === 'WatchList'}>
           <IonLabel>WatchList</IonLabel> 
             </IonSegmentButton>
         </IonSegment>
@@ -48,17 +49,17 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
         {segment.name === "Recommended" &&
           <IonRow class="short-row">
             <IonCol size="5" class="rec_text">
-              <b>{data.length}</b>  
+              <b>{data.length}</b>   
             </IonCol>
             <IonCol size="7" class="sort_select">
               <div className="select_div">
                 <IonLabel className="sort_label">Sort:</IonLabel>
-                <Dropdown options={sortByOptions} loadData={data} />
+                <Dropdown options={sortByOptions} loadData={data} sortedData={sortedData} />
               </div>
             </IonCol>
           </IonRow>}
       </div>}
-      {segment.name !=="View" && (__prevState = "Recommended")}
+     
       <IonContent className="ion-padding custom-padding load-page-content">
         <SegmentContent type={segment.name} isloaded={loading} loads={data} load={segment.data} setView={(load:any) =>{ setSegment({name:"View", data:load})}} />
       </IonContent>

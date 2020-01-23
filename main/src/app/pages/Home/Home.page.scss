@@ -360,3 +360,26 @@ a{
     font-size: 22px;
   }
 }
+.segment_control_tabs{
+  width: 63.8vw;
+  background: #F4F5F8;
+  border: 0.5px solid #FBA464;
+  height: 4.8vh;
+  padding-top: 0.5vh;
+  z-index: 1;
+  ion-segment-button{
+    --color: #000000;
+    --background-checked:#FFFFFF;
+    --color-checked: #000000;
+    border: none;
+    height: 3.7vh;
+    font-size: 14px;
+    font-family:$font-roboto ;
+  }
+  .segment-button-checked{
+    box-shadow: 0 2px 5px #00000038;
+  }
+  .segment_recommended{
+    width: 34.5vw;
+  }
+}

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { IonContent, IonPage, IonCard, IonList,IonLabel, IonItem } from '@ionic/react';
 import {TabHeader} from 'app/components/app/Bars/Bar-header'
 import './Menu.page.scss';
+import { Link } from 'react-router-dom';
 
 const ListItem = (props: any) => {
 	const heading = props.headings.heading;
@@ -14,9 +15,11 @@ const ListItem = (props: any) => {
 				<IonList mode="ios">
 					{
 						sub_heading.map((lable: String, index:any)=>(
-							<IonItem key={index} class="menu_list_item" onClick={()=>{console.log(lable)}} lines={index === sub_heading.length-1 ? 'none': 'inset'}>
+							<Link to={{ pathname: '/app/menu/faq' }} key={index}>
+							<IonItem  class="menu_list_item" onClick={()=>{console.log(lable)}} lines={index === sub_heading.length-1 ? 'none': 'inset'}>
 								{lable} <i className="arrow_forward" slot="end"></i>
 							</IonItem>
+							</Link>
 						))
 					}
 				</IonList>
