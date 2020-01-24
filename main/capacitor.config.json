@@ -1,6 +1,6 @@
 {
-  "appId": "com.cognizantmobilityenterprise.schneider",
-  "appName": "Schneider",
+  "appId": "com.cognizantmobilityenterprise.App",
+  "appName": "App",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
