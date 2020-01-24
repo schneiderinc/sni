@@ -314,10 +314,12 @@ ion-item-divider{
 }
 .header_search_bubble{
   width: 100%;
-  padding: 10px 15px 0 15px;
+  padding: 15px 15px 0 15px;
 }
 .ion-segment{
-  margin-top:15px;
+  margin-top:0px;
+  margin-bottom:0px;
+  border:none;
 }
 .ion-segment-button{
   border:none;

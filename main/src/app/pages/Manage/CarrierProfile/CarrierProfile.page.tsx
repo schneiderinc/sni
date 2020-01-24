@@ -2,73 +2,10 @@ import React, { Component } from 'react';
 
 import { IonContent, IonPage, IonLabel, IonCard, IonList, IonItem, IonInput, IonRow, IonCol } from '@ionic/react';
 import { TabHeader } from 'app/components/app/Bars/Bar-header';
+import {carrierProfile,carrierProfileInsurance,carrierProfileInsurance2} from 'app/utils/mock_Data';
 import './carrierProfile.scss';
-const carrierProfile = [
-    {
-        subHeading: "Carrier Name",
-        inputValue: "IGOR TRANSPORT INC"
-    },
-    {
-        subHeading: "Carrier ID",
-        inputValue: "123569"
-    },
-    {
-        subHeading: "Carrier SCAC Code",
-        inputValue: "525689"
-    },
-    {
-        subHeading: "Carrier Primary Business Email Address",
-        inputValue: "email@schneider.com"
-    },
-    {
-        subHeading: "Carrier single Line Address",
-        inputValue: "Green Bay, Wisconsin, USA"
-    },
-    {
-        subHeading: "Carrier Phone Number",
-        inputValue: "+158 963 5260"
-    },
-    {
-        subHeading: "Carrier Contact",
-        inputValue: "John Smith"
-    },
-    {
-        subHeading: "Email",
-        inputValue: "Igor.Smith@schneider.com"
-    },
-    {
-        subHeading: "contact",
-        inputValue: "+158 963 5260"
-    }
-];
-const carrierProfileInsurance = [
-    {
-        subHeading: "Type",
-        inputValue: "AUTO"
-    },
-    {
-        subHeading: "Expiry",
-        inputValue: "12/31/2020"
-    },
-    {
-        subHeading: "Coverage Amount",
-        inputValue: "$30,000"
-    }
-];
-const carrierProfileInsurance2 = [
-    {
-        subHeading: "Type",
-        inputValue: "CARGO"
-    },
-    {
-        subHeading: "Expiry",
-        inputValue: "12/31/2020"
-    },
-    {
-        subHeading: "Coverage Amount",
-        inputValue: "$1,000,000.00"
-    }
-]
+
+
 class CarrierProfilePage extends Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -85,9 +22,8 @@ class CarrierProfilePage extends Component<any, any> {
                         <IonList >
                             {carrierProfile.map((v, k) => (
                                 <IonItem mode="ios" key={k} className="carrier-profile-ionitem">
-                                    <IonLabel mode="ios" position="floating">{v.subHeading}</IonLabel>  
+                                    <IonLabel mode="ios" position="floating" className="carrier-profile-label">{v.subHeading}</IonLabel>  
                                     <IonInput type="text" className="profile-form-control" name="origin" value={v.inputValue} readonly />
-                                  
                                 </IonItem>
                                  
                             ))}

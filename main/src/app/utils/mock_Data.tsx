@@ -229,3 +229,116 @@ export const LOAD_DATA = [
         }
   
 ];
+export const searchbarList= [{
+    city: "54115 Eastview Drive, Bristol, IN"
+  },
+  {
+    city: "54115 Burdette Street, South Bend, IN"
+  },
+  {
+    city: "54115 Ivy Road, South Bend, IN"
+  },
+  {
+    city: "Dallas, TX"
+  },
+  {
+    city: "Dayton, Bristol, IN"
+  },
+  {
+    city: "Davie, South Bend, IN"
+  },
+  {
+    city: "Davenport, South Bend, IN"
+  }]
+  export const ManageCardData = [
+	{
+		cradImg: "assets/images/Profile_icon.png",
+		profileHeading: "User Profile",
+		profileRouting:"/app/ProfileDetails"
+	
+	},
+	{
+		cradImg: "assets/images/Carrier_profile_icon.png",
+		profileHeading: "Carrier Profile",
+		profileRouting:"/app/CarrierProfileDetails"
+		
+	},
+	{
+		cradImg: "assets/images/noun_Manage Account_1182506 (1).png",
+		profileHeading: "Manage Users",
+		profileRouting:"/app/ManageUser"
+	
+	},
+	{
+		cradImg: "assets/images/Post_truck.png",
+		profileHeading: "Manage Truck/ Lane Postings",
+		profileRouting:"/app/ManageTruck"
+	
+	}
+]
+export const carrierProfile = [
+    {
+        subHeading: "Carrier Name",
+        inputValue: "IGOR TRANSPORT INC"
+    },
+    {
+        subHeading: "Carrier ID",
+        inputValue: "123569"
+    },
+    {
+        subHeading: "Carrier SCAC Code",
+        inputValue: "525689"
+    },
+    {
+        subHeading: "Carrier Primary Business Email Address",
+        inputValue: "email@schneider.com"
+    },
+    {
+        subHeading: "Carrier single Line Address",
+        inputValue: "Green Bay, Wisconsin, USA"
+    },
+    {
+        subHeading: "Carrier Phone Number",
+        inputValue: "+158 963 5260"
+    },
+    {
+        subHeading: "Carrier Contact",
+        inputValue: "John Smith"
+    },
+    {
+        subHeading: "Email",
+        inputValue: "Igor.Smith@schneider.com"
+    },
+    {
+        subHeading: "contact",
+        inputValue: "+158 963 5260"
+    }
+];
+export const carrierProfileInsurance = [
+    {
+        subHeading: "Type",
+        inputValue: "AUTO"
+    },
+    {
+        subHeading: "Expiry",
+        inputValue: "12/31/2020"
+    },
+    {
+        subHeading: "Coverage Amount",
+        inputValue: "$30,000"
+    }
+];
+export const carrierProfileInsurance2 = [
+    {
+        subHeading: "Type",
+        inputValue: "CARGO"
+    },
+    {
+        subHeading: "Expiry",
+        inputValue: "12/31/2020"
+    },
+    {
+        subHeading: "Coverage Amount",
+        inputValue: "$1,000,000.00"
+    }
+]

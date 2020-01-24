@@ -57,10 +57,14 @@ class TabHeader extends React.Component<any, State> {
       {this.props.loadDetailsTab ? 
         <div className="header_title header_back_button">
         <IonRow>
-         
-          <IonCol size="1"><IonBackButton text="" defaultHref="/app/home"><img alt="logo" src="assets/icon/arrow-right.svg"/></IonBackButton></IonCol>
+           
+          <IonCol size="1"><IonBackButton text="" defaultHref="/app/home"></IonBackButton></IonCol>
           <IonCol size="9">{this.props.Title}</IonCol>
-          <IonCol size="2"><img src="assets/icon/Map.png" alt="icon"/></IonCol>
+          {this.props.Title === "FAQ" ?
+            <IonCol size="2"><img src="assets/icon/menu_search.svg" alt="icon"/></IonCol>
+          :""
+          }
+          
         </IonRow>
         
         </div>

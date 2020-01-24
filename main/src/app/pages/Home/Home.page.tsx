@@ -45,10 +45,10 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
         </IonSegment>
       </IonHeader>
       {data.length > 0 && <div className="short-div">
-        {segment.name === "Recommended" &&
+        {(segment.name === "Recommended" || segment.name === "WatchList") &&
           <IonRow class="short-row">
             <IonCol size="5" class="rec_text">
-              <b>{data.length}</b> Recommendations
+              <b>{data.length}</b> {segment.name === "Recommended" ? "Recommendations" : "Watched Loads"} 
             </IonCol>
             <IonCol size="7" class="sort_select">
               <div className="select_div">

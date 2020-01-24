@@ -88,7 +88,7 @@ class LoadDetailsPage extends Component<any, any> {
 						<IonHeader className="page-header load_details_header">
 							<div className="header_title header_back_button">
 								<IonRow>
-									<IonCol size="1"><IonBackButton text="" defaultHref="/app/home"><img alt="logo" src="assets/icon/arrow-right.svg"/></IonBackButton></IonCol>
+									<IonCol size="1"><IonBackButton text="" defaultHref="/app/home"></IonBackButton></IonCol>
 									<IonCol size="9">{"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")}</IonCol>
 									<IonCol size="2"><img src="assets/icon/Map.png" alt="icon" /></IonCol>
 								</IonRow>

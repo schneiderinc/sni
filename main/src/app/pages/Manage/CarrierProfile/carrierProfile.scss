@@ -9,10 +9,12 @@
     font-size:14px;
     color: black;
 font-family:$font-stack;
-padding-bottom: 13.5px;
+bottom:7px;
 }
 .carrier-card{
     margin-top: 21.5px;
+    box-shadow:0px 3px 6px #3A4C8212;
+    border: 0.5px solid #DEDEDE;
 }  
 .certificate-png{
     width:35.5px !important;
@@ -21,8 +23,12 @@ padding-bottom: 13.5px;
 .certificate-card{
     height: 81px;
     padding: 18px 10px 15.5px 13px;
+    box-shadow:0px 3px 6px #3A4C8212;
+    border: 0.5px solid #DEDEDE;
 }
-
+.carrier-profile-label{
+    padding-top:5px;
+}
 .Hazmat{
     color: black;
     margin-top: 9px !important;
@@ -42,7 +48,9 @@ padding-bottom: 13.5px;
         font-family: $font-stack;
 }
 .carrier-profile-ionitem{
-    width:95%
+    width:100%;
+    padding-right: 15px;
+    top: 1px;
 }
 .carrier-ionitem2{
     padding-top: 16.52px;
@@ -65,4 +73,6 @@ padding-bottom: 13.5px;
 }
 .insurance-carrier-card{
     margin-top: 11.5px;
+    box-shadow:0px 3px 6px #3A4C8212;
+    border: 0.5px solid #DEDEDE;
 }

@@ -2,7 +2,7 @@ import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonDa
 import React, { PureComponent } from 'react';
 import './NewPage.scss';
 import { withRouter, RouteComponentProps } from 'react-router';
-
+import {searchbarList} from 'app/utils/mock_Data'
 
 interface newProps extends RouteComponentProps {history:any , data:any };
 class NewPage extends PureComponent<newProps, any> {
@@ -16,33 +16,12 @@ class NewPage extends PureComponent<newProps, any> {
     Destination_Radius: 100,
     favorite: false,
     searchResultPage: false,
-    searchabarList: [{
-      city: "54115 Eastview Drive, Bristol, IN"
-    },
-    {
-      city: "54115 Burdette Street, South Bend, IN"
-    },
-    {
-      city: "54115 Ivy Road, South Bend, IN"
-    },
-    {
-      city: "Dallas, TX"
-    },
-    {
-      city: "Dayton, Bristol, IN"
-    },
-    {
-      city: "Davie, South Bend, IN"
-    },
-    {
-      city: "Davenport, South Bend, IN"
-    }],
+    searchabarList:searchbarList,
     searchQuery: "",
     showSuggestions: false,
     originSearchResults: [],
     showSuggestions2: false,
     destinationSearchResults: [],
-
     newSearch: {}
   }
 
@@ -118,6 +97,8 @@ class NewPage extends PureComponent<newProps, any> {
           }
         })
       })
+    }else{
+      this.setState({ showSuggestions: false })
     }
   }
   handleDestination = (e: any) => {
@@ -133,16 +114,21 @@ class NewPage extends PureComponent<newProps, any> {
           }
         })
       })
+    }else{
+      this.setState({ showSuggestions2: false })
     }
   }
   SelectedOrigin = (originIndex: number) => {
     if (this.state.originSearchResults && this.state.originSearchResults.length > 0) {
+      this.setState({showSuggestions: false})
       this.setState(() => (
-        { origin: this.state.originSearchResults[originIndex]["city"] }
+        { origin: this.state.originSearchResults[originIndex]["city"]}
       ))
+    
+        
      
     }
-    this.setState({ showSuggestions: false });
+  
   
   }
   SelectedDestination = (destinationIndex: number) => {
@@ -173,7 +159,7 @@ class NewPage extends PureComponent<newProps, any> {
                 </IonItem>
 
                 {this.state.showSuggestions ? <div className="suggestions_div">
-                  <IonItem className="suggestions_input_item">
+                <IonItem className="suggestions_input_item">
                     <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
                     <IonInput className="cts-form-control suggestions_input" type="text" value={this.state.origin} />
                   </IonItem>

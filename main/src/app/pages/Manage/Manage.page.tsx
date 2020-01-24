@@ -1,94 +1,57 @@
 import React, { Component } from 'react';
-
-import { IonHeader, IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent, IonBadge } from '@ionic/react';
-
+import { IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent, IonBadge } from '@ionic/react';
 import './Manage.scss';
 import { Link } from 'react-router-dom';
-
-
-const cardData = [
-	{
-		cradImg: "assets/images/Profile_icon.png",
-		profileHeading: "User Profile",
-		profileRouting:"/app/ProfileDetails"
-	
-	},
-	{
-		cradImg: "assets/images/Carrier_profile_icon.png",
-		profileHeading: "Carrier Profile",
-		profileRouting:"/app/CarrierProfileDetails"
-		
-	},
-	{
-		cradImg: "assets/images/noun_Manage Account_1182506 (1).png",
-		profileHeading: "Manage Users",
-		profileRouting:"/app/ManageUser"
-	
-	},
-	{
-		cradImg: "assets/images/Post_truck.png",
-		profileHeading: "Manage Truck/ Lane Postings",
-		profileRouting:"/app/ManageTruck"
-	
-	}
-]
-
-
+import {ManageCardData} from 'app/utils/mock_Data'
 
 class ManagePage extends Component<any, any> {
-	constructor(props: any) {
-		super(props);
-		this.state = {
-           
-		};
-	}
-	
-	render() {
-		return (
-			<IonPage>
-				<IonHeader className="manageHeader">
+    constructor(props: any) {
+        super(props);
+        this.state = {
+        };
+    }
 
-					<div className="profileHeader">
-						<img alt="profile" src="assets/images/man@2x.png" className="profileImg">
+    render() {
+        return (
+            <IonPage>
+                <IonContent>
+					<div className="profileHeader manageHeader">
+                        <img alt="profile" src="assets/images/man@2x.png" className="profileImg">
+                        </img>
+                        <IonBadge className="editBadge">    <
+                            img alt="profile" src="assets/images/Edit.png" className="profileEditIcon" ></img>
+                        </IonBadge>
+                        <div className="profileName">Igor Smith</div>
+                        <div className="Dispatcher">Dispatcher</div>
+                        <div className="profileEmail">igor@schneider.com</div>
+                    </div>
+                    <div className="card_content_background">
+						<div className="cardContent-space">
+						{ManageCardData.map((v:any, k:number) => (
 
-						</img>
-						<IonBadge className="editBadge">	<img alt="profile" src="assets/images/Edit.png" className="profileEditIcon" ></img></IonBadge>
-					
-						<div className="profileName">Igor Smith</div>
-						<div className="Dispatcher">Dispatcher</div>
-						<div className="profileEmail">igor@schneider.com</div>
+								<Link to={v.profileRouting} key={k}><IonCard className="profileCard">
+									<IonCardContent className="profile-cardContent">
+										<IonRow className="profile-card-row">
+											<IonCol size='2'>
+												<img alt="profile" src={v.cradImg} className="profileIcon"></img>
+											</IonCol>
+											<IonCol size='9'>
+												<p className="carrier-profile">{v.profileHeading}</p>
+											</IonCol>
+											<IonCol size='1' className="manage-profile-arrow-col">
+												<img src="assets/images/Arrow.png" alt="logo" className="profile-arrow" />
+											</IonCol>
+										</IonRow>
+									</IonCardContent>
+								</IonCard>
+								</Link>
+							))}
+						</div>
 					</div>
-
-				</IonHeader>
-				<IonContent>
-					<div className="cardContent-space">
-					{cardData.map((v:any, k:number) => (
-							<Link to={v.profileRouting} key={k}><IonCard className="profileCard">
-								<IonCardContent>
-                                    <IonRow className="profile-card-row">
-										<IonCol size='2'>
-											<img alt="profile" src={v.cradImg} className="profileIcon"></img>
-									    </IonCol>
-										<IonCol size='10'>
-											<IonRow>
-											<IonCol size='11'><p className="carrier-profile">{v.profileHeading}</p></IonCol>
-											<IonCol size='1'><img src="assets/images/Arrow.png" alt="logo" className="profile-arrow"  /></IonCol>
-											</IonRow>
-											
-											
-										</IonCol>
-									</IonRow>
-								</IonCardContent>
-							</IonCard>
-							</Link>
-
-						))}
-
-					</div>
-				</IonContent>
-			
-			</IonPage>
-		);
-	}
+                </IonContent>
+            </IonPage>
+        );
+    }
 }
 export default ManagePage;
+
