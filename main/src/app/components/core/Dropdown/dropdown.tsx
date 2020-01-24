@@ -17,8 +17,7 @@ class Dropdown extends Component<any, any>{
         this.setState({ clickedOption: option });
     }
     onConfrim=(value: any)=>{
-        console.log(value,"vaalue")
-        this.setState({selectedOption:this.state.clickedOption});
+         this.setState({selectedOption:this.state.clickedOption});
         this.sortBy(value);
     }
     dropdownClick = () => {
@@ -30,15 +29,13 @@ class Dropdown extends Component<any, any>{
         this.setState({ asc: !asc })
         if (asc) {
             let sortedList = [...loadData].sort((a: any, b: any) => (a[x] > b[x] ? 1 : -1));
-            console.log(sortedList,"sorted")
-            this.setState({ isDropdown:false})
+           this.setState({ isDropdown:false})
             this.props.sortedData(sortedList);
         }
 
         else {
             let sortedList = [...loadData].sort((a: any, b: any) => (a[x] > b[x] ? -1 : 1));
-            console.log(sortedList,"sorted")
-           this.setState({isDropdown: false })
+            this.setState({isDropdown: false })
             this.props.sortedData(sortedList);
         }
     }

@@ -1,3 +1,6 @@
+
+@import  "../../../../theme/variables.scss";
+@import  "../../../../theme/responsive-styles.scss";
 .carrier-subheading{
     font-size: 12px;
     color: #555555;
@@ -5,7 +8,7 @@
 .profile-form-control{
     font-size:14px;
     color: black;
-font-family:var(--ion-font-family);
+font-family:$font-stack;
 padding-bottom: 13.5px;
 }
 .carrier-card{
@@ -25,6 +28,7 @@ padding-bottom: 13.5px;
     margin-top: 9px !important;
     background: var(--ion-item-background,transparent);
     font-size: 14px;
+    font-family: $font-stack;
 }
 .HazmatDate{
     margin-top: 9px !important;
@@ -35,6 +39,7 @@ padding-bottom: 13.5px;
    color:var(--ion-color-primary);
     padding-left: 23px;
         padding-top: 7px;
+        font-family: $font-stack;
 }
 .carrier-profile-ionitem{
     width:95%
@@ -52,7 +57,7 @@ padding-bottom: 13.5px;
     padding-bottom: 6px;
 }
 .Insurance-png{
-    width:57px !important;
+    width: 28.78px !important;
     height:35.16px;
 }
 .insuranceText{

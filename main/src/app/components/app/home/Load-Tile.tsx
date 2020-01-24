@@ -17,7 +17,7 @@ class LoadTile extends React.Component<any, any> {
   public render() {
     return (
       <>
-      <IonCard className="ion-card" routerLink={`/app/home/${this.props.schneider_loads_id}`} >
+      <IonCard className="ion-card" routerLink={`/app/${this.props.module}/${this.props.schneider_loads_id}`} >
               <IonCardContent className="card-content">
                 {/* <IonGrid>
                 <LoadTileHeader origin_city = {this.__updatedLoads.origin_city} origin_from_date = {this.__updatedLoads.origin_from_date} destination_city = {this.__updatedLoads.destination_city} destination_from_date = {this.__updatedLoads.destination_from_date} />

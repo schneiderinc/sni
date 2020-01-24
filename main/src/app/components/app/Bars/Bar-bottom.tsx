@@ -5,10 +5,14 @@ import {
   IonTabs,
   IonTabBar,
   IonTabButton,
-  IonLabel
+  IonLabel,
+  IonIcon
+
+
 } from "@ionic/react";
 import Home from "app/pages/Home/Home.page";
 import { SearchContainer } from "app/containers/SearchContainer";
+import { SearchResultContainer } from "app/containers/SearchContainer/SearchResultContainer";
 // import { LogOutContainer } from "app/containers/LogOutContainer";
 import { ManageContainer } from "app/containers/ManageContainer";
 import { ExecuteContainer } from "app/containers/ExecuteContainer";
@@ -33,10 +37,10 @@ const RootLevelTabs : React.FC<MainTabsProps> = () => {
             <IonTabs>
               <IonRouterOutlet>
 
-                <Route path="/app/search" render={(props:any)=><SearchContainer {...props} />} />
+                <Route path="/app/search" render={(props:any)=><SearchContainer {...props} />} exact />
+                <Route path="/app/search/results" component={ SearchResultContainer } exact />
                 <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
-                <Route path="/app/home/:id" component={LoadDetailsContainer} />
-                <Route path="/app/loaddetails" component={(props:any)=><LoadDetailsContainer {...props} />}/>
+                <Route path="/app/(home|search)/:id" component={LoadDetailsContainer} />
                 <Route path="/app/menu/faq" component={FAQMenuPage}/>
                 <Route path="/app/ProfileDetails" component={ProfileContainer} />
                 <Route path="/app/CarrierProfileDetails" component={CarrierProfileContainer} />
@@ -63,24 +67,24 @@ const RootLevelTabs : React.FC<MainTabsProps> = () => {
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
                 <IonTabButton tab="home" href="/app/home" >
-                  <img alt="logo" src="assets/icon/Path 1042@2x.png" width="26px" height="22.38px" color="var(--ion-color-primary)" />
+                  <IonIcon src="assets/icon/home_icon.svg"></IonIcon>
                   <IonLabel class="tab_footer_label">HOME</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="search" href="/app/search">
-                  <img alt="logo" src="assets/icon/Search icon@2x.png" width="25px" height="25px"  />
+                  <IonIcon src="assets/icon/search_icon.svg"></IonIcon>
                   <IonLabel class="tab_footer_label">SEARCH</IonLabel>
                 </IonTabButton>
 
                 <IonTabButton tab="execute" href="/app/execute" >
-                  <img alt="logo" src="assets/icon/Execute icon@2x.png" width="27px" height="23.71px" />
+                  <IonIcon src="assets/icon/execute_icon.svg"></IonIcon>
                   <IonLabel class="tab_footer_label">EXECUTE</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="manage" href="/app/manage" >
-                  <img alt="logo" src="assets/icon/Manage@2x.png" width="26.95px" height="27.21px" />
+                  <IonIcon src="assets/icon/manage_icon.svg"></IonIcon>
                   <IonLabel class="tab_footer_label_manage">MANAGE</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="more" href="/app/more">
-                  <img alt="logo" src="assets/icon/menu@2x.png" width="22px" height="17px" />
+                <IonIcon src="assets/icon/more_icon.svg"></IonIcon>
                   <IonLabel class="tab_footer_label_more">MORE</IonLabel>
                 </IonTabButton>
 

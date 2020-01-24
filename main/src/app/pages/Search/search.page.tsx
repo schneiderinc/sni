@@ -1,29 +1,40 @@
 
-import { Route, Redirect} from 'react-router-dom';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './search.page.scss'
-import { IonContent, IonPage } from '@ionic/react';
-import { TabHeader } from 'app/components/app/Bars/Bar-header';
-import { NewContainer } from 'app/containers/SearchContainer/NewContainer';
-import { RecentContainer } from 'app/containers/SearchContainer/RecentContainer';
-import { FavouriteContainer } from 'app/containers/SearchContainer/FavouriteContainer';
-import { SearchResultContainer } from "app/containers/SearchContainer/SearchResultContainer";
+import { IonContent, IonPage, IonSegment, IonSegmentButton, IonHeader, IonLabel } from '@ionic/react';
+import { SectionContainer } from "app/containers/SearchContainer/sectionContainer";
 
-class SearchPage extends Component<any, any> {
-	
-	render() {
-		return (
-			<IonPage>
-			<TabHeader {...this.props} route="search" />
-			<IonContent>
+interface SearchProps { };
+const Search: React.FC<SearchProps> = ({ }) => {
+	const [segment, setSegment] = useState<any>({ name: 'New', data: {} });
+	return (
+		<IonPage> 
+			<IonHeader className="page-header">
+				<div id="header-title">{segment.name === "New" ? "New Search" : segment.name === "Recent" ? "Recent Search" : "Favorite Search"}</div>
+
+				<IonSegment mode="ios" onIonChange={(e) => setSegment({ name: e.detail.value as any, data: {} })} class="segment_control_tabs segment_control_tabs_search">
+					<IonSegmentButton mode="ios" value="New" checked={segment.name === 'New'}>
+						<IonLabel>New</IonLabel>
+					</IonSegmentButton>
+					<IonSegmentButton mode="ios" value="Recent" checked={segment.name === 'Recent'}>
+						<IonLabel>Recent</IonLabel>
+					</IonSegmentButton>
+					<IonSegmentButton mode="ios" value="Favorite" checked={segment.name === 'Favorite'}>
+						<IonLabel>Favorite</IonLabel>
+					</IonSegmentButton>
+				</IonSegment>
+			</IonHeader>
+			<IonContent className="ion-padding load-page-content">
+				<SectionContainer section={segment.name} />
+			</IonContent>
+			{/* <IonContent>
 				<Route path="/app/search/new" component={NewContainer} />
 				<Route path="/app/search/recent" component={RecentContainer} />
 				<Route path="/app/search/favorite" component={FavouriteContainer} />
 				<Route path="/app/search/results" render={ (props:any)=>(<SearchResultContainer {...props} />)}/>
 				<Route path="/app/search" render={() => <Redirect to="/app/search/new" />} exact />
-			</IonContent>
+			</IonContent> */}
 		</IonPage>
-		);
-	}
+	);
 }
-export default SearchPage;
+export default Search;

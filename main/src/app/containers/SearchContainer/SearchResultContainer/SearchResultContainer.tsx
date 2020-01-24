@@ -1,56 +1,47 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import useInjectSaga from "app/utils/injectSaga";
 import useInjectReducer from "app/utils/injectReducer";
-import { makeSelectHome } from "../../../selectors/Home/selector";
-import { Recommended } from 'app/models/home/Loads.model';
-import reducer from "../../../reducers/Home/reducer";
-import saga from "../../../saga/Home/saga";
-import { updateData } from "app/actions/Home/action";
 import { getLoading } from "../../../selectors/selector";
 import { createStructuredSelector } from "reselect";
 import { SearchResultPage } from "app/pages/Search/SearchResults";
+import { makeSearch } from "app/selectors/Search/selector";
+import reducer from "app/reducers/Search/reducer";
+import saga from "app/saga/Search/Search.saga";
+import { SEARCH_DATA } from "app/actions/Search/action";
+import { withRouter, RouteComponentProps } from 'react-router';
 
-const key = "carrier";
-class SearchResultContainer extends PureComponent<any, any> {
-  __model:Recommended;
-  constructor (props:any) {
-    super(props);
-   this.__model = new Recommended();
+const key = "search";
+interface ResultProps extends RouteComponentProps {searchData:any,location:any,data:any, loading:any,history:any  };
+const SearchResultContainer: React.FC<ResultProps> = ({searchData,location,data, loading, history}) => {
+  
+  if (data.length === 0 && !loading) {
+    searchData(location.state.params);
   }
-  async __setOfflineData(__props:any){
-    await this.__model.persistLoads(__props.data);
-    return __props;
-  }
-  getLoads(){
-    if (this.props.data.length === 0 && !this.props.loading) {
-      this.props.updateData();
-    }
-  }
-  render() {
-    return <SearchResultPage {...this.props} getLoads={this.getLoads.bind(this)} />;
-  }
+
+  return (<SearchResultPage results={data} params={location.state ? location.state.params:{}} history={history} />);
 } 
+
 
 const mapStateToProps = createStructuredSelector({
   loading: getLoading(),
-  data: makeSelectHome()
+  data: makeSearch() 
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  updateData: () => dispatch(updateData())
+  searchData: (data: any) => dispatch(SEARCH_DATA(data))
 });
 
 const withConnect = connect(
   mapStateToProps,
   mapDispatchToProps
 );
-const withReducer = useInjectReducer({ key, reducer });
-const withSaga = useInjectSaga({ key, saga });
+const __withReducer = useInjectReducer({ key, reducer });
+const __withSaga = useInjectSaga({ key, saga });
 
 export default compose(
-  withSaga,
-  withReducer,
+  __withSaga,
+  __withReducer,
   withConnect
-)(SearchResultContainer);
+)(withRouter(SearchResultContainer));

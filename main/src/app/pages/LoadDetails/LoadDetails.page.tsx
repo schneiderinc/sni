@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg, IonIcon } from '@ionic/react';
-import { TabHeader } from 'app/components/app/Bars/Bar-header'
+import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg, IonIcon, IonHeader, IonBackButton } from '@ionic/react';
 import { LoadTileHeader } from 'app/components/app/home/Load-Tile-Header';
 import { LoadTileFooter } from 'app/components/app/home/Load-Tile-Footer';
 import { StopDetails } from 'app/schemas/Loads/Loads.schema';
 import StopDetailsCard from 'app/components/app/StopDetails/StopDetails';
 import StopTracker from 'app/components/app/StopDetails/StopTracker';
 import './LoadDetails.scss';
-const mock_document_details =[
+
+const mock_document_details = [
 	{
-		"document_name":"Tender Document Name",
-		"uploaded_by":"Joanne",
-		"uploaded_time":"Nov 16,10:00 AM",
-		"document_type":"Tender document",
+		"document_name": "Tender Document Name",
+		"uploaded_by": "Joanne",
+		"uploaded_time": "Nov 16,10:00 AM",
+		"document_type": "Tender document",
 	},
 	{
-		"document_name":"Tender Document Name",
-		"uploaded_by":"Joanne",
-		"uploaded_time":"Nov 16,10:00 AM",
-		"document_type":"Tender document",
+		"document_name": "Tender Document Name",
+		"uploaded_by": "Joanne",
+		"uploaded_time": "Nov 16,10:00 AM",
+		"document_type": "Tender document",
 	},
 	{
-		"document_name":"Tender Document Name",
-		"uploaded_by":"Joanne",
-		"uploaded_time":"Nov 16,10:00 AM",
-		"document_type":"Tender document",
+		"document_name": "Tender Document Name",
+		"uploaded_by": "Joanne",
+		"uploaded_time": "Nov 16,10:00 AM",
+		"document_type": "Tender document",
 	},
-	
+
 ]
 const DocumentDetailsCard = (props: any) => {
 	return (
-		<IonGrid class="document_details">
+		<IonGrid class="document_details" onClick = {() => props.showPdf(props.details.document_name)}>
 			<IonRow>
 				<IonCol size="11">
 					<IonRow>
@@ -74,16 +74,26 @@ class LoadDetailsPage extends Component<any, any> {
 	loadStops() {
 		this.setState({ showStops: !this.state.showStops });
 	}
+	showPdf = (name: any) =>{
+		console.log("hi" + name);
+	}
 	render() {
 		const loadDetails = this.props.loadDetails;
 		const stopCount = this.props.stopCount;
 		const stop_details = this.props.stopDetails;
-
 		return (
 			<>
 				{loadDetails ?
 					<IonPage>
-						<TabHeader className="load_details_header" Title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} loadDetailsTab={true} {...this.props} />
+						<IonHeader className="page-header load_details_header">
+							<div className="header_title header_back_button">
+								<IonRow>
+									<IonCol size="1"><IonBackButton text="" defaultHref="/app/home"><img alt="logo" src="assets/icon/arrow-right.svg"/></IonBackButton></IonCol>
+									<IonCol size="9">{"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")}</IonCol>
+									<IonCol size="2"><img src="assets/icon/Map.png" alt="icon" /></IonCol>
+								</IonRow>
+							</div>
+						</IonHeader>
 						<IonContent className="ion-padding custom-padding load-page-content">
 							<IonCard className="loadDetails_card">
 								<IonCardContent className="card-content">
@@ -150,14 +160,14 @@ class LoadDetailsPage extends Component<any, any> {
 								<IonCardContent class={`document_details_card ${this.state.showDocument ? 'fadeout' : 'fadein'}`}>
 									{
 										mock_document_details.map((details: any, index: any) => (
-											<DocumentDetailsCard details = {details} key={index}/>
+											<DocumentDetailsCard details={details} key={index} showPdf = {this.showPdf}/>
 										))
 									}
-									
-											{/* <div className="document_details_name"><b>Tender Document Name</b></div>
+
+									{/* <div className="document_details_name"><b>Tender Document Name</b></div>
 											<div className="document_details_data">By Joanne | Nov 16,10:00 AM</div>
 											<div className="document_details_data">Document Type : <b>Tender document</b></div> */}
-									
+
 								</IonCardContent>
 							</IonCard>
 							<IonCard class="ion-card" >

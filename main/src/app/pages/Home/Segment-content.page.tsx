@@ -17,7 +17,7 @@ const SegmentContent: React.FC<SegmentProps> = ({type, loads, setView, load, isl
         {loads.length ? <Loads loads={loads} >{
           ({ loads }: { loads?: any }) => {
             return <IonList  className="loadTilePad">
-              {loads.map((load: ILoads, index:number) => <LoadTile key={index} {...load} details={()=>{getDetails(load)}} />)}
+              {loads.map((load: ILoads, index:number) => <LoadTile key={index} {...load} details={()=>{getDetails(load)}} module="home"/>)}
             </IonList>
           }
         }

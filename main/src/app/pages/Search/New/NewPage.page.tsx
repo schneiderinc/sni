@@ -1,10 +1,11 @@
 import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonFooter, IonBadge } from '@ionic/react';
 import React, { PureComponent } from 'react';
 import './NewPage.scss';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 
-
-class NewPage extends PureComponent<any, any> {
+interface newProps extends RouteComponentProps {history:any , data:any };
+class NewPage extends PureComponent<newProps, any> {
   state = {
     origin: '',
     destination: '',
@@ -83,7 +84,9 @@ class NewPage extends PureComponent<any, any> {
       Destination_Radius: Destination_Radius,
       favorite: favorite
     }
-    this.props.search_Submit(__searchParams);
+    //this.props.search_Submit(__searchParams);
+
+    this.props.history.push("/app/search/results", { params: __searchParams });
     this.setState({ newSearch: Object.assign(__searchParams), searchResultPage: true })
   };
   Reset = () => {
@@ -132,21 +135,21 @@ class NewPage extends PureComponent<any, any> {
       })
     }
   }
-  SelectedOrigin = (k: any) => {
+  SelectedOrigin = (originIndex: number) => {
     if (this.state.originSearchResults && this.state.originSearchResults.length > 0) {
       this.setState(() => (
-        { origin: this.state.originSearchResults[k]["city"] }
+        { origin: this.state.originSearchResults[originIndex]["city"] }
       ))
      
     }
     this.setState({ showSuggestions: false });
-    console.log("show", this.state.showSuggestions, this.state.originSearchResults );
+  
   }
-  SelectedDestination = (k: any) => {
+  SelectedDestination = (destinationIndex: number) => {
 
     if (this.state.destinationSearchResults && this.state.destinationSearchResults.length > 0) {
       this.setState(() => (
-        { destination: this.state.destinationSearchResults[k]["city"] }
+        { destination: this.state.destinationSearchResults[destinationIndex]["city"] }
       ))
       this.setState({ showSuggestions2: false })
     }
@@ -175,8 +178,8 @@ class NewPage extends PureComponent<any, any> {
                     <IonInput className="cts-form-control suggestions_input" type="text" value={this.state.origin} />
                   </IonItem>
                   <ul className="suggestions">
-                    {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item">
-                      <li className="suggestions_list" key={k} onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
+                    {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item" key={k}>
+                      <li className="suggestions_list"  onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
                     ))}
 
                   </ul>
@@ -268,5 +271,5 @@ class NewPage extends PureComponent<any, any> {
   }
 }
 
-export default NewPage;
+export default withRouter(NewPage);
 

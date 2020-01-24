@@ -1,18 +1,19 @@
-
+@import  "../../../theme/variables.scss";
+@import  "../../../theme/responsive-styles.scss";
 .manageHeader{
     background: linear-gradient(180deg, #FCA364, #FD7D4F);
   
     height:256px;
 }
 .profileImg{
-    width: 111px;
-    height: 111px;
+    width: 108px;
+    height: 108px;
     border-radius: 50%;
 }
 .profileHeader{
     text-align: center;
     padding-top: 14%;
-    font-family: var(--ion-font-family);
+    font-family:$font-stack;
     .editBadge{
         width: 30px;
         height: 30px;
@@ -57,7 +58,7 @@
 .profileCard{
     height: 80px;
     margin: 7px 10px 5px 10px;
-    font-family:var(--ion-font-family);
+    font-family:$font-stack;
     box-shadow: 0px 3px 6px #3A4C8212;
     border: 0.5px solid #DEDEDE;
     color: black;
@@ -76,6 +77,7 @@
     }
 }
 .cardContent-space{
+    font-family:$font-stack;
     padding-top: 25px;
     border-top-left-radius: 24px;
   
@@ -105,7 +107,7 @@
     padding-bottom: 22.1px;
 }
 .profile-arrow{
-    width: 9.12px;
+    width: 6.12px !important;
    height: 13.39px;
     margin-top: 85%;
 }  

@@ -20,7 +20,6 @@ interface HomeProps { data: [], loading: any, updateData: any }
 const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
   const [segment, setSegment] = useState<any>({name:'Recommended', data:{}});
   const [loadData,setSortedLoad]=useState<any>([])
-  var __prevState:any ="";
   const sortedData=(data: any)=> {
   console.log(data,"data")
     setSortedLoad(data);
@@ -49,7 +48,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
         {segment.name === "Recommended" &&
           <IonRow class="short-row">
             <IonCol size="5" class="rec_text">
-              <b>{data.length}</b>   
+              <b>{data.length}</b> Recommendations
             </IonCol>
             <IonCol size="7" class="sort_select">
               <div className="select_div">

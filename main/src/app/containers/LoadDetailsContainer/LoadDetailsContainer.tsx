@@ -3,10 +3,9 @@ import LoadDetailsPage from 'app/pages/LoadDetails/LoadDetails.page';
 import { StopDetails } from 'app/schemas/Loads/Loads.schema';
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { withRouter, RouteComponentProps } from 'react-router';
+import { withRouter } from 'react-router';
 import { getLoad } from "../../selectors/Home/selector";
 
-interface OwnProps extends RouteComponentProps { };
 class LoadDetailsContainer extends Component<any, any> {
 
     constructor(props:any){

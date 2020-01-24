@@ -17,7 +17,7 @@ class ManageUserPage extends Component<any,any> {
 	
 		return (
 		  	<IonPage className="menu_page">
-			  	<TabHeader  Title="Manage User"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab} ProfileDetailsTab={true} />
+			  	<TabHeader  Title="Manage User"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab} loadDetailsTab={true} {...this.props}/>
 				<IonContent class="menu_page_content">
 					<h1>Manage User page</h1>
                     

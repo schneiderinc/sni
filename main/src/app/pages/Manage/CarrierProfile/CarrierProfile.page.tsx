@@ -79,7 +79,7 @@ class CarrierProfilePage extends Component<any, any> {
     render() {
         return (
             <IonPage className="menu_page">
-                <TabHeader Title="Carrier Profile" toggleBtn={this.state.toggleBtn} tab={this.state.tab} ProfileDetailsTab={true} />
+                <TabHeader Title="Carrier Profile"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab} {...this.props}/>
                 <IonContent >
                     <IonCard mode="md" className="carrier-card">
                         <IonList >
@@ -87,22 +87,24 @@ class CarrierProfilePage extends Component<any, any> {
                                 <IonItem mode="ios" key={k} className="carrier-profile-ionitem">
                                     <IonLabel mode="ios" position="floating">{v.subHeading}</IonLabel>  
                                     <IonInput type="text" className="profile-form-control" name="origin" value={v.inputValue} readonly />
-
+                                  
                                 </IonItem>
+                                 
                             ))}
                         </IonList>
+                        <div></div>
                     </IonCard>
                     <div className="certification-header">QUALIFICATION STATUS</div>
                     <IonCard mode="md" className="certificate-card">
                         <IonRow>
-                            <IonCol size='2'><img src="assets/images/Qualification.png" className="certificate-png" /></IonCol>
+                            <IonCol size='2'><img alt="logo" src="assets/images/Qualification.png" className="certificate-png" /></IonCol>
                             <IonCol size='6'><IonList className="Hazmat">Approved</IonList></IonCol>
                         </IonRow>
                     </IonCard>
                     <div className="certification-header">CERTIFICATION</div>
                     <IonCard mode="md" className="certificate-card">
                         <IonRow>
-                            <IonCol size='2'><img src="assets/images/Certificate.png" className="certificate-png" /></IonCol>
+                            <IonCol size='2'><img alt="logo" src="assets/images/Certificate.png" className="certificate-png" /></IonCol>
                             <IonCol size='6'><IonList className="Hazmat">HAZMAT</IonList></IonCol>
                             <IonCol size='4'><IonList className="HazmatDate">06/30/2021</IonList></IonCol>
                         </IonRow>
@@ -112,7 +114,7 @@ class CarrierProfilePage extends Component<any, any> {
                         <IonList >
                             <IonItem mode="ios" className="carrier-profile-ionitem carrier-ionitem2">
                                 <IonRow className="InsuranceRow">
-                                    <IonCol size='4'> <img src="assets/images/insurance_icon.png" className="Insurance-png" /></IonCol>
+                                    <IonCol size='4'> <img alt="logo" src="assets/images/insurance_icon.png" className="Insurance-png" /></IonCol>
                                     <IonCol size='8'><IonList className="Hazmat insuranceText">Insurance</IonList></IonCol>
                                 </IonRow>
                             </IonItem>
@@ -130,7 +132,7 @@ class CarrierProfilePage extends Component<any, any> {
                             <IonItem mode="ios" className="carrier-profile-ionitem carrier-ionitem2">
 
                                 <IonRow className="InsuranceRow">
-                                    <IonCol size='4'> <img src="assets/images/insurance_icon.png" className="Insurance-png " /></IonCol>
+                                    <IonCol size='4'> <img alt="logo" src="assets/images/insurance_icon.png" className="Insurance-png " /></IonCol>
                                     <IonCol size='8'><IonList className="Hazmat insuranceText">Insurance</IonList></IonCol>
                                 </IonRow>
                                 </IonItem>

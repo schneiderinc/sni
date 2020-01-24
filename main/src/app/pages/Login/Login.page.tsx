@@ -15,8 +15,8 @@ type propTypes = PropTypes.InferProps<typeof props>;
 class LoginPage extends Component<propTypes> {
 
     state = {
-        username: '',
-        password: '',
+        username: 'ctstest@schneiderappb2c.onmicrosoft.com',
+        password: 'Sch@b123',
         rememberme: false
     }
     constructor(props: any){

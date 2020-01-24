@@ -49,7 +49,7 @@ class ManagePage extends Component<any, any> {
 				<IonHeader className="manageHeader">
 
 					<div className="profileHeader">
-						<img alt="profile" src="assets/images/Picture1@2x.png" className="profileImg">
+						<img alt="profile" src="assets/images/man@2x.png" className="profileImg">
 
 						</img>
 						<IonBadge className="editBadge">	<img alt="profile" src="assets/images/Edit.png" className="profileEditIcon" ></img></IonBadge>
@@ -63,7 +63,7 @@ class ManagePage extends Component<any, any> {
 				<IonContent>
 					<div className="cardContent-space">
 					{cardData.map((v:any, k:number) => (
-							<Link to={v.profileRouting}><IonCard  key={k} className="profileCard">
+							<Link to={v.profileRouting} key={k}><IonCard className="profileCard">
 								<IonCardContent>
                                     <IonRow className="profile-card-row">
 										<IonCol size='2'>
@@ -72,7 +72,7 @@ class ManagePage extends Component<any, any> {
 										<IonCol size='10'>
 											<IonRow>
 											<IonCol size='11'><p className="carrier-profile">{v.profileHeading}</p></IonCol>
-											<IonCol size='1'><img src="assets/images/Arrow.png" alt="logo" className="profile-arrow" /></IonCol>
+											<IonCol size='1'><img src="assets/images/Arrow.png" alt="logo" className="profile-arrow"  /></IonCol>
 											</IonRow>
 											
 											

@@ -59,7 +59,8 @@ class FavouritePage extends React.Component<any, any>{
         console.log("HAIIIII");
     }
     cardClick = (selectedIndex: number) => {
-        this.setState({ selectedCardId:selectedIndex });
+        const index = selectedIndex !== this.state.selectedCardId ? selectedIndex : null;
+        this.setState({ selectedCardId: index });
     }
     render() {
 
