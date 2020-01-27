@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg, IonIcon, IonHeader, IonBackButton } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardContent, IonGrid, IonItemDivider, IonCardHeader, IonButton, IonRow, IonCol, IonImg, IonIcon } from '@ionic/react';
 import { LoadTileHeader } from 'app/components/app/home/Load-Tile-Header';
 import { LoadTileFooter } from 'app/components/app/home/Load-Tile-Footer';
 import { StopDetails } from 'app/schemas/Loads/Loads.schema';
 import StopDetailsCard from 'app/components/app/StopDetails/StopDetails';
 import StopTracker from 'app/components/app/StopDetails/StopTracker';
 import './LoadDetails.scss';
+import AppHeader from 'app/components/app/Bars/Bar-header';
 
 const mock_document_details = [
 	{
@@ -34,7 +35,7 @@ const DocumentDetailsCard = (props: any) => {
 			<IonRow>
 				<IonCol size="11">
 					<IonRow>
-						<IonCol>{props.details.document_name}></IonCol>
+						<IonCol>{props.details.document_name}</IonCol>
 					</IonRow>
 					<IonRow>
 						<IonCol>By {props.details.uploaded_by} | {props.details.uploaded_time}</IonCol>
@@ -85,15 +86,7 @@ class LoadDetailsPage extends Component<any, any> {
 			<>
 				{loadDetails ?
 					<IonPage>
-						<IonHeader className="page-header load_details_header">
-							<div className="header_title header_back_button">
-								<IonRow>
-									<IonCol size="1"><IonBackButton text="" defaultHref="/app/home"></IonBackButton></IonCol>
-									<IonCol size="9">{"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")}</IonCol>
-									<IonCol size="2"><img src="assets/icon/Map.png" alt="icon" /></IonCol>
-								</IonRow>
-							</div>
-						</IonHeader>
+						<AppHeader title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} backUrl={"/app/"+this.props.module} isMap={true}/>
 						<IonContent className="ion-padding custom-padding load-page-content">
 							<IonCard className="loadDetails_card">
 								<IonCardContent className="card-content">

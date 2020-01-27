@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
-import { IonContent, IonList, IonRow, IonCol, IonSegment, IonSegmentButton, IonBadge, IonLabel, IonPage, IonHeader, IonImg } from '@ionic/react';
+import { IonContent, IonList, IonRow, IonCol, IonSegment, IonSegmentButton, IonBadge, IonLabel, IonPage } from '@ionic/react';
 import { Loads } from 'app/components/app/home/Loads';
 import { LoadTile } from 'app/components/app/home/Load-Tile';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
+import AppHeader from 'app/components/app/Bars/Bar-header';
 
 class SearchResultPage extends PureComponent<any, any> {
     constructor(props: any) {
@@ -24,10 +25,7 @@ class SearchResultPage extends PureComponent<any, any> {
         const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
         return (
             <IonPage>
-                <IonHeader className="page-header">
-                    <div id="header-title">Search Results</div>
-                    <IonImg slot="end" alt="logo" src="../../assets/icon/Edit.png" item-right class="header_edit_search_button" onClick={() => this.props.history.push("/app/search", { data: this.props.params })} />
-                </IonHeader>
+                <AppHeader title="Search Results" editData={() => this.props.history.push("/app/search", { data: this.props.params })}/>
                 <IonContent>
                     <div className="header_search_bubble">
                         {this.props.params && <IonSegment scrollable className="ion-segment">

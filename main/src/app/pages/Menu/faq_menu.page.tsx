@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
-
+import AppHeader from 'app/components/app/Bars/Bar-header';
 import { IonContent, IonPage, IonCard, IonCardHeader, IonCardContent, IonRow, IonCol} from '@ionic/react';
-import {TabHeader} from 'app/components/app/Bars/Bar-header'
 import './Menu.page.scss';
 
 class FAQMenuPage extends Component<any,any> {
 	constructor (props:any) {
-		super(props);
-	   	this.state = {
-			tab:false,
-            toggleBtn:false,
-            showTerms: false
+        super(props);
+        this.state = {
+            showContent: true
 		};
 	}
 	loadTerms = () => {
-		this.setState({ showTerms: !this.state.showTerms });
+		this.setState({ showContent: !this.state.showContent });
 	}
 	render() {
 		return (
 		  	<IonPage className="menu_page">
-			  	<TabHeader  Title="FAQ"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab} loadDetailsTab={true} {...this.props}/>
-				<IonContent class="	ion-padding load-page-content">
+                  <AppHeader title="FAQ" backUrl={"/app/"+this.props.module} isSearch={true} />
+				<IonContent class="ion-padding menu_list_page_content">
                 <IonCard class="ion-card" >
                     <IonCardHeader class="accordion-header" onClick={this.loadTerms}>
                         <span>Search Loads </span>
                         {
-                            this.state.showTerms ?
+                            this.state.showContent ?
                                 <i className="down"></i>
                                 :
                                 <i className="up"></i>
                         }
                     </IonCardHeader>
-                    <IonCardContent class={this.state.showTerms ? 'fadeout' : 'fadein'}>
+                    <IonCardContent class={this.state.showContent ? 'fadeout' : 'fadein'}>
                         <IonRow class="list_row">
                             <IonCol>
                                 <IonRow>
@@ -83,24 +80,13 @@ class FAQMenuPage extends Component<any,any> {
                 </IonCard>
                 <IonCard class="ion-card" >
                     <IonCardHeader class="accordion-header">
-                        <span>Assign Load</span>
-                        {
-                            this.state.showTerms ?
-                                <i className="down"></i>
-                                :
-                                <i className="up"></i>
-                        }
+                        <span>Assign Load</span> <i className="down"></i>
+                                
                     </IonCardHeader>
                 </IonCard>
                 <IonCard class="ion-card" >
                     <IonCardHeader class="accordion-header">
-                        <span>Manage User</span>
-                        {
-                            this.state.showTerms ?
-                                <i className="down"></i>
-                                :
-                                <i className="up"></i>
-                        }
+                        <span>Manage User</span> <i className="down"></i>
                     </IonCardHeader>
                 </IonCard>
 				</IonContent>

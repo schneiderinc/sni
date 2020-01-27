@@ -39,12 +39,24 @@ ion-header {
       --background: #F4F5F8;
       --color: #000000;
       padding: 0px 5px 0px 5px;
-      margin:15px auto;
-      margin-top: 12px;
+      margin:-18px auto;
       border:0.5px solid #FBA464;
       @media only screen  and (min-width :map-get($grid-breakpoints, xs)) {
           width: 275px;
         }
+  }
+ .page-header .header-desc{
+    height: 100%;;
+  }
+  .page-header ion-col{
+    height: 100%;
+    display: table;
+  }
+  .page-header ion-col *{
+    vertical-align: middle;
+    display: table-cell !important;
+    margin:auto;
+    
   }
   ion-segment-button,a{
       border-radius: 25px;
@@ -133,10 +145,8 @@ ion-header {
 }
 
 #header-title{
-  margin-bottom:10px;
   font-size:22px;
   color: #FFFFFF;
-  margin-top:40px;
   text-align: center;
 }
 
@@ -363,7 +373,7 @@ a{
   }
 }
 .segment_control_tabs{
-  width: 63.8vw;
+  width: 82.8vw;
   background: #F4F5F8;
   border: 0.5px solid #FBA464;
   height: 4.8vh;
@@ -376,7 +386,7 @@ a{
     border: none;
     height: 3.7vh;
     font-size: 14px;
-    font-family:$font-roboto ;
+    font-family:$font-stack ;
   }
   .segment-button-checked{
     box-shadow: 0 2px 5px #00000038;

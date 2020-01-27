@@ -124,13 +124,22 @@
   padding: 0 12px;
 }
 
-.login_logo_container{
+.login_logo_container, .login_logo_container_change{
   background: linear-gradient(180deg, $gradientTop, $gradientBottom);
   height: 183px;
+  -webkit-transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -o-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
   #header_logo {
     margin-top:75px;
+    -webkit-transition:  margin-top 0.5s ease-in-out;
+  -moz-transition:  margin-top 0.5s ease-in-out;
+  -o-transition:  margin-top 0.5s ease-in-out;
+  transition:  margin-top 0.5s ease-in-out;
   }
 }
+
 .login_logo_container_change{
   height: 100px;
   #header_logo {

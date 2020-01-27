@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonRow, IonSegment, IonSegmentButton, IonCol, IonLabel, IonHeader } from '@ionic/react';
+import { IonContent, IonPage, IonRow, IonCol, IonLabel } from '@ionic/react';
 import reducer from "../../reducers/Home/reducer";
 import saga from "../../saga/Home/saga";
 import { updateData } from "app/actions/Home/action";
@@ -13,6 +13,7 @@ import React, { useState } from 'react';
 import './Home.page.scss';
 import SegmentContent from 'app/pages/Home/Segment-content.page';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
+import AppHeader from 'app/components/app/Bars/Bar-header';
 
 const key = "carrier";
 interface HomeProps { data: [], loading: any, updateData: any }
@@ -21,9 +22,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
   const [segment, setSegment] = useState<any>({name:'Recommended', data:{}});
   const [loadData,setSortedLoad]=useState<any>([])
   const sortedData=(data: any)=> {
-  console.log(data,"data")
     setSortedLoad(data);
-    console.log(loadData,"data")
   }
  
   const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
@@ -32,18 +31,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
   }
   return (
     <IonPage>
-      <IonHeader className="page-header">
-        <div id="header-title">{segment.name === "Recommended" ? "Recommended Loads" : "Watched Loads"}</div>
-        
-        <IonSegment mode="ios" onIonChange={(e) => setSegment({name:e.detail.value as any, data:{}})} class="segment_control_tabs">
-          <IonSegmentButton mode="ios" value="Recommended" checked={segment.name === 'Recommended'} class="segment_recommended">
-          <IonLabel>Recommended</IonLabel>
-            </IonSegmentButton>
-          <IonSegmentButton mode="ios" value="WatchList" checked={segment.name === 'WatchList'}>
-          <IonLabel>WatchList</IonLabel> 
-            </IonSegmentButton>
-        </IonSegment>
-      </IonHeader>
+      <AppHeader title={segment.name === "Recommended" ? "Recommended Loads" : "Watched Loads"} getSegment={(e:any) => setSegment({name:e.detail.value as any, data:{}})} segments={['Recommended', 'WatchList']} activeSegment={segment.name}/>
       {data.length > 0 && <div className="short-div">
         {(segment.name === "Recommended" || segment.name === "WatchList") &&
           <IonRow class="short-row">

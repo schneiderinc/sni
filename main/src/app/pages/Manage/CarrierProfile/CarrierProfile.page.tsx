@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 
 import { IonContent, IonPage, IonLabel, IonCard, IonList, IonItem, IonInput, IonRow, IonCol } from '@ionic/react';
-import { TabHeader } from 'app/components/app/Bars/Bar-header';
+import AppHeader from 'app/components/app/Bars/Bar-header';
 import {carrierProfile,carrierProfileInsurance,carrierProfileInsurance2} from 'app/utils/mock_Data';
 import './carrierProfile.scss';
+import { CarrierInsuranceCard } from 'app/components/app/carrierInsuranceCard/carrierInsuranceCard';
 
 
 class CarrierProfilePage extends Component<any, any> {
     constructor(props: any) {
         super(props);
-        this.state = {
 
-        };
     }
     render() {
         return (
             <IonPage className="menu_page">
-                <TabHeader Title="Carrier Profile"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab} {...this.props}/>
+                <AppHeader title="Carrier Profile" backUrl={"/app/"+this.props.module} />
                 <IonContent >
+                    <div className="contact"><IonLabel className="contactLine">**</IonLabel>Contact Schneider if any of the fields need to be updated</div>
                     <IonCard mode="md" className="carrier-card">
                         <IonList >
                             {carrierProfile.map((v, k) => (
-                                <IonItem mode="ios" key={k} className="carrier-profile-ionitem">
+                                <IonItem mode="ios" key={k} className="carrier-profile-ionitem"  lines={k === carrierProfile.length-1 ? 'none': 'inset'}>
                                     <IonLabel mode="ios" position="floating" className="carrier-profile-label">{v.subHeading}</IonLabel>  
                                     <IonInput type="text" className="profile-form-control" name="origin" value={v.inputValue} readonly />
                                 </IonItem>
@@ -46,41 +46,8 @@ class CarrierProfilePage extends Component<any, any> {
                         </IonRow>
                     </IonCard>
                     <div className="certification-header">CARRIER INSURANCE</div>
-                    <IonCard mode="md" className="insurance-carrier-card">
-                        <IonList >
-                            <IonItem mode="ios" className="carrier-profile-ionitem carrier-ionitem2">
-                                <IonRow className="InsuranceRow">
-                                    <IonCol size='4'> <img alt="logo" src="assets/images/insurance_icon.png" className="Insurance-png" /></IonCol>
-                                    <IonCol size='8'><IonList className="Hazmat insuranceText">Insurance</IonList></IonCol>
-                                </IonRow>
-                            </IonItem>
-                            {carrierProfileInsurance.map((v, k) => (
-                                <IonItem mode="ios" key={k} className="carrier-profile-ionitem">
-                                    <IonLabel mode="ios" position="floating">{v.subHeading}</IonLabel>
-                                    <IonInput type="text" className="profile-form-control" name="origin" value={v.inputValue} readonly />
-                                </IonItem>
-                            )
-                            )}
-                        </IonList>
-                    </IonCard>
-                    <IonCard mode="md" className="insurance-carrier-card">
-                        <IonList >
-                            <IonItem mode="ios" className="carrier-profile-ionitem carrier-ionitem2">
-
-                                <IonRow className="InsuranceRow">
-                                    <IonCol size='4'> <img alt="logo" src="assets/images/insurance_icon.png" className="Insurance-png " /></IonCol>
-                                    <IonCol size='8'><IonList className="Hazmat insuranceText">Insurance</IonList></IonCol>
-                                </IonRow>
-                                </IonItem>
-                            {carrierProfileInsurance2.map((v, k) => (
-                                <IonItem mode="ios" key={k} className="carrier-profile-ionitem">
-                                    <IonLabel mode="ios" position="floating">{v.subHeading}</IonLabel>
-                                    <IonInput type="text" className="profile-form-control" name="origin" value={v.inputValue} readonly />
-                                </IonItem>
-                            )
-                            )}
-                        </IonList>
-                    </IonCard>
+                    <CarrierInsuranceCard carrierInsurance={carrierProfileInsurance} />
+                    <CarrierInsuranceCard carrierInsurance={carrierProfileInsurance2} />
                 </IonContent>
             </IonPage>
         );

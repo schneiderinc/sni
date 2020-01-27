@@ -254,25 +254,25 @@ export const searchbarList= [{
 	{
 		cradImg: "assets/images/Profile_icon.png",
 		profileHeading: "User Profile",
-		profileRouting:"/app/ProfileDetails"
+		profileRouting:"/app/manage/ProfileDetails"
 	
 	},
 	{
 		cradImg: "assets/images/Carrier_profile_icon.png",
 		profileHeading: "Carrier Profile",
-		profileRouting:"/app/CarrierProfileDetails"
+		profileRouting:"/app/manage/CarrierProfileDetails"
 		
 	},
 	{
 		cradImg: "assets/images/noun_Manage Account_1182506 (1).png",
 		profileHeading: "Manage Users",
-		profileRouting:"/app/ManageUser"
+		profileRouting:"/app/manage/ManageUser"
 	
 	},
 	{
 		cradImg: "assets/images/Post_truck.png",
 		profileHeading: "Manage Truck/ Lane Postings",
-		profileRouting:"/app/ManageTruck"
+		profileRouting:"/app/manage/ManageTruck"
 	
 	}
 ]

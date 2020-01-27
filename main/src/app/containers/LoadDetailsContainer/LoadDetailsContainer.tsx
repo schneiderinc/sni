@@ -72,7 +72,7 @@ class LoadDetailsContainer extends Component<any, any> {
 				stop_details.push(stopData[i]);
             }
 		}
-        return (<LoadDetailsPage {...this.props} loadDetails={loadDetails} stopDetails={stop_details} stopCount={stopCount}/>)
+        return (<LoadDetailsPage {...this.props} loadDetails={loadDetails} stopDetails={stop_details} module={this.props.match.params[0]} stopCount={stopCount}/>)
     }
 }
 ;

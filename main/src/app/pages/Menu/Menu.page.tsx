@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
 import { IonContent, IonPage, IonCard, IonList,IonLabel, IonItem } from '@ionic/react';
-import {TabHeader} from 'app/components/app/Bars/Bar-header'
 import './Menu.page.scss';
 import { Link } from 'react-router-dom';
+import AppHeader from 'app/components/app/Bars/Bar-header';
 
 const ListItem = (props: any) => {
 	const heading = props.headings.heading;
@@ -41,8 +40,8 @@ class MenuPage extends Component<any,any> {
 		const menuHeadingList = this.props.menuHeadingList;
 		return (
 		  	<IonPage className="menu_page">
-			  	<TabHeader  Title="Menu"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab}  />
-				<IonContent class="menu_page_content">
+				   <AppHeader title="Menu"  />
+			  		<IonContent class="menu_page_content">
 					{
 						menuHeadingList.map((headings: any, index:any)=>(
 							<ListItem key = {index} headings = {headings}/>

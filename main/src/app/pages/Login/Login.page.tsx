@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg, getPlatforms } from '@ionic/react';
+import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg } from '@ionic/react';
 import PropTypes from 'prop-types'
 import './Login.page.scss';
 
@@ -15,8 +15,8 @@ type propTypes = PropTypes.InferProps<typeof props>;
 class LoginPage extends Component<propTypes> {
 
     state = {
-        username: 'ctstest@schneiderappb2c.onmicrosoft.com',
-        password: 'Sch@b123',
+        username: '',
+        password: '',
         rememberme: false
     }
     constructor(props: any){
@@ -56,12 +56,8 @@ class LoginPage extends Component<propTypes> {
     }
 
     showPassword = () =>{
-        console.log('onclick');
-        console.log('platform::'+getPlatforms());
         let element = document.getElementsByName("password")[0];
         if(element instanceof HTMLElement){
-            console.log('onclick if');
-            console.log('platform::'+getPlatforms());
             if(element.getAttribute("type") === "password"){
                 element.setAttribute("type","text");
             }else {
@@ -70,15 +66,11 @@ class LoginPage extends Component<propTypes> {
         }
     }
     keyboardshowHandler = () =>{
-        console.log('keyboardShow');
-        console.log('platform::'+getPlatforms());
         const headerDiv = document.getElementsByClassName("login_logo_container")[0];
         headerDiv.setAttribute("class","login_logo_container login_logo_container_change");
        
     }
     keyboardhideHandler =() => {
-        console.log('keyboardHide');
-        console.log('platform::'+getPlatforms());
         const headerDiv = document.getElementsByClassName("login_logo_container")[0];
         headerDiv.setAttribute("class","login_logo_container");
     }

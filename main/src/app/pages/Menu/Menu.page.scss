@@ -7,7 +7,9 @@
     }
 }
 .menu_page_content{
-    --padding-top: 3.08vh;
+    --padding-top: 2.59vh !important;
+    --padding-start: 10px !important;
+    --padding-end: 10px !important;
 }
 .menu_list_item{
     --inner-padding-end: 1.62vw;
@@ -22,18 +24,32 @@
     color: #FF8A51;
     text-transform: uppercase;
     margin-left: 2.67vw;
-    font-family: $font-roboto;
+    font-family: $font-stack;
     padding-left: 3.204vw;
 }
 .menu_list_card{
     margin-bottom: 1.85vh;
     margin-top: 0.74vh;
+    box-shadow: 0 3px 6px #3A4C8212;
+    border: 0.5px solid #DEDEDE;
 }
 .list_row{
     border-bottom: 1px solid #3A4C8212;
+    padding-bottom: 10px !important;
 }
 .list_row_heading{
     font-size: 14px;
     color: #232323;
     font-family: $font-roboto;
+}
+.menu_page_card {
+    --padding-start: 11.5px;
+    --padding-end: 8.5px;
+}
+.menu_list_page_content{
+    --padding-top: 2.59vh !important;
+    ion-card-content{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }

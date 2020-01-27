@@ -114,22 +114,34 @@ font-size: 13px;
 }
 
 .tab_footer_label {
-  font-size: 10px;
-  margin-top: 9px;
+  font-size: 12px;
+  margin-top: 1px;
 }
 .tab_footer_label_manage{
-  font-size: 10px;
-  margin-top: 4px;
+  font-size: 12px;
+  margin-top: 0;
 }
 .tab_footer_label_more{
-  font-size: 10px;
-  margin-top: 13px;
+  font-size: 12px;
+  margin-top: 5px;
 }
 .tab-selected{
   color: $primary;
 }
 ion-tab-bar{
-  height: 64px;
+  height: 8.37vh;
+  --background: linear-gradient(180deg, #FFFFFF, #F3F3F3);
+  ion-icon {
+    height: 25px;
+    margin-bottom: 0;
+    width: 37px;
+  }
+  .manage_icon{
+    height: 28px;
+  }
+  .more_icon{
+    height:20px;
+  }
 }
 .ion-card{
   margin: 0px 1px 10px 1px !important;
@@ -151,4 +163,8 @@ ion-content{
   border: 1px solid #FF8A51;
   padding: 4px;
   border-width: 1.5px 1.5px 0 0;
+}
+ion-back-button{
+  --color: white !important;
+ 
 }

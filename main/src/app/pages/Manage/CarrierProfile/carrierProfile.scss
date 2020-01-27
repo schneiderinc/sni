@@ -12,7 +12,7 @@ font-family:$font-stack;
 bottom:7px;
 }
 .carrier-card{
-    margin-top: 21.5px;
+    margin: 11.5px 9px 11px 11px;
     box-shadow:0px 3px 6px #3A4C8212;
     border: 0.5px solid #DEDEDE;
 }  
@@ -31,14 +31,14 @@ bottom:7px;
 }
 .Hazmat{
     color: black;
-    margin-top: 9px !important;
     background: var(--ion-item-background,transparent);
     font-size: 14px;
     font-family: $font-stack;
 }
 .HazmatDate{
-    margin-top: 9px !important;
-    text-align: right;
+   text-align: right;
+   background: var(--ion-item-background,transparent);
+
 }
 .certification-header{
     font-size: 14px;
@@ -50,10 +50,10 @@ bottom:7px;
 .carrier-profile-ionitem{
     width:100%;
     padding-right: 15px;
-    top: 1px;
+   
 }
 .carrier-ionitem2{
-    padding-top: 16.52px;
+    padding-top: 5.52px;
 }
 .profile-form-control2{
     margin-bottom: 13px;
@@ -61,18 +61,30 @@ bottom:7px;
 .profile-form-control2 .input{
     padding-left: 6%;
 }
-.InsuranceRow{
-    padding-bottom: 6px;
-}
+
 .Insurance-png{
     width: 28.78px !important;
     height:35.16px;
 }
-.insuranceText{
-    text-align:center;
+.InsuranceCol{
+    text-align:left;
+    padding-left: 0;
 }
 .insurance-carrier-card{
     margin-top: 11.5px;
     box-shadow:0px 3px 6px #3A4C8212;
     border: 0.5px solid #DEDEDE;
+}
+.contactLine{
+    color: var(--ion-color-primary);
+    font-size: 12px;
+}
+.contact{
+    margin: 5% 2% 0% 4%;
+    font-size: 12px;
+    color: #707070;
+}
+.InsuranceRow{
+    width: 100%;
+    padding-bottom: 8px;
 }

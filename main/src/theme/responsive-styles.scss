@@ -46,8 +46,8 @@ ion-toolbar{
   ion-tab-bar
  {
   margin: 0;
-  padding-right: calc((100% - #{map-get($grid-breakpoints, xs)}) / 3);
-  padding-left: calc((100% - #{map-get($grid-breakpoints, xs)}) / 3);
+  // padding-right: calc((100% - #{map-get($grid-breakpoints, xs)}) / 3);
+  // padding-left: calc((100% - #{map-get($grid-breakpoints, xs)}) / 3);
     
 
  }

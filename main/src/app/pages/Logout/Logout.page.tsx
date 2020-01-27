@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { IonContent, IonPage, IonButton } from '@ionic/react';
-import {TabHeader} from 'app/components/app/Bars/Bar-header'
+import AppHeader from 'app/components/app/Bars/Bar-header';
 
 
 interface loadDetailsPageProps {
@@ -10,18 +10,13 @@ interface loadDetailsPageProps {
 class LogOutPage extends Component<loadDetailsPageProps,any> {
 	constructor (props:any) {
 		super(props);
-	
-	   this.state = {
-	
-		tab:false,
-		toggleBtn:false
-	  };
+
 	  }
 	
 	render() {
 		return (
 		  <IonPage >
-       <TabHeader  Title="Settings"  toggleBtn={this.state.toggleBtn}  tab={this.state.tab}  />
+			  <AppHeader title="Settings"  />
       <IonContent className="ion-padding">
         <IonButton  onClick={() => this.props.logout()} class= "logout_btn" >Logout</IonButton>
       </IonContent>

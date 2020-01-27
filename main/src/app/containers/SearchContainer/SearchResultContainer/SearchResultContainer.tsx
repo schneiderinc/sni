@@ -13,14 +13,19 @@ import { SEARCH_DATA } from "app/actions/Search/action";
 import { withRouter, RouteComponentProps } from 'react-router';
 
 const key = "search";
+var params = {};
 interface ResultProps extends RouteComponentProps {searchData:any,location:any,data:any, loading:any,history:any  };
 const SearchResultContainer: React.FC<ResultProps> = ({searchData,location,data, loading, history}) => {
   
   if (data.length === 0 && !loading) {
     searchData(location.state.params);
   }
-
-  return (<SearchResultPage results={data} params={location.state ? location.state.params:{}} history={history} />);
+  if(location.state){
+    if(location.state.params){
+      params = location.state.params;
+    }
+  }
+  return (<SearchResultPage results={data} params={params} history={history} />);
 } 
 
 

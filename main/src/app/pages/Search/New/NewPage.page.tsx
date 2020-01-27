@@ -158,8 +158,10 @@ class NewPage extends PureComponent<newProps, any> {
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
 
-                {this.state.showSuggestions ? <div className="suggestions_div">
-                <IonItem className="suggestions_input_item">
+
+                {/* {this.state.showSuggestions ? <div className="suggestions_div">
+                  <IonItem className="suggestions_input_item">
+
                     <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
                     <IonInput className="cts-form-control suggestions_input" type="text" value={this.state.origin} />
                   </IonItem>
@@ -169,7 +171,7 @@ class NewPage extends PureComponent<newProps, any> {
                     ))}
 
                   </ul>
-                </div> : null}
+                </div> : null} */}
 
                 <div className="ion-item1">
                   <IonLabel mode="ios" position="floating" className="ion-label-radius">Origin Radius</IonLabel>
@@ -190,7 +192,7 @@ class NewPage extends PureComponent<newProps, any> {
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
 
-                {this.state.showSuggestions2 ? <div className="suggestions_div">
+                {/* {this.state.showSuggestions2 ? <div className="suggestions_div">
                   <IonItem className="suggestions_input_item">
                     <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
                     <IonInput className="cts-form-control" type="text" value={this.state.destination} />
@@ -202,13 +204,13 @@ class NewPage extends PureComponent<newProps, any> {
                     ))}
 
                   </ul>
-                </div> : null}
+                </div> : null} */}
 
                 <div className="ion-item1">
                   <IonLabel mode="ios" position="floating" className="ion-label-radius">Destination Radius</IonLabel>
                   <div className="pickRadius">{this.state.Destination_Radius} mi</div>
                   <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="Destination_Radius" color="primary" value={this.state.Destination_Radius} className="search_range" onIonChange={this.handleChange} />
-                </div>
+                </div> 
 
                 <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" className="new_page_label">Delivery Date</IonLabel>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent, IonBadge } from '@ionic/react';
+import { IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent } from '@ionic/react';
 import './Manage.scss';
 import { Link } from 'react-router-dom';
 import {ManageCardData} from 'app/utils/mock_Data'
@@ -18,9 +18,9 @@ class ManagePage extends Component<any, any> {
 					<div className="profileHeader manageHeader">
                         <img alt="profile" src="assets/images/man@2x.png" className="profileImg">
                         </img>
-                        <IonBadge className="editBadge">    <
+                        {/* <IonBadge className="editBadge">    <
                             img alt="profile" src="assets/images/Edit.png" className="profileEditIcon" ></img>
-                        </IonBadge>
+                        </IonBadge> */}
                         <div className="profileName">Igor Smith</div>
                         <div className="Dispatcher">Dispatcher</div>
                         <div className="profileEmail">igor@schneider.com</div>

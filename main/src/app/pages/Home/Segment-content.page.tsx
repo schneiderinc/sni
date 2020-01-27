@@ -29,7 +29,7 @@ const SegmentContent: React.FC<SegmentProps> = ({type, loads, setView, load, isl
               return <IonList className="loadTilePad">              
             {loads
             .filter((load: any) => load.price !== "TBD")
-            .map((load: any, index:number) => <LoadTile key={index} {...load} />)}
+            .map((load: any, index:number) => <LoadTile key={index} {...load} details={()=>{getDetails(load)}} module="home"/>)}
               </IonList>
             }
           }
