@@ -1,1 +1,0 @@
-export {default as CarrierProfilePage} from './CarrierProfile.page';

@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-ionic build
-npx cap add android
-npx cap copy
-cd android
-./gradlew clean build
