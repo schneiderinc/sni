@@ -27,6 +27,7 @@
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
+	<string>appcenter-{34a812dc32613d882a690e51c1b1d720259b4a7d}</string>
 	<string>NSApplication</string>
 	<key>CFBundleDisplayName</key>
 	<string>Schneider</string>
