@@ -252,25 +252,25 @@ export const searchbarList= [{
   }]
   export const ManageCardData = [
 	{
-		cradImg: "assets/images/Profile_icon.png",
+		cradImg: "assets/icon/profile_icon.svg",
 		profileHeading: "User Profile",
 		profileRouting:"/app/manage/ProfileDetails"
 	
 	},
 	{
-		cradImg: "assets/images/Carrier_profile_icon.png",
+		cradImg: "assets/icon/carrier_profile_icon.svg",
 		profileHeading: "Carrier Profile",
 		profileRouting:"/app/manage/CarrierProfileDetails"
 		
 	},
 	{
-		cradImg: "assets/images/noun_Manage Account_1182506 (1).png",
+		cradImg: "assets/icon/manage.svg",
 		profileHeading: "Manage Users",
 		profileRouting:"/app/manage/ManageUser"
 	
 	},
 	{
-		cradImg: "assets/images/Post_truck.png",
+		cradImg: "assets/icon/post_truck.svg",
 		profileHeading: "Manage Truck/ Lane Postings",
 		profileRouting:"/app/manage/ManageTruck"
 	

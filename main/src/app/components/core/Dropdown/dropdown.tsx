@@ -56,7 +56,7 @@ class Dropdown extends Component<any, any>{
                         ))}
                         <IonRow>
                             <IonCol size="6">
-                                <span onClick={() => (this.setState({isDropdown:false,clickedOption: this.state.selectedOption}))}>Cancle</span>
+                                <span onClick={() => (this.setState({isDropdown:false,clickedOption: this.state.selectedOption}))}>Cancel</span>
                             </IonCol>
                             <IonCol size="6">
                                 <span onClick={()=>this.onConfrim(this.state.clickedOption.value)}><b>OK</b></span>

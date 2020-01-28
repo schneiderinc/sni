@@ -142,6 +142,7 @@ ion-header {
     font-family: $font-stack;
     border-radius: 12px;
     margin-right: 5px;
+    font-weight: normal;
 }
 
 #header-title{
@@ -151,9 +152,9 @@ ion-header {
 }
 
 .card_arrow_img {
-  height: 14px;
+  // height: 14px;
   width: 24px !important;
-  margin-top: 3px;
+  // margin-top: 3px;
 }
 .card-content{
   padding-left:2px;
@@ -279,7 +280,7 @@ ion-item-divider{
 }
 .loadCardArrow{
   text-align: -webkit-center;
-  padding-top: 19px;
+  // padding-top: 19px;
 }
 
 .sortby_select_div{
@@ -387,6 +388,7 @@ a{
     height: 3.7vh;
     font-size: 14px;
     font-family:$font-stack ;
+    --background-activated: #E5E5ED;
   }
   .segment-button-checked{
     box-shadow: 0 2px 5px #00000038;

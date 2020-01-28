@@ -80,19 +80,19 @@ class LoginPage extends Component<propTypes> {
                 <div className="login_logo_container">
                     <img alt="logo" id="header_logo" src="assets/icon/logo-white.png"></img>
                 </div>
-                <IonContent className="ion-padding" class="background">
+                <IonContent class="background login_content_padding">
                     
                     {/* <img alt="logo"   src="assets/images/logo-white.png"></img> */}
                     <div className="login-contianer">                    
                         {/* <p className="ion-text-center container-title">Login</p> */}
                         <form className="login-form" onSubmit={(event)=> this.handleSubmit(event)}>
                             <IonList class="login_form_feild" mode="ios">
-                                <IonItem mode="ios">
+                                <IonItem mode="ios" class="ion-no-padding">
                                     <IonLabel mode="ios" position="floating">Enter Your Email ID</IonLabel>
                                     <IonInput className="cts-form-control" name="username" type="text" value={this.state.username} onKeyUp={(event)=> this.handleChange(event)} onBlur={(event)=>this.handleChange(event)} />
                                     <IonImg slot="end" alt="logo" src="../../assets/icon/User.png" className="login_input_icon"/>
                                 </IonItem>
-                                <IonItem mode="ios">
+                                <IonItem mode="ios" class="ion-no-padding">
                                     <IonLabel mode="ios" position="floating">Enter Your Password</IonLabel>
                                     <IonInput className="cts-form-control"  name="password" type="password" value={this.state.password} onKeyUp={(event)=> this.handleChange(event)} onBlur={(event)=>this.handleChange(event)}/>
                                     <IonImg slot="end" alt="logo" src="../../assets/icon/pass-icon.png" item-right className="login_input_icon" onClick={()=>this.showPassword()} />

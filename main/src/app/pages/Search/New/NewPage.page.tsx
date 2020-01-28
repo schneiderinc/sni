@@ -2,10 +2,11 @@ import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonDa
 import React, { PureComponent } from 'react';
 import './NewPage.scss';
 import { withRouter, RouteComponentProps } from 'react-router';
-import {searchbarList} from 'app/utils/mock_Data'
+import { searchbarList } from 'app/utils/mock_Data'
 
-interface newProps extends RouteComponentProps {history:any , data:any };
+interface newProps extends RouteComponentProps { history: any, data: any };
 class NewPage extends PureComponent<newProps, any> {
+  node: any = null;
   state = {
     origin: '',
     destination: '',
@@ -16,7 +17,7 @@ class NewPage extends PureComponent<newProps, any> {
     Destination_Radius: 100,
     favorite: false,
     searchResultPage: false,
-    searchabarList:searchbarList,
+    searchabarList: searchbarList,
     searchQuery: "",
     showSuggestions: false,
     originSearchResults: [],
@@ -24,7 +25,16 @@ class NewPage extends PureComponent<newProps, any> {
     destinationSearchResults: [],
     newSearch: {}
   }
+  placeSearch = {};
+  SelectedOriginVal = ""
+  constructor(props: any) {
+    super(props);
 
+    this.originHandle = this.originHandle.bind(this);
+    this.originHandleOutside = this.originHandleOutside.bind(this);
+    this.destinationHandle = this.destinationHandle.bind(this);
+    this.destinationHandleOutside = this.destinationHandleOutside.bind(this);
+  }
   handleChange = (event: any) => {
     const { value } = event.target;
     this.setState({
@@ -84,63 +94,96 @@ class NewPage extends PureComponent<newProps, any> {
 
     })
   }
+
   handleOrigin = (e: any) => {
 
-    this.setState({ origin: e.target.value })
-
-    if (this.state.origin.length > 2) {
-      this.setState({ showSuggestions: true })
-      this.setState({
-        originSearchResults: this.state.searchabarList.filter((item, index) => {
-          if (item.city.toLowerCase().indexOf(this.state.origin) !== -1) {
+    if (e.target.value !== this.state.origin) {
+      if (e.target.value.length > 2) {
+        var list = this.state.searchabarList.filter((item, index) => {
+          if (item.city.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
             return item;
           }
-        })
-      })
-    }else{
-      this.setState({ showSuggestions: false })
+        });
+        this.setState({ origin: e.target.value })
+        list.length && this.setState({
+          originSearchResults: list
+        });
+        this.originHandle('in', !!list.length);
+      } else {
+        this.setState({ showSuggestions: false })
+      }
     }
   }
   handleDestination = (e: any) => {
 
-    this.setState({ destination: e.target.value })
-
-    if (this.state.destination.length > 2) {
-      this.setState({ showSuggestions2: true })
-      this.setState({
-        destinationSearchResults: this.state.searchabarList.filter((item, index) => {
-          if (item.city.toLowerCase().indexOf(this.state.destination) !== -1) {
+    if (e.target.value !== this.state.destination) {
+      if (e.target.value.length > 2) {
+        var list = this.state.searchabarList.filter((item, index) => {
+          if (item.city.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
             return item;
           }
-        })
-      })
-    }else{
-      this.setState({ showSuggestions2: false })
+        });
+        this.setState({ destination: e.target.value })
+        list.length && this.setState({
+          destinationSearchResults: list
+        });
+        this.destinationHandle('in', !!list.length);
+      } else {
+        this.setState({ showSuggestions2: false })
+      }
     }
   }
   SelectedOrigin = (originIndex: number) => {
     if (this.state.originSearchResults && this.state.originSearchResults.length > 0) {
-      this.setState({showSuggestions: false})
+      this.SelectedOriginVal = this.state.originSearchResults[originIndex]["city"]
       this.setState(() => (
-        { origin: this.state.originSearchResults[originIndex]["city"]}
+        { origin: this.SelectedOriginVal }
       ))
-    
-        
-     
     }
-  
-  
+
   }
   SelectedDestination = (destinationIndex: number) => {
-
     if (this.state.destinationSearchResults && this.state.destinationSearchResults.length > 0) {
       this.setState(() => (
         { destination: this.state.destinationSearchResults[destinationIndex]["city"] }
       ))
-      this.setState({ showSuggestions2: false })
     }
   }
+  originHandle(flag: any, value: any) {   
+    flag === 'out' ? this.setState((prevState: any) => ({
+      showSuggestions: !prevState.showSuggestions,
+    })) : this.setState({ showSuggestions: value });
 
+    if (this.state.showSuggestions) {
+      document.addEventListener('click', this.originHandleOutside, false);
+    } else {
+      document.removeEventListener('click', this.originHandleOutside, false);
+    }
+  }
+  destinationHandle(flag: any, value: any) {
+    flag === 'out' ? this.setState((prevState: any) => ({
+      showSuggestions2: !prevState.showSuggestions2,
+    })) : this.setState({ showSuggestions2: value });
+    if (this.state.showSuggestions2) {
+      document.addEventListener('click', this.destinationHandleOutside, false);
+    } else {
+      document.removeEventListener('click', this.destinationHandleOutside, false);
+    }
+  }
+  originHandleOutside(e: any) {
+    if ((e.target.className !== "suggestions_list" && this.node && this.node.contains(e.target)) || e.target.name === "origin") {
+      return;
+    }
+    this.originHandle('out', false);
+
+  }
+  destinationHandleOutside(e: any) {
+    if ((e.target.className !== "suggestions_list" && this.node && this.node.contains(e.target)) || e.target.name === "destination") {
+      return;
+    }
+    this.destinationHandle('out', false);
+
+  }
   render() {
 
     return (
@@ -159,7 +202,7 @@ class NewPage extends PureComponent<newProps, any> {
                 </IonItem>
 
 
-                {/* {this.state.showSuggestions ? <div className="suggestions_div">
+                {this.state.showSuggestions ? <div className="suggestions_div" ref={node => { this.node = node; }}>
                   <IonItem className="suggestions_input_item">
 
                     <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
@@ -167,11 +210,11 @@ class NewPage extends PureComponent<newProps, any> {
                   </IonItem>
                   <ul className="suggestions">
                     {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item" key={k}>
-                      <li className="suggestions_list"  onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
+                      <li className="suggestions_list" onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
                     ))}
 
                   </ul>
-                </div> : null} */}
+                </div> : null}
 
                 <div className="ion-item1">
                   <IonLabel mode="ios" position="floating" className="ion-label-radius">Origin Radius</IonLabel>
@@ -182,7 +225,7 @@ class NewPage extends PureComponent<newProps, any> {
                 <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" className="new_page_label">Pickup Date</IonLabel>
                   <IonDatetime displayFormat="MMMM/DD/YYYY" name="pickUpdate" value={this.state.pickUpdate}
-                    onIonChange={this.handleChange}></IonDatetime>
+                    onIonChange={this.handleChange} mode="ios"></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
@@ -192,7 +235,7 @@ class NewPage extends PureComponent<newProps, any> {
                   <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
                 </IonItem>
 
-                {/* {this.state.showSuggestions2 ? <div className="suggestions_div">
+                {this.state.showSuggestions2 ? <div className="suggestions_div" ref={node => { this.node = node; }}>
                   <IonItem className="suggestions_input_item">
                     <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
                     <IonInput className="cts-form-control" type="text" value={this.state.destination} />
@@ -204,17 +247,17 @@ class NewPage extends PureComponent<newProps, any> {
                     ))}
 
                   </ul>
-                </div> : null} */}
+                </div> : null}
 
                 <div className="ion-item1">
                   <IonLabel mode="ios" position="floating" className="ion-label-radius">Destination Radius</IonLabel>
                   <div className="pickRadius">{this.state.Destination_Radius} mi</div>
                   <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="Destination_Radius" color="primary" value={this.state.Destination_Radius} className="search_range" onIonChange={this.handleChange} />
-                </div> 
+                </div>
 
                 <IonItem mode="ios" class="ion-item">
                   <IonLabel mode="ios" position="floating" className="new_page_label">Delivery Date</IonLabel>
-                  <IonDatetime displayFormat="MMMM/DD/YYYY" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange}></IonDatetime>
+                  <IonDatetime displayFormat="MMMM/DD/YYYY" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange} mode="ios"></IonDatetime>
                   <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
 
@@ -222,7 +265,7 @@ class NewPage extends PureComponent<newProps, any> {
                   <IonLabel mode="ios" position="floating" class="trailer_type_label">Trailer Type</IonLabel>
                   <IonSelect okText="Okay" cancelText="Dismiss" interface="popover" className="ion-select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
                     <IonSelectOption value="Dry Van">Dry Van</IonSelectOption>
-                    <IonSelectOption value="Wet Van">Refer</IonSelectOption>
+                    <IonSelectOption value="Wet Van">Refeer</IonSelectOption>
                     {/* <IonSelectOption value="Lorry">Lorry</IonSelectOption>
                     <IonSelectOption value="Container Lorry">Container Lorry</IonSelectOption> */}
                   </IonSelect>
@@ -232,7 +275,7 @@ class NewPage extends PureComponent<newProps, any> {
             </form>
           </div>
         </IonContent>
-        <IonFooter>
+        <IonFooter >
           <div className="search_alternate">
             <IonRow className="save_as_favorite">
               <IonCol size="2"> <IonToggle mode="ios" name="favorite" checked={this.state.favorite} onIonChange={(e) => this.ToggleChange(e)}> </IonToggle> </IonCol>

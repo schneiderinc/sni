@@ -14,10 +14,16 @@
     --background: transparent;
   }
 }
+.login_content_padding{
+  --padding-top: 1.97vh !important;
+  --padding-start: 6.8vw !important;
+  --padding-end: 6.8vw !important;
+  --padding-bottom: 1.97vh !important;
+}
 .root-page {
   .login-contianer {
       background: #FCFCFC;
-      padding: 25px 1vw 10px;
+      padding: 25px 0 10px;
       .login_form_feild{
         background-color: #FCFCFC;
         ion-item{
@@ -71,7 +77,7 @@
     background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
   }
   .login_alternate {
-    padding: 0 1vh;
+    // padding: 0 1vh;
     clear: both;
     margin-top: 21px;
     @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
@@ -149,7 +155,7 @@
 ion-toggle{
   --background-checked: #F6D679;
   zoom: 0.8;
-  float: right;
+  // float: right;
 }
 
 #errorMsg
@@ -190,7 +196,7 @@ ion-toggle{
 }
 
 .login_devider {
-  padding: 5vh 0 0 3vh;
+  padding: 3.2vh 0 1.6vh 3.5vw;
 }
 
 

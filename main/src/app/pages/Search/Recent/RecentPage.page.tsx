@@ -15,9 +15,9 @@ const RecentCard = (props: any) => {
                             <div className="card-dist-recent">{props.recentData.pickupDate}</div>
                         </IonCol>
                         <IonCol size="3" className="loadCardArrow">
-                            <img alt="logo" className="card_arrow_img1" src="assets/icon/van.png" />
+                            <img alt="logo" className="card_arrow_img1" src="assets/icon/van.svg" />
                             <div className="vehicle_type">{props.recentData.vehicleType}</div>
-                            <img alt="logo" className="card-arrow" src="assets/icon/Path 100.png" />
+                            <img alt="logo" className="card-arrow" src="assets/icon/arrow_search.svg" />
                         </IonCol>
                         <IonCol className=" card-col right">
                             <div className="card-name"><b>{props.recentData.toAddress}</b></div>
