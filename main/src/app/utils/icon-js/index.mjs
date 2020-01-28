@@ -1,0 +1,1 @@
+import arrowright from './arrowright';

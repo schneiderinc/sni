@@ -1,0 +1,187 @@
+
+/** responsive break points **/
+
+
+$grid-breakpoints: (
+ xs: 320px, // Phone (0px - 575px)
+ //sm: 576px, // Phablet (576px - 767px)
+ //md: 768px, // Tablet vertical (768px - 991px)
+ lg: 1200px, // Tablet horizontal, Desktop (992px and above)
+ xr: 828px, // Iphone Xr
+);
+$grid-height-breakpoints: (
+ xs: 568px, // Phone (0px - 575px)
+ 
+ md: 667px, // Tablet vertical (768px - 991px)
+);
+/*
+$grid-max-widths: (
+ //lg:992px
+); */
+
+// Desktop
+ion-header,ion-tab-bar,ion-list,ion-content,
+ion-toolbar{
+  margin: auto;
+ }
+ 
+ @media (min-width: map-get($grid-breakpoints, lg)) {
+  ion-header,ion-tab-bar,ion-list,ion-list,ion-toolbar{
+    margin: 0;
+    padding-right: calc((100% - #{map-get($grid-breakpoints,lg)}) / 2);
+    padding-left: calc((100% - #{map-get($grid-breakpoints,lg)}) / 2);
+    
+  }
+  ion-tab-bar
+  {
+   position: absolute;
+   margin: auto;
+   width: -webkit-fill-available;
+ 
+  }
+ }
+
+ 
+@media only screen  and (min-width :map-get($grid-breakpoints, xs)) {
+  ion-tab-bar
+ {
+  margin: 0;
+  // padding-right: calc((100% - #{map-get($grid-breakpoints, xs)}) / 3);
+  // padding-left: calc((100% - #{map-get($grid-breakpoints, xs)}) / 3);
+    
+
+ }
+
+}
+
+/*  Below given media queries can be used on need   */
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
+
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
+
+
+/* ----------- Galaxy S6 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+
+}
+
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+}

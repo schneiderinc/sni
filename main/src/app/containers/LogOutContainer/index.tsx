@@ -1,0 +1,1 @@
+export {default as LogOutContainer} from './LogOutContainer';

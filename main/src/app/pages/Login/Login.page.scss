@@ -1,0 +1,229 @@
+/*Modified Styles*/
+@import  "../../../theme/variables.scss";
+@import  "../../../theme/responsive-styles.scss";
+
+.main-title {
+  font-size: 8vw;
+  font-weight: bold;
+  color: $white;
+}
+.page-header {
+  ion-toolbar
+  {
+    background-color: $primary;
+    --background: transparent;
+  }
+}
+.login_content_padding{
+  --padding-top: 1.97vh !important;
+  --padding-start: 6.8vw !important;
+  --padding-end: 6.8vw !important;
+  --padding-bottom: 1.97vh !important;
+}
+.root-page {
+  .login-contianer {
+      background: #FCFCFC;
+      padding: 25px 0 10px;
+      .login_form_feild{
+        background-color: #FCFCFC;
+        ion-item{
+          --background: #FCFCFC;
+        }
+        ion-img:last-child{
+          cursor: pointer;
+        }
+      }
+      input{
+          color: $black;
+          padding-bottom: 10px;
+      } ion-label {
+          color: $lightBlack;
+          font-family: $font-stack;
+          font-size:14px;
+          margin-top:12px;
+          
+      }
+      ion-item:first-child {
+        margin-bottom: 15px;
+      }
+      span{
+        font-size: 13px;
+        font-family: $font-stack;
+        float: right;
+        color: $black;
+        margin-right: 6px;
+        margin-top:7px;
+
+      }
+      
+  }
+  .login_remember_link{
+    ion-col{
+      padding: 0
+    }
+    padding-bottom: 50px;
+    .login_remember_text{
+      float:left;
+      padding-left: 5px;
+    }
+  }
+  .-container {
+      margin: 3vh 0px;
+  }
+  .login-btn {
+    --border-radius: 20px;
+    height: 45px;
+    font-size: 18px;
+    background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
+  }
+  .login_alternate {
+    // padding: 0 1vh;
+    clear: both;
+    margin-top: 21px;
+    @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+      margin: auto;
+      width:  map-get($grid-breakpoints, xs);
+      margin-top: 21px;
+    }
+    .login_withmobile_btn {
+      --background:  white;
+      --background-focused: white;
+      --background-hover: white;
+      color: $primary;
+      border: 1px solid;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    .sign_up{
+      text-align: center;
+      .signup_link{
+        font-size: 15px;
+        font-family: $font-stack;
+      }
+  }
+}
+.list-ios{
+  margin-bottom: 10px;
+}
+.container-title {
+  font-size: 2vw;
+  color: $primary;
+}
+.login_input_icon{
+  padding-bottom: 0;
+  margin-top: 35px;
+  margin-right: -4px;
+}
+.img_div{
+  float:left;
+}
+.login_devider_line{
+  background-color: $silver;
+  width:40%;
+  float:left;
+}
+.login_devider_text{
+  float:left;
+  font-size:16px;
+  color: $nobel;
+  padding: 0 12px;
+}
+
+.login_logo_container, .login_logo_container_change{
+  background: linear-gradient(180deg, $gradientTop, $gradientBottom);
+  height: 183px;
+  -webkit-transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -o-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+  #header_logo {
+    margin-top:75px;
+    -webkit-transition:  margin-top 0.5s ease-in-out;
+  -moz-transition:  margin-top 0.5s ease-in-out;
+  -o-transition:  margin-top 0.5s ease-in-out;
+  transition:  margin-top 0.5s ease-in-out;
+  }
+}
+
+.login_logo_container_change{
+  height: 100px;
+  #header_logo {
+    margin-top:30px;
+  }
+}
+ion-toggle{
+  --background-checked: #F6D679;
+  zoom: 0.8;
+  // float: right;
+}
+
+#errorMsg
+{
+  margin: auto;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: red;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+#errorDot{
+  margin: auto;
+  text-align: center;
+  font-size: 11px;
+  color: white;
+}
+
+#header_logo
+{
+  align-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+    width:10%;
+  }
+  @media only screen  and (min-width : map-get($grid-breakpoints,md) ) {
+    width: 25%;
+  }
+}
+
+.login_devider {
+  padding: 3.2vh 0 1.6vh 3.5vw;
+}
+
+
+/* Desktops and laptops ----------- */
+
+
+
+@media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+  /* Styles */
+
+       .login-contianer
+       {
+         margin: auto;
+         width:  map-get($grid-breakpoints, xs);
+       }
+       @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+         /* Styles */
+       
+            
+       ion-content
+       {
+          margin: auto;
+          padding-right: calc((100% - #{map-get($grid-breakpoints, lg)}) /2);
+          padding-left: calc((100% - #{map-get($grid-breakpoints, lg)}) / 2);
+          
+       
+       }
+       }
+}
+}

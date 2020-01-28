@@ -1,0 +1,1 @@
+export {default as SearchResultPage} from './SearchResults.page';
