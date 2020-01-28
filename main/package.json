@@ -41,10 +41,10 @@
     "typescript": "3.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "npm start",
+    "build": "npm build",
+    "test": "npm test",
+    "eject": "npm eject",
     "lint:scss": "stylelint src/**/*.scss --syntax scss --cache",
     "lint:scss:fix": "stylelint src/**/*.scss --syntax scss --fix --cache",
     "lint:ts": "eslint src/**/*.{ts,tsx} --cache",
