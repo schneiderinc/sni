@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>method</key>
-	<string>enterprise</string>
+	<string>developer</string>
 	<key>teamID</key>
 	<string>LSVVD8ZPH6</string>
 	<key>CFBundleExecutable</key>
