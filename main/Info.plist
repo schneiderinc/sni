@@ -8,16 +8,18 @@
 	<string>enterprise</string>
 	<key>teamID</key>
 	<string>LSVVD8ZPH6</string>
+	<key>UUID</key>
+	<string>54763f3e-f511-4a5c-8c5d-297fb34c2bd8</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.cognizantmobilityenterprise.schneider</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Schneider</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
