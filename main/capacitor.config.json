@@ -1,5 +1,5 @@
 {
-  "appId": "com.cognizantmobilityenterprise.schneider",
+  "appId": "ccom.schneider.carrierexperience",
   "appName": "Schneider",
   "bundledWebRuntime": false,
   "npmClient": "npm",
