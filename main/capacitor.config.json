@@ -1,5 +1,5 @@
 {
-  "appId": "ccom.schneider.carrierexperience",
+  "appId": "com.schneider.carrierexperience",
   "appName": "Schneider",
   "bundledWebRuntime": false,
   "npmClient": "npm",
