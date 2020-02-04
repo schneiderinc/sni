@@ -1,0 +1,107 @@
+pool:
+  name: Azure Pipelines
+  vmImage: 'windows-latest'
+  demands:
+  - JDK
+  - ANDROID_HOME
+  - java
+  - JDK
+
+#Your build pipeline references an undefined variable named ‘Parameters.tasks’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+steps:
+- task: CmdLine@1
+  displayName: 'Run npm install'
+  inputs:
+    filename: npm
+    arguments: install
+    workingFolder: main
+
+- task: CmdLine@1
+  displayName: 'npm install -g ionic'
+  inputs:
+    filename: npm
+    arguments: 'install -g ionic'
+    workingFolder: main
+
+- task: CmdLine@1
+  displayName: 'npm install moment'
+  inputs:
+    filename: npm
+    arguments: 'install moment'
+
+- task: CmdLine@1
+  displayName: 'npm run build'
+  inputs:
+    filename: npm
+    arguments: 'run build'
+    workingFolder: main
+
+- task: CmdLine@1
+  displayName: 'npm install --g @capacitor/core @capacitor/cli'
+  inputs:
+    filename: npm
+    arguments: 'install --g @capacitor/core @capacitor/cli'
+    workingFolder: main
+
+- task: CmdLine@1
+  displayName: 'npx cap init'
+  inputs:
+    filename: npx
+    arguments: 'cap init'
+    workingFolder: main
+
+- task: CmdLine@1
+  displayName: 'npx cap add android'
+  inputs:
+    filename: npx
+    arguments: 'cap add android'
+    workingFolder: main
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: main/android/app/src/main/res'
+  inputs:
+    SourceFolder: main/App.Assets/android
+    TargetFolder: main/android/app/src/main/res
+    OverWrite: true
+
+- task: vs-publisher-473885.motz-mobile-buildtasks.android-manifest-version.android-manifest-version@1
+  displayName: 'Bump Android Versions in '
+  enabled: false
+
+- task: CmdLine@1
+  displayName: 'npx cap sync'
+  inputs:
+    filename: npx
+    arguments: 'cap sync'
+  enabled: false
+
+- task: Gradle@2
+  displayName: 'gradlew build'
+  inputs:
+    gradleWrapperFile: main/android/gradlew
+    workingDirectory: main/android
+    tasks: '$(Parameters.tasks)'
+
+- task: AndroidSigning@3
+  displayName: 'Signing and aligning APK file(s) **/*.apk'
+  inputs:
+    apksignerKeystoreFile: '3afd10ec-42c7-4513-8360-6578f032a980'
+    apksignerKeystorePassword: schneidertech
+    apksignerKeystoreAlias: CarrierExperience
+    apksignerKeyPassword: schneidertech
+    zipalign: false
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: main
+    Contents: '**/*.apk'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
