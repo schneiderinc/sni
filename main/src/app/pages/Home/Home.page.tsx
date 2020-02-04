@@ -31,9 +31,9 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData}) => {
   }
   return (
     <IonPage>
-      <AppHeader title={segment.name === "Recommended" ? "Recommended Loads" : "Watched Loads"} getSegment={(e:any) => setSegment({name:e.detail.value as any, data:{}})} segments={['Recommended', 'WatchList']} activeSegment={segment.name}/>
+      <AppHeader title={segment.name === "Recommended" ? "Recommended Loads" : "Watched Loads"} getSegment={(e:any) => setSegment({name:e.detail.value as any, data:{}})} segments={['Recommended', 'Watched']} activeSegment={segment.name}/>
       {data.length > 0 && <div className="short-div">
-        {(segment.name === "Recommended" || segment.name === "WatchList") &&
+        {(segment.name === "Recommended" || segment.name === "Watched") &&
           <IonRow class="short-row">
             <IonCol size="5" class="rec_text">
               <b>{data.length}</b> {segment.name === "Recommended" ? "Recommendations" : "Watched Loads"} 

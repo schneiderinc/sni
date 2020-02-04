@@ -23,7 +23,7 @@ const SegmentContent: React.FC<SegmentProps> = ({type, loads, setView, load, isl
         }
         </Loads>:!isloaded?(<RecommendedError loads={newSearch()} />):""}
     </div>)}
-        {type === "WatchList" && (<div>
+        {type === "Watched" && (<div>
             { loads.length ? <Loads loads={loads} >{
             ({ loads }: { loads?: any }) => {
               return <IonList className="loadTilePad">              

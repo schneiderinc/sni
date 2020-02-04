@@ -5,3 +5,11 @@ export interface GlobalState {
     currentUser: boolean;
     userData:any;
 }
+
+export interface Location {
+    id: number;
+    name?: string;
+    lat: number;
+    lng: number;
+  }
+  

@@ -1,5 +1,5 @@
 {
-  "appId": "com.cognizantmobilityenterprise.snimc",
+  "appId": "com.cognizantmobilityenterprise.schneider",
   "appName": "Schneider",
   "bundledWebRuntime": false,
   "npmClient": "npm",
