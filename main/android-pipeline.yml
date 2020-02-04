@@ -82,6 +82,7 @@ steps:
     gradleWrapperFile: main/android/gradlew
     workingDirectory: main/android
     tasks: '$(Parameters.tasks)'
+    publishJUnitResults: false
 
 - task: AndroidSigning@3
   displayName: 'Signing and aligning APK file(s) **/*.apk'
