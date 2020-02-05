@@ -29,22 +29,7 @@ ion-header {
     
   }
   transition: top 0.6s;	
-}	
-
-  ion-segment{
-      position: relative;
-      width: 315px;
-      height: 38px;
-      border-radius: 25px;
-      --background: #F4F5F8;
-      --color: #000000;
-      padding: 0px 5px 0px 5px;
-      margin:-18px auto;
-      border:0.5px solid #FBA464;
-      @media only screen  and (min-width :map-get($grid-breakpoints, xs)) {
-          width: 275px;
-        }
-  }
+}
  .page-header .header-desc{
     height: 100%;;
   }
@@ -56,14 +41,7 @@ ion-header {
     vertical-align: middle;
     display: table-cell !important;
     margin:auto;
-    
   }
-  ion-segment-button,a{
-      border-radius: 25px;
-  }
-
-
-
 .hide-header{	
   top: -50px;
 }
@@ -319,39 +297,11 @@ ion-item-divider{
     border-radius: 17px;
   }
 }
-.search_results_container{
-  margin-left:11px;
-  margin-right:11px;
-}
 .header_search_bubble{
   width: 100%;
   padding: 15px 15px 0 15px;
 }
-.ion-segment{
-  margin-top:0px;
-  margin-bottom:0px;
-  border:none;
-}
-.ion-segment-button{
-  border:none;
-  --background-checked: none;
-}
-.search_floating_badge {
-  height: 24px;
-  background-color: $darkPink;
-  color: #000000;
-  border: 1px solid $brown;
-  font-size: 11px;
-  padding: 6px;
-  font-family: $font-stack;
-  border-radius: 12px;
-  opacity: 0.84;
-  min-width: 90px;
-  letter-spacing: 1px;
-}
 ion-segment-button{
-  --padding-end: 2px;
-  --padding-start: 2px;
   --indicator-color-checked: #F6F6F6;
 }
 .loadTilePad{
@@ -374,6 +324,10 @@ a{
   }
 }
 .segment_control_tabs{
+  position: relative;
+  border-radius: 25px;
+  padding: 0px 5px 0px 5px;
+  margin:-18px auto;
   width: 82.8vw;
   background: #F4F5F8;
   border: 0.5px solid #FBA464;
@@ -389,6 +343,7 @@ a{
     font-size: 14px;
     font-family:$font-stack ;
     --background-activated: #E5E5ED;
+    border-radius: 25px;
   }
   .segment-button-checked{
     box-shadow: 0 2px 5px #00000038;

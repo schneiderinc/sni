@@ -8,6 +8,7 @@
   color: $white;
 }
 .page-header {
+  font-family: $font-roboto-regular;
   ion-toolbar
   {
     background-color: $primary;
@@ -23,7 +24,7 @@
 .root-page {
   .login-contianer {
       background: #FCFCFC;
-      padding: 25px 0 10px;
+      padding: 3.09vh 0 1.23vh;
       .login_form_feild{
         background-color: #FCFCFC;
         ion-item{
@@ -35,24 +36,23 @@
       }
       input{
           color: $black;
-          padding-bottom: 10px;
+          padding-bottom: 1.23vh;
+          font-size: 15px;
       } ion-label {
-          color: $lightBlack;
-          font-family: $font-stack;
-          font-size:14px;
-          margin-top:12px;
+          color: #707070;
+          font-size:12px;
+          margin-top:1.48vh;
           
       }
       ion-item:first-child {
-        margin-bottom: 15px;
+        margin-bottom: 1.85vh;
       }
       span{
         font-size: 13px;
-        font-family: $font-stack;
         float: right;
-        color: $black;
-        margin-right: 6px;
-        margin-top:7px;
+        color: #707070;
+        margin-right: 1.6vw;
+        margin-top:0.86vh;
 
       }
       
@@ -61,29 +61,29 @@
     ion-col{
       padding: 0
     }
-    padding-bottom: 50px;
+    padding-bottom: 6.17vh;
     .login_remember_text{
       float:left;
-      padding-left: 5px;
+      padding-left: 1.33vw;
     }
   }
   .-container {
-      margin: 3vh 0px;
+      margin: 3vh 0vw;
   }
   .login-btn {
     --border-radius: 20px;
-    height: 45px;
+    height: 5.56vh;
     font-size: 18px;
     background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
   }
   .login_alternate {
     // padding: 0 1vh;
     clear: both;
-    margin-top: 21px;
+    margin-top: 2.6vh;
     @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
       margin: auto;
       width:  map-get($grid-breakpoints, xs);
-      margin-top: 21px;
+      margin-top: 2.6vh;
     }
     .login_withmobile_btn {
       --background:  white;
@@ -93,18 +93,17 @@
       border: 1px solid;
       border-radius: 20px;
       font-size: 14px;
-      margin-bottom: 30px;
+      margin-bottom: 3.7vh;
     }
     .sign_up{
       text-align: center;
       .signup_link{
         font-size: 15px;
-        font-family: $font-stack;
       }
   }
 }
 .list-ios{
-  margin-bottom: 10px;
+  margin-bottom: 1.23vh;
 }
 .container-title {
   font-size: 2vw;
@@ -112,8 +111,8 @@
 }
 .login_input_icon{
   padding-bottom: 0;
-  margin-top: 35px;
-  margin-right: -4px;
+  margin-top: 4.32vh;
+  margin-right: -1.07vw;
 }
 .img_div{
   float:left;
@@ -127,18 +126,18 @@
   float:left;
   font-size:16px;
   color: $nobel;
-  padding: 0 12px;
+  padding: 0 3.2vw;
 }
 
 .login_logo_container, .login_logo_container_change{
   background: linear-gradient(180deg, $gradientTop, $gradientBottom);
-  height: 183px;
+  height: 22.6vh;
   -webkit-transition: height 0.5s ease-in-out;
   -moz-transition: height 0.5s ease-in-out;
   -o-transition: height 0.5s ease-in-out;
   transition: height 0.5s ease-in-out;
   #header_logo {
-    margin-top:75px;
+    margin-top:9.26vh;
     -webkit-transition:  margin-top 0.5s ease-in-out;
   -moz-transition:  margin-top 0.5s ease-in-out;
   -o-transition:  margin-top 0.5s ease-in-out;
@@ -147,9 +146,9 @@
 }
 
 .login_logo_container_change{
-  height: 100px;
+  height: 12.35vh;
   #header_logo {
-    margin-top:30px;
+    margin-top:3.7vh;
   }
 }
 ion-toggle{
@@ -161,15 +160,15 @@ ion-toggle{
 #errorMsg
 {
   margin: auto;
-  height: 30px;
+  height: 3.7vh;
   width: 100%;
   text-align: center;
   font-size: 11px;
   color: red;
 }
 .dot {
-  height: 10px;
-  width: 10px;
+  height: 1.23vh;
+  width: 2.7vw;
   background-color: red;
   border-radius: 50%;
   display: inline-block;
@@ -199,7 +198,9 @@ ion-toggle{
   padding: 3.2vh 0 1.6vh 3.5vw;
 }
 
-
+.login_error{
+  --border-color:#FF0000;
+}
 /* Desktops and laptops ----------- */
 
 

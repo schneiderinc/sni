@@ -4,6 +4,7 @@ import { Loads } from 'app/components/app/home/Loads';
 import { LoadTile } from 'app/components/app/home/Load-Tile';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
 import AppHeader from 'app/components/app/Bars/Bar-header';
+import './SearchResults.page.scss';
 
 class SearchResultPage extends PureComponent<any, any> {
     constructor(props: any) {
@@ -26,8 +27,7 @@ class SearchResultPage extends PureComponent<any, any> {
         return (
             <IonPage>
                 <AppHeader title="Search Results" editData={() => this.props.history.push("/app/search", { data: this.props.params })}/>
-                <IonContent>
-                    <div className="header_search_bubble">
+                <IonContent class="search_results_container">
                         {this.props.params && <IonSegment scrollable className="ion-segment">
                             {
                                 Object.entries(this.props.params).map((filter: any, index: any) => (
@@ -37,9 +37,7 @@ class SearchResultPage extends PureComponent<any, any> {
                                     )))
                             }
                         </IonSegment>}
-                    </div>
-                    <div className="short-div">
-                        <IonRow>
+                        <IonRow class="sort_container">
                             <IonCol size="4" class="rec_text">
                                 <b>10</b> Matches
                             </IonCol>
@@ -50,8 +48,6 @@ class SearchResultPage extends PureComponent<any, any> {
                                 </div>
                             </IonCol>
                         </IonRow>
-                    </div>
-                    <div className="search_results_container">
                         <Loads loads={this.props.results} >{
                             ({ loads }: { loads?: any }) => {
                                 return <IonList>
@@ -60,8 +56,6 @@ class SearchResultPage extends PureComponent<any, any> {
                             }
                         }
                         </Loads>
-                    </div>
-
                 </IonContent>
             </IonPage>
         );

@@ -78,16 +78,14 @@ class RecentSearch extends React.Component<any, any>{
 
         return (
             <IonContent className="ion-padding recent_container" class="background">
-                <div className="contianer">
-                    <div className="EnterLoad">Select a recent search to see matching loads.</div>
-                    {
-                        recentData.map((detail: any, index: number) => (
-                            <IonCard className="ion-card" key={index}>
-                                <RecentCard recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index === this.state.selectedCardId ? true : false} cardColor={index === this.state.selectedCardId ? this.state.cardColor : this.state.whiteColor} />
-                            </IonCard>
-                        ))
-                    }
-                </div>
+                <div className="header-text">Select a recent search to see matching loads.</div>
+                {
+                    recentData.map((detail: any, index: number) => (
+                        <IonCard className="ion-card" key={index}>
+                            <RecentCard recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index === this.state.selectedCardId ? true : false} cardColor={index === this.state.selectedCardId ? this.state.cardColor : this.state.whiteColor} />
+                        </IonCard>
+                    ))
+                }
             </IonContent>
         );
     }

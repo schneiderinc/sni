@@ -6,27 +6,23 @@ class MenuContainer extends Component {
         const menuHeadingList = [
             {
                 'heading':"Help",
-                'sub_heading':["About Schneider","FAQ"]
-            },
-            {
-                'heading':"Feedback",
-                'sub_heading':["For the App"]
-            },
-            {
-                'heading':"Truck sales",
-                'sub_heading':["Details","CPP Register"]
-            },
-            {
-                'heading':"Legal",
-                'sub_heading':["Eula","Privacy","Terms & Conditions"]
+                'sub_heading':["FAQ","Video Walkthroughs"]
             },
             {
                 'heading':"Contact",
-                'sub_heading':["Call","Chat"]
+                'sub_heading':["Feedback for the App","Chat","Email","Call"]
             },
             {
-                'heading':"Other",
-                'sub_heading':["Tire Bank","Equipments"]
+                'heading':"Carrier Reward Program",
+                'sub_heading':["Fuel Savings","Truck Sales","Carrier Purchasing Program Registration","Emergency Services","Fuel Route Optimizer","Fuel Route Optimizer"]
+            },
+            {
+                'heading':"Legal",
+                'sub_heading':["Privacy","Terms & Conditions","End User Licensing Agreement"]
+            },
+            {
+                'heading':"Learn About Schneider",
+                'sub_heading':["About Schneider","Becoming a Carrier","Becoming a Driver for Schneider"]
             }
         ]
         return (<MenuPage menuHeadingList={menuHeadingList}/>)

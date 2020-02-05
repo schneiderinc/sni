@@ -8,12 +8,12 @@ interface newProps extends RouteComponentProps { history: any, data: any };
 class NewPage extends PureComponent<newProps, any> {
   node: any = null;
   state = {
-    origin: '',
-    destination: '',
+    origin: 'Dallas, TX',
+    destination: 'Anywhere',
     distance: 100,
     pickUpdate: '',
     dropdate: '',
-    TrailerType: 'VIJ',
+    TrailerType: 'Dry Van',
     Destination_Radius: 100,
     favorite: false,
     searchResultPage: false,
@@ -23,10 +23,12 @@ class NewPage extends PureComponent<newProps, any> {
     originSearchResults: [],
     showSuggestions2: false,
     destinationSearchResults: [],
-    newSearch: {}
+    newSearch: {},
+    form_modified: false
   }
   placeSearch = {};
-  SelectedOriginVal = ""
+  SelectedOriginVal = "";
+  reset = false;
   constructor(props: any) {
     super(props);
 
@@ -38,8 +40,13 @@ class NewPage extends PureComponent<newProps, any> {
   handleChange = (event: any) => {
     const { value } = event.target;
     this.setState({
-      [event.target.name]: value
+      [event.target.name]: value,
+      form_modified: true
     });
+    if (this.reset) {
+      this.setState({ form_modified: false });
+      this.reset = false
+    }
   }
   componentDidMount() {
     this.setState(this.props.data);
@@ -80,18 +87,17 @@ class NewPage extends PureComponent<newProps, any> {
   };
   Reset = () => {
 
-
+    this.reset = true;
     this.setState({
-      origin: '',
-      destination: '',
+      origin: 'Dallas, TX',
+      destination: 'Anywhere',
       distance: 100,
       pickUpdate: '',
       dropdate: '',
-      TrailerType: 'VIJ',
+      TrailerType: 'Dry Van',
       Destination_Radius: 100,
-      favorite: false
-
-
+      favorite: false,
+      form_modified: false
     })
   }
 
@@ -149,7 +155,7 @@ class NewPage extends PureComponent<newProps, any> {
       ))
     }
   }
-  originHandle(flag: any, value: any) {   
+  originHandle(flag: any, value: any) {
     flag === 'out' ? this.setState((prevState: any) => ({
       showSuggestions: !prevState.showSuggestions,
     })) : this.setState({ showSuggestions: value });
@@ -189,91 +195,90 @@ class NewPage extends PureComponent<newProps, any> {
     return (
       <>
         <IonContent className="ion-padding search_form_container" class="background">
-          <div className="contianer">
-            <div className="EnterLoad">Enter criteria and click apply to see matching loads.</div>
+          <div className="EnterLoad">Enter criteria and click apply to see matching loads.</div>
 
-            <form className="search-form"  >
-              <IonList className="new_page_list">
+          <form className="search-form"  >
+            <IonList className="new_page_list">
 
-                <IonItem mode="ios" className="ion-item">
-                  <IonLabel mode="ios" position="floating">Origin</IonLabel>
-                  <IonInput type="text" className="cts-form-control" name="origin" value={this.state.origin} onIonChange={(e) => this.handleOrigin(e)} />
-                  <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
+              <IonItem mode="ios" className="ion-item">
+                <IonLabel mode="ios" position="floating">Origin</IonLabel>
+                <IonInput type="text" className="cts-form-control" name="origin" value={this.state.origin} onIonChange={(e) => this.handleOrigin(e)} />
+                <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
+              </IonItem>
+
+
+              {this.state.showSuggestions ? <div className="suggestions_div" ref={node => { this.node = node; }}>
+                <IonItem className="suggestions_input_item">
+
+                  <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
+                  <IonInput className="cts-form-control suggestions_input" type="text" value={this.state.origin} />
                 </IonItem>
+                <ul className="suggestions">
+                  {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item" key={k}>
+                    <li className="suggestions_list" onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
+                  ))}
 
+                </ul>
+              </div> : null}
 
-                {this.state.showSuggestions ? <div className="suggestions_div" ref={node => { this.node = node; }}>
-                  <IonItem className="suggestions_input_item">
+              <div className="ion-item1">
+                <IonLabel mode="ios" position="floating" className="ion-label-radius">Origin Radius</IonLabel>
+                <div className="pickRadius" >{this.state.distance} mi</div>
+                <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="distance" color={this.state.form_modified ? "primary" : "medium"} value={this.state.distance} className="search_range" onIonChange={this.handleChange} />
+              </div>
 
-                    <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
-                    <IonInput className="cts-form-control suggestions_input" type="text" value={this.state.origin} />
-                  </IonItem>
-                  <ul className="suggestions">
-                    {this.state.originSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item" key={k}>
-                      <li className="suggestions_list" onClick={() => this.SelectedOrigin(k)}>{v.city}</li> </IonItem>
-                    ))}
+              <IonItem mode="ios" class="ion-item">
+                <IonLabel mode="ios" position="floating" className="new_page_label">Pickup Date</IonLabel>
+                <IonDatetime displayFormat="MMM DD,YYYY" name="pickUpdate" value={this.state.pickUpdate}
+                  onIonChange={this.handleChange} mode="ios" placeholder="Choose Pickup Date"></IonDatetime>
+                <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
+              </IonItem>
 
-                  </ul>
-                </div> : null}
+              <IonItem mode="ios" class="ion-item">
+                <IonLabel mode="ios" position="floating">Destination</IonLabel>
+                <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(e) => this.handleDestination(e)} />
+                <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
+              </IonItem>
 
-                <div className="ion-item1">
-                  <IonLabel mode="ios" position="floating" className="ion-label-radius">Origin Radius</IonLabel>
-                  <div className="pickRadius" >{this.state.distance} mi</div>
-                  <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="distance" color="primary" value={this.state.distance} className="search_range" onIonChange={this.handleChange} />
-                </div>
+              {this.state.showSuggestions2 ? <div className="suggestions_div" ref={node => { this.node = node; }}>
+                <IonItem className="suggestions_input_item">
+                  <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
+                  <IonInput className="cts-form-control" type="text" value={this.state.destination} />
 
-                <IonItem mode="ios" class="ion-item">
-                  <IonLabel mode="ios" position="floating" className="new_page_label">Pickup Date</IonLabel>
-                  <IonDatetime displayFormat="MMMM/DD/YYYY" name="pickUpdate" value={this.state.pickUpdate}
-                    onIonChange={this.handleChange} mode="ios"></IonDatetime>
-                  <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
                 </IonItem>
+                <ul className="suggestions">
+                  {this.state.destinationSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item">
+                    <li className="suggestions_list" key={k} onClick={() => this.SelectedDestination(k)}>{v.city}</li> </IonItem>
+                  ))}
 
-                <IonItem mode="ios" class="ion-item">
-                  <IonLabel mode="ios" position="floating">Destination</IonLabel>
-                  <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(e) => this.handleDestination(e)} />
-                  <IonImg slot="end" alt="logo" src="../../assets/icon/Search icon color.png" className="input_icon" />
-                </IonItem>
+                </ul>
+              </div> : null}
 
-                {this.state.showSuggestions2 ? <div className="suggestions_div" ref={node => { this.node = node; }}>
-                  <IonItem className="suggestions_input_item">
-                    <IonLabel position="floating"> <IonImg slot="end" alt="logo" src="../../assets/icon/position.png" item-right className="position_icon" />Your Location</IonLabel>
-                    <IonInput className="cts-form-control" type="text" value={this.state.destination} />
+              <div className="ion-item1">
+                <IonLabel mode="ios" position="floating" className="ion-label-radius">Destination Radius</IonLabel>
+                <div className="pickRadius">{this.state.Destination_Radius} mi</div>
+                <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="Destination_Radius" color={this.state.form_modified ? "primary" : "medium"} value={this.state.Destination_Radius}
+                  className={`search_range ${this.state.form_modified ? "search_range_active" : "search_range_inactive"}`} onIonChange={this.handleChange} />
+              </div>
 
-                  </IonItem>
-                  <ul className="suggestions">
-                    {this.state.destinationSearchResults.map((v: any, k: number) => (<IonItem className="suggestions_item">
-                      <li className="suggestions_list" key={k} onClick={() => this.SelectedDestination(k)}>{v.city}</li> </IonItem>
-                    ))}
+              <IonItem mode="ios" class="ion-item">
+                <IonLabel mode="ios" position="floating" className="new_page_label">Delivery Date</IonLabel>
+                <IonDatetime displayFormat="MMM DD,YYYY" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange} mode="ios" placeholder="Choose Delivery Date"></IonDatetime>
+                <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
+              </IonItem>
 
-                  </ul>
-                </div> : null}
-
-                <div className="ion-item1">
-                  <IonLabel mode="ios" position="floating" className="ion-label-radius">Destination Radius</IonLabel>
-                  <div className="pickRadius">{this.state.Destination_Radius} mi</div>
-                  <IonRange min={25} max={250} step={25} snaps={true} ticks={false} name="Destination_Radius" color="primary" value={this.state.Destination_Radius} className="search_range" onIonChange={this.handleChange} />
-                </div>
-
-                <IonItem mode="ios" class="ion-item">
-                  <IonLabel mode="ios" position="floating" className="new_page_label">Delivery Date</IonLabel>
-                  <IonDatetime displayFormat="MMMM/DD/YYYY" name="dropdate" value={this.state.dropdate} onIonChange={this.handleChange} mode="ios"></IonDatetime>
-                  <IonImg slot="end" alt="logo" src="../../assets/icon/calender.png" item-right className="input_icon" />
-                </IonItem>
-
-                <IonItem mode="ios" class="ion-item">
-                  <IonLabel mode="ios" position="floating" class="trailer_type_label">Trailer Type</IonLabel>
-                  <IonSelect okText="Okay" cancelText="Dismiss" interface="popover" className="ion-select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
-                    <IonSelectOption value="Dry Van">Dry Van</IonSelectOption>
-                    <IonSelectOption value="Wet Van">Refeer</IonSelectOption>
-                    {/* <IonSelectOption value="Lorry">Lorry</IonSelectOption>
+              <IonItem mode="ios" class="ion-item">
+                <IonLabel mode="ios" position="floating" class="trailer_type_label">Trailer Type</IonLabel>
+                <IonSelect okText="Okay" cancelText="Dismiss" interface="popover" className="search_select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
+                  <IonSelectOption value="Dry Van">Dry Van</IonSelectOption>
+                  <IonSelectOption value="Wet Van">Refeer</IonSelectOption>
+                  {/* <IonSelectOption value="Lorry">Lorry</IonSelectOption>
                     <IonSelectOption value="Container Lorry">Container Lorry</IonSelectOption> */}
-                  </IonSelect>
-                </IonItem>
+                </IonSelect>
+              </IonItem>
 
-              </IonList>
-            </form>
-          </div>
+            </IonList>
+          </form>
         </IonContent>
         <IonFooter >
           <div className="search_alternate">

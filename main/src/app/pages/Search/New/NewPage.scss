@@ -6,14 +6,16 @@
   --padding-start: 13px;
   --padding-end: 14px;
   --padding-top: 0px;
+  font-family: $font-stack;
+  font-size: 15px;
   @media (max-height: map-get($grid-height-breakpoints, xs)) {
     height: 75%;
   }
   @media (max-height: map-get($grid-height-breakpoints, md)) {
     height: 85%;
   }
-}
-.contianer {
+// }
+// .contianer {
   .EnterLoad {
     padding: 2.5vh 1.8vw 2.5vh 4vw;
     font-size: 14px;
@@ -33,6 +35,8 @@
         --background: #fcfcfc;
         bottom: 12px;
         letter-spacing: 0.6px;
+        --min-height: 5.42vh;
+        --border-color: #e2dcdc;
       }
       .ion-item1 {
         margin: 8px 5px 0px 1px;
@@ -45,14 +49,17 @@
         font-size: 15px;
       }
       ion-label {
-        color: #000000 !important;
-        font-family: $font-stack !important;
+        color: #9B9B9B !important;
+        font-family: $font-roboto-regular !important;
         font-size: 15px !important;
         opacity: 0.84;
         margin-top: 17px;
       }
+      ion-input {
+        margin-top: -1.23vh;
+      }
       .input_icon {
-        margin-top: 47px;
+        margin-top: 4.3vh;
         margin-right: -5px;
         margin-bottom: 4px;
         width: 16px;
@@ -112,11 +119,15 @@
       }
       .search_range {
         width: 105%;
-        margin-top: -7px;
-        padding: 1px 17px 1px 5px;
-        --knob-background: #f56b01;
-        --knob-size: 11px;
+        margin-top: -1.7vh;
+        padding: 0 17px 0 5px;
+        --knob-size: 16px;
+      }
+      .search_range_active{
         --knob-box-shadow: 0px 0px 8px 0px darkorange;
+      }
+      .search_range_inactive{
+        --knob-box-shadow: 0px 0px 8px 0px #989aa2;
       }
       .new_page_label {
         padding-top: 0px !important;
@@ -124,6 +135,10 @@
       ion-datetime {
         --padding-top: 0px;
         --padding-bottom: 0px;
+        --placeholder-color: #000000;
+      }
+      .search_select{
+        padding-top: 0;
       }
     }
   }
@@ -133,6 +148,7 @@ ion-footer {
   margin-top: 9px;
   height: 71px;
   border-top: 0.5px solid #dedede;
+  bottom: 0;
   ion-toggle {
     --background-checked: #f6d679;
     zoom: 0.7;
@@ -214,6 +230,7 @@ ion-footer {
   border-top-left-radius: 45px;
   border-top-right-radius: 45px;
   box-shadow: 0px -22px 18px #00000021;
+  height: 31.9vh;
 }
 .location_input_icon {
   width: 16%;
@@ -234,6 +251,41 @@ ion-footer {
   box-shadow: none;
   border-bottom: 1px solid lightgrey;
 }
-// .footer-bottom{
-//   bottom:0
-// }
+.picker-opt.picker-opt-selected, .picker-prefix, .picker-suffix {
+  color: $primary;
+  font-size: 18px;
+  font-family: $font-roboto;
+}
+
+.sc-ion-picker-ios {
+  color: black !important;
+  button {
+    font-size: 16px !important;
+    font-family: $font-stack !important;
+  }
+}
+.picker-col{
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  height: 22.35vh;
+}
+.picker-toolbar {
+  height: 6.5vh !important;
+  padding-top: 0.5vh;
+  padding-left: 2.4vw;
+  padding-right: 2.4vw;
+  border-bottom: .25px solid #e8e8e8 !important;
+}
+.picker-columns{
+  background-color: #FAFAFA;
+}
+.picker-above-highlight{
+  border-bottom: 0.25px solid #eaeaea !important;
+}
+.picker-below-highlight{
+  border-top: 0.25px solid #eaeaea !important;
+  bottom: 0;
+}
+ion-backdrop{
+  background-color: transparent;
+}

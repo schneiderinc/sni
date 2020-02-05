@@ -2,22 +2,21 @@
 @import  "../../../theme/responsive-styles.scss";
 .manageHeader{
     background: linear-gradient(180deg, #FCA364, #FD7D4F);
-  
-    height:256px;
+    height:29.6vh;
 }
 .profileImg{
-    width: 108px;
-    height: 108px;
+    width: 28.8vw;
+    height: 13.3vh;
     border-radius: 50%;
 }
 .profile-cardContent{
-    padding-left:12px;
-    padding-right:12.9px;
+    padding-left:4vw;
+    padding-right:4.24vw;
 }
 .profileHeader{
     text-align: center;
-    padding-top: 14%;
-    font-family:$font-stack;
+    padding-top: 5.05vh;
+    font-family:$font-roboto-regular;
     .editBadge{
         width: 30px;
         height: 30px;
@@ -25,14 +24,11 @@
         border-radius: 50px;
         border: 1px #ffff;
         margin: 0px 0px 4px -29px;
-
     }
     .profileEditIcon{
-       
-        width: 13.63px;
-    height: 13.61px;
- 
-    margin-top: 6px;
+       width: 13.63px;
+        height: 13.61px;
+        margin-top: 6px;
     }
 }
 .profileName{
@@ -41,10 +37,16 @@
     color: #FFFFFF;
  
 }
+.card_content_background{
+    background-color: #FD7D4F;
+    ion-col{
+        padding: 0;
+    }
+}
 .Dispatcher{
    
     font-size: 14px;
-    padding: 6px 0px 6px 0px;
+    padding: 0.5vh 0vw;
     color: #FFFFFF;
    
 }
@@ -53,67 +55,35 @@
     color: #FFFFFF;
   
 }
-.cardImg{
-    width: 38px;
-    height: 45px;
-}
 .profileCard{
-    height: 80px;
-    margin: 7px 10px 5px 10px;
-    font-family:$font-stack;
+    height: 9.85vh;
+    margin: 0.86vh 2.67vw;
+    font-family:$font-roboto-regular;
     box-shadow: 0px 3px 6px #3A4C8212;
     border: 0.5px solid #DEDEDE;
     color: black;
     .carrier-profile{
         font-size: 16px;
         color: #FF6418;
-        margin-top: 12px;
+        margin-top: 3.63vh;
         padding: 0;
-    }
-    .lorem{
-        font-size: 12px ;
-        color: #555555;
-        padding: 0;
+        opacity: 0.84;
     }
 }
 .cardContent-space{
-    font-family:$font-stack;
-    padding-top: 25px;
+    font-family:$font-roboto-regular;
+    padding-top:3.08vh;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
     background-color: white;
 }
 .profileCard .profileIcon{
-    width: 41.5px;
-    height:42px;
+    width: 11.07vw;
+    height:5.17vh;
+    margin-top: 2.4vh;
+    margin-bottom: 2.52vh;
 }
-
-.profile-card-row{
-    
-    padding-top: 14.54px;
-    padding-bottom: 14.57px;
-}
-.carrierprofile-card-row{
-    padding-top: 17.5px;
-    padding-bottom: 17.5px;
-}
-.manageprofile-card-row{
-    padding-top: 20.79px;
-    padding-bottom: 21.14px;
-}
-.truckprofile-card-row{
-    padding-top: 30.95px;
-    padding-bottom: 22.1px;
-}
-.profile-arrow{
-    width: 6.12px !important;
-   height: 13.39px;
-    margin-top: 15px;
-} 
 .manage-profile-arrow-col{
-    padding-left: 19px;
-    padding-right: 0px;
-}  
-.card_content_background{
-    background-color: #FD7D4F;
+    margin-top: 4.3vh;
+    padding-left: 4.27vw !important;
 }

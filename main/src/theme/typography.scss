@@ -18,11 +18,25 @@ medium
     src: local('Helvetica Neue '), local('Helvetica Neue'), url("/assets/fonts/HelveticaNeue.ttf") format('truetype');
   }
 
-  @font-face {
-    font-family:'Roboto Medium';
-    font-style: regular;
-    font-weight: 100;
-    src: local('Helvetica Neue '), local('Helvetica Neue'), url("/assets/fonts/Roboto-Medium.ttf") format('truetype');
-  }
+@font-face {
+  font-family:'Roboto Medium';
+  font-style: regular;
+  font-weight: 100;
+  src: local('Roboto Medium '), local('Roboto Medium'), url("/assets/fonts/Roboto-Medium.ttf") format('truetype');
+}
+
+@font-face {
+  font-family:'Roboto Regular';
+  font-style: regular;
+  font-weight: 100;
+  src: local('Roboto Regular'), local('Roboto Regular'), url("/assets/fonts/Roboto-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family:'Roboto Bold';
+  font-style: regular;
+  font-weight: 100;
+  src: local('Roboto Bold'), local('Roboto Bold'), url("/assets/fonts/Roboto-Bold.ttf") format('truetype');
+}
 
   

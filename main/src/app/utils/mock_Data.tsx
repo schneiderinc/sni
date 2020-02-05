@@ -271,7 +271,7 @@ export const searchbarList= [{
 	},
 	{
 		cradImg: "assets/icon/post_truck.svg",
-		profileHeading: "Manage Truck/Lane Postings",
+		profileHeading: "Manage Truck & Lane Postings",
 		profileRouting:"/app/manage/ManageTruck"
 	
 	}

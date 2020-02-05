@@ -4,6 +4,9 @@
 .menu_page {
   .page-header {
     height: 9.98vh;
+    #header-icon{
+      padding-top: 3vh;
+  }
   }
 }
 .menu_page_content {
@@ -15,21 +18,20 @@
   --inner-padding-end: 1.62vw;
   --padding-end: 4.27vw;
   --min-height: 5.05vh;
-  color: #555555;
+  color: #333333;
   font-size: 14px;
   --border-color: #0000003f;
+  font-family: $font-roboto-regular;
 }
 .menu_list_heading {
   font-size: 14px;
-  color: #ff8a51;
+  color: #FF6418;
   text-transform: uppercase;
-  margin-left: 2.67vw;
-  font-family: $font-stack;
-  padding-left: 3.204vw;
+  font-family: $font-roboto-regular;
+  padding-left: 3.36vw;
 }
 .menu_list_card {
-  margin-bottom: 1.85vh;
-  margin-top: 0.74vh;
+  margin: 0.74vh 0 1.85vh 0;
   box-shadow: 0 3px 6px #3a4c8212;
   border: 0.5px solid #dedede;
 }
@@ -40,7 +42,7 @@
 .list_row_heading {
   font-size: 14px;
   color: #232323;
-  font-family: $font-roboto;
+  font-family: $font-roboto-medium;
 }
 .menu_page_card {
   --padding-start: 11.5px;

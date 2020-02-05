@@ -2,15 +2,15 @@
 @import  "../../../../theme/responsive-styles.scss";
 
 .recent_container{
-    --padding-start: 10px;
-    --padding-end: 10px;
+    --padding-start: 4vw;
+    --padding-end: 4vw;
     --padding-top:0px;
-.EnterLoad_recent{
-    padding: 15px 23px;
+    font-family: $font-roboto-regular;
+.header-text{
+    padding: 1.85vh 2.13vw;
     font-size: 14px;
     color:#4A4A4A;
-    font-family: $font-stack;
-    margin-top: 14px;
+    font-family: $font-roboto-regular;
   }
   .recent_row{
       line-height: 2;
@@ -39,7 +39,6 @@
   .card-arrow{
     margin-left: 5px;
     margin-top: -4px;
-    opacity: 0.6;
   }
   ion-tab-bar{
     border-top: 1px solid #DEDEDE;

@@ -9,7 +9,7 @@ const ListItem = (props: any) => {
 	const sub_heading = props.headings.sub_heading
     return (
 		<>
-			<IonLabel class="menu_list_heading"><b>{heading}</b></IonLabel>
+			<IonLabel class="menu_list_heading">{heading}</IonLabel>
 			<IonCard mode="md" class="menu_list_card">
 				<IonList mode="ios">
 					{
