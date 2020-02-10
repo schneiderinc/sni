@@ -29,7 +29,7 @@ const RecentCard = (props: any) => {
 
             {(props.showButtons) ?
                 <IonTabBar slot="bottom">
-                    <IonTabButton className="tabButton_add" onClick={props.add} tab="add">
+                    <IonTabButton className="tabButton_add" tab="view">
                         <IonRow>
                             <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/heart.svg" /></IonCol>
                             <IonCol><IonLabel>ADD</IonLabel></IonCol>
@@ -61,8 +61,6 @@ class RecentSearch extends React.Component<any, any>{
             whiteColor: "#FFFFFF",
             cardColor: "#FFF9F099",
             selectedCardId: null
-
-
         }
     }
     add() {

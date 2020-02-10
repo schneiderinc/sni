@@ -98,18 +98,18 @@ body {
   color: color($colors, primary);
 } */
 
-ion-button {
-  //background-color: $primary;
-  // background-color: rgba(255, 132, 71, 1);
-  // background: filter-gradient(#ff8447, #ff6e25, vertical);
-  // background: background-image(
-  //   linear-gradient(
-  //     to bottom,
-  //     rgba(255, 132, 71, 1) 0%,
-  //     rgba(255, 110, 37, 1) 100%
-  //   )
-  // );
-}
+// ion-button {
+//   //background-color: $primary;
+//   // background-color: rgba(255, 132, 71, 1);
+//   // background: filter-gradient(#ff8447, #ff6e25, vertical);
+//   // background: background-image(
+//   //   linear-gradient(
+//   //     to bottom,
+//   //     rgba(255, 132, 71, 1) 0%,
+//   //     rgba(255, 110, 37, 1) 100%
+//   //   )
+//   // );
+// }
 
 .tab_footer_label {
   font-size: 12px;
@@ -196,20 +196,8 @@ ion-select{
 .select-icon-inner {
   border-top: transparent!important;
 }
-.disabled-login {
-  --background:#C0C0C0 !important;
-  --border-radius: 20px;
-  height: 5.56vh;
-  font-size: 18px;
-  .button-solid {
-    background: #C0C0C0 !important;
-    --background-focused: #C0C0C0 !important;
-    --background-hover: #C0C0C0 !important;
-    border-radius: 30px;
-    background-color: #C0C0C0 !important;
-  }
-}
-ion-alert{
+
+.select-alert{
   .alert-wrapper {
     height: 259px !important;
     min-width: 205px !important;

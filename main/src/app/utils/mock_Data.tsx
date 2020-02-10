@@ -294,7 +294,7 @@ export const carrierProfile = [
         inputValue: "email@schneider.com"
     },
     {
-        subHeading: "Carrier single Line Address",
+        subHeading: "Carrier Single Line Address",
         inputValue: "Green Bay, Wisconsin, USA"
     },
     {

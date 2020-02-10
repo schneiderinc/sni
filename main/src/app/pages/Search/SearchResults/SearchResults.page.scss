@@ -22,7 +22,7 @@
         }
     }
     .search_floating_badge {
-        height: 2.46vh;
+        height: 2.6vh;
         background-color: #f1eded;
         color: #151724;
         font-size: 10px;
@@ -38,6 +38,12 @@
         }
         .sort_select{
             padding-bottom: 0.61vh;
+        }
+    }
+    .short-div{
+        padding: 5px 0;
+        .short-row{
+            padding: 0;
         }
     }
 }

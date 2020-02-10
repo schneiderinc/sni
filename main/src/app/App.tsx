@@ -46,25 +46,64 @@ const App: React.FC = (props: any) => {
     }
   }, [currentPosition])
 
+  /* Commented Code as SetInterval is not flow is not working in iOS. */
   const watchCurrentPosition = () => {
-    intervalID = setInterval(() => {
-      getCurrentPosition();
-    }, 6000, intervalID)
+    if (!intervalID) {
+      intervalID = setInterval(() => {
+        getCurrentPosition();
+      }, 6000, intervalID)
+    }
   }
 
+  // const watchCurrentPosition = () => {
+  //   console.log("intervalID", intervalID)
+  //   try {
+  //     if (!intervalID) {
+  //       intervalID = Geolocation.watchPosition({ enableHighAccuracy: false, maximumAge: 5000, timeout: 5000 }, (result, error) => {
+  //         if (result) {
+  //           console.log("GPSDATA:::", result);
+
+  //           setCurrentPosition(captureGPSData(result));
+  //         } else {
+  //           console.log('GPS Error', error);
+  //         }
+  //       })
+  //     }
+  //   }
+  //   catch (error) {
+  //     console.log("GPS catch Error:", error);
+  //   }
+  // }
+
+  const captureGPSData = (_result: any) => {
+
+    const { timestamp } = _result;
+    const { latitude, longitude } = _result.coords;
+    const gpsData = {
+      timestamp: new Date(timestamp).toLocaleString("en-US").toString(),
+      latitude,
+      longitude
+    }
+    return gpsData;
+
+  }
   const getCurrentPosition = () => {
-
-    Geolocation.getCurrentPosition().then((result) => {
-      const { timestamp } = result;
-      const { latitude, longitude } = result.coords;
-      const gpsData = {
-        timestamp: new Date(timestamp).toLocaleString("en-US").toString(),
-        latitude,
-        longitude
-      }
-      setCurrentPosition(gpsData)
-
-    });
+    try {
+      Geolocation.getCurrentPosition({ maximumAge: 0, enableHighAccuracy: false, timeout: 0 }).then((result) => {
+        const { timestamp } = result;
+        const { latitude, longitude } = result.coords;
+        const gpsData = {
+          timestamp: new Date(timestamp).toLocaleString("en-US").toString(),
+          latitude,
+          longitude
+        }
+        setCurrentPosition(gpsData);
+      }, (error) => {
+        console.log(" getCurrentPosition Error:", error);
+      });
+    } catch (error) {
+      console.log("GPS catch Error:", error);
+    }
 
   }
 

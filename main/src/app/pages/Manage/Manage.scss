@@ -6,7 +6,7 @@
 }
 .profileImg{
     width: 28.8vw;
-    height: 13.3vh;
+    height: 28.8vw;
     border-radius: 50%;
 }
 .profile-cardContent{
@@ -86,4 +86,9 @@
 .manage-profile-arrow-col{
     margin-top: 4.3vh;
     padding-left: 4.27vw !important;
+}
+.manage-header{
+    .header-md:after{
+        height: 0 !important;
+    }
 }

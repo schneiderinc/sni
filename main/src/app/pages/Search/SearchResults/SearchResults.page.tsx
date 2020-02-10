@@ -37,17 +37,27 @@ class SearchResultPage extends PureComponent<any, any> {
                                     )))
                             }
                         </IonSegment>}
-                        <IonRow class="sort_container">
-                            <IonCol size="4" class="rec_text">
-                                <b>10</b> Matches
-                            </IonCol>
-                            <IonCol size="8" class="sort_select">
-                                <div className="select_div">
+                        <div className="short-div">
+                            <IonRow class="short-row">
+                                <IonCol size="5" class="rec_text">
+                                    <span className="recommendations_num">10 </span> Matches
+                                </IonCol>
+                                <IonCol size="5.5" class="sort_select">
+                                    <div className="select_div">
                                     <IonLabel className="sort_label">Sort:</IonLabel>
                                     <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData} />
-                                </div>
-                            </IonCol>
-                        </IonRow>
+                                    </div>
+                                </IonCol>
+                                <IonCol size="1.5" className="sortArrowsCol">
+                                    <div className="sortArrows">
+                                        <div className="line"></div>
+                                        <i className="downArrow"></i>
+                                        <div className="line1"></div>
+                                        <i className="upArrow"></i>
+                                    </div>
+                                </IonCol>
+                            </IonRow>
+                        </div>
                         <Loads loads={this.props.results} >{
                             ({ loads }: { loads?: any }) => {
                                 return <IonList>

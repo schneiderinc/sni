@@ -72,10 +72,11 @@
   }
   .login-btn {
     --border-radius: 20px;
-    height: 5.56vh;
+    height: 12vw;
     font-size: 18px;
     border-radius: 30px;
     background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
+    --background-activated: linear-gradient(180deg, #fe8347, #fe8347);
     .button-solid {
       background: $primary;
     --background-focused: $primary;
@@ -84,7 +85,19 @@
     background-color: $primary !important;
     }
   }
-  
+  .disabled-login {
+    --background:#C0C0C0 !important;
+    --border-radius: 20px;
+    height: 12vw;
+    font-size: 18px;
+    .button-solid {
+      background: #C0C0C0 !important;
+      --background-focused: #C0C0C0 !important;
+      --background-hover: #C0C0C0 !important;
+      border-radius: 30px;
+      background-color: #C0C0C0 !important;
+    }
+  }
   .login_alternate {
     // padding: 0 1vh;
     clear: both;
@@ -98,11 +111,13 @@
       --background:  white;
       --background-focused: white;
       --background-hover: white;
+      --background-activated: white;
       color: $primary;
       border: 1px solid;
       border-radius: 20px;
       font-size: 14px;
       margin-bottom: 3.7vh;
+      --color-activated: $primary;
     }
     .sign_up{
       text-align: center;
@@ -148,9 +163,9 @@
   #header_logo {
     margin-top:9.26vh;
     -webkit-transition:  margin-top 0.5s ease-in-out;
-  -moz-transition:  margin-top 0.5s ease-in-out;
-  -o-transition:  margin-top 0.5s ease-in-out;
-  transition:  margin-top 0.5s ease-in-out;
+    -moz-transition:  margin-top 0.5s ease-in-out;
+    -o-transition:  margin-top 0.5s ease-in-out;
+    transition:  margin-top 0.5s ease-in-out;
   }
 }
 

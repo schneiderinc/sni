@@ -14,7 +14,7 @@ const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeS
       <IonCol size="8"><div id="header-title">{title}</div></IonCol>
       {isMap && <IonCol size="2"><div id="header-icon"><img src="assets/icon/map.svg" alt="icon" /></div></IonCol>}
       {editData && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/edit.svg" onClick={()=> editData()} /></div></IonCol>}
-      {isSearch && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_icon.svg" onClick={()=> editData()} /></div></IonCol>}
+      {isSearch && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_white.svg" onClick={()=> editData()} /></div></IonCol>}
     </IonRow>
     <IonRow>
       {segments && <IonSegment mode="ios" onIonChange={(e) => getSegment(e)} class="segment_control_tabs">

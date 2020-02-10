@@ -60,7 +60,7 @@ ion-header {
   font-weight: bold;
 }
 .short-div {
-  padding: 20px 10px 10px 10px;
+  padding: 20px 0 10px 0;
   background-color: #fcfcfc;
   ion-col {
     padding: 0;
@@ -340,22 +340,23 @@ a {
   padding: 0px 5px 0px 5px;
   margin: -18px auto;
   width: 63.74vw;
-  background: #f4f5f8;
-  border: 0.5px solid #fba464;
-  height: 4.8vh;
-  padding-top: 0.5vh;
+  background: #F4F5F8;
+  border: 0.5px solid #FBA464;
+  height: 10.13vw;
+  padding-top: 1.25vw;
   z-index: 1;
   ion-segment-button {
     --color: #000000;
     --background-checked: #ffffff;
     --color-checked: #000000;
     border: none;
-    height: 3.7vh;
-    font-family: $font-roboto-regular;
-    --background-activated: #e5e5ed;
-
-    ion-label {
-      font-size: 14px;
+    height: 7.62vw;
+    font-family:$font-roboto-regular;
+    --background-activated: #E5E5ED;
+    transition: 0.3s ease-in-out;
+    
+    ion-label{
+      font-size:14px;
       color: #000000;
     }
     border-radius: 25px;

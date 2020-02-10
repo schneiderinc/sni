@@ -28,6 +28,7 @@ class NewPage extends PureComponent<newProps, any> {
   }
   placeSearch = {};
   SelectedOriginVal = "";
+  SelectedDestinationVal=  "";
 
   constructor(props: any) {
     super(props);
@@ -150,9 +151,10 @@ class NewPage extends PureComponent<newProps, any> {
 
   }
   SelectedDestination = (destinationIndex: number) => {
-    if (this.state.destinationSearchResults && this.state.destinationSearchResults.length > 0) {
+  if (this.state.destinationSearchResults && this.state.destinationSearchResults.length > 0) {
+      this.SelectedDestinationVal = this.state.destinationSearchResults[destinationIndex]["city"]
       this.setState(() => (
-        { destination: this.state.destinationSearchResults[destinationIndex]["city"] }
+        { destination: this.SelectedDestinationVal }
       ))
     }
   }
@@ -273,7 +275,6 @@ class NewPage extends PureComponent<newProps, any> {
                 <IonSelect mode="ios" okText="Ok" cancelText="Cancel" interface="alert" className="search_select" name="TrailerType" value={this.state.TrailerType} onIonChange={this.dropDownChange}>
                   <IonSelectOption value="dry_van">Dry Van</IonSelectOption>
                   <IonSelectOption value="refrigerated">Refrigerated</IonSelectOption>
-
                   <IonSelectOption value="flat_bed">Flat Bed</IonSelectOption>
                   <IonSelectOption value="specialty">Specialty</IonSelectOption>
                   <IonSelectOption value="power_only">Power Only</IonSelectOption>
