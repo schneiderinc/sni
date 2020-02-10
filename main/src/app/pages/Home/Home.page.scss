@@ -340,8 +340,8 @@ a {
   padding: 0px 5px 0px 5px;
   margin: -18px auto;
   width: 63.74vw;
-  background: #F4F5F8;
-  border: 0.5px solid #FBA464;
+  background: #f4f5f8;
+  border: 0.5px solid #fba464;
   height: 10.13vw;
   padding-top: 1.25vw;
   z-index: 1;
@@ -351,12 +351,12 @@ a {
     --color-checked: #000000;
     border: none;
     height: 7.62vw;
-    font-family:$font-roboto-regular;
-    --background-activated: #E5E5ED;
+    font-family: $font-roboto-regular;
+    --background-activated: #e5e5ed;
     transition: 0.3s ease-in-out;
-    
-    ion-label{
-      font-size:14px;
+
+    ion-label {
+      font-size: 14px;
       color: #000000;
     }
     border-radius: 25px;
@@ -383,7 +383,7 @@ a {
 .downArrow {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  border: 1px solid #999999;
+  border: 0.5px solid #999999;
   border-width: 0 1px 1px 0;
   display: inline-block;
   padding: 3px;
