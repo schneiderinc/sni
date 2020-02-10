@@ -3,9 +3,9 @@ import { showLoading, hideLoading } from 'app/actions/Login/action';
 import * as constants from 'app/utils/constants';
 import request from 'app/utils/request';
 import { loadSearchData } from 'app/actions/Search/action';
-import { GET_RECENT } from 'app/actions/Recent/action'
+import { GetRecent } from 'app/actions/Recent/action'
 
-import { GET_FAVORITE } from 'app/actions/Favorite/action'
+import { getFavorite } from 'app/actions/Favorite/action'
 
 //const __model:Recommended = new Recommended();
 export function* searchData(data: any) {
@@ -25,7 +25,7 @@ export function* recentData() {
   try {
     yield put(showLoading());
     const recentData = yield call(request, ["RECENT", "RECENT_LOADS"]);
-    yield put(GET_RECENT(recentData));
+    yield put(GetRecent(recentData));
     yield put(hideLoading());
   } catch (e) {
    
@@ -38,7 +38,7 @@ export function* favoriteData() {
   try {
     yield put(showLoading());
     const favoriteData = yield call(request, ["FAVORITE", "FAVORITE_LOADS"]);
-    yield put(GET_FAVORITE(favoriteData));
+    yield put(getFavorite(favoriteData));
     yield put(hideLoading());
   } catch (e) {
    

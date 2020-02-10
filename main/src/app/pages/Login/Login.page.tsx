@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg } from '@ionic/react';
+import { IonContent, IonList, IonPage, IonInput, IonButton, IonItem, IonLabel, IonRow, IonCol, IonToggle, IonImg, IonIcon } from '@ionic/react';
 import PropTypes from 'prop-types'
 import './Login.page.scss';
 
@@ -21,8 +21,8 @@ class LoginPage extends Component<propTypes> {
     }
     constructor(props: any) {
         super(props)
-        window.addEventListener('keyboardWillShow', this.keyboardshowHandler);
-        window.addEventListener('keyboardWillHide', this.keyboardhideHandler);
+        window.addEventListener('keyboardWillShow',this.keyboardshowHandler);
+        window.addEventListener('keyboardWillHide',this.keyboardhideHandler);
     }
     componentDidMount() {
         if (!this.props.userData || !this.props.userData.rememberme)
@@ -87,12 +87,12 @@ class LoginPage extends Component<propTypes> {
                                 <IonItem mode="ios" class={`ion-no-padding ${this.props.loginError ? 'login_error' : null}`}>
                                     <IonLabel mode="ios" position="floating">Enter Your Email ID</IonLabel>
                                     <IonInput className="cts-form-control" name="username" type="text" value={this.state.username} onKeyUp={(event) => this.handleChange(event)} onBlur={(event) => this.handleChange(event)} />
-                                    <IonImg slot="end" alt="logo" src="../../assets/icon/User.png" className="login_input_icon" />
+                                    <IonImg slot="end" alt="logo" src="assets/icon/user.svg" className="login_input_icon" />
                                 </IonItem>
                                 <IonItem mode="ios" class={`ion-no-padding ${this.props.loginError ? 'login_error' : null}`}>
                                     <IonLabel mode="ios" position="floating">Enter Your Password</IonLabel>
                                     <IonInput className="cts-form-control" name="password" type="password" value={this.state.password} onKeyUp={(event) => this.handleChange(event)} onBlur={(event) => this.handleChange(event)} />
-                                    <IonImg slot="end" alt="logo" src="../../assets/icon/pass-icon.png" item-right className="login_input_icon" onClick={() => this.showPassword()} />
+                                    <IonImg slot="end" alt="logo" src="assets/icon/pass-icon.svg" item-right className="login_input_icon" onClick={() => this.showPassword()} />
                                 </IonItem>
                             </IonList>
                             <IonRow class="login_remember_link">
@@ -108,10 +108,10 @@ class LoginPage extends Component<propTypes> {
                                 <IonCol> <span>Forgot Password?</span></IonCol>
                             </IonRow>
 
-                            {this.props.loginError && <div id="errorMsg"><div className="dot" id="errorDot">!</div>  Incorrect email or Credential</div>}
+                            {this.props.loginError && <div id="errorMsg"><IonIcon src="assets/icon/error_icon.svg"></IonIcon> InCorrect Email or Credential</div>}
 
                             <div className="button-container ion-text-center">
-                                <IonButton class="cts-btn login-btn" data-kind="primary" type="submit" disabled={!this.state.username || !this.state.password} expand="block">LOGIN</IonButton>
+                                <IonButton class={`cts-btn  ${!this.state.username || this.state.password.length<3 ? 'disabled-login' : 'login-btn'}`} data-kind="primary" type="submit" disabled={!this.state.username || !this.state.password} expand="block">LOGIN</IonButton>
                             </div>
                         </form>
                         <div className="login_devider">

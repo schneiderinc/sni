@@ -12,10 +12,10 @@ const StopDetailsCard = (props: any) =>{
 	  }
 	return (
 		<>
-			<div className="stop_details_name"><b>{stopDetails.city}, {stopDetails.state}</b></div>
+			<div className="stop_details_name">{stopDetails.city}, {stopDetails.state}</div>
 			<div className="stop_details_data">{stopType(props.place,props.stopCount-1)}</div>
 			<div className="stop_details_data">Appointment</div>
-			<div className="stop_details_name">{stopDetails.from_date} | {stopDetails.from_date_time}</div>
+			<div className="stop_details_date">{stopDetails.from_date} | {stopDetails.from_date_time}</div>
 		</>	
 	)
 }

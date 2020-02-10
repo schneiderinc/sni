@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import useInjectSaga from "app/utils/injectSaga";
 import useInjectReducer from "app/utils/injectReducer";
-import { getLoading } from "../../../selectors/selector";
+import { getLoading } from "app/selectors/selector";
 import { createStructuredSelector } from "reselect";
 import { SearchResultPage } from "app/pages/Search/SearchResults";
 import { makeSearch } from "app/selectors/Search/selector";

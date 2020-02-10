@@ -19,10 +19,13 @@
   .card-dt-recent{
       font-size:12px;
       color:#000000;
+      font-family: $font-roboto-regular;
   }
   .card-dist-recent{
       font-size:12px;
       color:#000000;
+      margin-top: -6px;
+      font-family: $font-roboto-regular;
   }
   .vehicle_type{
       font-size:11px;
@@ -45,6 +48,7 @@
     padding:0px;
     height:43px;
     box-shadow: none;
+    font-family: $font-roboto-regular;
     ion-tab-button{
         --background: #FCFCFC;
         color: black;

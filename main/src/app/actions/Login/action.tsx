@@ -34,3 +34,11 @@ export const loginError = (data:any) => ({
 export const logout = () => ({
     type: constants.LOGOUT,
 })
+export const showImageError = (data:any) => ({
+    type: constants.IMAGE_ERROR,
+    payload: data
+});
+export const AlertError = () => ({
+    type: constants.ALERT_ERROR
+   
+});

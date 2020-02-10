@@ -100,32 +100,31 @@ body {
 
 ion-button {
   //background-color: $primary;
-  background-color: rgba(255, 132, 71, 1);
-  background: filter-gradient(#ff8447, #ff6e25, vertical);
-  background: background-image(
-    linear-gradient(
-      to bottom,
-      rgba(255, 132, 71, 1) 0%,
-      rgba(255, 110, 37, 1) 100%
-    )
-  );
-}
-
-ion-label {
-  font-size: 13px;
+  // background-color: rgba(255, 132, 71, 1);
+  // background: filter-gradient(#ff8447, #ff6e25, vertical);
+  // background: background-image(
+  //   linear-gradient(
+  //     to bottom,
+  //     rgba(255, 132, 71, 1) 0%,
+  //     rgba(255, 110, 37, 1) 100%
+  //   )
+  // );
 }
 
 .tab_footer_label {
   font-size: 12px;
   margin-top: 1px;
+  font-family: $font-roboto-regular;
 }
 .tab_footer_label_manage {
   font-size: 12px;
   margin-top: 0;
+  font-family: $font-roboto-regular;
 }
 .tab_footer_label_more {
   font-size: 12px;
   margin-top: 5px;
+  font-family: $font-roboto-regular;
 }
 .tab-selected {
   color: $primary !important;
@@ -175,12 +174,66 @@ ion-back-button {
   --icon-font-size: 30px !important;
   --icon-padding-start: 10px !important;
 }
-.button-solid {
-  background: $primary;
-  --background-focused: $primary;
-  --background-hover:$primary;
-  border-radius: 30px;
-  background-color: rgba(255,132,71,1);
-  background:  filter-gradient(#ff8447, #ff6e25, vertical);
-  background: background-image(linear-gradient(to bottom, rgba(255,132,71,1) 0%, rgba(255,110,37,1) 100%));
+// .button-solid {
+//   background: $primary;
+//   --background-focused: $primary;
+//   --background-hover:$primary;
+//   border-radius: 30px;
+//   background-color: rgba(255,132,71,1);
+//   background:  filter-gradient(#ff8447, #ff6e25, vertical);
+//   background: background-image(linear-gradient(to bottom, rgba(255,132,71,1) 0%, rgba(255,110,37,1) 100%));
+// }
+:host {
+  --bar-background: rgba(var(--ion-color-primary-rgb,255,100,24),1);
+}
+ion-select{
+  .select-icon{
+    .select-icon-inner{
+      opacity: 0 !important;
+    }
+  }
+}
+.select-icon-inner {
+  border-top: transparent!important;
+}
+.disabled-login {
+  --background:#C0C0C0 !important;
+  --border-radius: 20px;
+  height: 5.56vh;
+  font-size: 18px;
+  .button-solid {
+    background: #C0C0C0 !important;
+    --background-focused: #C0C0C0 !important;
+    --background-hover: #C0C0C0 !important;
+    border-radius: 30px;
+    background-color: #C0C0C0 !important;
+  }
+}
+ion-alert{
+  .alert-wrapper {
+    height: 259px !important;
+    min-width: 205px !important;
+  }
+  .alert-head{
+    padding: 0 !important;
+  }
+  .alert-title{
+    font-family: $font-roboto-regular;
+    font-size: 14px !important;
+  }
+  .alert-button{
+    font-size: 14px !important;
+    font-family: $font-roboto-regular;
+  }
+  .alert-button-group{
+    button:first-child{
+      color: black;
+    }
+  }
+  .alert-radio-group {
+    font-size: 13px;
+    button {
+      border-bottom: 0.25px solid #0000003F !important;
+    }
+  }
 }

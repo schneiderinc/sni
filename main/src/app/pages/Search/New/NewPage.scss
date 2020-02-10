@@ -6,7 +6,7 @@
   --padding-start: 13px;
   --padding-end: 14px;
   --padding-top: 0px;
-  font-family: $font-stack;
+  font-family: $font-roboto-regular;
   font-size: 15px;
   @media (max-height: map-get($grid-height-breakpoints, xs)) {
     height: 75%;
@@ -20,7 +20,7 @@
     padding: 2.5vh 1.8vw 2.5vh 4vw;
     font-size: 14px;
     color: #4a4a4a;
-    font-family: $font-stack;
+    font-family: $font-roboto-regular;
   }
   .search-form {
     margin-top: -11px;
@@ -125,9 +125,11 @@
       }
       .search_range_active{
         --knob-box-shadow: 0px 0px 8px 0px darkorange;
+        --ion-color-primary-rgb: 152, 154, 162;
       }
       .search_range_inactive{
         --knob-box-shadow: 0px 0px 8px 0px #989aa2;
+        --ion-color-primary-rgb: 152, 154, 162;
       }
       .new_page_label {
         padding-top: 0px !important;
@@ -136,9 +138,11 @@
         --padding-top: 0px;
         --padding-bottom: 0px;
         --placeholder-color: #000000;
+        font-size: 15px;
       }
       .search_select{
         padding-top: 0;
+        font-size: 15px;
       }
     }
   }
@@ -286,6 +290,8 @@ ion-footer {
   border-top: 0.25px solid #eaeaea !important;
   bottom: 0;
 }
-ion-backdrop{
-  background-color: transparent;
+ion-picker{
+  ion-backdrop{
+    background-color: transparent;
+  }
 }

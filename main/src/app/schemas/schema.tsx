@@ -3,7 +3,11 @@ export interface GlobalState {
     loading: boolean;
     error: boolean;
     currentUser: boolean;
-    userData:any;
+    userData:any; 
+    imageError?:boolean;
+    ImgErrormsg?:string
+    alertError?:boolean;
+
 }
 
 export interface Location {

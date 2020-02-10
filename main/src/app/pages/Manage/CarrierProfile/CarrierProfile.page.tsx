@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { IonContent, IonPage, IonLabel, IonCard, IonList, IonItem, IonInput, IonRow, IonCol } from '@ionic/react';
 import AppHeader from 'app/components/app/Bars/Bar-header';
-import { carrierProfile, carrierProfileInsurance, carrierProfileInsurance2 } from 'app/utils/mock_Data';
 import './carrierProfile.scss';
 import { CarrierInsuranceCard } from 'app/components/app/carrierInsuranceCard/carrierInsuranceCard';
 
@@ -13,6 +12,7 @@ class CarrierProfilePage extends Component<any, any> {
 
     }
     render() {
+        const { manageCarrierdata, manageInsuranceData, manageInsuranceData2 } = this.props;
         return (
             <IonPage >
                 <AppHeader title="Carrier Profile" backUrl={"/app/" + this.props.module} />
@@ -20,10 +20,10 @@ class CarrierProfilePage extends Component<any, any> {
                     <div className="contact">Contact Schneider if any of the fields need to be updated</div>
                     <IonCard mode="md" className="carrier-card">
                         <IonList >
-                            {carrierProfile.map((v, k) => (
-                                <IonItem mode="ios" key={k} className="carrier-profile-ionitem" lines={k === carrierProfile.length - 1 ? 'none' : 'inset'}>
-                                    <IonLabel mode="ios" position="floating" className="carrier-profile-label">{v.subHeading}</IonLabel>
-                                    <IonInput type="text" className="profile-form-control" name="origin" value={v.inputValue} readonly />
+                            {manageCarrierdata.map((carrierData: any, index: number) => (
+                                <IonItem mode="ios" key={index} className="carrier-profile-ionitem" lines={index === manageCarrierdata.length - 1 ? 'none' : 'inset'}>
+                                    <IonLabel mode="ios" position="floating" className="carrier-profile-label">{carrierData.subHeading}</IonLabel>
+                                    <IonInput type="text" className="profile-form-control" name="origin" value={carrierData.inputValue} readonly />
                                 </IonItem>
 
                             ))}
@@ -46,8 +46,8 @@ class CarrierProfilePage extends Component<any, any> {
                         </IonRow>
                     </IonCard>
                     <div className="certification-header">CARRIER INSURANCE</div>
-                    <CarrierInsuranceCard carrierInsurance={carrierProfileInsurance} />
-                    <CarrierInsuranceCard carrierInsurance={carrierProfileInsurance2} />
+                    <CarrierInsuranceCard carrierInsurance={manageInsuranceData} />
+                    <CarrierInsuranceCard carrierInsurance={manageInsuranceData2} />
                 </IonContent>
             </IonPage>
         );

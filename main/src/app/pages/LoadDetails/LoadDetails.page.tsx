@@ -35,13 +35,13 @@ const DocumentDetailsCard = (props: any) => {
 			<IonRow>
 				<IonCol size="11">
 					<IonRow>
-						<IonCol>{props.details.document_name}</IonCol>
+						<IonCol>Document Type : {props.details.document_type}</IonCol>
 					</IonRow>
 					<IonRow>
 						<IonCol>By {props.details.uploaded_by} | {props.details.uploaded_time}</IonCol>
 					</IonRow>
 					<IonRow>
-						<IonCol>Document Type : {props.details.document_type}</IonCol>
+						<IonCol>{props.details.document_name} </IonCol>
 					</IonRow>
 				</IonCol>
 				<IonCol size="1">
@@ -96,10 +96,10 @@ class LoadDetailsPage extends Component<any, any> {
 										<LoadTileFooter price={loadDetails.price} stops={loadDetails.total_stops} trailer={loadDetails.trailer} total_distance={loadDetails.total_distance} />
 										<IonRow>
 											<IonCol size="4" className="callCol">
-												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/call.png" className="load_btn_img" />CALL</IonButton>
+												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/call.svg" className="load_btn_img" />CALL</IonButton>
 											</IonCol>
 											<IonCol size="4" className="callCol">
-												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/chat.png" className="load_btn_img" />CHAT</IonButton>
+												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/chat.svg" className="load_btn_img" />CHAT</IonButton>
 											</IonCol>
 											<IonCol size="4" className="watchToggle_col">
 												<div>
@@ -139,7 +139,7 @@ class LoadDetailsPage extends Component<any, any> {
 									</IonGrid>
 								</IonCardContent>
 							</IonCard>
-							<IonCard class="ion-card">
+							{/* <IonCard class="ion-card">
 								<IonCardHeader class="accordion-header" onClick={this.loadDocuments}>
 									<span>Documents</span>
 
@@ -156,13 +156,8 @@ class LoadDetailsPage extends Component<any, any> {
 											<DocumentDetailsCard details={details} key={index} showPdf = {this.showPdf}/>
 										))
 									}
-
-									{/* <div className="document_details_name"><b>Tender Document Name</b></div>
-											<div className="document_details_data">By Joanne | Nov 16,10:00 AM</div>
-											<div className="document_details_data">Document Type : <b>Tender document</b></div> */}
-
 								</IonCardContent>
-							</IonCard>
+							</IonCard> */}
 							<IonCard class="ion-card" >
 								<IonCardHeader class="accordion-header" onClick={this.loadTerms}>
 									<span>Terms &amp; Conditions </span>
@@ -173,7 +168,7 @@ class LoadDetailsPage extends Component<any, any> {
 											<i className="up"></i>
 									}
 								</IonCardHeader>
-								<IonCardContent class={this.state.showTerms ? 'fadeout' : 'fadein'}>
+								<IonCardContent class={`term-class ${this.state.showTerms ? 'fadeout' : 'fadein'}`}>
 									<p>A shipment tender document will be sent to you once assigned within the Schneider Transportation Management System. The carrier must follow this shipment tender documentation, any changes to the shipment will cause an updated tender which would include updated payment information.</p>
 									<p>This transaction is subject to and governed by the written agreement between you and Schneider Transportation Management, a division of Schneider National Carriers, Inc. and the terms of this site.</p>
 								</IonCardContent>

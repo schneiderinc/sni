@@ -1,5 +1,5 @@
 import * as Constants from 'app/utils/constants';
-export const GET_RECENT = (data: any) => ({
+export const GetRecent = (data: any) => ({
         type: Constants.GET_RECENT,
         payload: data
 

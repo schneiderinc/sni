@@ -7,7 +7,9 @@ const initalState: GlobalState = {
   loading: false,
   error: false,
   currentUser: false,
-  userData: null
+  userData: null,
+  imageError: false,
+  alertError:false
 };
 
 const appReducer = (state = initalState, action: any) =>
@@ -19,6 +21,14 @@ const appReducer = (state = initalState, action: any) =>
       case constants.TOGGLE_LOADING:
         draft.loading = action.status;
         break;
+      case constants.IMAGE_ERROR:
+        draft.imageError = action.payload.imageError;
+        draft.ImgErrormsg = action.payload.ImgErrormsg;
+        break;
+        case constants.ALERT_ERROR:
+          draft.imageError = false;
+          draft.ImgErrormsg = "";
+          break;
       case constants.LOGIN_INPROGRESS:
         draft.error = false;
         break;

@@ -8,13 +8,12 @@ import Service from 'app/services/common.services';
  *
  * @return {object}           The response data
  */
-export default function request(args:any) {
+export default function request(args: any) {
   var commonService = new Service();
-  if(args[0] !== "LOGIN") {
-    return commonService.get(args[0],args[1]);
-
+  if ((args[0] !== "LOGIN") && (args[0] !== "MANAGE") && (args[0] !== "APP")) {
+    return commonService.get(args[0], args[1]);
   } else {
-    return commonService.post(args[0],args[1], args[2], args[3], args[4], args[5]);
-        
+    return commonService.post(args[0], args[1], args[2], args[3], args[4], args[5]);
+
   }
 } 

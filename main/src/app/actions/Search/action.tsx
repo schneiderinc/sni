@@ -10,11 +10,11 @@ export const loadSearchData = (data:any) => ({
     payload: data
 })
 
-export const RECENT_LOADS = () => ({
+export const Recentloads = () => ({
     type: Constants.RECENT_LOADS
   
 })
-export const FAVORITE_LOADS = () => ({
+export const FavoriteLoads = () => ({
     type: Constants.FAVORITE_LOADS
     
 })

@@ -24,8 +24,8 @@
     padding-top: 15px;
     span{
         font-size:16px;
-        color:#3e3e3e;
-        font-family: $font-stack;
+        color:#000000;
+        font-family: $font-roboto-regular;
     }
     .up {
         transform: rotate(-135deg);
@@ -73,6 +73,7 @@
     font-size: 11px;
     height:28px;
     width:100px;
+    border-radius: 20px;
    .load_btn_img{
       padding-right:7px;
    }
@@ -87,6 +88,28 @@
 }
 .stop_details_name{
   font-size: 14px;
+  font-family: $font-roboto-medium;
+  color: #000000;
+}
+.stop_details_data{
+  font-size: 12px;
+  font-family: $font-roboto-regular;
+  color: #000000BF;
+  opacity: 0.84;
+}
+.stop_details_date{
+  font-size: 14px;
+  font-family: $font-roboto-regular;
+  color: #000000BF;
+  opacity: 0.84;
+}
+.term-class{
+  p {
+    font-size: 13px;
+    font-family: $font-roboto-regular;
+    color: #666666;
+    opacity: 0.84;
+  }
 }
 .item-divider-wrapper{
   color: #000000 !important;

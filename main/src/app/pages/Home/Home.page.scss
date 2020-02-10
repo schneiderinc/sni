@@ -1,6 +1,6 @@
 /*Modified Styles*/
-@import  "../../../theme/variables.scss";
-@import  "../../../theme/responsive-styles.scss";
+@import '../../../theme/variables.scss';
+@import '../../../theme/responsive-styles.scss';
 
 ion-toolbar {
   ion-title {
@@ -11,11 +11,11 @@ ion-toolbar {
 ion-header {
   background-color: $wildSand;
   height: 150px;
-  @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
     height: 200px;
     padding-top: 70px;
   }
-  @media only screen  and (min-width : map-get($grid-breakpoints, xr) ) {
+  @media only screen and (min-width: map-get($grid-breakpoints, xr)) {
     padding-top: 40px;
   }
   .header_toggle_div {
@@ -23,56 +23,63 @@ ion-header {
     margin: auto;
     padding-bottom: 10px;
     margin-top: 14px;
-    @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
-      margin-top:42px;
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+      margin-top: 42px;
     }
-    
   }
-  transition: top 0.6s;	
+  transition: top 0.6s;
 }
- .page-header .header-desc{
-    height: 100%;;
-  }
-  .page-header ion-col{
-    height: 100%;
-    display: table;
-  }
-  .page-header ion-col *{
-    vertical-align: middle;
-    display: table-cell !important;
-    margin:auto;
-  }
-.hide-header{	
+.page-header .header-desc {
+  height: 100%;
+}
+.page-header ion-col {
+  height: 100%;
+  display: table;
+}
+.page-header ion-col * {
+  vertical-align: middle;
+  display: table-cell !important;
+  margin: auto;
+}
+.hide-header {
   top: -50px;
 }
-.dropDown_col{
+.dropDown_col {
   margin-left: -41px;
   padding-right: -13px;
   padding-left: 17px !important;
 }
-.sort_label{
-  margin-left:10px;
-  margin-top:5px;
-  font-size:11px;
+.sort_label {
+  margin-left: 10px;
+  margin-top: 5px;
+  color: #666666;
+  font-size: 12px;
+  font-family: $font-roboto-regular;
 }
-.sort_label_search{
-  font-weight:bold;
+.sort_label_search {
+  font-weight: bold;
 }
-.short-div{
-  padding:20px 10px 10px 10px;
-  background-color:#FCFCFC;
-  ion-col{
+.short-div {
+  padding: 20px 10px 10px 10px;
+  background-color: #fcfcfc;
+  ion-col {
     padding: 0;
   }
-  .short-row{
+  .short-row {
     padding-top: 20px;
   }
-  .rec_text{
+  .rec_text {
     font-size: 12px;
-    opacity: 0.7;
-    padding-top:3px;
+    color: #666666 !important;
+    padding-top: 0.5px;
+    padding-bottom: 0;
+    font-family: $font-roboto-regular;
+    .recommendations_num {
+      font-size: 13px;
+      font-family: $font-roboto-bold;
+    }
   }
-  ion-badge{
+  ion-badge {
     // margin-left: 5px;
     // height: 22px;
     // width: 122px;
@@ -85,25 +92,25 @@ ion-header {
     ion-label {
       font-size: 11px;
     }
-    .badge_sortby_select{
-      color: var(--ion-color-primary);;
+    .badge_sortby_select {
+      color: var(--ion-color-primary);
       font-size: 11px;
       margin-top: -7px;
       float: left;
       padding-left: 8px;
 
-      .select-placeholder{
-        opacity: 0.8
+      .select-placeholder {
+        opacity: 0.8;
       }
     }
   }
-  .badge_sortby_select .select-icon-inner{
+  .badge_sortby_select .select-icon-inner {
     margin-top: -7px;
   }
-  .header_badge_select{
+  .header_badge_select {
     margin-left: 12px;
     width: 85px;
-    ion-select{
+    ion-select {
       top: -8px;
       float: left;
       padding: 9px;
@@ -111,22 +118,23 @@ ion-header {
   }
 }
 .card_filter_badge {
-    height: 24px;
-    background-color: $darkPink;
-    color: $doveGray;
-    border: 1px solid $brown;
-    font-size: 11px;
-    padding: 6px;
-    font-family: $font-stack;
-    border-radius: 12px;
-    margin-right: 5px;
-    font-weight: normal;
+  height: 24px;
+  background-color: $darkPink;
+  color: #151724;
+  border: 1px solid $brown;
+  font-size: 11px;
+  padding: 6px;
+  font-family: $font-roboto-regular;
+  border-radius: 12px;
+  margin-right: 5px;
+  font-weight: normal;
 }
 
-#header-title{
-  font-size:22px;
-  color: #FFFFFF;
+#header-title {
+  font-size: 22px;
+  color: #ffffff;
   text-align: center;
+  font-family: $font-roboto-medium;
 }
 
 .card_arrow_img {
@@ -134,134 +142,138 @@ ion-header {
   width: 24px !important;
   // margin-top: 3px;
 }
-.card-content{
-  padding-left:2px;
- padding-right:7px;
+.card-content {
+  padding-left: 2px;
+  padding-right: 7px;
 }
 
-.card-col{
+.card-col {
   size: 5.5px;
 }
 
-.card-name{
-  font-size:14px;
-  color: var(--ion-color-primary);
+.card-name {
+  font-size: 14px;
+  color: #ff6418;
   opacity: 0.8;
+  font-family: $font-roboto-medium;
 }
 
-.card-dt{
- font-size:11px;
- color: $tundora;
+.card-dt {
+  font-size: 12px;
+  color: #000000;
+  font-family: $font-roboto-regular;
 }
 
-.card-dist{
- font-size:11px;
- color: #9b9b9b;
+.card-dist {
+  font-size: 12px;
+  color: #666;
+  font-family: $font-roboto-regular;
 }
 
-.card-icon{
-  font-size:30px;
-  margin-top:13px;
+.card-icon {
+  font-size: 30px;
+  margin-top: 13px;
 }
 
-.right{
+.right {
   text-align: right;
   padding-right: 0;
 }
 
-.card_price{
+.card_price {
   text-align: right;
   font-size: 18px;
-  font-weight: bold;
-  color: #3e3e3e;
+  color: #333333;
+  font-family: $font-roboto-medium;
 }
-.sn-toggle{
-  .sn-layer{
-      position: relative;
-      top: 50%;
-      width: 100%;
-      height: 38px;
-      overflow: hidden;
-      background-color: $grey;
-      z-index: 1;
-     border-radius: 100px;
+.sn-toggle {
+  .sn-layer {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    height: 38px;
+    overflow: hidden;
+    background-color: $grey;
+    z-index: 1;
+    border-radius: 100px;
   }
   button {
-      background: none;
-      margin-left:4px;
-      font-size: 14px;
-      line-height: 2;
-      border:none;
-      min-width: 64px;
-      margin-top:4px;
-      padding-left: 18px;
-      text-align: left;
+    background: none;
+    margin-left: 4px;
+    font-size: 14px;
+    line-height: 2;
+    border: none;
+    min-width: 64px;
+    margin-top: 4px;
+    padding-left: 18px;
+    text-align: left;
   }
 
-  button:last-child{
-      margin-right: 5px;
-      float: right;
-      padding-right: 12px;
+  button:last-child {
+    margin-right: 5px;
+    float: right;
+    padding-right: 12px;
   }
-  
-  button:active, button:focus{
-      border-radius: 20px;
-      background-color: $white;
-      outline: none; 
+
+  button:active,
+  button:focus {
+    border-radius: 20px;
+    background-color: $white;
+    outline: none;
   }
 }
-.new-search{
+.new-search {
   width: 325px;
 }
-.recommended{
+.recommended {
   width: 239px;
 }
-ion-item-divider{
-  min-height: 1px!important;
+ion-item-divider {
+  min-height: 1px !important;
 }
-.recommended-Error{
+.recommended-Error {
   font-size: 18px;
-    padding: 0px;
-    margin-top:35px;
+  padding: 0px;
+  margin-top: 35px;
 }
-.recommended-Error-img{
+.recommended-Error-img {
   opacity: 100%;
 }
-.No-Recommended{
+.No-Recommended {
   text-align: center;
   padding: 21px;
-  padding-top:78px;
+  padding-top: 78px;
   @media (max-height: map-get($grid-height-breakpoints, xs)) {
     padding: 0;
-    padding-top:0;
+    padding-top: 0;
   }
 }
-.RecommendedSearch{
+.RecommendedSearch {
   text-transform: inherit;
   font-size: 21px;
   margin: auto;
   width: 82vw;
   height: 55px;
 }
-.SearchLoadBtn{
-    padding-top: 65px;
-    @media (max-height: map-get($grid-height-breakpoints, xs)) {
-      padding-top: 20px;
-    }
+.SearchLoadBtn {
+  padding-top: 65px;
+  @media (max-height: map-get($grid-height-breakpoints, xs)) {
+    padding-top: 20px;
+  }
 }
-.load-search{
-  font-size:2.0rem;
+.load-search {
+  font-size: 2rem;
 }
 
-.loadCardFooter{
-  padding-top:6px;
+.loadCardFooter {
+  padding-top: 6px;
 }
-.loadCardArrow{
+.loadCardArrow {
   text-align: -webkit-center;
   // padding-top: 19px;
 }
 
-.sortby_select_div{
+.sortby_select_div {
   height: 22px;
   width: 148px;
   text-align: left;
@@ -270,18 +282,17 @@ ion-item-divider{
   ion-label {
     font-size: 11px;
   }
-  ion-select{
+  ion-select {
     margin-left: 3px;
   }
-  
 }
-.select_div{
-    display: -webkit-inline-box;
-    height: 21px;
-    float: right;
+.select_div {
+  display: -webkit-inline-box;
+  height: 21px;
+  float: right;
 }
 
-.margin_end{
+.margin_end {
   margin-left: 100px;
 }
 
@@ -297,63 +308,131 @@ ion-item-divider{
     border-radius: 17px;
   }
 }
-.header_search_bubble{
+.header_search_bubble {
   width: 100%;
   padding: 15px 15px 0 15px;
 }
-ion-segment-button{
-  --indicator-color-checked: #F6F6F6;
+ion-segment-button {
+  --indicator-color-checked: #f6f6f6;
 }
-.loadTilePad{
-  padding-top: 0 ;
+.loadTilePad {
+  padding-top: 0;
 }
-.logout_btn{
+.logout_btn {
   width: 100px;
   border-radius: 20px;
 }
-a{
+a {
   text-decoration: none;
 }
-.load_details_header{
+.load_details_header {
   max-height: 81px !important;
   padding-left: 10px;
-  .header_title{
+  .header_title {
     margin-top: 35px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 22px;
   }
 }
-.segment_control_tabs{
+.segment_control_tabs {
   position: relative;
   border-radius: 25px;
   padding: 0px 5px 0px 5px;
-  margin:-18px auto;
-  width: 82.8vw;
-  background: #F4F5F8;
-  border: 0.5px solid #FBA464;
+  margin: -18px auto;
+  width: 63.74vw;
+  background: #f4f5f8;
+  border: 0.5px solid #fba464;
   height: 4.8vh;
   padding-top: 0.5vh;
   z-index: 1;
-  ion-segment-button{
+  ion-segment-button {
     --color: #000000;
-    --background-checked:#FFFFFF;
+    --background-checked: #ffffff;
     --color-checked: #000000;
     border: none;
     height: 3.7vh;
-    font-size: 14px;
-    font-family:$font-stack ;
-    --background-activated: #E5E5ED;
+    font-family: $font-roboto-regular;
+    --background-activated: #e5e5ed;
+
+    ion-label {
+      font-size: 14px;
+      color: #000000;
+    }
     border-radius: 25px;
   }
-  .segment-button-checked{
+  .segment-button-checked {
     box-shadow: 0 2px 5px #00000038;
   }
-  .segment_recommended{
+  .segment_recommended {
     width: 34.5vw;
   }
 }
-.priceLogo{
+.priceLogo {
   width: 25.78px !important;
-  height:25px !important;
+  height: 25px !important;
   margin-left: 48px;
+}
+.sortArrows {
+  border: 1px solid #999999;
+  border-radius: 9px;
+  width: 32px;
+  height: 20px;
+  margin-top: 0px;
+}
+.downArrow {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border: 1px solid #999999;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-top: -11px;
+  float: right;
+  margin-left: 7px;
+  margin-right: 16px;
+  height: 4px;
+}
+.line {
+  border: 1px solid #999999;
+  border-width: 0 1px 0px 0;
+  height: 11px;
+  margin-left: 10px;
+  display: inline-block;
+}
+.line1 {
+  border: 1px solid #ff6418;
+  border-width: 0 1px 0px 0;
+  height: 11px;
+  margin-left: 8.7px;
+  display: inline-block;
+}
+.upArrow {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  border: 1px solid #ff6418;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-top: -13px;
+  float: right;
+  margin-left: 0px;
+  margin-right: 6.5px;
+  height: 4px;
+}
+.visitedCard {
+  width: 4px;
+  height: 114px;
+  background-color: #a9d671;
+  float: left;
+  margin-left: -3px;
+}
+.sortArrowsCol {
+  padding-left: 5px !important;
+}
+.gps-list {
+  color: #666666;
+  font-size: 8px;
+  font-family: $font-roboto-regular;
+  height: 90vh;
+  overflow: auto;
 }

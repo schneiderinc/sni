@@ -9,7 +9,7 @@ import { makeRecent } from "app/selectors/RecentSearch/selector";
 import { Search } from 'app/models/home/Search.model';
 import reducer from "app/reducers/Recent/reducer";
 import saga from "app/saga/Recent/saga";
-import { GET_RECENT } from "app/actions/Recent/action";
+import { GetRecent } from "app/actions/Recent/action";
 import { getLoading } from "app/selectors/selector";
 import { createStructuredSelector } from "reselect";
 
@@ -41,7 +41,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  updateData: () => dispatch(GET_RECENT)
+  updateData: () => dispatch(GetRecent)
 });
 
 const withConnect = connect(

@@ -1,12 +1,73 @@
-
-
-import React, {Component} from 'react';
+import React, { PureComponent } from "react";
 import ManagePage from 'app/pages/Manage/Manage.page';
+import { connect } from "react-redux";
+import { compose } from "redux";
+import useInjectSaga from "app/utils/injectSaga";
+import useInjectReducer from "app/utils/injectReducer";
+import { makeSelectImg, makeManageCardData } from "app/selectors/Manage/selector";
+import { makeErrorImg, ImgErrormsg } from 'app/selectors/selector'
+import reducer from "app/reducers/manage/reducer";
+import saga from "app/saga/Manage/saga";
+import { ManageCard, profileImageSet } from "app/actions/manage/action";
+import { showImageError,AlertError } from 'app/actions/Login/action';
+import { getLoading } from "app/selectors/selector";
+import { createStructuredSelector } from "reselect";
 
-class ManageContainer extends Component {
+const key = "manage";
+class ManageContainer extends PureComponent<any, any> {
+
+    componentDidMount() {
+        if (this.props.manageCard.length === 0 && !this.props.loading) {
+            this.props.manageData();
+
+        }
+    }
+    SetImage = (img: any) => {
+        this.props.profileImg(img)
+    }
+    setImageError = (error: any) => {
+        this.props.profileImgError(error)
+    }
+    setAlert=()=>{
+        this.props.AlertError()
+    }
+
     render() {
-        return (<ManagePage />)
+      return <ManagePage {...this.props} setImage={this.SetImage} setImageError={this.setImageError} setAlert={this.setAlert}  />;
     }
 }
 
-export default ManageContainer;
+const mapStateToProps = createStructuredSelector({
+    loading: getLoading(),
+    Image: makeSelectImg(),
+    manageCard: makeManageCardData(),
+    makeErrorImg: makeErrorImg(),
+    ImgErrormsg: ImgErrormsg()
+});
+
+const mapDispatchToProps = (dispatch: Function) => ({
+    manageData: () => dispatch(ManageCard()),
+    profileImgError: (data: any) => dispatch(showImageError(data)),
+    AlertError: () => dispatch(AlertError()),
+    profileImg: (data: any) => dispatch(profileImageSet(data))
+});
+
+const withConnect = connect(
+    mapStateToProps,
+    mapDispatchToProps
+);
+const withReducer = useInjectReducer({ key, reducer });
+const withSaga = useInjectSaga({ key, saga });
+
+export default compose(
+    withSaga,
+    withReducer,
+    withConnect
+)(ManageContainer);
+
+
+
+
+
+
+

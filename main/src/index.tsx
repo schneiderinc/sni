@@ -32,21 +32,21 @@ import { PrivateRoute } from 'app/containers/PrivateRoute';
 import { App } from 'app';
 
 const AppContainer: React.FC = () => {
-    const store = configureStore();
-    return (
-      <Provider store={store}>
-        <IonApp>
-          <IonReactRouter>
-            <IonRouterOutlet>
-              <Route exact path="/login" component={LoginContainer} />
-              <PrivateRoute path="/" component={App}/>
-            </IonRouterOutlet>
-          </IonReactRouter>
-        </IonApp>
-      </Provider>
-    );
-  };
+  const store = configureStore();
+  return (
+    <Provider store={store}>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/login" component={LoginContainer} />
+            <PrivateRoute path="/" component={App} />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </Provider>
+  );
+};
 
-  
+
 ReactDOM.render(<AppContainer />, document.getElementById('root'));
 defineCustomElements(window);

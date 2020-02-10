@@ -4,7 +4,7 @@ import { StopDetails } from 'app/schemas/Loads/Loads.schema';
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withRouter } from 'react-router';
-import { getLoad } from "../../selectors/Home/selector";
+import { getLoad } from "app/selectors/Home/selector";
 
 class LoadDetailsContainer extends Component<any, any> {
 

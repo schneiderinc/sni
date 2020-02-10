@@ -19,7 +19,7 @@ class LoadTileFooter extends React.Component<any, any> {
           <IonBadge class="card_filter_badge">{this.props.trailer} </IonBadge>
           <IonBadge class="card_filter_badge">{this.props.total_distance} miles</IonBadge>
         </IonCol>
-        <IonCol size="3" className="card_price">{this.props.price ? '$'+this.props.price:<img alt="logo" className="priceLogo" src="assets/icon/phones.png"/>}</IonCol>
+        <IonCol size="3" className="card_price">{this.props.price ? '$'+this.props.price:<img className="priceLogo" src="assets/icon/phones.svg"/>}</IonCol>
       </IonRow>
     );
   }

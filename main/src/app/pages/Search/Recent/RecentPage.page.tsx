@@ -2,7 +2,6 @@ import React from 'react';
 import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonTabBar, IonTabButton, IonLabel, IonItemSliding } from '@ionic/react';
 import './Recent.scss';
 import recentData from './recentData.json';
-
 const RecentCard = (props: any) => {
     return (
         <IonItemSliding>
@@ -10,7 +9,7 @@ const RecentCard = (props: any) => {
                 <IonGrid>
                     <IonRow class="recent_row">
                         <IonCol className="card-col">
-                            <div className="card-name"><b>{props.recentData.fromAddress}</b></div>
+                            <div className="card-name">{props.recentData.fromAddress}</div>
                             <div className="card-dt-recent">Radius: {props.recentData.fromRadius}</div>
                             <div className="card-dist-recent">{props.recentData.pickupDate}</div>
                         </IonCol>
@@ -20,7 +19,7 @@ const RecentCard = (props: any) => {
                             <img alt="logo" className="card-arrow" src="assets/icon/arrow_search.svg" />
                         </IonCol>
                         <IonCol className=" card-col right">
-                            <div className="card-name"><b>{props.recentData.toAddress}</b></div>
+                            <div className="card-name">{props.recentData.toAddress}</div>
                             <div className="card-dt-recent">Radius: {props.recentData.toRadius}</div>
                             <div className="card-dist-recent">{props.recentData.pickupDate}</div>
                         </IonCol>
@@ -32,19 +31,19 @@ const RecentCard = (props: any) => {
                 <IonTabBar slot="bottom">
                     <IonTabButton className="tabButton_add" onClick={props.add} tab="add">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/heart.png" /></IonCol>
+                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/heart.svg" /></IonCol>
                             <IonCol><IonLabel>ADD</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
                     <IonTabButton className="tabButton_add" tab="view">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/view.png" /></IonCol>
+                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
                             <IonCol><IonLabel>VIEW</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
                     <IonTabButton tab="delete">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/view.png" /></IonCol>
+                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/delete_icon.svg" /></IonCol>
                             <IonCol><IonLabel>DELETE</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>

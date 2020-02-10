@@ -5,12 +5,12 @@ import { getCurrentUser } from "app/selectors/selector";
 import { Redirect, Route } from "react-router";
 
 interface PrivateProps {
-    component: React.FC;
-    currentUser: boolean;
-    path: string;
+  component: React.FC;
+  currentUser: boolean;
+  path: string;
 }
 
-const PrivateRoute: React.FC<PrivateProps> = ({
+const PrivateRoute: React.FC<any> = ({
   currentUser,
   component: WrappedComponent,
   ...rest
@@ -22,8 +22,8 @@ const PrivateRoute: React.FC<PrivateProps> = ({
         return currentUser ? (
           <WrappedComponent {...props} />
         ) : (
-          <Redirect to="/login" />
-        );
+            <Redirect to="/login" />
+          );
       }}
     />
   );

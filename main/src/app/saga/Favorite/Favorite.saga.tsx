@@ -1,6 +1,6 @@
 import {all, put, call, takeLatest} from 'redux-saga/effects';
 import {showLoading, hideLoading} from 'app/actions/Login/action';
-import { GET_FAVORITE } from 'app/actions/Favorite/action'
+import { getFavorite } from 'app/actions/Favorite/action'
 import { FAVORITE_DATA } from 'app/utils/mock_Data3';
 import * as constants from 'app/utils/constants';
 // import request from 'app/utils/request';

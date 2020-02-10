@@ -46,9 +46,9 @@ class Dropdown extends Component<any, any>{
                 <div className="search_sortby_select">
                     <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name}<i className="down"></i></IonButton>
                 </div>
-                <IonModal isOpen={this.state.isDropdown}>
+                <IonModal isOpen={this.state.isDropdown} cssClass="dropdown-modal">
                     <div className="search_options">
-                        <IonRow><IonCol> <b>Sort by</b> </IonCol></IonRow>
+                        <IonRow><IonCol> <b>Sort By</b> </IonCol></IonRow>
                         { sortByOptions.map((option: any, k: any) => (
 
                             <IonRow  key={k} onClick={()=>this.hideDropdownMenu(option)}>

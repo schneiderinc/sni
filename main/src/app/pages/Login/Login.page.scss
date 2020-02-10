@@ -40,7 +40,7 @@
           font-size: 15px;
       } ion-label {
           color: #707070;
-          font-size:12px;
+          font-size:15px;
           margin-top:1.48vh;
           
       }
@@ -74,8 +74,17 @@
     --border-radius: 20px;
     height: 5.56vh;
     font-size: 18px;
+    border-radius: 30px;
     background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
+    .button-solid {
+      background: $primary;
+    --background-focused: $primary;
+    --background-hover:$primary;
+    border-radius: 30px;
+    background-color: $primary !important;
+    }
   }
+  
   .login_alternate {
     // padding: 0 1vh;
     clear: both;
@@ -130,7 +139,7 @@
 }
 
 .login_logo_container, .login_logo_container_change{
-  background: linear-gradient(180deg, $gradientTop, $gradientBottom);
+  background: linear-gradient(180deg, #FCA364, #FD7D4F);
   height: 22.6vh;
   -webkit-transition: height 0.5s ease-in-out;
   -moz-transition: height 0.5s ease-in-out;
@@ -164,7 +173,8 @@ ion-toggle{
   width: 100%;
   text-align: center;
   font-size: 11px;
-  color: red;
+  color: #FF0000;
+  font-family: $font-roboto-regular;
 }
 .dot {
   height: 1.23vh;
@@ -202,8 +212,6 @@ ion-toggle{
   --border-color:#FF0000;
 }
 /* Desktops and laptops ----------- */
-
-
 
 @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
   /* Styles */

@@ -9,7 +9,7 @@ import { makeFavorite } from "app/selectors/FavouriteSearch/selector";
 import { Search } from 'app/models/home/Search.model';
 import reducer from "app/reducers/Favorite/reducer";
 import saga from "app/saga/Recent/saga";
-import { GET_FAVORITE } from "app/actions/Favorite/action";
+import { getFavorite } from "app/actions/Favorite/action";
 import { getLoading } from "app/selectors/selector";
 import { createStructuredSelector } from "reselect";
 
@@ -41,7 +41,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  updateData: () => dispatch(GET_FAVORITE)
+  updateData: () => dispatch(getFavorite)
 });
 
 const withConnect = connect(
