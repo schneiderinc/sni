@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: carrier-experience-cm
+  labels:
+    app: service
+    name: carrier-experience-cm
+data:
+  AZURE_APIM_URL: {{AZURE_APIM_URL}}
+  APP_INSIGHTS_INSTRUMENTATION_KEY: {{APP_INSIGHTS_INSTRUMENTATION_KEY}}
