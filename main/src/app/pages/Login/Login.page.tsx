@@ -114,7 +114,7 @@ class LoginPage extends Component<propTypes> {
                             {this.props.loginError && <div id="errorMsg"><IonIcon src="assets/icon/error_icon.svg"></IonIcon> InCorrect Email or Credential</div>}
 
                             <div className="button-container ion-text-center">
-                                <IonButton id="login" class={`cts-btn  ${!this.state.username || this.state.password.length < 3 ? 'disabled-login' : 'login-btn'}`} data-kind="primary" type="submit" disabled={!this.state.username || !this.state.password} expand="block">LOGIN</IonButton>
+                                <IonButton id="login" class={`cts-btn  ${!this.state.username || this.state.password.length < 3 ? 'disabled-login' : 'login-btn'}`} data-kind="primary" type="submit" disabled={!this.state.username || this.state.password.length < 3} expand="block">LOGIN</IonButton>
                             </div>
                         </form>
                         <div className="login_devider">

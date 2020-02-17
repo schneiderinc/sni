@@ -136,7 +136,7 @@
   height: 83px;
   width: 0;
   border: 1px solid #21303B39;
-  margin-left: 10px;
+  margin-left: 11px;
 }
 .load_detail_card{
   padding: 0 0 0 15px;
@@ -161,8 +161,9 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: 100px;
   height: 28px;
+  float: right;
 }
 
 .switch input {display:none;}
@@ -198,7 +199,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #FF7C3B;
 }
 
 input:checked + .slider:before {
@@ -260,4 +261,7 @@ input:checked + .slider:after
 .callCol{
   padding-left: 0;
   padding-right: 0;
+}
+.chat-btn {
+  text-align: center;
 }

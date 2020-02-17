@@ -14,7 +14,7 @@ class MenuContainer extends Component {
             },
             {
                 'heading':"Carrier Reward Program",
-                'sub_heading':["Fuel Savings","Truck Sales","Carrier Purchasing Program Registration","Emergency Services","Fuel Route Optimizer","Fuel Route Optimizer"]
+                'sub_heading':["Fuel Savings","Truck Sales","Carrier Purchasing Program Registration","Emergency Services","Fuel Route Optimizer","Quickpay Sign Up"]
             },
             {
                 'heading':"Legal",

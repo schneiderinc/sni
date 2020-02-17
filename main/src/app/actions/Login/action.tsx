@@ -21,12 +21,12 @@ export const doLogin = (username: string, password: string, rememberme: boolean)
     payload: { username, password, rememberme }
 })
 
-export const loginSuccess = (data:any) => ({
+export const loginSuccess = (data: any) => ({
     type: constants.LOGIN_SUCCESS,
     data
 });
 
-export const loginError = (data:any) => ({
+export const loginError = (data: any) => ({
     type: constants.LOGIN_ERROR,
     data
 })
@@ -34,11 +34,13 @@ export const loginError = (data:any) => ({
 export const logout = () => ({
     type: constants.LOGOUT,
 })
-export const showImageError = (data:any) => ({
-    type: constants.IMAGE_ERROR,
+
+export const showPermissionAlert = (data: any) => ({
+    type: constants.PERMISSION_ALERT_MESSAGE,
     payload: data
 });
-export const AlertError = () => ({
-    type: constants.ALERT_ERROR
-   
+
+export const closePermissionAlert = () => ({
+    type: constants.CLOSE_PERMISSION_ALERT
+
 });

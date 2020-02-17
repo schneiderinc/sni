@@ -12,8 +12,10 @@ export const getCurrentUser = () => createSelector([selectGlobal], global => glo
 export const getLoginError = () => createSelector([selectGlobal], global => global.error);
 
 export const getUserData = () => createSelector([selectGlobal], global => global.userData);
-export const makeErrorImg = () => createSelector([selectGlobal], global => global.imageError);
-export const ImgErrormsg = () => createSelector([selectGlobal], global => global.ImgErrormsg);
+
+export const getShowPermissionAlert = () => createSelector([selectGlobal], global => global.showPermissionAlert);
+
+export const getPermissionAlertMessage = () => createSelector([selectGlobal], global => global.permissionAlertMessage);
 
 export const getGPSDetails = () => createSelector([selectApp], App => App.GPSData)
 

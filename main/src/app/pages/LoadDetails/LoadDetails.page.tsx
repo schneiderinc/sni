@@ -98,7 +98,7 @@ class LoadDetailsPage extends Component<any, any> {
 											<IonCol size="4" className="callCol">
 												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/call.svg" className="load_btn_img" />CALL</IonButton>
 											</IonCol>
-											<IonCol size="4" className="callCol">
+											<IonCol size="4" className="callCol chat-btn">
 												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/chat.svg" className="load_btn_img" />CHAT</IonButton>
 											</IonCol>
 											<IonCol size="4" className="watchToggle_col">

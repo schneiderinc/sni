@@ -8,8 +8,9 @@ const initalState: GlobalState = {
   error: false,
   currentUser: false,
   userData: null,
-  imageError: false,
-  alertError:false
+  showPermissionAlert: false,
+  permissionAlertMessage: "",
+  alertError: false //  not using this.
 };
 
 const appReducer = (state = initalState, action: any) =>
@@ -21,14 +22,14 @@ const appReducer = (state = initalState, action: any) =>
       case constants.TOGGLE_LOADING:
         draft.loading = action.status;
         break;
-      case constants.IMAGE_ERROR:
-        draft.imageError = action.payload.imageError;
-        draft.ImgErrormsg = action.payload.ImgErrormsg;
+      case constants.PERMISSION_ALERT_MESSAGE:
+        draft.showPermissionAlert = action.payload.isShowPermissionAlert;
+        draft.permissionAlertMessage = action.payload.permissionAlertMessage;
         break;
-        case constants.ALERT_ERROR:
-          draft.imageError = false;
-          draft.ImgErrormsg = "";
-          break;
+      case constants.CLOSE_PERMISSION_ALERT:
+        draft.showPermissionAlert = false;
+        draft.permissionAlertMessage = "";
+        break;
       case constants.LOGIN_INPROGRESS:
         draft.error = false;
         break;

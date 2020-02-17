@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { IonLoading } from '@ionic/react';
 import { createStructuredSelector } from "reselect";
 import { getLoading } from "./selectors/selector";
@@ -15,17 +15,20 @@ import saga from "app/saga/App/saga";
 import RootLevelTabs from 'app/components/app/Bars/Bar-bottom'
 import { useAppState } from '@ionic/react-hooks/app/useApp'
 import { updateGpsCoordinates } from './actions/App/action';
-
+import { useGeolocation } from 'app/utils/useGeolocation';
+import { PermissionAlert } from 'app/components/PermissionsAlert/PermissionAlert'
+import { getShowPermissionAlert, getPermissionAlertMessage } from 'app/selectors/selector'
+import { closePermissionAlert, showPermissionAlert } from 'app/actions/Login/action';
 const key = "App";
 const App: React.FC = (props: any) => {
 
   const { loading } = props;
   const { Geolocation } = Plugins;
-  const [currentPosition, setCurrentPosition] = useState();
   const { isAvailable, state: appState } = useAppState();
-  let intervalID: any;
+  const { watchCurrentPosition, currentPosition, errorMessage } = useGeolocation();
 
   useEffect(() => {
+    console.log("MOUNT");
     try {
       watchCurrentPosition();
     }
@@ -35,77 +38,27 @@ const App: React.FC = (props: any) => {
   }, [])
 
   useEffect(() => {
-
+    console.log("UPDATE:Postion");
     if (!appState) {
-
     }
-
-    const coordinates = currentPosition;
-    if (coordinates) {
-      props.updateGpsCoordinates(coordinates);
+    if (currentPosition) {
+      props.updateGpsCoordinates(currentPosition);
     }
   }, [currentPosition])
 
-  /* Commented Code as SetInterval is not flow is not working in iOS. */
-  const watchCurrentPosition = () => {
-    if (!intervalID) {
-      intervalID = setInterval(() => {
-        getCurrentPosition();
-      }, 6000, intervalID)
-    }
-  }
-
-  // const watchCurrentPosition = () => {
-  //   console.log("intervalID", intervalID)
-  //   try {
-  //     if (!intervalID) {
-  //       intervalID = Geolocation.watchPosition({ enableHighAccuracy: false, maximumAge: 5000, timeout: 5000 }, (result, error) => {
-  //         if (result) {
-  //           console.log("GPSDATA:::", result);
-
-  //           setCurrentPosition(captureGPSData(result));
-  //         } else {
-  //           console.log('GPS Error', error);
-  //         }
-  //       })
-  //     }
-  //   }
-  //   catch (error) {
-  //     console.log("GPS catch Error:", error);
-  //   }
-  // }
-
-  const captureGPSData = (_result: any) => {
-
-    const { timestamp } = _result;
-    const { latitude, longitude } = _result.coords;
-    const gpsData = {
-      timestamp: new Date(timestamp).toLocaleString("en-US").toString(),
-      latitude,
-      longitude
-    }
-    return gpsData;
-
-  }
-  const getCurrentPosition = () => {
-    try {
-      Geolocation.getCurrentPosition({ maximumAge: 0, enableHighAccuracy: false, timeout: 0 }).then((result) => {
-        const { timestamp } = result;
-        const { latitude, longitude } = result.coords;
-        const gpsData = {
-          timestamp: new Date(timestamp).toLocaleString("en-US").toString(),
-          latitude,
-          longitude
-        }
-        setCurrentPosition(gpsData);
-      }, (error) => {
-        console.log(" getCurrentPosition Error:", error);
-      });
-    } catch (error) {
-      console.log("GPS catch Error:", error);
+  useEffect(() => {
+    console.log("UPDATE:Error");
+    if (!appState) {
     }
 
-  }
+    if (!errorMessage.errorMsg)
+      return;
+    props.showPermissionAlert({
+      isShowPermissionAlert: true,
+      permissionAlertMessage: errorMessage.errorMsg
+    });
+
+  }, [errorMessage])
 
   return (
     <React.Fragment>
@@ -115,17 +68,30 @@ const App: React.FC = (props: any) => {
         show-backdrop={false}
         spinner="circles"
       />
+      {props.isShowPermissionAlert
+        ? <PermissionAlert
+          isOpen={props.isShowPermissionAlert}
+          message={props.permissionAlertMessage}
+          close={props.closePermissionAlert} />
+        : null}
+
       <RootLevelTabs />
+
     </React.Fragment>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
   loading: getLoading(),
+  isShowPermissionAlert: getShowPermissionAlert(),
+  permissionAlertMessage: getPermissionAlertMessage(),
+
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  updateGpsCoordinates: (data: any) => dispatch(updateGpsCoordinates(data))
+  updateGpsCoordinates: (data: any) => dispatch(updateGpsCoordinates(data)),
+  closePermissionAlert: () => dispatch(closePermissionAlert()),
+  showPermissionAlert: (data: any) => dispatch(showPermissionAlert(data))
 });
 
 const withConnect = connect(

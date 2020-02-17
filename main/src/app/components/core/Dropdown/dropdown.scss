@@ -6,7 +6,7 @@
     text-align: left;
     border-radius: 12px;
     color: var(--ion-color-primary);
-    margin-top: -2px;
+    // margin-top: -2px;
     opacity: 0.9;
     ion-button{
       background-color: #fcfcfc;
@@ -14,6 +14,9 @@
     .search_sort_button{
       height: 99%;
       --background: transparent;
+      --background-focused: #FF6418;
+      --background-hover: #FF6418;
+      --background-activated: #FF6418;
       --color: #FF6418;
       --border-radius: 11px;
       font-size: 12px;
@@ -25,6 +28,9 @@
       float: right;
       font-family: $font-roboto-regular;
       border-radius: 30px;
+      --color-activated: white;
+      --color-focused:white;
+      --color-hover:white;
       .down {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
@@ -39,14 +45,23 @@
         margin-left: 5px;
       }
     }
-    
+    .activated {
+      i{
+        border: 1px solid white;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-top: -4px;
+        margin-left: 5px;
+      }
+    }
   }
   .search_options{   
     box-shadow: 0 3px 6px #3A4C8230;
     border-radius: 12px;
     background-color: #FFFFFF;
-    margin-top: 80%;
-    margin-left: 20%;
+    margin-top: 65%;
+    margin-left: 22%;
     width: 205px;
     height: 259px;
 

@@ -3,10 +3,10 @@ export interface GlobalState {
     loading: boolean;
     error: boolean;
     currentUser: boolean;
-    userData:any; 
-    imageError?:boolean;
-    ImgErrormsg?:string
-    alertError?:boolean;
+    userData: any;
+    showPermissionAlert: boolean;
+    permissionAlertMessage?: string
+    alertError?: boolean; //Not using
 
 }
 
@@ -15,5 +15,5 @@ export interface Location {
     name?: string;
     lat: number;
     lng: number;
-  }
-  
+}
+
