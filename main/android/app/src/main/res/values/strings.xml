@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Schneider</string>
+    <string name="title_activity_main">Schneider</string>
+    <string name="package_name">com.cognizantmobilityenterprise.schneider</string>
+    <string name="custom_url_scheme">com.cognizantmobilityenterprise.schneider</string>
+</resources>
