@@ -1,78 +1,33 @@
-FROM node:10.15.3-alpine
+# Download the base image and make it as Stage First to generate the build file
+FROM node:12.16.0-alpine AS builder
 
-# ENVIRONNEMENT
-ENV GLIB_PACKAGE_BASE_URL https://github.com/sgerrand/alpine-pkg-glibc/releases/download
-ENV GLIB_VERSION 2.25-r0
+#Change the work directory to APP
+WORKDIR /app
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+# Copy all the content from Source repository to the work Directory
+COPY . .
 
-ENV GRADLE_HOME /usr/local/gradle
-ENV GRADLE_VERSION 4.4
+#Install NPM and Run a Build
+RUN npm install && npm run build
 
-ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV ANDRDOID_TOOLS_VERSION r25.2.5
-ENV ANDROID_API_LEVELS android-26
-ENV ANDROID_BUILD_TOOLS_VERSION 26.0.2
-ENV IONIC_VERSION 5.4.12
+#Download bass image to host our build file using ionic serve
+FROM node:12.16.0-alpine
 
-ENV PATH ${GRADLE_HOME}/bin:${JAVA_HOME}/bin:${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
+#Install the ionic serve
+RUN npm install -g serve
 
-# INSTALL JAVA
-RUN apk update && apk add curl openjdk8-jre openjdk8
+#Change the workdir to APP
+WORKDIR /app
 
-# INSTALL IONIC AND Capacitor
-RUN npm install -g ionic
-RUN npm install --g @capacitor/core @capacitor/cli
-
-#INSTALL Graddle
-RUN mkdir -p ${GRADLE_HOME} && \
-  curl -L https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip > /tmp/gradle.zip && \
-  unzip /tmp/gradle.zip -d ${GRADLE_HOME} && \
-  mv ${GRADLE_HOME}/gradle-${GRADLE_VERSION}/* ${GRADLE_HOME} && \
-  rm -r ${GRADLE_HOME}/gradle-${GRADLE_VERSION}/
-
-# INSTALL ANDROID
-RUN mkdir -p ${ANDROID_HOME} && \
-  curl -L https://dl.google.com/android/repository/tools_${ANDRDOID_TOOLS_VERSION}-linux.zip > /tmp/tools.zip && \
-  unzip /tmp/tools.zip -d ${ANDROID_HOME}
-
-# INSTALL GLIBC
-RUN curl -L https://raw.githubusercontent.com/wassim6/alpine-pkg-glibc/master/sgerrand.rsa.pub > /etc/apk/keys/sgerrand.rsa.pub && \
-  curl -L ${GLIB_PACKAGE_BASE_URL}/${GLIB_VERSION}/glibc-${GLIB_VERSION}.apk > /tmp/glibc.apk && \
-  curl -L ${GLIB_PACKAGE_BASE_URL}/${GLIB_VERSION}/glibc-bin-${GLIB_VERSION}.apk > /tmp/glibc-bin.apk && \
-  apk add /tmp/glibc-bin.apk /tmp/glibc.apk
-
-# CONFIGURATION
-RUN echo y | android update sdk --no-ui -a --filter platform-tools,${ANDROID_API_LEVELS},build-tools-${ANDROID_BUILD_TOOLS_VERSION}
-
-# Make license agreement
-RUN mkdir $ANDROID_HOME/licenses && \
-    echo 8933bad161af4178b1185d1a37fbf41ea5269c55 > $ANDROID_HOME/licenses/android-sdk-license && \
-    echo d56f5187479451eabf01fb78af6dfcb131a6481e >> $ANDROID_HOME/licenses/android-sdk-license && \
-    echo 24333f8a63b6825ea9c5514f83c2829b004d1fee >> $ANDROID_HOME/licenses/android-sdk-license && \
-    echo 84831b9409646a918e30573bab4c9c91346d8abd > $ANDROID_HOME/licenses/android-sdk-preview-license
-
-#FILES DELETION
-RUN rm -rf /tmp/* /var/cache/apk/*
-
-# Set the working directory to /home/app
-WORKDIR /SCHNEIDER-MVP
-
-# Bundle app source
-COPY . /SCHNEIDER-MVP
-
-RUN npm install
+#Copy the build folder content to workdir of build image
+COPY --from=builder /app/build .
+# Serve the build file 
+CMD ["serve", "-p", "81", "-s", "."]
 
 
-RUN npx cap add android
-#RUN npx cap copy
+#This could be alternate host image using nginx
+#FROM nginx 
 
-
-RUN /bin/sh -c "apk add --no-cache bash"
-
-
-#FROM gradle:5.0.0-jdk8
-#WORKDIR /SCHNEIDER-MVP/android
-RUN cd android
-CMD ["gradlew", "clean", "build"]
-
+#Expose the port for host
+#EXPOSE 80
+#COPY --from=builder /SCHNEIDER-MVP/build /usr/share/nginx/html
