@@ -283,18 +283,18 @@ class NewPage extends PureComponent<newProps, any> {
             </IonList>
           </form>
         </IonContent>
-        <IonFooter >
-          <div className="search_alternate">
+        <IonFooter class="serach-page-footer">
+          {/* <div className="search_alternate"> */}
             <IonRow className="save_as_favorite">
-              <IonCol size="2"> <IonToggle mode="ios" name="favorite" checked={this.state.favorite} onIonChange={(event) => this.ToggleChange(event)}> </IonToggle> </IonCol>
-              <IonCol size="4" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol>
+              <IonCol size="6"> <IonToggle mode="ios" name="favorite" checked={this.state.favorite} onIonChange={(event) => this.ToggleChange(event)}> </IonToggle> <div className="save_as_favorite_text"><span>Add To Favorite</span></div></IonCol>
+              {/* <IonCol size="4" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol> */}
               <IonCol size="6">
                 <IonBadge onClick={this.Reset} class="new_badges new_badges_cancel"><IonImg className="cancel_img" src="/assets/icon/cancel.svg" /></IonBadge>
                 <IonBadge class="new_badges new_badge_reset" onClick={this.Reset}><IonImg className="reset_img" src="/assets/icon/reset.svg" /></IonBadge>
                 <IonBadge class="new_badges new_badge_apply" onClick={(event) => this.Apply(event)}><IonImg className="apply_img" alt="logo" src="/assets/icon/tick.svg" /></IonBadge>
               </IonCol>
             </IonRow>
-          </div>
+          {/* </div> */}
         </IonFooter>
       </>
     );

@@ -16,5 +16,17 @@ ion-card-content {
 .search-page{
   .segment_control_tabs{
     width: 82.8vw;
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      width: 16vw;
+      ion-segment-button{
+        max-width: 5.2vw;
+      }
+    }
+  }
+}
+@media only screen and (min-width: map-get($grid-breakpoints, lg )){
+  .search-page-content{
+    --background: #ffffff !important;
+    // --padding-top: 0px !important;
   }
 }

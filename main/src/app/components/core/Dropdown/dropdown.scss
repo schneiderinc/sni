@@ -8,6 +8,9 @@
     color: var(--ion-color-primary);
     // margin-top: -2px;
     opacity: 0.9;
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)){
+      display: none;
+    }
     ion-button{
       background-color: #fcfcfc;
     }
@@ -60,8 +63,7 @@
     box-shadow: 0 3px 6px #3A4C8230;
     border-radius: 12px;
     background-color: #FFFFFF;
-    margin-top: 65%;
-    margin-left: 22%;
+    margin: auto;
     width: 205px;
     height: 259px;
 
@@ -97,6 +99,8 @@
   }
   .dropdown-modal{
     --background: none;
+    --width: 100% !important;
+   --height: 100% !important;
   }
   .checked{
     color: #FD7D4F;
@@ -112,3 +116,9 @@
       margin-top: -6px;
     }
   }
+.desktop-sort{
+  display: none;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)){
+    display: unset;
+  }
+}

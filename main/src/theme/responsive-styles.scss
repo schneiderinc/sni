@@ -32,12 +32,26 @@ ion-toolbar{
     padding-left: calc((100% - #{map-get($grid-breakpoints,lg)}) / 2);
     
   }
-  ion-tab-bar
-  {
-   position: absolute;
-   margin: auto;
-   width: -webkit-fill-available;
- 
+  ion-tab-bar{
+    position: absolute;
+    width: 65.24vw !important;
+    height: 9vh;
+    --background: transparent;
+    box-shadow: none;
+    // margin-left: 20% !important;
+    margin-top: 16px !important;
+    border: none;
+    max-width: 65.24vw !important;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0 !important;
+    align-self: center;
+    ion-tab-button{
+      max-width: 9.5vw;
+    }
+  }
+  ion-content{
+    --background: #f8f8f8;
   }
  }
 

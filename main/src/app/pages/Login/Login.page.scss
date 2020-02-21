@@ -9,8 +9,7 @@
 }
 .page-header {
   font-family: $font-roboto-regular;
-  ion-toolbar
-  {
+  ion-toolbar {
     background-color: $primary;
     --background: transparent;
   }
@@ -51,9 +50,8 @@
         font-size: 13px;
         float: right;
         color: #333333;
-        margin-right: 1.6vw;
+        // margin-right: 1.6vw;
         margin-top:0.86vh;
-
       }
       
   }
@@ -231,24 +229,46 @@ ion-toggle{
 
 @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
   /* Styles */
-
        .login-contianer
        {
          margin: auto;
          width:  map-get($grid-breakpoints, xs);
+         span {
+           margin-top: 0.5vh;
+         }
        }
+       .login_input_icon {
+          margin-right: -0.07vw;
+        }
+        .disabled-login {
+          height: 45px;
+          margin: 0;
+        }
+        .login-btn{
+          height: 45px;
+          margin: 0;
+        }
+        .login_devider {
+          padding: 3.2vh 0 1.6vh 1vw;
+        }
+        .login_devider_text {
+          padding: 0px 0.6vw;
+        }
+        .login_remember_link{
+          .login_remember_text {
+            padding-left: 0.33vw;
+          }
+        }
+        
        @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
          /* Styles */
-       
+         
             
-       ion-content
-       {
+        ion-content{
           margin: auto;
           padding-right: calc((100% - #{map-get($grid-breakpoints, lg)}) /2);
           padding-left: calc((100% - #{map-get($grid-breakpoints, lg)}) / 2);
-          
-       
-       }
+        }
        }
 }
 }

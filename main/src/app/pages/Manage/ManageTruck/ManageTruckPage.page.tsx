@@ -8,7 +8,7 @@ class ManageUserPage extends Component<any, any> {
 	}
 	render() {
 		return (
-			<IonPage >
+			<IonPage className="desktop-page">
 				<AppHeader title="Manage Truck" backUrl={"/app/" + this.props.module} />
 				<IonContent >
 					<h1>Manage Truck page</h1>

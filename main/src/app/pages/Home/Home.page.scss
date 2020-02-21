@@ -62,11 +62,18 @@ ion-header {
 .short-div {
   padding: 20px 0 10px 0;
   background-color: #fcfcfc;
+  @media only screen  and (min-width :map-get($grid-breakpoints, lg)) {
+    background-color: #f8f8f8;
+    padding: 20px 20px 10px 20px;
+   }
   ion-col {
     padding: 0;
   }
   .short-row {
     padding-top: 20px;
+    @media only screen  and (min-width :map-get($grid-breakpoints, lg)) {
+      padding-top: 0;
+    }
   }
   .rec_text {
     font-size: 12px;
@@ -118,16 +125,16 @@ ion-header {
   }
 }
 .card_filter_badge {
-  height: 24px;
-  background-color: $darkPink;
-  color: #151724;
-  border: 1px solid $brown;
-  font-size: 11px;
-  padding: 6px;
-  font-family: $font-roboto-regular;
-  border-radius: 12px;
-  margin-right: 5px;
-  font-weight: normal;
+    height: 11px;
+    background-color: transparent;
+    color: #151724;
+    font-size: 12px;
+    font-family: "Roboto Regular";
+    border-radius: 0;
+    margin-right: 5px;
+    font-weight: normal;
+    border-right: 1px solid #999999;
+    padding-top: 0;
 }
 
 #header-title {
@@ -138,13 +145,21 @@ ion-header {
 }
 
 .card_arrow_img {
-  // height: 14px;
   width: 24px !important;
-  // margin-top: 3px;
+  content: url("/assets/icon/arrow.svg");
+  @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+    width: 54px !important;
+    content: url("/assets/icon/arrow-desktop.svg");
+  }
 }
 .card-content {
   padding-left: 2px;
   padding-right: 7px;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    padding-left: 10px;
+    padding-right: 15px;
+    background-color: #ffffff;
+  }
 }
 
 .card-col {
@@ -267,6 +282,9 @@ ion-item-divider {
 
 .loadCardFooter {
   padding-top: 6px;
+  .card_filter_badge:last-child{
+    border-right: none;
+  }
 }
 .loadCardArrow {
   text-align: -webkit-center;
@@ -317,6 +335,13 @@ ion-segment-button {
 }
 .loadTilePad {
   padding-top: 0;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    background-color: #f8f8f8;
+    --padding-start: 20px !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+  }
 }
 .logout_btn {
   width: 100px;
@@ -338,7 +363,7 @@ a {
   position: relative;
   border-radius: 25px;
   padding: 0px 5px 0px 5px;
-  margin: -18px auto;
+  margin: -4.5vw auto;
   width: 63.74vw;
   background: #f4f5f8;
   border: 0.5px solid #fba464;
@@ -354,7 +379,7 @@ a {
     font-family: $font-roboto-regular;
     --background-activated: #e5e5ed;
     transition: 0.3s ease-in-out;
-
+    --background-hover: #e5e5ed;
     ion-label {
       font-size: 14px;
       color: #000000;
@@ -367,11 +392,38 @@ a {
   .segment_recommended {
     width: 34.5vw;
   }
+  @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
+    width: 17.82vw;
+    height: 3.9vh;
+    padding-top: 0.25vw;
+    margin: 0vw auto;
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    margin-left: 0;
+    background: #f8f8f8;
+    ion-segment-button{
+      height: 99%;
+      max-width: 9vw;
+      border-radius: 0;
+      ion-label {
+        font-size: 1.53vmin;
+      }
+    }
+    .segment-button-checked {
+      box-shadow: -5px 0 5px -5px #00000038, 5px 0 5px -5px #00000038;
+      border-top: 3px solid #F57423;
+      border-radius: 5px 5px 0 0;
+      ion-label {
+        color: #FF6418;
+      }
+    }
+  }
 }
 .priceLogo {
   width: 25.78px !important;
   height: 25px !important;
-  margin-left: 48px;
+  float: right;
 }
 .sortArrows {
   border: 1px solid #999999;
@@ -436,4 +488,83 @@ a {
   font-family: $font-roboto-regular;
   height: 90vh;
   overflow: auto;
+}
+.app-page{
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+   background-color: #ff6418;
+  }
+}
+.tab-bar-profile{
+  display: none;
+}
+.copyright-div{
+  display: none;
+}
+@media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+  .tab-bar-div {
+    background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+    height: 10.4vh;
+    padding: 0 7vw;
+    .tab-bar-logo {
+      margin-top: 37px;
+    }
+    .tab-bar-profile {
+      float: right;
+      margin-top: 25px;
+      width: 121px;
+      display: unset;
+      ion-img{
+        height: 42px;
+        width: 42px;
+      }
+      ion-col{
+        padding: 0;
+      }
+      .name-col {
+        padding-left: 2px;
+        span:first-child{
+          font-size: 11px;
+          color: #999999;
+        }
+        span:last-child{
+          font-size: 14px;
+          color: #282828;
+        }
+      }
+      .downArrow{
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        border: 1.2px solid #FE6332;
+        border-width: 0 1.3px 1.3px 0;
+        display: inline-block;
+        padding: 3.5px;
+        margin-top: 10px;
+        margin-right: 13px;
+      }
+    }
+  }
+  .tab-bar-heighlater{
+    background: linear-gradient(180deg, #FA934F 0%, #F5560F 100%);
+    height: 6px;
+    margin-bottom: 0;
+  }
+  .desktop-page-container{
+    margin: auto;
+    border: 1px solid #f3f3f3;
+    .desktop-page{
+      padding: 0 7vw;
+    }
+  }
+  .copyright-div{
+    display: block;
+    background-color: #5e5e5e;
+    height: 2.9vh;
+    color: #ffffff;
+    font-size: 1.25vmin;
+    padding: 0.5vh 7vw;
+
+    span:last-child{
+      float: right;
+    }
+  }
 }

@@ -1,9 +1,19 @@
 @import  "../../../theme/variables.scss";
 @import  "../../../theme/responsive-styles.scss";
+.loadDetails-page{
+  .page-header{
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+      height: 7vh !important;
+    }
+  }
+}
 .load-page-content{
   --padding-top: 20px !important;
   --padding-start: 0px;
   --padding-end: 0px;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    --padding-top: 0px !important;
+  }
 }
 .load_details_header{
   text-align:center;
@@ -52,6 +62,9 @@
       }
       .load_details_col{
         padding-left: 20px;
+      }
+      @media only screen and (min-width: map-get($grid-breakpoints , lg )){
+        padding-top: 15px;
       }
     }
       p{
@@ -137,9 +150,15 @@
   width: 0;
   border: 1px solid #21303B39;
   margin-left: 11px;
+  @media only screen and (min-width: map-get($grid-breakpoints , lg )){
+    height: 68px;
+  }
 }
 .load_detail_card{
   padding: 0 0 0 15px;
+  @media only screen and (min-width: map-get($grid-breakpoints , lg )){
+    background: #ffffff;
+  }
 }
 .fadein, .fadeout {
   max-height: 0;            
@@ -163,7 +182,7 @@
   display: inline-block;
   width: 100px;
   height: 28px;
-  float: right;
+  margin-top: 4px;
 }
 
 .switch input {display:none;}
@@ -259,9 +278,46 @@ input:checked + .slider:after
   margin-bottom: 2.46vh;
 }
 .callCol{
-  padding-left: 0;
-  padding-right: 0;
+  text-align: center;
+  ion-button:first-child{
+    float: left;
+  }
+  .switch{
+    float: right;
+  }
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)){
+    text-align: right;
+    ion-button:first-child{
+      float: none;
+    }
+    ion-button{
+      margin-right: 0.9vw;
+    }
+  }
 }
 .chat-btn {
   text-align: center;
+}
+.desktop-view{
+  display: none;
+}
+@media only screen and (min-width: map-get($grid-breakpoints, lg)){
+  .mobile-view{
+    display: none;
+  }
+  .desktop-view{
+    display: unset;
+    ion-col{
+      padding:0
+    }
+    ion-row{
+      width: 300px;
+    }
+    ion-row:first-child{
+      ion-col:last-child{
+        color: #000000;
+        opacity: 100%;
+      }
+    }
+  }
 }

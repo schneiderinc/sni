@@ -88,6 +88,13 @@ export class Recommended {
         return getObject('Carrier-rcmd-Loads');
     }
 
+    setofflineWatchedLoads(_loads: []) {
+        return setObject('Carrier-offline-Watched-Loads', _loads);
+    }
+
+    getofflineWatchedLoads() {
+        return getObject('Carrier-offline-Watched-Loads');
+    }
     setWeight() {
         this.validLoad();
     }

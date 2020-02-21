@@ -4,7 +4,7 @@ import favoriteData from './favoriteData.json';
 import './favorite.scss';
 const FovoriteTab = (props: any) => {
     return (
-        <IonItemSliding>
+        <IonItemSliding class={props.showButtons ? "searched-item":""}>
             <IonCardContent onClick={props.particularCardClick} className="card-content" style={{ background: props.cardColor }}>
                 <IonGrid>
                     <IonRow class="recent_row">

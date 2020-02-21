@@ -4,15 +4,12 @@
 .menu_page {
   .page-header {
     height: 9.98vh;
-    #header-icon{
-      padding-top: 3vh;
-  }
   }
 }
 .menu_page_content {
   --padding-top: 2.59vh !important;
-  --padding-start: 10px !important;
-  --padding-end: 10px !important;
+  --padding-start: 2.67vw !important;
+  --padding-end: 2.67vw !important;
 }
 .menu_list_item {
   --inner-padding-end: 1.62vw;
@@ -22,6 +19,9 @@
   font-size: 14px;
   --border-color: #0000003f;
   font-family: $font-roboto-regular;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    --inner-padding-end:0.5vw;
+  }
 }
 .menu_list_heading {
   font-size: 14px;
@@ -29,11 +29,20 @@
   text-transform: uppercase;
   font-family: $font-roboto-regular;
   padding-left: 3.36vw;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    padding-left: 1.36vw;
+  }
 }
 .menu_list_card {
   margin: 0.74vh 0 1.85vh 0;
   box-shadow: 0 3px 6px #3a4c8212;
   border: 0.5px solid #dedede;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    ion-list{
+      padding-left: 1.27vw;
+      padding-right: 0;
+    }
+  }
 }
 .list_row {
   border-bottom: 1px solid #3a4c8212;

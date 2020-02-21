@@ -95,7 +95,7 @@
     "eslint-plugin-react-redux": "^3.0.1",
     "plop": "^2.5.3",
     "prettier": "^1.18.2",
-    "react-scripts": "^3.3.1",
+    "react-scripts": "3.4.0",
     "react-testing-library": "^8.0.1",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.1.0",

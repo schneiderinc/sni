@@ -77,6 +77,9 @@
   margin: 5% 2% 0% 4%;
   font-size: 12px;
   color: #707070;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    margin: 1% 1% 0% 1%;
+  }
 }
 .InsuranceRow {
   width: 100%;

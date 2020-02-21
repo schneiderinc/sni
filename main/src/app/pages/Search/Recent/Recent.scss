@@ -6,11 +6,19 @@
     --padding-end: 4vw;
     --padding-top:0px;
     font-family: $font-roboto-regular;
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+        --padding-start: 1.78vw;
+        --padding-end: 1.78vw;
+        height: 56vh;
+      }
 .header-text{
     padding: 1.85vh 2.13vw;
     font-size: 14px;
     color:#4A4A4A;
     font-family: $font-roboto-regular;
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+        padding-left: 1.13vw;
+      }
   }
   .recent_row{
       line-height: 2;
@@ -42,6 +50,7 @@
   .card-arrow{
     margin-left: 5px;
     margin-top: -4px;
+    width: auto;
   }
   ion-tab-bar{
     border-top: 1px solid #DEDEDE;
@@ -68,4 +77,9 @@
         }
     }
 }
+}
+.searched-item{
+    @media ( min-width: map-get($grid-breakpoints, lg)) {  
+        height: 134px;
+    }
 }

@@ -14,7 +14,7 @@ class CarrierProfilePage extends Component<any, any> {
     render() {
         const { manageCarrierdata, manageInsuranceData, manageInsuranceData2 } = this.props;
         return (
-            <IonPage >
+            <IonPage className="desktop-page">
                 <AppHeader title="Carrier Profile" backUrl={"/app/" + this.props.module} />
                 <IonContent >
                     <div className="contact">Contact Schneider if any of the fields need to be updated</div>

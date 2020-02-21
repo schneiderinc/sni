@@ -39,7 +39,7 @@ class MenuPage extends Component<any,any> {
 	render() {
 		const menuHeadingList = this.props.menuHeadingList;
 		return (
-		  	<IonPage className="menu_page">
+		  	<IonPage className="desktop-page menu_page">
 				   <AppHeader title="Menu"  />
 			  		<IonContent class="menu_page_content">
 					{

@@ -46,6 +46,15 @@ class Dropdown extends Component<any, any>{
                 <div className="search_sortby_select">
                     <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name.length <= 10 ? this.state.selectedOption.name : this.state.selectedOption.name.slice(0,7)+"..." }<i className="down"></i></IonButton>
                 </div>
+                <div className="search_sortby_select desktop-sort">
+                    <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name}<i className="down"></i></IonButton>
+                </div>
+                <div className="sortArrows">
+                  <div className="line"></div>
+                  <i className="downArrow"></i>
+                  <div className="line1"></div>
+                  <i className="upArrow"></i>
+                </div>
                 <IonModal isOpen={this.state.isDropdown} cssClass="dropdown-modal">
                     <div className="search_options">
                         <IonRow><IonCol> <b>Sort By</b> </IonCol></IonRow>

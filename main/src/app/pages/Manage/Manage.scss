@@ -8,6 +8,10 @@
     width: 28.8vw;
     height: 28.8vw;
     border-radius: 50%;
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+        width: 7.8vw;
+        height: 7.8vw;
+    }
 }
 .profile-cardContent{
     padding-left:4vw;
@@ -17,6 +21,9 @@
     text-align: center;
     padding-top: 5.05vh;
     font-family:$font-roboto-regular;
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+        margin-top: 11.6vh;
+    }
     .editBadge{
         width: 30px;
         height: 30px;
@@ -86,6 +93,9 @@
 .manage-profile-arrow-col{
     margin-top: 4.3vh;
     padding-left: 4.27vw !important;
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+        padding-left: 6.57vw !important;
+    }
 }
 .manage-header{
     .header-md:after{

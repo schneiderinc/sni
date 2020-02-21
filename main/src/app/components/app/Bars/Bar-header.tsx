@@ -16,13 +16,17 @@ const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeS
       {editData && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/edit.svg" onClick={()=> editData()} /></div></IonCol>}
       {isSearch && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_white.svg" onClick={()=> editData()} /></div></IonCol>}
     </IonRow>
-    <IonRow>
-      {segments && <IonSegment mode="ios" onIonChange={(e) => getSegment(e)} class="segment_control_tabs">
+    <div className="desktop-header-desc">
+      <div className="header-title">{title}</div>
+    </div>
+    {segments && 
+    <IonRow class="segment-row">
+      <IonSegment mode="ios" onIonChange={(e) => getSegment(e)} class="segment_control_tabs">
         {segments.map((name: any, index: number) => (
           <IonSegmentButton mode="ios" key={index} value={name} checked={activeSegment === name}><IonLabel>{name}</IonLabel></IonSegmentButton>
         ))}
-      </IonSegment>}
-    </IonRow>
+      </IonSegment>
+    </IonRow>}
   </IonHeader>
   )
 }

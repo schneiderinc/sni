@@ -25,7 +25,7 @@ class SearchResultPage extends PureComponent<any, any> {
 
         const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
         return (
-            <IonPage>
+            <IonPage className="desktop-page">
                 <AppHeader title="Search Results" editData={() => this.props.history.push("/app/search", { data: this.props.params })}/>
                 <IonContent class="search_results_container">
                         {this.props.params && <IonSegment scrollable className="ion-segment">
@@ -42,18 +42,10 @@ class SearchResultPage extends PureComponent<any, any> {
                                 <IonCol size="5" class="rec_text">
                                     <span className="recommendations_num">10 </span> Matches
                                 </IonCol>
-                                <IonCol size="5.5" class="sort_select">
+                                <IonCol size="7" class="sort_select">
                                     <div className="select_div">
                                     <IonLabel className="sort_label">Sort:</IonLabel>
                                     <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData} />
-                                    </div>
-                                </IonCol>
-                                <IonCol size="1.5" className="sortArrowsCol">
-                                    <div className="sortArrows">
-                                        <div className="line"></div>
-                                        <i className="downArrow"></i>
-                                        <div className="line1"></div>
-                                        <i className="upArrow"></i>
                                     </div>
                                 </IonCol>
                             </IonRow>

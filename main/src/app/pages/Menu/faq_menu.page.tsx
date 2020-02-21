@@ -15,7 +15,7 @@ class FAQMenuPage extends Component<any,any> {
 	}
 	render() {
 		return (
-		  	<IonPage className="menu_page">
+		  	<IonPage className="desktop-page menu_page">
                   <AppHeader title="FAQ" backUrl={"/app/"+this.props.module} isSearch={true} />
 				<IonContent class="ion-padding menu_list_page_content">
                 <IonCard class="ion-card" >

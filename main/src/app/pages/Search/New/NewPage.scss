@@ -3,9 +3,9 @@
 
 .search_form_container {
   height: 86%;
-  --padding-start: 13px;
-  --padding-end: 14px;
-  --padding-top: 0px;
+  --padding-start: 5.33vw;
+  --padding-end: 5.33vw;
+  --padding-top: 0;
   font-family: $font-roboto-regular;
   font-size: 15px;
   @media (max-height: map-get($grid-height-breakpoints, xs)) {
@@ -14,17 +14,26 @@
   @media (max-height: map-get($grid-height-breakpoints, md)) {
     height: 85%;
   }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    --padding-start: 1.78vw;
+    --padding-end: 1.78vw;
+    height: 52vh;
+    --background: #f8f8f8;
+  }
 // }
 // .contianer {
   .EnterLoad {
-    padding: 2.5vh 1.8vw 2.5vh 4vw;
+    padding: 2.5vh 1.8vw 2.5vh 0.5vw;
     font-size: 14px;
     color: #4a4a4a;
     font-family: $font-roboto-regular;
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      padding: 2vh 0 1.15vh 5px;
+    }
   }
   .search-form {
     margin-top: -11px;
-    padding: 0px 10px;
+    // padding: 0px 10px;
     position: relative;
     .new_page_list {
       background-color: #fcfcfc;
@@ -145,6 +154,14 @@
         font-size: 15px;
       }
     }
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      .new_page_list{
+        background: none;
+      }
+      .ion-item{
+        --background: none !important;
+      }
+    }
   }
 }
 ion-footer {
@@ -153,17 +170,19 @@ ion-footer {
   height: 71px;
   border-top: 0.5px solid #dedede;
   bottom: 0;
+  padding-left: 5.33vw;
+  padding-right: 5.33vw;
   ion-toggle {
     --background-checked: #f6d679;
     zoom: 0.7;
-    float: right;
+    // float: right;
   }
   .save_as_favorite {
     margin-top: 5px;
     margin-bottom: 10px;
     // margin-left:0px;
     .save_as_favorite_text {
-      margin-top: 3px;
+      display: inline;
       span {
         font-size: 14px;
         color: #000000;
@@ -207,27 +226,12 @@ ion-footer {
     border: none;
     padding: 10px 0 0 9px;
   }
-  // .search_buttons{
-  //    --border-radius: 20px;
-  //     height:144%;
-  //     widows: 96%;
-  //     font-size: 15px;
-  //     background: linear-gradient(180deg, $loginBtnTop, $loginBtnTop);
-  // }
   .search_alternate {
     padding: 11px 7px 0 7px;
     @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
       margin: auto;
-      width: map-get($grid-breakpoints, xs);
-      margin-top: 21px;
+      width: 360px;
     }
-    // .reset_btn {
-    //     --background:  white;
-    //     --background-focused: white;
-    //     --background-hover: white;
-    //     color: $primary;
-    //     border: 1px solid;
-    // }
   }
 }
 .picker-wrapper.sc-ion-picker-ios {
@@ -293,5 +297,20 @@ ion-footer {
 ion-picker{
   ion-backdrop{
     background-color: transparent;
+  }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .serach-page-footer{
+    bottom: auto !important;
+    width:86vw;
+    margin-top: 0;
+    border:none;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 25px;
+
+    ion-col:last-child{
+      text-align: right;
+    }
   }
 }

@@ -6,7 +6,7 @@ class ManagePage extends Component<any, any> {
  render() {
         const { manageCard } = this.props;
         return (
-            <IonPage className="manage-header">
+            <IonPage className="manage-header desktop-page">
                 <IonHeader className="profileHeader manageHeader">
                     {/* <img alt="profile" src={this.state.imagePath} className="profileImg" onClick={this.takePicture}></img> */}
                     {/* <IonBadge className="editBadge">

@@ -85,7 +85,7 @@ class LoadDetailsPage extends Component<any, any> {
 		return (
 			<>
 				{loadDetails ?
-					<IonPage>
+					<IonPage className="desktop-page loadDetails-page">
 						<AppHeader title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} backUrl={"/app/"+this.props.module} isMap={true}/>
 						<IonContent className="ion-padding custom-padding load-page-content">
 							<IonCard className="loadDetails_card">
@@ -94,7 +94,12 @@ class LoadDetailsPage extends Component<any, any> {
 										<LoadTileHeader {...loadDetails} />
 										<IonItemDivider no-padding />
 										<LoadTileFooter price={loadDetails.price} stops={loadDetails.total_stops} trailer={loadDetails.trailer} total_distance={loadDetails.total_distance} />
-										<IonRow>
+										<div className="callCol">
+											<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/call.svg" className="load_btn_img" />CALL</IonButton>
+											<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/chat.svg" className="load_btn_img" />CHAT</IonButton>
+											<label className="switch"><input type="checkbox" id="togBtn" /><div className="slider round"></div></label>
+										</div>
+										{/* <IonRow>
 											<IonCol size="4" className="callCol">
 												<IonButton data-kind="primary" type="submit" class="call_btn"><IonImg alt="logo" src="assets/icon/call.svg" className="load_btn_img" />CALL</IonButton>
 											</IonCol>
@@ -106,7 +111,7 @@ class LoadDetailsPage extends Component<any, any> {
 													<label className="switch"><input type="checkbox" id="togBtn" /><div className="slider round"></div></label>
 												</div>
 											</IonCol>
-										</IonRow>
+										</IonRow> */}
 									</IonGrid>
 								</IonCardContent>
 							</IonCard>

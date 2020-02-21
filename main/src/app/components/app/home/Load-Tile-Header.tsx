@@ -15,7 +15,7 @@ class LoadTileHeader extends React.Component<any, any> {
           <div className="card-dt">{this.props.origin_from_date}, {this.props.origin_to_date_time}</div>
           <div className="card-dist">{this.props.origin_deadhead} Mile Deadhead</div>
         </IonCol>
-        <IonCol size="2" className="loadCardArrow"><img alt="logo" className="card_arrow_img" src="assets/icon/arrow.svg"/></IonCol>
+    <IonCol className="loadCardArrow"><img className="card_arrow_img"/></IonCol>
         <IonCol className=" card-col right">
           <div className="card-name">{this.props.destination_city}, {this.props.destination_state}</div>
           <div className="card-dt">{this.props.destination_from_date}, {this.props.destination_to_date_time}</div>

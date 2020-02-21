@@ -86,6 +86,8 @@ $white:     #fff;
 
 @import 'typography.scss';
 
+@import 'responsive-styles.scss';
+
 // @import "Helvetica";
 $font-stack: 'Roboto Medium';
 $font-roboto: 'Helvetica Neue';
@@ -115,19 +117,53 @@ body {
   font-size: 12px;
   margin-top: 1px;
   font-family: $font-roboto-regular;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+      margin-top: -17px;
+      margin-left: 15px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+}
+.search_label {
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    margin-top: -19px;
+    margin-left: 27px;
+  }
+}
+.execute_label {
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    margin-left: 34px;
+  }
 }
 .tab_footer_label_manage {
   font-size: 12px;
   margin-top: 0;
   font-family: $font-roboto-regular;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: -26px;
+    margin-left: 30px;
+  }
 }
 .tab_footer_label_more {
   font-size: 12px;
   margin-top: 5px;
   font-family: $font-roboto-regular;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    font-size: 14px;
+    margin-top: -15px;
+    text-transform: uppercase;
+    margin-left: 13px;
+  }
 }
 .tab-selected {
   color: $primary !important;
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    background: white;
+    border-radius: 27px;
+    height: 41px;
+  }
 }
 ion-tab-bar {
   height: 8.37vh;
@@ -140,12 +176,23 @@ ion-tab-bar {
     height: 25px;
     margin-bottom: 0;
     width: 37px;
+
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+      height: 18px;
+      margin-left: -55px;
+      width: 19px;
+    }
   }
   .manage_icon {
     height: 28px;
   }
   .more_icon {
     height: 20px;
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+      height: 11px;
+      width: 14px;
+      margin-top: 10px;
+    }
   }
 }
 .ion-card {
@@ -161,6 +208,18 @@ ion-content {
   --padding-top: 1px !important;
   --padding-start: 10px !important;
   --padding-end: 10px !important;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    --padding-top: 0 !important;
+    --padding-start: 20px !important;
+    --padding-end: 20px !important;
+  }
+}
+.home-page{
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+    --padding-start: 0px !important;
+    --padding-end: 0px !important;
+    --background: #ffffff !important;
+  }
 }
 .arrow_forward {
   transform: rotate(45deg);
