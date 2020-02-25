@@ -3,7 +3,25 @@
 .loadDetails-page{
   .page-header{
     @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-      height: 7vh !important;
+      height: 11vh !important;
+      margin-top: 8vh !important;
+      .desktop-header-desc{
+        ion-grid{
+          padding: 0;
+          font-size: 12px;
+          font-family: $font-roboto-regular;
+          display: flex;
+          height: 16px;
+          .desktop-title {
+            color: #666666;
+            margin-top: 7px;
+            font-size: 11px;
+          }
+        }
+        .header-title{
+          margin-top: 20px;
+        }
+      }
     }
   }
 }

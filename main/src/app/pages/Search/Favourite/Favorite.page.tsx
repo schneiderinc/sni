@@ -1,10 +1,10 @@
 import React from 'react';
-import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemSliding, IonTabBar, IonTabButton, IonLabel } from '@ionic/react';
+import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemSliding, IonTabBar, IonTabButton, IonLabel, IonIcon } from '@ionic/react';
 import favoriteData from './favoriteData.json';
 import './favorite.scss';
 const FovoriteTab = (props: any) => {
     return (
-        <IonItemSliding class={props.showButtons ? "searched-item":""}>
+        <IonItemSliding class="favorite_card">
             <IonCardContent onClick={props.particularCardClick} className="card-content" style={{ background: props.cardColor }}>
                 <IonGrid>
                     <IonRow class="recent_row">
@@ -30,13 +30,13 @@ const FovoriteTab = (props: any) => {
                 <IonTabBar slot="bottom">
                     <IonTabButton className="tabButton_add" tab="view">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
+                            <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
                             <IonCol><IonLabel>VIEW</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
-                    <IonTabButton tab="delete">
+                    <IonTabButton tab="delete" className="delete_tab">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/delete_icon.svg" /></IonCol>
+                            <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/delete.svg" /></IonCol>
                             <IonCol><IonLabel>DELETE</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
@@ -66,13 +66,15 @@ class FavouritePage extends React.Component<any, any>{
         return (
             <IonContent className="ion-padding recent_container" class="background">
                 <div className="header-text">Select a favorite search to see matching loads.</div>
-                {
-                    favoriteData.map((detail, index) => (
-                        <IonCard className="ion-card" key={index}>
-                            <FovoriteTab favoriteData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index === this.state.selectedCardId ? true : false} cardColor={index === this.state.selectedCardId ? this.state.cardColor : this.state.whiteColor} />
-                        </IonCard>
-                    ))
-                }
+                <IonGrid class="recent-list">
+                    {
+                        favoriteData.map((detail, index) => (
+                            <IonCard className={`ion-card ${index === this.state.selectedCardId ? "searched-item":""}`} key={index}>
+                                <FovoriteTab favoriteData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index === this.state.selectedCardId ? true : false} cardColor={index === this.state.selectedCardId ? this.state.cardColor : this.state.whiteColor} />
+                            </IonCard>
+                        ))
+                    }
+                </IonGrid>
             </IonContent>
         );
     }

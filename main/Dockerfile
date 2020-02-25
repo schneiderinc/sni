@@ -22,7 +22,7 @@ WORKDIR /app
 #Copy the build folder content to workdir of build image
 COPY --from=builder /app/build .
 # Serve the build file 
-CMD ["serve", "-p", "81", "-s", "."]
+CMD ["serve", "-p", "8080", "-s", "."]
 
 
 #This could be alternate host image using nginx

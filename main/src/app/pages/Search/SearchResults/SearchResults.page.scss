@@ -10,24 +10,27 @@
     .ion-segment{
         margin-top: 1.23vh;
         margin-bottom: 1.85vh;
-        border: none;
-        height: 2.46vh;
+         border: none;
+        height: 3.46vh;
         // margin-left: 4.13vw;
         ion-segment-button{
-            margin-top: -1.23vh;
+            //margin-top: -1.23vh;
             --background-checked:none;
             opacity: 0.84;
             --padding-start:0;
             --padding-end:2.67vw;
+            border: none;
         }
     }
     .search_floating_badge {
-        height: 2.6vh;
+        height: 13px;
         background-color: #f1eded;
-        color: #151724;
+        color: #666666;
         font-size: 10px;
         font-family: $font-roboto-regular;
         opacity: 0.84;
+        padding-top: 6px;
+        border-radius: 0;
     }
     .sort_container{
         font-family: $font-roboto-regular;
@@ -45,5 +48,49 @@
         .short-row{
             padding: 0;
         }
+    }
+    .search-desktop-view{
+        display: none;
+    }
+    @media ( min-width: map-get($grid-breakpoints, lg)) {
+        --padding-start: 1.46vw !important;
+        --padding-end: 1.46vw !important;
+        .ion-segment,.short-div{
+            display: none;
+        }
+        .search-desktop-view {
+            display: flex;
+            font-family: $font-roboto-regular;
+            color: #666666;
+            height: 50px;
+            padding-top: 16px;
+            .rec_text{
+                font-size: 13px;
+                padding-top: 0.61vh;
+            }
+            ion-segment{
+                height: 2.5vh;
+                margin-top: 5px;
+                ion-segment-button {
+                    min-height: 20px !important;
+                }
+            }
+            ion-img{
+                width: 22px;
+                margin-left: 15px;
+                margin-top: 5px;
+            }
+            .search_floating_badge{
+                padding:0 1px;
+            }
+        }
+        ion-list{
+            padding-top: 0;
+        }
+    }
+}
+@media ( min-width: map-get($grid-breakpoints, lg)) {
+    .search-result-page .page-header{
+        height: 8.5vh;
     }
 }

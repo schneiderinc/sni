@@ -86,7 +86,7 @@ class LoadDetailsPage extends Component<any, any> {
 			<>
 				{loadDetails ?
 					<IonPage className="desktop-page loadDetails-page">
-						<AppHeader title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} backUrl={"/app/"+this.props.module} isMap={true}/>
+						<AppHeader title={"Load#" + (loadDetails ? loadDetails.schneider_loads_id : "")} backUrl={"/app/"+this.props.module} isMap={true} tab={this.props.module}/>
 						<IonContent className="ion-padding custom-padding load-page-content">
 							<IonCard className="loadDetails_card">
 								<IonCardContent className="card-content">

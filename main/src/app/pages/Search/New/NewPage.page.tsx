@@ -8,7 +8,7 @@ class NewPage extends PureComponent<newProps, any> {
   node: any = null;
   state = {
     origin: 'Dallas, TX',
-    destination: 'Anywhere',
+    destination: '',
     distance: 100,
     pickUpdate: '',
     dropdate: '',
@@ -239,7 +239,7 @@ class NewPage extends PureComponent<newProps, any> {
 
               <IonItem mode="ios" class="ion-item">
                 <IonLabel mode="ios" position="floating">Destination</IonLabel>
-                <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(event) => this.handleDestination(event)} />
+                <IonInput type="text" className="cts-form-control" value={this.state.destination} name="destination" onIonChange={(event) => this.handleDestination(event)} placeholder="Anywhere" />
                 <IonImg slot="end" alt="logo" src="/assets/icon/search_icon.svg" className="input_icon" />
               </IonItem>
 
@@ -286,9 +286,14 @@ class NewPage extends PureComponent<newProps, any> {
         <IonFooter class="serach-page-footer">
           {/* <div className="search_alternate"> */}
             <IonRow className="save_as_favorite">
-              <IonCol size="6"> <IonToggle mode="ios" name="favorite" checked={this.state.favorite} onIonChange={(event) => this.ToggleChange(event)}> </IonToggle> <div className="save_as_favorite_text"><span>Add To Favorite</span></div></IonCol>
-              {/* <IonCol size="4" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol> */}
               <IonCol size="6">
+                <div className="toggle-div">
+                  <IonToggle mode="ios" className="favorite-toggle" name="favorite" checked={this.state.favorite} onIonChange={(event) => this.ToggleChange(event)}> </IonToggle>
+                  <div className="save_as_favorite_text"><span>Add as Favorite</span></div>
+                </div>
+              </IonCol>
+              {/* <IonCol size="4" className="save_as_favorite_text"><span>Add To Favorite</span></IonCol> */}
+              <IonCol size="6" className="footer-col">
                 <IonBadge onClick={this.Reset} class="new_badges new_badges_cancel"><IonImg className="cancel_img" src="/assets/icon/cancel.svg" /></IonBadge>
                 <IonBadge class="new_badges new_badge_reset" onClick={this.Reset}><IonImg className="reset_img" src="/assets/icon/reset.svg" /></IonBadge>
                 <IonBadge class="new_badges new_badge_apply" onClick={(event) => this.Apply(event)}><IonImg className="apply_img" alt="logo" src="/assets/icon/tick.svg" /></IonBadge>

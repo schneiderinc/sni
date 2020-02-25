@@ -7,17 +7,21 @@
     --padding-top:0px;
     font-family: $font-roboto-regular;
     @media (min-width: map-get($grid-breakpoints, lg)) {
-        --padding-start: 1.78vw;
-        --padding-end: 1.78vw;
-        height: 56vh;
-      }
+        --padding-start:0;
+        --padding-end:0;
+        --background: #ffffff;
+        .recent-list{
+            padding: 0 1.78vw 1.17vh 1.78vw;
+            background-color: #f8f8f8;
+        }
+    }
 .header-text{
     padding: 1.85vh 2.13vw;
     font-size: 14px;
     color:#4A4A4A;
     font-family: $font-roboto-regular;
     @media (min-width: map-get($grid-breakpoints, lg)) {
-        padding-left: 1.13vw;
+        background-color: #f8f8f8;
       }
   }
   .recent_row{
@@ -71,15 +75,63 @@
         .tabButton_col{
             padding-right:1px;
         }
-        .tabButtonImg{
-            width:100%;
-          
-        }
+    }
+    .tabButtonImg{
+        width: 24px;
+        float: right;
+        height: 15px;
+        padding-top: 2px;
+      
     }
 }
+}
+.delete_tab{
+    ion-col{
+        padding: 0 !important;
+    }
+    .tabButton_col{
+        padding-left: 14px !important;
+    }
 }
 .searched-item{
-    @media ( min-width: map-get($grid-breakpoints, lg)) {  
-        height: 134px;
-    }
+    @media ( min-width: map-get($grid-breakpoints, lg)) { 
+        border: 1px solid #ff6418 !important;
+        ion-item-sliding{
+            height: 136px;
+            ion-card-content{
+                background: #ffffff !important;
+            }
+            ion-tab-bar{
+                margin-top: 0px !important;
+                border-top: none;
+                right: 0;
+                max-width: 23vw !important;
+                padding: 3px 10px;
+                ion-tab-button{
+                    border: 1px solid #FF6418 !important;
+                    border-radius: 17px !important;
+                    height: 28px !important;
+                    margin-left: 10px;
+                    max-width: 7.14vw;
+                    color: #ff6418 !important;
+                }
+                .tabButton_add{
+                    padding-left: 0.9vw;
+                }
+            }
+        }
+        .favorite_card{
+            ion-tab-bar{
+                max-width: 15vw !important;
+            }
+        }
+        .delete_tab{
+            ion-col{
+                padding: 0 !important;
+            }
+            .tabButton_col{
+                padding-left: 14px !important;
+            }
+        }
+    }     
 }

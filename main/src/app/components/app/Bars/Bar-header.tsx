@@ -1,11 +1,11 @@
 import * as React from "react";
-import { IonHeader, IonRow, IonCol, IonImg, IonBackButton, IonSegment, IonSegmentButton } from "@ionic/react";
-import { IonLabel} from '@ionic/react';
+import { IonHeader, IonRow, IonCol, IonImg, IonBackButton, IonSegment, IonSegmentButton, IonGrid } from "@ionic/react";
+import { IonLabel } from '@ionic/react';
 import './search-header.scss';
 import { withRouter, RouteComponentProps } from 'react-router';
 import arrowright from 'app/utils/icon-js/arrowright';
-interface HeaderProps extends RouteComponentProps { title: any, getSegment?: any, segments?: any, activeSegment?: any, backUrl?:any, editData?: any, isMap?:any, isSearch?:any }
-const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeSegment, backUrl, isMap, editData, isSearch }) => {
+interface HeaderProps extends RouteComponentProps { title: any, getSegment?: any, segments?: any, activeSegment?: any, backUrl?: any, editData?: any, isMap?: any, isSearch?: any, tab?: any }
+const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeSegment, backUrl, isMap, editData, isSearch, tab }) => {
 
   return (<IonHeader className="page-header">
 
@@ -13,20 +13,23 @@ const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeS
       <IonCol size="2">{backUrl && <IonBackButton icon={arrowright} text="" defaultHref={backUrl}  ></IonBackButton>}</IonCol>
       <IonCol size="8"><div id="header-title">{title}</div></IonCol>
       {isMap && <IonCol size="2"><div id="header-icon"><img src="assets/icon/map.svg" alt="icon" /></div></IonCol>}
-      {editData && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/edit.svg" onClick={()=> editData()} /></div></IonCol>}
-      {isSearch && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_white.svg" onClick={()=> editData()} /></div></IonCol>}
+      {editData && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/edit.svg" onClick={() => editData()} /></div></IonCol>}
+      {isSearch && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_white.svg" /></div></IonCol>}
     </IonRow>
     <div className="desktop-header-desc">
+      {backUrl && <IonGrid>
+        <IonBackButton class="desktop-back-button" text={tab} defaultHref={backUrl}></IonBackButton> <span className="desktop-title">  > {title}</span>
+      </IonGrid>}
       <div className="header-title">{title}</div>
     </div>
-    {segments && 
-    <IonRow class="segment-row">
-      <IonSegment mode="ios" onIonChange={(e) => getSegment(e)} class="segment_control_tabs">
-        {segments.map((name: any, index: number) => (
-          <IonSegmentButton mode="ios" key={index} value={name} checked={activeSegment === name}><IonLabel>{name}</IonLabel></IonSegmentButton>
-        ))}
-      </IonSegment>
-    </IonRow>}
+    {segments &&
+      <IonRow class="segment-row">
+        <IonSegment mode="ios" onIonChange={(e) => getSegment(e)} class="segment_control_tabs">
+          {segments.map((name: any, index: number) => (
+            <IonSegmentButton mode="ios" key={index} value={name} checked={activeSegment === name}><IonLabel>{name}</IonLabel></IonSegmentButton>
+          ))}
+        </IonSegment>
+      </IonRow>}
   </IonHeader>
   )
 }

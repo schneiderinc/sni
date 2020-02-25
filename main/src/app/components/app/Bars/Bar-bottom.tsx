@@ -84,11 +84,11 @@ const RootLevelTabs: React.FC<MainTabsProps> = () => {
 
                 <IonTabButton tab="execute" href="/app/execute" >
                   <IonIcon src="assets/icon/nav_execute.svg"></IonIcon>
-                  <IonLabel class="tab_footer_label execute_label">Execute</IonLabel>
+                  <IonLabel class="tab_footer_label execute_label">My Load</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="manage" href="/app/manage">
                   <IonIcon src="assets/icon/nav_manage.svg" class="manage_icon"></IonIcon>
-                  <IonLabel class="tab_footer_label_manage">Manage</IonLabel>
+                  <IonLabel class="tab_footer_label_manage">Profile</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="more" href="/app/more">
                   <IonIcon src="assets/icon/nav_more.svg" class="more_icon"></IonIcon>

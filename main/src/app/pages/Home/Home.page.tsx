@@ -48,7 +48,6 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
   total_stops: "",
   total_weight: "",
   trailer: ""}]);
-  const [sortedLoad, setSortedLoad] = useState<any>([]);
   const [showGpsModal, setShowGpsModal] = useState(false);
   const { getNetworkStatus, networkStatus } = useNetwork()
   if (data.length === 0 && !loading) {
@@ -56,9 +55,12 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
   }
 
   const sortedData = (data: any) => {
-
-    setSortedLoad(data);
-
+    if(segment.name === "Recommended"){
+      setRecommendedLoad(data)
+    }
+    else{
+      setWatchedLoad(data)
+    }
   }
 
   const _setOfflineWatched = (watchData: any) => {
@@ -81,7 +83,6 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
       if (!networkStatus.connected && networkStatus.connected != undefined) {
         let offlineWatched = await _getOfflineWatched();
         setWatchedLoad(offlineWatched);
-        console.log(WatchedLoad,"length")
       } else {
         setRecommendedLoad(data);
         setWatchedLoad(data);
@@ -107,7 +108,8 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
           {(segment.name === "Recommended" || segment.name === "Watched") &&
             <IonRow class="short-row">
               <IonCol size="5" class="rec_text">
-                <span className="recommendations_num">{RecommendedloadData&&RecommendedloadData.length | WatchedLoad && WatchedLoad.length } </span>
+                {/* <span className="recommendations_num">{RecommendedloadData&&RecommendedloadData.length | WatchedLoad && WatchedLoad.length } </span> */}
+                {(segment.name === "Recommended") ?  <span className="recommendations_num">{RecommendedloadData&&RecommendedloadData.length } </span>:<span className="recommendations_num">{WatchedLoad&&WatchedLoad.length } </span>}
                 {segment.name === "Recommended" ? "Recommendations" : "Watched Loads"}
               </IonCol>
               <IonCol size="7" class="sort_select">

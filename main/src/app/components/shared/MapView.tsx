@@ -6,7 +6,7 @@ import { createStructuredSelector } from "reselect";
 import './MapView.scss';import { connect } from "react-redux";
 import { getLoading } from "../../selectors/selector";
 import { compose } from "redux";
-
+import AppHeader from "app/components/app/Bars/Bar-header";
 
 interface OwnProps { }
 
@@ -21,7 +21,8 @@ interface MapViewProps extends OwnProps, StateProps, DispatchProps { };
 
 const MapView: React.FC<MapViewProps> = ({ locations, mapCenter }) => {
   return (
-  <IonPage id="map-view">
+  <IonPage id="map-view" className="desktop-page">
+    <AppHeader title="Execute"/>
     <IonContent class="map-page">
       <Map locations={locations} mapCenter={mapCenter} />
     </IonContent>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonTabBar, IonTabButton, IonLabel, IonItemSliding } from '@ionic/react';
+import { IonContent, IonCard, IonGrid, IonCardContent, IonRow, IonCol, IonTabBar, IonTabButton, IonLabel, IonItemSliding, IonIcon } from '@ionic/react';
 import './Recent.scss';
 import recentData from './recentData.json';
 const RecentCard = (props: any) => {
     return (
-        <IonItemSliding class={props.showButtons ? "searched-item":""}>
+        <IonItemSliding>
             <IonCardContent onClick={props.particularCardClick} className="card-content" style={{ background: props.cardColor }}>
                 <IonGrid>
                     <IonRow class="recent_row">
@@ -31,19 +31,19 @@ const RecentCard = (props: any) => {
                 <IonTabBar slot="bottom">
                     <IonTabButton className="tabButton_add" tab="view">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/heart.svg" /></IonCol>
-                            <IonCol><IonLabel>ADD</IonLabel></IonCol>
+                            <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/heart.svg"></IonIcon></IonCol>
+                            <IonCol><IonLabel>SAVE</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
                     <IonTabButton className="tabButton_add" tab="view">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
+                            <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/view.svg"></IonIcon></IonCol>
                             <IonCol><IonLabel>VIEW</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
-                    <IonTabButton tab="delete">
+                    <IonTabButton tab="delete" className="delete_tab">
                         <IonRow>
-                            <IonCol className="tabButton_col"><img alt="logo" className="tabButtonImg" src="assets/icon/delete_icon.svg" /></IonCol>
+                            <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/delete.svg"></IonIcon></IonCol>
                             <IonCol><IonLabel>DELETE</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
@@ -76,13 +76,15 @@ class RecentSearch extends React.Component<any, any>{
         return (
             <IonContent className="ion-padding recent_container" class="background">
                 <div className="header-text">Select a recent search to see matching loads.</div>
-                {
-                    recentData.map((detail: any, index: number) => (
-                        <IonCard className="ion-card" key={index}>
-                            <RecentCard recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index === this.state.selectedCardId ? true : false} cardColor={index === this.state.selectedCardId ? this.state.cardColor : this.state.whiteColor} />
-                        </IonCard>
-                    ))
-                }
+                <IonGrid class="recent-list">
+                    {
+                        recentData.map((detail: any, index: number) => (
+                            <IonCard className={`ion-card ${index === this.state.selectedCardId ? "searched-item":""}`} key={index}>
+                                <RecentCard recentData={detail} particularCardClick={() => this.cardClick(index)} add={this.add} showButtons={index === this.state.selectedCardId ? true : false} cardColor={index === this.state.selectedCardId ? this.state.cardColor : this.state.whiteColor} />
+                            </IonCard>
+                        ))
+                    }
+                </IonGrid>
             </IonContent>
         );
     }

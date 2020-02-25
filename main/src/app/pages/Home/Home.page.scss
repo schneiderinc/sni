@@ -338,8 +338,7 @@ ion-segment-button {
   @media (min-width: map-get($grid-breakpoints, lg)) {
     background-color: #f8f8f8;
     --padding-start: 20px !important;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px 10px 20px;
     margin-bottom: 50px;
   }
 }
@@ -428,50 +427,55 @@ a {
 .sortArrows {
   border: 1px solid #999999;
   border-radius: 9px;
-  width: 32px;
+  width: 40px;
   height: 20px;
   margin-top: 1px;
+  padding-left: 8px;
+  ion-icon{
+    height: 11.41px;
+    width: 9.8px;
+  }
 }
-.downArrow {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  border: 0.5px solid #999999;
-  border-width: 0 1px 1px 0;
-  display: inline-block;
-  padding: 3px;
-  margin-top: -11px;
-  float: right;
-  margin-left: 7px;
-  margin-right: 16px;
-  height: 4px;
-}
-.line {
-  border: 1px solid #999999;
-  border-width: 0 1px 0px 0;
-  height: 11px;
-  margin-left: 10px;
-  display: inline-block;
-}
-.line1 {
-  border: 1px solid #ff6418;
-  border-width: 0 1px 0px 0;
-  height: 11px;
-  margin-left: 8.7px;
-  display: inline-block;
-}
-.upArrow {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-  border: 1px solid #ff6418;
-  border-width: 0 1px 1px 0;
-  display: inline-block;
-  padding: 3px;
-  margin-top: -13px;
-  float: right;
-  margin-left: 0px;
-  margin-right: 6.5px;
-  height: 4px;
-}
+// .downArrow {
+//   transform: rotate(45deg);
+//   -webkit-transform: rotate(45deg);
+//   border: 0.5px solid #999999;
+//   border-width: 0 1px 1px 0;
+//   display: inline-block;
+//   padding: 3px;
+//   margin-top: -11px;
+//   float: right;
+//   margin-left: 7px;
+//   margin-right: 16px;
+//   height: 4px;
+// }
+// .line {
+//   border: 1px solid #999999;
+//   border-width: 0 1px 0px 0;
+//   height: 11px;
+//   margin-left: 10px;
+//   display: inline-block;
+// }
+// .line1 {
+//   border: 1px solid #ff6418;
+//   border-width: 0 1px 0px 0;
+//   height: 11px;
+//   margin-left: 8.7px;
+//   display: inline-block;
+// }
+// .upArrow {
+//   transform: rotate(-135deg);
+//   -webkit-transform: rotate(-135deg);
+//   border: 1px solid #ff6418;
+//   border-width: 0 1px 1px 0;
+//   display: inline-block;
+//   padding: 3px;
+//   margin-top: -13px;
+//   float: right;
+//   margin-left: 0px;
+//   margin-right: 6.5px;
+//   height: 4px;
+// }
 .visitedCard {
   width: 4px;
   height: 114px;
@@ -562,7 +566,7 @@ a {
     color: #ffffff;
     font-size: 1.25vmin;
     padding: 0.5vh 7vw;
-
+    bottom:0;
     span:last-child{
       float: right;
     }

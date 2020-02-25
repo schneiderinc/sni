@@ -163,6 +163,8 @@ body {
     background: white;
     border-radius: 27px;
     height: 41px;
+    box-shadow: 0px 3px 6px #00000029;
+    --ripple-color: transparent;
   }
 }
 ion-tab-bar {

@@ -74,3 +74,17 @@
         border-bottom: 5px solid #ffffff;
     }
 }
+.desktop-back-button {
+    font-size: 12px;
+    width: 12px;
+    text-transform: capitalize;
+    --color: #FF6418 !important;
+    --color-focused: #FF6418;
+    --color-hover: #FF6418;
+    --background: none;
+    --background-focused: none;
+    --background-hover: none;
+    ion-icon{
+        display: none;
+    }
+}

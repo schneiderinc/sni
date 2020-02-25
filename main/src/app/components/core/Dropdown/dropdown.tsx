@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './dropdown.scss';
-import { IonRow, IonCol, IonButton, IonModal } from '@ionic/react';
+import { IonRow, IonCol, IonButton, IonModal, IonIcon } from '@ionic/react';
 
 class Dropdown extends Component<any, any>{
     constructor(props: any) {
@@ -49,11 +49,13 @@ class Dropdown extends Component<any, any>{
                 <div className="search_sortby_select desktop-sort">
                     <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name}<i className="down"></i></IonButton>
                 </div>
-                <div className="sortArrows">
-                  <div className="line"></div>
+                <div className="sortArrows" onClick={()=>this.onConfrim(this.state.clickedOption.value)}>
+                  {/* <div className="line"></div>
                   <i className="downArrow"></i>
                   <div className="line1"></div>
-                  <i className="upArrow"></i>
+                  <i className="upArrow"></i> */}
+                  <IonIcon src="assets/icon/down_arrow.svg"></IonIcon>
+                  <IonIcon src="assets/icon/up_arrow.svg"></IonIcon>
                 </div>
                 <IonModal isOpen={this.state.isDropdown} cssClass="dropdown-modal">
                     <div className="search_options">

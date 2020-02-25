@@ -386,7 +386,7 @@ export const watchedOfflineData = [
         "total_distance": "1338",
         "total_stops": "2",
         "trailer": "Dry van",
-        "price": "TBD"
+        "price": "1200"
     },
     {
         "schneider_loads_id": "SNI_0000001",

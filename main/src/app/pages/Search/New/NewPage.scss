@@ -56,6 +56,8 @@
         margin-top: 8px;
         padding-bottom: 4px;
         font-size: 15px;
+        --placeholder-color: #000000;
+        --placeholder-opacity: #000000;
       }
       ion-label {
         color: #9B9B9B !important;
@@ -66,7 +68,7 @@
       }
       ion-input {
         margin-top: -1.23vh;
-      }
+     }
       .input_icon {
         margin-top: 4.3vh;
         margin-right: -5px;
@@ -84,6 +86,12 @@
         padding-left: 10px;
         padding-right: 25px;
         --border-color: #0000003f;
+        ion-label{
+          margin-top: 0;
+        }
+        ion-input{
+          margin-top: 0;
+        }
       }
       .suggestions_input {
         font-size: 12px;
@@ -102,7 +110,7 @@
           list-style: none;
           width: 100%;
           padding-left: 10px;
-          padding-bottom: 3px;
+          padding-bottom: 25px;
           padding-right: 7px;
           .suggestions_item {
             padding-right: 20px;
@@ -167,9 +175,8 @@
 ion-footer {
   position: fixed;
   margin-top: 9px;
-  height: 71px;
+  height: 8.2vh;
   border-top: 0.5px solid #dedede;
-  bottom: 0;
   padding-left: 5.33vw;
   padding-right: 5.33vw;
   ion-toggle {
@@ -177,12 +184,17 @@ ion-footer {
     zoom: 0.7;
     // float: right;
   }
-  .save_as_favorite {
+  .favorite-toggle{
     margin-top: 5px;
+  }
+  .save_as_favorite {
+    margin-top: 12px;
     margin-bottom: 10px;
     // margin-left:0px;
     .save_as_favorite_text {
-      display: inline;
+      margin-top: 4px;
+      position: relative;
+      left: 7px;
       span {
         font-size: 14px;
         color: #000000;
@@ -240,6 +252,16 @@ ion-footer {
   box-shadow: 0px -22px 18px #00000021;
   height: 31.9vh;
 }
+// .picker-wrapper.sc-ion-picker-ios {
+//   box-shadow: 0px -22px 18px #00000021;
+//   height: 31.9vh;
+//   margin-bottom: 258px;
+//  box-shadow: -4px -22px 19px #00000021;
+//   border-radius: 45px;
+// }
+
+ 
+    
 .location_input_icon {
   width: 16%;
   height: 24px;
@@ -299,6 +321,9 @@ ion-picker{
     background-color: transparent;
   }
 }
+.toggle-div{
+  display: flex;
+}
 @media (min-width: map-get($grid-breakpoints, lg)) {
   .serach-page-footer{
     bottom: auto !important;
@@ -313,4 +338,9 @@ ion-picker{
       text-align: right;
     }
   }
+}
+.footer-col{
+  padding-left: 0;
+  padding-right: 0;
+  text-align: right;
 }
