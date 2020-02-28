@@ -10,6 +10,7 @@ const initalState: GlobalState = {
   userData: null,
   showPermissionAlert: false,
   permissionAlertMessage: "",
+  permissionAlertTitle: "",
   alertError: false //  not using this.
 };
 
@@ -25,10 +26,12 @@ const appReducer = (state = initalState, action: any) =>
       case constants.PERMISSION_ALERT_MESSAGE:
         draft.showPermissionAlert = action.payload.isShowPermissionAlert;
         draft.permissionAlertMessage = action.payload.permissionAlertMessage;
+        draft.permissionAlertTitle = action.payload.permissionAlertTitle;
         break;
       case constants.CLOSE_PERMISSION_ALERT:
         draft.showPermissionAlert = false;
         draft.permissionAlertMessage = "";
+        draft.permissionAlertTitle = "";
         break;
       case constants.LOGIN_INPROGRESS:
         draft.error = false;

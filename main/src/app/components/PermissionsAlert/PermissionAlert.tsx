@@ -8,7 +8,7 @@ export const PermissionAlert = (props: any) => {
                 isOpen={props.isOpen}
                 message={props.message}
                 backdropDismiss={false}
-                header={'Permission Alert !!!'}
+                header={props.title}
                 buttons={
                     [
                         {

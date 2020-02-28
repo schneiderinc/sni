@@ -22,6 +22,7 @@
     font-family: $font-roboto-regular;
     @media (min-width: map-get($grid-breakpoints, lg)) {
         background-color: #f8f8f8;
+        margin-top: 17px;
       }
   }
   .recent_row{
@@ -81,7 +82,14 @@
         float: right;
         height: 15px;
         padding-top: 2px;
-      
+    }
+    .view_btn{
+        .tabButtonImg{
+            height: 19px;
+        }
+        ion-label{
+            margin-left: -3px;
+        }
     }
 }
 }
@@ -91,6 +99,9 @@
     }
     .tabButton_col{
         padding-left: 14px !important;
+    }
+    ion-label{
+        margin-left: 3px;
     }
 }
 .searched-item{

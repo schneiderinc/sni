@@ -17,9 +17,9 @@
     .search_sort_button{
       height: 99%;
       --background: transparent;
-      --background-focused: #FF6418;
-      --background-hover: #FF6418;
-      --background-activated: #FF6418;
+      --background-focused: transparent;
+      --background-hover: transparent;
+      --background-activated: transparent;
       --color: #FF6418;
       --border-radius: 11px;
       font-size: 12px;
@@ -31,9 +31,13 @@
       float: right;
       font-family: $font-roboto-regular;
       border-radius: 30px;
-      --color-activated: white;
-      --color-focused:white;
-      --color-hover:white;
+      --color-activated: #FF6418;
+      --color-focused:#FF6418;
+      --color-hover:#FF6418;
+      @media only screen and (min-width: map-get($grid-breakpoints, lg)){
+        margin-left: 7px;
+        margin-right: 10px;
+      }
       .down {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);

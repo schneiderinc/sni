@@ -31,23 +31,25 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
 
   const [segment, setSegment] = useState<any>({ name: 'Recommended', data: {} });
   const [RecommendedloadData, setRecommendedLoad] = useState<any>([]);
-  const [WatchedLoad, setWatchedLoad] = useState<any>([{destination_city: "",
-  destination_deadhead: "",
-  destination_from_date: "",
-  destination_state: "",
-  destination_to_date_time: "",
-  load_status: "",
-  origin_city: "",
-  origin_deadhead: "",
-  origin_from_date: "",
-  origin_state: "",
-  origin_to_date_time: "",
-  price: "",
-  schneider_loads_id: "",
-  total_distance: "",
-  total_stops: "",
-  total_weight: "",
-  trailer: ""}]);
+  const [WatchedLoad, setWatchedLoad] = useState<any>([{
+    destination_city: "",
+    destination_deadhead: "",
+    destination_from_date: "",
+    destination_state: "",
+    destination_to_date_time: "",
+    load_status: "",
+    origin_city: "",
+    origin_deadhead: "",
+    origin_from_date: "",
+    origin_state: "",
+    origin_to_date_time: "",
+    price: "",
+    schneider_loads_id: "",
+    total_distance: "",
+    total_stops: "",
+    total_weight: "",
+    trailer: ""
+  }]);
   const [showGpsModal, setShowGpsModal] = useState(false);
   const { getNetworkStatus, networkStatus } = useNetwork()
   if (data.length === 0 && !loading) {
@@ -55,10 +57,10 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
   }
 
   const sortedData = (data: any) => {
-    if(segment.name === "Recommended"){
+    if (segment.name === "Recommended") {
       setRecommendedLoad(data)
     }
-    else{
+    else {
       setWatchedLoad(data)
     }
   }
@@ -109,7 +111,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
             <IonRow class="short-row">
               <IonCol size="5" class="rec_text">
                 {/* <span className="recommendations_num">{RecommendedloadData&&RecommendedloadData.length | WatchedLoad && WatchedLoad.length } </span> */}
-                {(segment.name === "Recommended") ?  <span className="recommendations_num">{RecommendedloadData&&RecommendedloadData.length } </span>:<span className="recommendations_num">{WatchedLoad&&WatchedLoad.length } </span>}
+                {(segment.name === "Recommended") ? <span className="recommendations_num">{RecommendedloadData && RecommendedloadData.length} </span> : <span className="recommendations_num">{WatchedLoad && WatchedLoad.length} </span>}
                 {segment.name === "Recommended" ? "Recommendations" : "Watched Loads"}
               </IonCol>
               <IonCol size="7" class="sort_select">

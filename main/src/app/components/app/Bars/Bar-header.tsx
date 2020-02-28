@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IonHeader, IonRow, IonCol, IonImg, IonBackButton, IonSegment, IonSegmentButton, IonGrid } from "@ionic/react";
+import { IonHeader, IonRow, IonCol, IonImg, IonBackButton, IonSegment, IonSegmentButton, IonGrid, IonIcon } from "@ionic/react";
 import { IonLabel } from '@ionic/react';
 import './search-header.scss';
 import { withRouter, RouteComponentProps } from 'react-router';
@@ -7,6 +7,7 @@ import arrowright from 'app/utils/icon-js/arrowright';
 interface HeaderProps extends RouteComponentProps { title: any, getSegment?: any, segments?: any, activeSegment?: any, backUrl?: any, editData?: any, isMap?: any, isSearch?: any, tab?: any }
 const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeSegment, backUrl, isMap, editData, isSearch, tab }) => {
 
+  const tabs = tab && tab.split("/");
   return (<IonHeader className="page-header">
 
     <IonRow class="header-desc">
@@ -18,9 +19,22 @@ const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeS
     </IonRow>
     <div className="desktop-header-desc">
       {backUrl && <IonGrid>
-        <IonBackButton class="desktop-back-button" text={tab} defaultHref={backUrl}></IonBackButton> <span className="desktop-title">  > {title}</span>
+        {tabs && tabs.map((tab: string,index:number)=>(
+          <div key={index}>
+            <IonBackButton class="desktop-back-button" text={tab} defaultHref={backUrl}></IonBackButton>
+            <span className="breadcrumb-devider">></span>
+          </div>
+        ))}
+       <span className="desktop-title">{title}</span>
       </IonGrid>}
-      <div className="header-title">{title}</div>
+      <IonRow class="header-title">
+        <IonCol size="11"> {title}</IonCol>
+        <IonCol size="1" class="desktop-header-icon">
+          {editData && <IonIcon src="assets/icon/search_edit_color.svg" onClick={() => editData()} />}
+          {isSearch && <IonIcon src="assets/icon/search_white.svg" />}
+        </IonCol>
+      </IonRow>
+     
     </div>
     {segments &&
       <IonRow class="segment-row">

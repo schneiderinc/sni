@@ -6,6 +6,7 @@ export interface GlobalState {
     userData: any;
     showPermissionAlert: boolean;
     permissionAlertMessage?: string
+    permissionAlertTitle?: string
     alertError?: boolean; //Not using
 
 }

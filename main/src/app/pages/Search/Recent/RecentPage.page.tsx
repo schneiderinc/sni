@@ -35,7 +35,7 @@ const RecentCard = (props: any) => {
                             <IonCol><IonLabel>SAVE</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
-                    <IonTabButton className="tabButton_add" tab="view">
+                    <IonTabButton className="tabButton_add view_btn" tab="view">
                         <IonRow>
                             <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/view.svg"></IonIcon></IonCol>
                             <IonCol><IonLabel>VIEW</IonLabel></IonCol>

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { IonContent, IonList, IonRow, IonCol, IonSegment, IonSegmentButton, IonBadge, IonLabel, IonPage, IonImg } from '@ionic/react';
+import { IonContent, IonList, IonRow, IonCol, IonSegment, IonSegmentButton, IonBadge, IonLabel, IonPage } from '@ionic/react';
 import { Loads } from 'app/components/app/home/Loads';
 import { LoadTile } from 'app/components/app/home/Load-Tile';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
@@ -17,7 +17,9 @@ class SearchResultPage extends PureComponent<any, any> {
             searchVariables: ["1 Stop-off", "Dry Van", "Pick Up Date : Nov 16", "Drop off Date : Nov 16"]
         };
     }
-
+    componentDidMount() {
+        this.setState({ loadData: this.props.results });
+    }
     sortedData = (data: any) => {
         this.setState({ loadData: data });
     }
@@ -54,25 +56,18 @@ class SearchResultPage extends PureComponent<any, any> {
                         <IonCol size="1.5" class="rec_text">
                             <span className="recommendations_num">10 </span> Matches
                         </IonCol>
-                        <IonCol size="8">
-                            <IonRow>
-                                <IonCol size="11">
-                                    {this.props.params && <IonSegment scrollable>
-                                    {
-                                        Object.entries(this.props.params).map((filter: any, index: any) => (
-                                            Object.entries(this.props.params)[index][1] !== "" && (<IonSegmentButton className="ion-segment-button" key={index} >
-                                                <IonBadge class="search_floating_badge">{filter[0] + " : " + filter[1]}</IonBadge>
-                                            </IonSegmentButton>
+                        <IonCol size="7.5">
+                            {this.props.params && <IonSegment scrollable>
+                                {
+                                    Object.entries(this.props.params).map((filter: any, index: any) => (
+                                        Object.entries(this.props.params)[index][1] !== "" && (<IonSegmentButton className="ion-segment-button" key={index} >
+                                            <IonBadge class="search_floating_badge">{filter[0] + " : " + filter[1]}</IonBadge>
+                                        </IonSegmentButton>
                                         )))
-                                    }
-                                    </IonSegment>}
-                                </IonCol>
-                                <IonCol size="1">
-                                    <IonImg alt="logo" src="assets/icon/search_edit_color.svg" onClick={() => this.props.history.push("/app/search", { data: this.props.params })} />
-                                </IonCol>
-                            </IonRow>
+                                }
+                            </IonSegment>}
                         </IonCol>
-                        <IonCol size="2.5" class="sort_select">
+                        <IonCol size="3" class="sort_select">
                             <div className="select_div">
                                 <IonLabel className="sort_label">Sort:</IonLabel>
                                 <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData} />
