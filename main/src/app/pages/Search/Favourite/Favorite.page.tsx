@@ -30,7 +30,7 @@ const FovoriteTab = (props: any) => {
                 <IonTabBar slot="bottom">
                     <IonTabButton className="tabButton_add" tab="view">
                         <IonRow>
-                            <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
+                            <IonCol className="tabButton_col view_btn"><IonIcon className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
                             <IonCol><IonLabel>VIEW</IonLabel></IonCol>
                         </IonRow>
                     </IonTabButton>
