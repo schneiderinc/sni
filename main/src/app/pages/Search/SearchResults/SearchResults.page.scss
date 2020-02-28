@@ -53,8 +53,8 @@
         display: none;
     }
     @media ( min-width: map-get($grid-breakpoints, lg)) {
-        --padding-start: 0 !important;
-        --padding-end: 0 !important;
+        --padding-start: 1.46vw !important;
+        --padding-end: 1.46vw !important;
         .ion-segment,.short-div{
             display: none;
         }
@@ -64,9 +64,6 @@
             color: #666666;
             height: 50px;
             padding-top: 16px;
-            padding-left: 1.46vw !important;
-            padding-right: 1.46vw !important;
-            background-color: #EDEDED;
             .rec_text{
                 font-size: 13px;
                 padding-top: 0.61vh;
@@ -74,7 +71,6 @@
             ion-segment{
                 height: 2.5vh;
                 margin-top: 5px;
-                margin-right: 2vw;
                 ion-segment-button {
                     min-height: 20px !important;
                 }
@@ -89,10 +85,7 @@
             }
         }
         ion-list{
-            padding-top: 3px;
-            padding-left: 1.46vw !important;
-            padding-right: 1.46vw;
-            background-color: #f8f8f8;
+            padding-top: 0;
         }
     }
 }

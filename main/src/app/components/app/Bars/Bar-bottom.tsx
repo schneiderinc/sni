@@ -46,7 +46,7 @@ const RootLevelTabs: React.FC<MainTabsProps> = () => {
                 <Route path="/app/search" render={(props: any) => <SearchContainer {...props} />} exact />
                 <Route path="/app/search/results" component={SearchResultContainer} exact />
                 <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
-                <Route path="/app/(home/recommended|home/watched|search)/:id" component={LoadDetailsContainer} />
+                <Route path="/app/(home|search)/:id" component={LoadDetailsContainer} />
                 <Route path="/app/menu/faq" component={FAQMenuPage} />
                 <Route path="/app/manage/ProfileDetails" component={ProfileContainer} />
                 <Route path="/app/manage/CarrierProfileDetails" component={CarrierProfileContainer} />
@@ -103,7 +103,7 @@ const RootLevelTabs: React.FC<MainTabsProps> = () => {
                   <IonImg src="assets/icon/man.svg"></IonImg>
                 </IonCol>
                 <IonCol class="name-col">
-                    <span>Welcome,</span> <br/><span>Igor</span>
+                    <span>Welcome</span> <br/><span>Igor</span>
                 </IonCol>
                 <IonCol>
                   <i className="downArrow"></i>

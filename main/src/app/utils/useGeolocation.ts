@@ -1,16 +1,13 @@
 import { useState } from 'react';
-import { Plugins, Device } from '@capacitor/core';
+import { Plugins } from '@capacitor/core';
 import { infinite } from 'ionicons/icons';
 const { Geolocation, GeolocationOptions } = Plugins;
 
 const ERROR_ACCESS_DENIED_IOS =
-  'The operation couldn’t be completed. (kCLErrorDomain error 1.)'; // iOS
-const ERROR_ACCESS_DENIED_ANDROID = 'User denied location permission'; // android
-const ERROR_ACCESS_LOCATION_UNAVAILABLE_ANDROID = 'location unavailable'; // android
-const ERROR_ACCESS_DENIED_WEB = 'User denied Geolocation'; // web
-
-const ERROR_VERIFY_LOCATION_PERMISSIONS =
-  'Please verify if your location preferences are switched ON';
+  'The operation couldn’t be completed. (kCLErrorDomain error 1.)';
+const ERROR_ACCESS_DENIED_ANDROID = 'User denied location permission';
+const ERROR_ACCESS_DENIED_WEB = 'User denied Geolocation';
+const ERROR_ACCESS_LOCATION_UNAVAILABLE_ANDROID = 'location unavailable';
 
 export function useGeolocation() {
   const [currentPosition, setCurrentPosition] = useState();
@@ -20,7 +17,6 @@ export function useGeolocation() {
   /* Commented Code as SetInterval is not flow is not working in iOS. */
 
   const watchCurrentPosition = () => {
-    getCurrentPosition();
     if (!intervalID) {
       intervalID = setInterval(
         () => {
@@ -77,17 +73,15 @@ export function useGeolocation() {
         },
         error => {
           console.log(' getCurrentPosition Error:', JSON.stringify(error));
-          let errorMsg = error.errorMessage || error.message || error;
+          const errorMsg = error.errorMessage || error.message || error;
           if (
-            // errorMsg === ERROR_ACCESS_DENIED_ANDROID ||
+            errorMsg === ERROR_ACCESS_DENIED_ANDROID ||
             errorMsg === ERROR_ACCESS_LOCATION_UNAVAILABLE_ANDROID ||
             errorMsg === ERROR_ACCESS_DENIED_IOS ||
             errorMsg === ERROR_ACCESS_DENIED_WEB
           ) {
             const date = new Date();
-            errorMsg = ERROR_VERIFY_LOCATION_PERMISSIONS;
-            let title = 'Location Access';
-            setErrorMessage({ date, errorMsg, title });
+            setErrorMessage({ date, errorMsg });
           }
         }
       );

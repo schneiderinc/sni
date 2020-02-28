@@ -17,7 +17,5 @@ export const getShowPermissionAlert = () => createSelector([selectGlobal], globa
 
 export const getPermissionAlertMessage = () => createSelector([selectGlobal], global => global.permissionAlertMessage);
 
-export const getPermissionAlertTitle = () => createSelector([selectGlobal], global => global.permissionAlertTitle);
-
 export const getGPSDetails = () => createSelector([selectApp], App => App.GPSData)
 

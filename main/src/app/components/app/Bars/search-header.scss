@@ -70,12 +70,13 @@
           }
     }
     .segment-row{
-        background: #EDEDED;
+        background: #f8f8f8;
         border-bottom: 5px solid #ffffff;
     }
 }
 .desktop-back-button {
     font-size: 12px;
+    width: 12px;
     text-transform: capitalize;
     --color: #FF6418 !important;
     --color-focused: #FF6418;
@@ -83,17 +84,7 @@
     --background: none;
     --background-focused: none;
     --background-hover: none;
-    --padding-start: 0px;
-    --padding-end: 0px;
     ion-icon{
         display: none;
-    }
-}
-.desktop-header-icon{
-    padding: 10px 0 0 0;
-   ion-icon{
-        float: right;
-        height: 24px;
-        width: 24px;
     }
 }

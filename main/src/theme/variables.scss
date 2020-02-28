@@ -119,7 +119,7 @@ body {
   font-family: $font-roboto-regular;
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
       margin-top: -17px;
-      margin-left: 17px;
+      margin-left: 15px;
       font-size: 14px;
       text-transform: uppercase;
     }
@@ -127,12 +127,12 @@ body {
 .search_label {
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
     margin-top: -19px;
-    margin-left: 32px;
+    margin-left: 27px;
   }
 }
 .execute_label {
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-    margin-left: 40px;
+    margin-left: 34px;
   }
 }
 .tab_footer_label_manage {
@@ -143,7 +143,7 @@ body {
     font-size: 14px;
     text-transform: uppercase;
     margin-top: -26px;
-    margin-left: 35px;
+    margin-left: 30px;
   }
 }
 .tab_footer_label_more {
@@ -154,7 +154,7 @@ body {
     font-size: 14px;
     margin-top: -15px;
     text-transform: uppercase;
-    margin-left: 20px;
+    margin-left: 13px;
   }
 }
 .tab-selected {

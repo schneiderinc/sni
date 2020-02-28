@@ -17,7 +17,7 @@
   @media (min-width: map-get($grid-breakpoints, lg)) {
     --padding-start: 1.78vw;
     --padding-end: 1.78vw;
-    height: 57vh;
+    height: 52vh;
     --background: #f8f8f8;
   }
 // }
@@ -28,8 +28,7 @@
     color: #4a4a4a;
     font-family: $font-roboto-regular;
     @media (min-width: map-get($grid-breakpoints, lg)) {
-      padding: 2vh 0 2vh 5px;
-      margin-top: 17px;
+      padding: 2vh 0 1.15vh 5px;
     }
   }
   .search-form {
@@ -69,9 +68,6 @@
       }
       ion-input {
         margin-top: -1.23vh;
-        @media (min-width: map-get($grid-breakpoints, lg)) {
-         margin-top: -5px;
-        }
      }
       .input_icon {
         margin-top: 4.3vh;
@@ -137,9 +133,6 @@
       .pickRadius {
         padding-top: 5px;
         margin-left: 3px;
-        @media (min-width: map-get($grid-breakpoints, lg)) {
-         padding-bottom: 10px;
-        }
       }
       .search_range {
         width: 105%;
@@ -163,9 +156,6 @@
         --padding-bottom: 0px;
         --placeholder-color: #000000;
         font-size: 15px;
-        @media (min-width: map-get($grid-breakpoints, lg)) {
-          --padding-bottom: 5px;
-        }
       }
       .search_select{
         padding-top: 0;
@@ -342,6 +332,8 @@ ion-picker{
     border:none;
     padding-left: 0px !important;
     padding-right: 0px !important;
+    padding-top: 25px;
+
     ion-col:last-child{
       text-align: right;
     }

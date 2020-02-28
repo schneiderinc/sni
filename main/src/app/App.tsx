@@ -17,7 +17,7 @@ import { useAppState } from '@ionic/react-hooks/app/useApp'
 import { updateGpsCoordinates } from './actions/App/action';
 import { useGeolocation } from 'app/utils/useGeolocation';
 import { PermissionAlert } from 'app/components/PermissionsAlert/PermissionAlert'
-import { getShowPermissionAlert, getPermissionAlertMessage, getPermissionAlertTitle } from 'app/selectors/selector'
+import { getShowPermissionAlert, getPermissionAlertMessage } from 'app/selectors/selector'
 import { closePermissionAlert, showPermissionAlert } from 'app/actions/Login/action';
 const key = "App";
 const App: React.FC = (props: any) => {
@@ -55,8 +55,7 @@ const App: React.FC = (props: any) => {
       return;
     props.showPermissionAlert({
       isShowPermissionAlert: true,
-      permissionAlertMessage: errorMessage.errorMsg,
-      permissionAlertTitle: errorMessage.title
+      permissionAlertMessage: errorMessage.errorMsg
     });
 
   }, [errorMessage])
@@ -71,7 +70,6 @@ const App: React.FC = (props: any) => {
       />
       {props.isShowPermissionAlert
         ? <PermissionAlert
-          title={props.permissionAlertTitle}
           isOpen={props.isShowPermissionAlert}
           message={props.permissionAlertMessage}
           close={props.closePermissionAlert} />
@@ -87,7 +85,6 @@ const mapStateToProps = createStructuredSelector({
   loading: getLoading(),
   isShowPermissionAlert: getShowPermissionAlert(),
   permissionAlertMessage: getPermissionAlertMessage(),
-  permissionAlertTitle: getPermissionAlertTitle(),
 
 })
 

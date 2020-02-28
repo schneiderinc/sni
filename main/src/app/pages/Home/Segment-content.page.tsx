@@ -24,7 +24,7 @@ const SegmentContent: React.FC<SegmentProps> = ({ type, recommendedloads, setVie
     {recommendedloads.length ? <Loads loads={recommendedloads} >{
       ({ loads }: { loads?: any }) => {
         return <IonList className="loadTilePad">
-          {loads.map((load: ILoads, index: number) => <LoadTile key={index} {...load} details={() => { getDetails(load) }} module="home/recommended"/>)}
+          {loads.map((load: ILoads, index: number) => <LoadTile key={index} {...load} details={() => { getDetails(load) }} module="home" tab="Recommended" />)}
         </IonList>
       }
     }
@@ -37,7 +37,7 @@ const SegmentContent: React.FC<SegmentProps> = ({ type, recommendedloads, setVie
           return <IonList className="loadTilePad">
             {loads
               .filter((load: any) => load.price !== "TBD")
-              .map((load: any, index: number) => <LoadTile key={index} {...load} details={() => { getDetails(load) }} module="home/watched"/>)}
+              .map((load: any, index: number) => <LoadTile key={index} {...load} details={() => { getDetails(load) }} module="home" tab="Watched"/>)}
           </IonList>
         }
       }

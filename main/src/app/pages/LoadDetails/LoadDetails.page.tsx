@@ -116,7 +116,7 @@ class LoadDetailsPage extends Component<any, any> {
 								</IonCardContent>
 							</IonCard>
 							<IonCard class="ion-card">
-								<IonCardHeader class={`accordion-header ${this.state.showStops ? '': 'changeColor'}`} onClick={this.loadStops}>
+								<IonCardHeader class="accordion-header" onClick={this.loadStops}>
 									<span>Stop Details</span>
 									{
 										this.state.showStops ?
@@ -164,7 +164,7 @@ class LoadDetailsPage extends Component<any, any> {
 								</IonCardContent>
 							</IonCard> */}
 							<IonCard class="ion-card" >
-								<IonCardHeader class={`accordion-header ${this.state.showTerms ? '': 'changeColor'}`} onClick={this.loadTerms}>
+								<IonCardHeader class="accordion-header" onClick={this.loadTerms}>
 									<span>Terms &amp; Conditions </span>
 									{
 										this.state.showTerms ?

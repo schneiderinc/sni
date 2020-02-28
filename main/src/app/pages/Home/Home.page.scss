@@ -65,7 +65,6 @@ ion-header {
   @media only screen  and (min-width :map-get($grid-breakpoints, lg)) {
     background-color: #f8f8f8;
     padding: 20px 20px 10px 20px;
-    margin-top: 18px;
    }
   ion-col {
     padding: 0;
@@ -126,31 +125,18 @@ ion-header {
   }
 }
 .card_filter_badge {
-    height: 15px;
+    height: 11px;
     background-color: transparent;
     color: #151724;
     font-size: 12px;
     font-family: "Roboto Regular";
     border-radius: 0;
+    margin-right: 5px;
     font-weight: normal;
-    padding: 0 13px 0 13px;
-    position: relative;
-    margin-top: 6px;
+    border-right: 1px solid #999999;
+    padding-top: 0;
+}
 
-}
-.card_filter_badge:after {
-  content: '';
-  height: 75%; //You can change this if you want smaller/bigger borders
-  width: 1px;
-  position: absolute;
-  right: 0;
-  top: 2px; // If you want to set a smaller height and center it, change this value
-  background-color: #999999; 
-}
-.card_filter_badge:last-child:after {
-  height: 0%;
-  width: 0%;
-}
 #header-title {
   font-size: 22px;
   color: #ffffff;
@@ -164,7 +150,6 @@ ion-header {
   @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
     width: 54px !important;
     content: url("/assets/icon/arrow-desktop.svg");
-    margin-top: 19px;
   }
 }
 .card-content {
@@ -186,9 +171,6 @@ ion-header {
   color: #ff6418;
   opacity: 0.8;
   font-family: $font-roboto-medium;
-  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-    opacity: 1;
-  }
 }
 
 .card-dt {
@@ -270,7 +252,7 @@ ion-item-divider {
   margin-top: 35px;
 }
 .recommended-Error-img {
-  opacity: 1;
+  opacity: 100%;
 }
 .No-Recommended {
   text-align: center;
@@ -300,11 +282,8 @@ ion-item-divider {
 
 .loadCardFooter {
   padding-top: 6px;
-  ion-col{
-    padding-left: 0;
-  }
-  .card_filter_badge:first-child{
-    padding-left: 2px;
+  .card_filter_badge:last-child{
+    border-right: none;
   }
 }
 .loadCardArrow {
@@ -421,12 +400,11 @@ a {
     border: none;
     padding: 0;
     margin-left: 0;
-    background: #EDEDED;
+    background: #f8f8f8;
     ion-segment-button{
       height: 99%;
       max-width: 9vw;
       border-radius: 0;
-      --background-hover: #EDEDED;
       ion-label {
         font-size: 1.53vmin;
       }
@@ -536,7 +514,7 @@ a {
     }
     .tab-bar-profile {
       float: right;
-      margin-top: 30px;
+      margin-top: 25px;
       width: 121px;
       display: unset;
       ion-img{
@@ -545,9 +523,6 @@ a {
       }
       ion-col{
         padding: 0;
-      }
-      ion-col:last-child{
-        padding-left: 6px;
       }
       .name-col {
         padding-left: 2px;

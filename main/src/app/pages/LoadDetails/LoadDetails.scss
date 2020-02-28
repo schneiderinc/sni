@@ -12,16 +12,10 @@
           font-family: $font-roboto-regular;
           display: flex;
           height: 16px;
-          div{
-            display: contents;
-          }
-          .desktop-title, .breadcrumb-devider {
+          .desktop-title {
             color: #666666;
-            font-size: 11px;
             margin-top: 7px;
-          }
-          .desktop-title{
-            padding-left: 3px;
+            font-size: 11px;
           }
         }
         .header-title{
@@ -52,14 +46,8 @@
   ion-card-header{
     padding-left: 11px;
     padding-right: 20px;
-    background-color: #FFFFFF;
   }
-  .changeColor{
-    @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-      background-color: #ECECECBD;
-    }
-  }
-  .accordion-header {
+.accordion-header {
     height:50px;
     padding-top: 15px;
     span{
@@ -82,14 +70,9 @@
         padding: 4px;
         margin-top:3px;
         float:right;
-        @media only screen and (min-width: map-get($grid-breakpoints , lg )){
-          padding: 6px;
-          margin-top: 2px;
-        }
       }       
   }
   ion-card-content{
-    background-color: #ffffff;
     .load_details_grid{
       padding: 0;
       ion-col{
@@ -100,10 +83,6 @@
       }
       @media only screen and (min-width: map-get($grid-breakpoints , lg )){
         padding-top: 15px;
-        .load_details_col{
-          padding-left: 0px;
-          margin-left: -3.57vw;
-        }
       }
     }
       p{
@@ -126,7 +105,6 @@
     height:28px;
     width:100px;
     border-radius: 20px;
-    --box-shadow: none;
    .load_btn_img{
       padding-right:7px;
    }
@@ -138,33 +116,23 @@
   padding-top: 15px;
   padding-bottom: 15px;
   border-bottom: 0.5px solid #0000003F;
-  @media only screen and (min-width: map-get($grid-breakpoints , lg )){
-    padding-top: 5px;
-    padding-bottom: 7px;
-  }
 }
 .stop_details_name{
   font-size: 14px;
   font-family: $font-roboto-medium;
   color: #000000;
-  @media only screen and (min-width: map-get($grid-breakpoints , lg )){
-    font-size: 13px;
-  }
 }
 .stop_details_data{
   font-size: 12px;
   font-family: $font-roboto-regular;
-  color: #666666;
-  // opacity: 0.84;
+  color: #000000BF;
+  opacity: 0.84;
 }
 .stop_details_date{
   font-size: 14px;
   font-family: $font-roboto-regular;
   color: #000000BF;
   opacity: 0.84;
-  @media only screen and (min-width: map-get($grid-breakpoints , lg )){
-    font-size: 12px;
-  }
 }
 .term-class{
   p {
@@ -172,11 +140,6 @@
     font-family: $font-roboto-regular;
     color: #666666;
     opacity: 0.84;
-  }
-  @media only screen and (min-width: map-get($grid-breakpoints , lg )){
-    p:first-child{
-      margin-top: 15px !important;
-    }
   }
 }
 .item-divider-wrapper{
@@ -206,7 +169,7 @@
   border: 1px solid #21303B39;
   margin-left: 11px;
   @media only screen and (min-width: map-get($grid-breakpoints , lg )){
-    height: 43px;
+    height: 68px;
   }
 }
 .load_detail_card{
@@ -371,11 +334,8 @@ input:checked + .slider:after
     ion-row:first-child{
       ion-col:last-child{
         color: #000000;
-        opacity: 1;
+        opacity: 100%;
       }
     }
-  }
-  .call_btn{
-    font-size: 13px;
   }
 }
