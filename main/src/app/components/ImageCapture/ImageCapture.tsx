@@ -3,10 +3,13 @@ import { IonAlert } from '@ionic/react';
 import { Plugins, CameraResultType } from '@capacitor/core';
 
 const { Camera } = Plugins;
-const ERROR_ACCESS_DENIED_ANDROID = 'Unable to access camera, user denied permission request';
-const ERROR_ACCESS_DENIED_IOS = 'User denied access to camera';
-const ERROR_ACCESS_DENINDE_WEB = 'Permission denied';
+const ERROR_ACCESS_DENIED_ANDROID = 'Unable to access camera, user denied permission request'; //android
+const ERROR_ACCESS_DENIED_IOS = 'User denied access to camera'; //ios
+const ERROR_ACCESS_DENINDE_WEB = 'Permission denied'; // web
 const ERROR_MESSAGE_ON_ACCESS_DENIED = "Please,Enable Your camera permissions";
+const ERROR_REQUESTED_DEVICE_NOT_FOUND = 'Requested device not found'; // web
+const ERROR_VERIFY_CAMERA_FILE_PERMISSIONS =
+    'Please verify if your Camera/Gallery preferences are switched ON';
 
 class ImageCapture extends Component<any, any> {
     constructor(props: any) {
@@ -34,15 +37,20 @@ class ImageCapture extends Component<any, any> {
             // error.errorMessage - (ios).
             // error.message - (android).
 
-            const errorMessage = error.errorMessage || error.message || error;
+            let errorMessage = error.errorMessage || error.message || error;
 
-            if (errorMessage == ERROR_ACCESS_DENIED_ANDROID
-                || errorMessage == ERROR_ACCESS_DENIED_IOS
-                || errorMessage == ERROR_ACCESS_DENINDE_WEB) {
+            if (
+                errorMessage == ERROR_ACCESS_DENIED_IOS
+                // || errorMessage == ERROR_ACCESS_DENIED_ANDROID
+                || errorMessage == ERROR_ACCESS_DENINDE_WEB
+                || errorMessage === ERROR_REQUESTED_DEVICE_NOT_FOUND) {
+                errorMessage = ERROR_VERIFY_CAMERA_FILE_PERMISSIONS;
+                let title = 'Camera,Gallery Access';
 
                 this.props.showPermissionAlert({
                     isShowPermissionAlert: true,
-                    permissionAlertMessage: ERROR_MESSAGE_ON_ACCESS_DENIED
+                    permissionAlertMessage: ERROR_VERIFY_CAMERA_FILE_PERMISSIONS,
+                    permissionAlertTitle: title
                 })
             }
         }

@@ -1,8 +1,6 @@
 # IONIC4 React Boilerplate
 ## For **Android** and **iOS**
 
-https://dev.azure.com/833085/Schneider%20National%20Inc.%20-%20Demo/_apis/build/status/Schneider%20National%20Inc.%20-%20Demo-CI
-
 ## Features
 
 * Capacitor

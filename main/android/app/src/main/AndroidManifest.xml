@@ -3,7 +3,6 @@
     package="com.cognizantmobilityenterprise.schneider"
 	android:versionCode="$(Build.BuildId)"
     android:versionName="1.0.$(Build.BuildId)">
-	
 
     <application
         android:allowBackup="true"
