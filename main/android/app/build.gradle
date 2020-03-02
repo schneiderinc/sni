@@ -6,7 +6,7 @@ android {
         applicationId "com.cognizantmobilityenterprise.schneider"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode "$(Build.BuildId)"
+        versionCode 1
         versionName "1.0.$(Build.BuildId)"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
