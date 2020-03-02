@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cognizantmobilityenterprise.schneider"
-    android:versionCode="$(Build.BuildId)"
-    android:versionName="1.0.$(Build.BuildId)">
+    package="com.cognizantmobilityenterprise.schneider">
 
     <application
         android:allowBackup="true"
