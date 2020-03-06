@@ -8,5 +8,6 @@ export interface ActionType {
     CarrierData?: object,
     CarrierInsuranceData?:object
     CarrierInsuranceData2?:object
+    contactDetails?:object
 
 }

@@ -44,3 +44,13 @@ export const closePermissionAlert = () => ({
     type: constants.CLOSE_PERMISSION_ALERT
 
 });
+
+export const updateNetworkStatus = (data: any) => ({
+    type: constants.UPDATE_NETWORK_STATUS,
+    data: data
+
+});
+export const updateDevicInfo = (data: any) => ({
+    type: constants.UPDATE_DEVICE_INFO,
+    data: data
+})

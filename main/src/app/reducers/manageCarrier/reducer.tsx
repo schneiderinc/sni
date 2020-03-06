@@ -6,7 +6,8 @@ const initialState: ManageCarrierState = {
 
  CarrierData:[],
  CarrierInsuranceData:[],
- CarrierInsuranceData2:[]
+ CarrierInsuranceData2:[],
+ contactDetails:[]
 };
 
 export default (state = initialState, action: ActionType) =>
@@ -22,5 +23,8 @@ export default (state = initialState, action: ActionType) =>
         case  Constants.GET_CARRIER_INSURANCE_DATA2:
           draft.CarrierInsuranceData2 = action.payload;
           break;
+          case  Constants.GET_CARRIER_CONTACT_DATA:
+            draft.contactDetails = action.payload;
+            break;
     }
   });

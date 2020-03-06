@@ -25,4 +25,11 @@ export const GetCarrierInsuranceData2 = (data:any) => ({
     type: Constants.GET_CARRIER_INSURANCE_DATA2,
     payload: data
 })
-    
+export const CarrierContactData = () => ({
+    type: Constants.CARRIER_CONTACT_DATA
+   
+})
+export const GetCarrierContactData = (data:any) => ({
+        type: Constants.GET_CARRIER_CONTACT_DATA,
+        payload: data
+    })

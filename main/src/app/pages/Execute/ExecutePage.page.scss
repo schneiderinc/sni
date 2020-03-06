@@ -1,0 +1,56 @@
+@import  "../../../theme/variables.scss";
+@import  "../../../theme/responsive-styles.scss";
+
+  .thumbnail-img{
+    width: 36px;
+    height: 36px;
+    left: 50px;
+  }
+
+  .itemlabel{
+    width: auto;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    color: #545454;
+  }
+
+  .thumbnail-item-card{
+      width: 140px;
+      height: 140px;
+    //   margin: 10px;
+  }
+
+  .thumbnail-item-col{
+    width: 140px;
+  }
+  
+  .circle-div{
+    position: absolute;
+    left: 80px;
+    top: 10px;
+    height: 25.55px;
+    width: 25.5px;
+    border-radius: 50%;
+    border: 1px solid #ff6418;
+    text-align: center;
+    padding-top: 4px;
+}
+  .count{
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+      
+  }
+
+  .item-dev{
+    padding-top: 29px;
+    width: 120px;
+  }
+
+.myload-tab-card {
+  height: 123px;
+  width: 123px;
+}

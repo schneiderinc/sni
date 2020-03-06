@@ -1,0 +1,51 @@
+@import  "../../../../theme/variables.scss";
+@import  "../../../../theme/responsive-styles.scss";
+.driverContent{
+    --padding-top: 1.10vh;
+}
+.driverCard{
+    
+    --padding-end: 4.53vw;
+    --border-color: #DEDEDE; 
+    margin-top: 1.23vh;
+    --background: #FCFCFC;
+   
+    .DriverName{
+        font-size: 16px;
+        color: #FF6418;
+        font-family: $font-roboto-regular;
+    }
+    .DriverPara{
+        margin-top: 0;
+        padding-left: 0;
+        font-size: 10px;
+        color: #000000;
+        margin-bottom: 0;
+    }
+    .DriverImage{
+        width: 14.7vw !important;
+     
+    }
+    .driverRow{
+        margin-bottom: 0.5vh;
+        width: 91.65vw;
+  
+    }
+    .DriverCol{
+        padding-top: 1.35vh;
+      
+    }
+   .add-driver-icon{
+       width: 5.48vw;
+       height: 2.8vh;
+   }
+   .add-driver-circle{
+    width: 12vw;
+    height: 5.54vh;
+}
+}
+.driverList-page{
+    .page-header{
+        height: 9.8vh;
+    }
+}

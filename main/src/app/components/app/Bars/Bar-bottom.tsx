@@ -27,7 +27,10 @@ import { CarrierProfileContainer } from "app/containers/ManageContainer/CarriePr
 import FAQMenuPage from "app/pages/Menu/faq_menu.page";
 import { ManageTruckContainer } from "app/containers/ManageContainer/ManageTruckContainer";
 import { ManageUserContainer } from "app/containers/ManageContainer/ManageUserContainer";
-
+import { ManageLaneContainer } from "app/containers/ManageContainer/ManageLaneContainer";
+import { CarrierAssignedContainer } from "app/containers/ExecuteContainer/CarrierAssignedContainer";
+import { AddDriverContainer } from "app/containers/ExecuteContainer/AddDriverContainer";
+import { AssignDriverContainer } from "app/containers/ExecuteContainer/AssignDriverContainer";
 interface MainTabsProps { }
 
 const RootLevelTabs: React.FC<MainTabsProps> = () => {
@@ -38,85 +41,95 @@ const RootLevelTabs: React.FC<MainTabsProps> = () => {
         path="/app"
         render={() => (
           <>
-          <hr className="tab-bar-heighlater"></hr>
-          <div className="tab-bar-div">
-            <img src="assets/icon/Logo.png" className="tab-bar-logo"></img>
-            <IonTabs>
-              <IonRouterOutlet>
-                <Route path="/app/search" render={(props: any) => <SearchContainer {...props} />} exact />
-                <Route path="/app/search/results" component={SearchResultContainer} exact />
-                <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
-                <Route path="/app/(home/recommended|home/watched|search)/:id" component={LoadDetailsContainer} />
-                <Route path="/app/menu/faq" component={FAQMenuPage} />
-                <Route path="/app/manage/ProfileDetails" component={ProfileContainer} />
-                <Route path="/app/manage/CarrierProfileDetails" component={CarrierProfileContainer} />
-                <Route path="/app/manage/ManageTruck" component={ManageTruckContainer} />
-                <Route path="/app/manage/ManageUser" component={ManageUserContainer} />
-                <Route
-                  path="/app/execute"
-                  component={ExecuteContainer}
-                  exact={true}
-                />
-                <Route
-                  path="/app/manage"
-                  component={ManageContainer}
-                  exact={true}
-                />
-                <Route
-                  path="/app/more"
-                  component={MenuContainer}
-                  exact={true}
-                />
+            <hr className="tab-bar-heighlater"></hr>
+            <div className="tab-bar-div">
+              <img src="assets/icon/Logo.png" className="tab-bar-logo" />
+              <IonTabs>
+                <IonRouterOutlet>
+                  <Route path="/app/search" render={(props: any) => <SearchContainer {...props} />} exact />
+                  <Route path="/app/search/results" component={SearchResultContainer} exact />
+                  <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
+                  <Route path="/app/(home/recommended|home/watched|search|MyLoad/CarrierAssigned)/:id" component={LoadDetailsContainer} />
+                  <Route path="/app/menu/faq" component={FAQMenuPage} />
+                  <Route path="/app/manage/ProfileDetails" component={ProfileContainer} />
+                  <Route path="/app/manage/CarrierProfileDetails" component={CarrierProfileContainer} />
+                  <Route path="/app/manage/ManageTruck" component={ManageTruckContainer} />
+                  <Route path="/app/manage/ManageUser" component={ManageUserContainer} />
+                  <Route path="/app/manage/ManageLane" component={ManageLaneContainer} />
+                  <Route
+                    path="/app/execute"
+                    component={ExecuteContainer}
+                    exact={true} />
+                  <Route path="/app/MyLoad/CarrierAssigned" render={(props: any) => <CarrierAssignedContainer {...props} />} exact={true} />
+                  <Route path="/app/MyLoad/addDriver" render={(props: any) => <AddDriverContainer {...props} />} exact={true} />
+                  <Route path="/app/MyLoad/driverAssign" render={(props: any) => <AssignDriverContainer {...props} />} exact={true} />
 
-                <Route path="/app" render={() => <Redirect to="/app/home" />} />
 
-              </IonRouterOutlet>
-              <IonTabBar slot="bottom">
-                <IonTabButton tab="home" href="/app/home" >
-                  <IonIcon src="assets/icon/nav_home.svg"></IonIcon>
-                  <IonLabel class="tab_footer_label">Home</IonLabel>
 
-                </IonTabButton>
-                <IonTabButton tab="search" href="/app/search">
-                  <IonIcon src="assets/icon/nav_search.svg"></IonIcon>
-                  <IonLabel class="tab_footer_label search_label">Search</IonLabel>
-                </IonTabButton>
+                  <Route
+                    path="/app/MyLoad"
+                    render={(props: any) => <ExecuteContainer {...props} />} exact={true}
+                  />
+                  <Route
+                    path="/app/manage"
+                    component={ManageContainer}
+                    exact={true}
+                  />
+                  <Route
+                    path="/app/more"
+                    component={MenuContainer}
+                    exact={true}
+                  />
 
-                <IonTabButton tab="execute" href="/app/execute" >
-                  <IonIcon src="assets/icon/nav_execute.svg"></IonIcon>
-                  <IonLabel class="tab_footer_label execute_label">My Load</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="manage" href="/app/manage">
-                  <IonIcon src="assets/icon/nav_manage.svg" class="manage_icon"></IonIcon>
-                  <IonLabel class="tab_footer_label_manage">Profile</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="more" href="/app/more">
-                  <IonIcon src="assets/icon/nav_more.svg" class="more_icon"></IonIcon>
-                  <IonLabel class="tab_footer_label_more">More</IonLabel>
-                </IonTabButton>
+                  <Route path="/app" render={() => <Redirect to="/app/home" />} />
 
-              </IonTabBar>
-            </IonTabs>
-            <div className="tab-bar-profile">
-              <IonRow>
-                <IonCol>
-                  <IonImg src="assets/icon/man.svg"></IonImg>
-                </IonCol>
-                <IonCol class="name-col">
-                    <span>Welcome,</span> <br/><span>Igor</span>
-                </IonCol>
-                <IonCol>
-                  <i className="downArrow"></i>
-                </IonCol>
-              </IonRow>
-                
-                
+                </IonRouterOutlet>
+                <IonTabBar slot="bottom">
+                  <IonTabButton tab="home" href="/app/home" >
+                    <IonIcon src="assets/icon/nav_home.svg"></IonIcon>
+                    <IonLabel class="tab_footer_label">Home</IonLabel>
+
+                  </IonTabButton>
+                  <IonTabButton tab="search" href="/app/search">
+                    <IonIcon src="assets/icon/nav_search.svg"></IonIcon>
+                    <IonLabel class="tab_footer_label search_label">Search</IonLabel>
+                  </IonTabButton>
+
+                  <IonTabButton tab="execute" href="/app/MyLoad" >
+                    <IonIcon src="assets/icon/nav_execute.svg"></IonIcon>
+                    <IonLabel class="tab_footer_label execute_label">My Load</IonLabel>
+                  </IonTabButton>
+                  <IonTabButton tab="manage" href="/app/manage">
+                    <IonIcon src="assets/icon/nav_manage.svg" class="manage_icon"></IonIcon>
+                    <IonLabel class="tab_footer_label_manage">Profile</IonLabel>
+                  </IonTabButton>
+                  <IonTabButton tab="more" href="/app/more">
+                    <IonIcon src="assets/icon/nav_more.svg" class="more_icon"></IonIcon>
+                    <IonLabel class="tab_footer_label_more">More</IonLabel>
+                  </IonTabButton>
+
+                </IonTabBar>
+              </IonTabs>
+              <div className="tab-bar-profile">
+                <IonRow>
+                  <IonCol>
+                    <IonImg src="assets/icon/man.svg"></IonImg>
+                  </IonCol>
+                  <IonCol class="name-col">
+                    <span>Welcome</span> <br /><span>Igor</span>
+                  </IonCol>
+                  <IonCol>
+                    <i className="downArrow"></i>
+                  </IonCol>
+                </IonRow>
+
+
+              </div>
             </div>
-          </div>
-          <IonFooter class="copyright-div">
-            <span>© 2019 Schneider. All Rights Reserved.</span>
-            <span>Home | Sitemap | Privacy Policy</span>
-          </IonFooter>
+            <IonFooter class="copyright-div">
+              <span>© 2019 Schneider. All Rights Reserved.</span>
+              <span>Home | Sitemap | Privacy Policy</span>
+            </IonFooter>
           </>
         )}
         exact={true} />

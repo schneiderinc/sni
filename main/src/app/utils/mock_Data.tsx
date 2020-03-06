@@ -274,13 +274,19 @@ export const ManageCardData = [
     },
     {
         cradImg: "assets/icon/post_truck.svg",
-        profileHeading: "Manage Truck & Lane Postings",
+        profileHeading: "Post My Truck",
         profileRouting: "/app/manage/ManageTruck"
+
+    },
+    {
+        cradImg: "assets/icon/post-truck.svg",
+        profileHeading: "Manage Lane Postings",
+        profileRouting: "/app/manage/ManageLane"
 
     }
 ];
 
-export const carrierProfile = [
+export const carrierInfo = [
     {
         subHeading: "Carrier Name",
         inputValue: "IGOR TRANSPORT INC"
@@ -290,64 +296,73 @@ export const carrierProfile = [
         inputValue: "123569"
     },
     {
-        subHeading: "Carrier SCAC Code",
+        subHeading: "Carrier MC#",
         inputValue: "525689"
     },
     {
-        subHeading: "Carrier Primary Business Email Address",
-        inputValue: "email@schneider.com"
-    },
-    {
-        subHeading: "Carrier Single Line Address",
-        inputValue: "Green Bay, Wisconsin, USA"
-    },
-    {
-        subHeading: "Carrier Phone Number",
-        inputValue: "+158 963 5260"
-    },
-    {
-        subHeading: "Carrier Contact",
-        inputValue: "John Smith"
-    },
-    {
-        subHeading: "Email",
-        inputValue: "Igor.Smith@schneider.com"
-    },
-    {
-        subHeading: "contact",
-        inputValue: "+158 963 5260"
-    }
-];
+        subHeading: "USDOT#",
+        inputValue: "655689"
+    }];
 
-export const carrierProfileInsurance = [
-    {
-        subHeading: "Type",
-        inputValue: "AUTO"
-    },
-    {
-        subHeading: "Expiry",
-        inputValue: "12/31/2020"
-    },
-    {
-        subHeading: "Coverage Amount",
-        inputValue: "$30,000"
-    }
-];
+    export const ContactDetails=[
+        {
+            subHeading: "Carrier Single Line Address",
+            inputValue: "Green Bay, Wisconsin, USA"
+        },
+        {
+            subHeading: "Carrier Contact",
+            inputValue: "John Smith"
+        },
+        {
+            subHeading: "Contact",
+            inputValue: "+158 963 5260"
+        },
+        {
+            subHeading: "Email",
+            inputValue: "Igor.Smith@schneider.com"
+        }
+      
+    ];
+    
+    export const carrierProfileInsurance = [
+        {
+            subHeading: "Type",
+            inputValue: "AUTO"
+        },
+        {
+            subHeading: "Effective Date",
+            inputValue: "19/2/2020"
+        },
+        {
+            subHeading: "Expiry Date",
+            inputValue: "12/31/2020"
+        },
+        {
+            subHeading: "Coverage Amount",
+            inputValue: "$30,000"
+        }
+    ];
+    
+    export const carrierProfileInsurance2 = [
+        {
+            subHeading: "Type",
+            inputValue: "CARGO"
+        },
+        {
+            subHeading: "Effective Date",
+            inputValue: "19/2/2020"
+        },
+        {
+            subHeading: "Expiry Date",
+            inputValue: "12/31/2020"
+        },
+        {
+            subHeading: "Coverage Amount",
+            inputValue: "$1,000,000.00"
+        }
+    ];
+   
 
-export const carrierProfileInsurance2 = [
-    {
-        subHeading: "Type",
-        inputValue: "CARGO"
-    },
-    {
-        subHeading: "Expiry",
-        inputValue: "12/31/2020"
-    },
-    {
-        subHeading: "Coverage Amount",
-        inputValue: "$1,000,000.00"
-    }
-];
 
 export const watchedOfflineData = [
     {
@@ -407,3 +422,129 @@ export const watchedOfflineData = [
         "trailer": "Dry van",
         "price": "690"
     }];
+
+    export const MyLoadCardData = [
+        {
+            count: "5",
+            cradImg: "assets/icon/profile_icon.svg",
+            title: "Carrier Assigned",
+            myLoadRouting: "/app/MyLoad/CarrierAssigned"
+    
+        },
+        {
+            count: "99",
+            cradImg: "assets/icon/carrier_profile_icon.svg",
+            title: "Driver Assigned",
+            myLoadRouting: "/app/MyLoad/CarrierAssigned"
+    
+        },
+        {
+            count: "7",
+            cradImg: "assets/icon/manage.svg",
+            title: "In-Transit",
+            myLoadRouting: "/app/MyLoad/CarrierAssigned"
+    
+        },
+        {
+            count: "13",
+            cradImg: "assets/icon/post_truck.svg",
+            title: "Delivered Needs PPWK",
+            myLoadRouting: "/app/MyLoad/CarrierAssigned"
+    
+        },
+        {
+            count: "3",
+            cradImg: "assets/icon/post_truck.svg",
+            title: "RecentlyDelivered Loads",
+            myLoadRouting: "/app/MyLoad/CarrierAssigned"
+    
+        },
+        {
+            count: "8",
+            cradImg: "assets/icon/post_truck.svg",
+            title: "ManageFinancials",
+            myLoadRouting: "/app/MyLoad/CarrierAssigned"
+    
+        }
+    ];
+    
+export const DriverList = [
+    {
+        DriverImg: "assets/icon/man.svg",
+        DriverName: "Jonne",
+        DriverSubHeading: "Lorem ipsum dolor sit amet"
+    },
+    {
+        DriverImg: "assets/icon/man.svg",
+        DriverName: "Carl",
+        DriverSubHeading: "Lorem ipsum dolor sit amet"
+    },
+    {
+        DriverImg: "assets/icon/man.svg",
+        DriverName: "Jack Dean",
+        DriverSubHeading: "Lorem ipsum dolor sit amet"
+    },
+    {
+        DriverImg: "assets/icon/man.svg",
+        DriverName: "Dean Abbott",
+        DriverSubHeading: "Lorem ipsum dolor sit amet"
+    },
+
+];
+
+export const AddDriverForm=[
+    {
+        subHeading: "FirstName",
+        inputValue: "Carl"
+    },
+    {
+        subHeading: "LastName",
+        inputValue: "Miller"
+    },
+    {
+        subHeading: "Primary Email Address",
+        inputValue: "Carl.Smith@schneider.com"
+    },
+    {
+        subHeading: "Mobile Number",
+        inputValue: "+125-634-7980"
+    },
+    {
+        subHeading: "Park Location Address (Optional)",
+        inputValue: "12 East Street, Detroit, MI, USA, 12569"
+    },
+    {
+        subHeading: "Track No (Optional)",
+        inputValue: "568-974-1005"
+    },
+    {
+        subHeading: "Carrier ID",
+        inputValue: "125639"
+    },
+]
+export const userProfileData = [
+        {
+            subHeading: "First Name",
+            inputValue: "Igor"
+        },
+        {
+            subHeading: "Last Name",
+            inputValue: "Smith"
+        },
+        {
+            subHeading: "E-mail address",
+            inputValue: "Igor.Smith@schneider.com"
+        },
+        {
+            subHeading: "Phone No",
+            inputValue: "+ 125-634-7980"
+        },
+        {
+            subHeading: "Role",
+            inputValue: "Dispatcher"
+        },
+        {
+            subHeading: "Carrier ID",
+            inputValue: "123569"
+    }
+    ];

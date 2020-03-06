@@ -1,0 +1,54 @@
+@import  "../../../../theme/responsive-styles.scss";
+.user-profile-page{
+    .page-header{
+        height: 9.98vh;
+        @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+            height: 11vh !important;
+            margin-top: 8vh !important;
+          }
+    }
+    ion-content{
+        --background: #FCFCFC;
+        --padding-start: 2.67vw;
+        --padding-end: 2.67vw;
+        --padding-top: 2.71vh
+    }
+    ion-list{
+        border-radius: 4px;
+        border: 0.5px solid #DEDEDE;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        ion-item{
+            max-height: 57px !important;
+            --padding-start: 0;
+            --inner-padding-end: 0;
+            ion-icon{
+                height: 15px;
+                width: 15px;
+                margin-top: 20px;
+            }
+        }
+        ion-label{
+            font-size: 14px !important;
+            color: #666666 !important;
+        }
+        ion-input{
+            font-size: 14px !important;
+            color: #000000 !important;
+            max-height: 19px;
+        }
+        .chnage-password-text{
+            ion-label{
+                font-size: 14px !important;
+                color: #FF6418 !important;
+            }
+            i{
+                margin-right: 5px;
+            }
+        }
+        .phone-text {
+            font-size: 14px !important;
+            color: #FF6418 !important;
+        }
+    }
+}

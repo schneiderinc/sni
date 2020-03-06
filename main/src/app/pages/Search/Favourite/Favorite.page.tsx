@@ -1,7 +1,17 @@
 import React from 'react';
-import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemSliding, IonTabBar, IonTabButton, IonLabel, IonIcon } from '@ionic/react';
+import { IonContent, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonItemSliding } from '@ionic/react';
 import favoriteData from './favoriteData.json';
 import './favorite.scss';
+import { CardTabFooter } from 'app/components/app/CardTabFooter/CardTabFooter';
+
+const footerOptions = [{
+    "icon": "assets/icon/view.svg",
+    "label":"VIEW"
+},{
+    "icon": "assets/icon/delete.svg",
+    "label":"DELETE"
+}
+]
 const FovoriteTab = (props: any) => {
     return (
         <IonItemSliding class="favorite_card">
@@ -27,20 +37,22 @@ const FovoriteTab = (props: any) => {
                 </IonGrid>
             </IonCardContent>
             {props.showButtons ?
-                <IonTabBar slot="bottom">
-                    <IonTabButton className="tabButton_add" tab="view">
-                        <IonRow>
-                            <IonCol className="tabButton_col view_btn"><IonIcon className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
-                            <IonCol><IonLabel>VIEW</IonLabel></IonCol>
-                        </IonRow>
-                    </IonTabButton>
-                    <IonTabButton tab="delete" className="delete_tab">
-                        <IonRow>
-                            <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/delete.svg" /></IonCol>
-                            <IonCol><IonLabel>DELETE</IonLabel></IonCol>
-                        </IonRow>
-                    </IonTabButton>
-                </IonTabBar> : null}
+                // <IonTabBar slot="bottom">
+                //     <IonTabButton className="tabButton_add" tab="view">
+                //         <IonRow>
+                //             <IonCol className="tabButton_col view_btn"><IonIcon className="tabButtonImg" src="assets/icon/view.svg" /></IonCol>
+                //             <IonCol><IonLabel>VIEW</IonLabel></IonCol>
+                //         </IonRow>
+                //     </IonTabButton>
+                //     <IonTabButton tab="delete" className="delete_tab">
+                //         <IonRow>
+                //             <IonCol className="tabButton_col"><IonIcon className="tabButtonImg" src="assets/icon/delete.svg" /></IonCol>
+                //             <IonCol><IonLabel>DELETE</IonLabel></IonCol>
+                //         </IonRow>
+                //     </IonTabButton>
+                // </IonTabBar>
+                <CardTabFooter footerOptions={footerOptions}/>
+                 : null}
         </IonItemSliding>
 
     );

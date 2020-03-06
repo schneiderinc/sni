@@ -256,22 +256,26 @@ ion-footer {
     }
   }
 }
-.picker-wrapper.sc-ion-picker-ios {
-  border-top-left-radius: 45px;
-  border-top-right-radius: 45px;
-  box-shadow: 0px -22px 18px #00000021;
-  height: 31.9vh;
-}
-// .picker-wrapper.sc-ion-picker-ios {
-//   box-shadow: 0px -22px 18px #00000021;
-//   height: 31.9vh;
-//   margin-bottom: 258px;
-//  box-shadow: -4px -22px 19px #00000021;
-//   border-radius: 45px;
-// }
 
- 
-    
+.picker-wrapper.sc-ion-picker-ios {
+  border-radius: 15px;
+  height: 32.2vh;
+  bottom: 33% ;
+  width: 91.2vw;
+  box-shadow: 0px 3px 6px #00000069;
+  @media (max-height: map-get($grid-height-breakpoints, xs)) {
+    bottom: 25%;
+  }
+  @media (max-height: map-get($grid-height-breakpoints, md)) {
+    bottom: 32%;
+  }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    bottom: 23%;
+    height: 50.11vh;
+    width: 24.3vw;
+  }
+}
+
 .location_input_icon {
   width: 16%;
   height: 24px;
@@ -326,11 +330,11 @@ ion-footer {
   border-top: 0.25px solid #eaeaea !important;
   bottom: 0;
 }
-ion-picker{
-  ion-backdrop{
-    background-color: transparent;
-  }
-}
+// ion-picker{
+//   ion-backdrop{
+//     background-color: transparent;
+//   }
+// }
 .toggle-div{
   display: flex;
 }

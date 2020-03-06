@@ -202,6 +202,10 @@ ion-tab-bar {
   border: 0.5px solid $alto;
   box-shadow: 0px 3px 6px $darkblue;
   border-radius: 5px;
+  ion-card {
+    margin: 0px;
+    box-shadow: none;
+  }
 }
 ion-content {
   --background: #fcfcfc;
@@ -283,6 +287,40 @@ ion-select{
     font-size: 13px;
     button {
       border-bottom: 0.25px solid #0000003F !important;
+    }
+  }
+}
+.rdt_TableHeadRow{
+  background: #EDEDED !important;
+  font-family: $font-roboto-medium;
+  font-size: 14px;
+  color: #000000;
+}
+.rdt_TableRow{
+  border: 0.5px solid #DEDEDE !important;
+}
+@media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+  .desktop-header-desc{
+    ion-grid{
+      padding: 0;
+      font-size: 12px;
+      font-family: $font-roboto-regular;
+      display: flex;
+      height: 16px;
+      div{
+        display: contents;
+      }
+      .desktop-title, .breadcrumb-devider {
+        color: #666666;
+        font-size: 11px;
+        margin-top: 7px;
+      }
+      .desktop-title{
+        padding-left: 3px;
+      }
+    }
+    .header-title{
+      margin-top: 20px;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent, IonAlert, IonHeader } from '@ionic/react';
+import { IonContent, IonPage, IonRow, IonCol, IonCard, IonCardContent, IonHeader } from '@ionic/react';
 import './Manage.scss';
 import ImageCapture from 'app/components/ImageCapture/ImageCapture';
 class ManagePage extends Component<any, any> {

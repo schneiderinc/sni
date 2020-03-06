@@ -1,33 +1,14 @@
 @import  "../../../theme/variables.scss";
 @import  "../../../theme/responsive-styles.scss";
 .loadDetails-page{
+  .ion-card:first-child{
+    margin:0 !important
+  }
   .page-header{
+    height: 9.98vh;
     @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
       height: 11vh !important;
       margin-top: 8vh !important;
-      .desktop-header-desc{
-        ion-grid{
-          padding: 0;
-          font-size: 12px;
-          font-family: $font-roboto-regular;
-          display: flex;
-          height: 16px;
-          div{
-            display: contents;
-          }
-          .desktop-title, .breadcrumb-devider {
-            color: #666666;
-            font-size: 11px;
-            margin-top: 7px;
-          }
-          .desktop-title{
-            padding-left: 3px;
-          }
-        }
-        .header-title{
-          margin-top: 20px;
-        }
-      }
     }
   }
 }
@@ -200,6 +181,16 @@
   text-align: -webkit-center;
   padding: 4px;
 }
+.stop_detail_pin_carrier{
+  background-color: white;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #21303B39;
+  box-shadow: 0px 3px 2px #00000029;
+  font-size: 12px;
+  padding: 4px 0 4px 4px;
+}
 .stop_detail_connect{
   height: 83px;
   width: 0;
@@ -334,6 +325,9 @@ input:checked + .slider:after
 }
 .callCol{
   text-align: center;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding-bottom: 15px;
   ion-button:first-child{
     float: left;
   }

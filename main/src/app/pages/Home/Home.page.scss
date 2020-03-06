@@ -168,11 +168,12 @@ ion-header {
   }
 }
 .card-content {
-  padding-left: 2px;
-  padding-right: 7px;
+  padding-left: 0px;
+  padding-right: 0px;
+  ion-grid:first-child{
+    padding: 12px 10px 5px 5px;
+  }
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-    padding-left: 10px;
-    padding-right: 15px;
     background-color: #ffffff;
   }
 }
@@ -533,6 +534,8 @@ a {
     padding: 0 7vw;
     .tab-bar-logo {
       margin-top: 37px;
+      height: 28px;
+      width: 142px;
     }
     .tab-bar-profile {
       float: right;

@@ -1,0 +1,78 @@
+@import  "../../../../theme/variables.scss";
+@import  "../../../../theme/responsive-styles.scss";
+
+.CardFooterContain{
+    margin-bottom: 10px;
+    .assign-col{
+        padding-left: 0;
+        border-right: 0.5px solid #DEDEDE;
+        .tabButton_col{
+            padding-left:11px;
+        }
+    }
+    .call-col{
+        border-right: 0.5px solid #DEDEDE;
+    }
+   .button-assign{
+        padding-top: 4px;
+        ion-label{
+            color:#000000;
+        }
+    }
+    .assignSty{
+        font-size: 14px;
+    }
+    .carrierGrid{
+        padding: 0px 2px 0px 2px;
+        .carrierRow{
+            border: 0.5px solid #DEDEDE;
+            border-top:none;
+        }
+    }
+   
+}
+.card-footer-wraper{
+    
+    font-family: $font-roboto-regular;
+    background: #FCFCFC;
+    border: 0.5px solid #DEDEDE;
+    padding: 0;
+
+    ion-button{
+        font-size: 14px;
+        width: 33.3%;
+        margin: 0;
+        height: 44px;
+        --border-radius: 0px;
+        --background: transparent;
+        --background-focused: transparent;
+        --background-hover: transparent;
+        --background-activated: transparent;
+        --color: #000000;
+        --color-activated: #000000;
+        --color-focused:#000000;
+        --color-hover:#000000;
+        --box-shadow: none;
+        border-right: 0.5px solid #DEDEDE;
+        --padding-start: 0px;
+        --padding-end: 0px;
+      ion-icon{
+          margin-right: 6px;
+      }
+    }
+}
+.wraper-for-two {
+    ion-button{
+        width: 50%
+    }
+}
+.wraper-for-carrierAssign{
+    ion-button:first-child{
+        width: 46%;
+        font-family: $font-roboto-medium;
+    }
+    ion-button:not(first-child){
+        width: 27%
+    }
+}
+

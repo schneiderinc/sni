@@ -1,3 +1,5 @@
+import { DeviceInfo } from '@capacitor/core';
+
 export interface GlobalState {
     lastUpdatedDate: string;
     loading: boolean;
@@ -8,7 +10,8 @@ export interface GlobalState {
     permissionAlertMessage?: string
     permissionAlertTitle?: string
     alertError?: boolean; //Not using
-
+    networkStatus: Object;
+    deviceInfo: Object;
 }
 
 export interface Location {

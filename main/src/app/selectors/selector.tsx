@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { platform } from 'os';
 
 const selectGlobal = (state: any) => state.global;
 const selectApp = (state: any) => state.App;
@@ -19,5 +20,7 @@ export const getPermissionAlertMessage = () => createSelector([selectGlobal], gl
 
 export const getPermissionAlertTitle = () => createSelector([selectGlobal], global => global.permissionAlertTitle);
 
-export const getGPSDetails = () => createSelector([selectApp], App => App.GPSData)
+export const getGPSDetails = () => createSelector([selectApp], App => App.GPSData);
+
+export const getPlatform = () => createSelector([selectGlobal], global => global.deviceInfo['platform']);
 

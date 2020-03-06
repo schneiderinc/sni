@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import useInjectSaga from "app/utils/injectSaga";
 import useInjectReducer from "app/utils/injectReducer";
-import { makeSelectImg, makeManageCardData } from "app/selectors/Manage/selector";
+import { makeManageCardData } from "app/selectors/Manage/selector";
 import reducer from "app/reducers/manage/reducer";
 import saga from "app/saga/Manage/saga";
 import { ManageCard, profileImageSet } from "app/actions/manage/action";
@@ -32,7 +32,7 @@ class ManageContainer extends PureComponent<any, any> {
 
 const mapStateToProps = createStructuredSelector({
     loading: getLoading(),
-    Image: makeSelectImg(),
+    // Image: makeSelectImg(),
     manageCard: makeManageCardData()
 });
 

@@ -11,7 +11,9 @@ const initalState: GlobalState = {
   showPermissionAlert: false,
   permissionAlertMessage: "",
   permissionAlertTitle: "",
-  alertError: false //  not using this.
+  alertError: false,//  not using this.
+  networkStatus: {},
+  deviceInfo: {}
 };
 
 const appReducer = (state = initalState, action: any) =>
@@ -45,6 +47,14 @@ const appReducer = (state = initalState, action: any) =>
         break;
       case constants.LOGOUT:
         draft.currentUser = false;
+        break;
+      case constants.UPDATE_NETWORK_STATUS:
+        console.log("NETWORK RDUCR", action.data)
+        draft.networkStatus = action.data
+        break;
+      case constants.UPDATE_DEVICE_INFO:
+        console.log("DVC DATA", action.data);
+        draft.deviceInfo = action.data
         break;
     }
   });
