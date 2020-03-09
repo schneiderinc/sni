@@ -8,6 +8,7 @@ android {
         targetSdkVersion 28
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+}
     buildTypes {
         release {
             minifyEnabled false
@@ -20,6 +21,7 @@ android {
                     output.outputFile = new File(output.outputFile.parent, newName)
         }
     }
+ }
 }
 
 repositories {
