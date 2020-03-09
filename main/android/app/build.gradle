@@ -12,6 +12,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			/*The is the code fot the template of release name*/
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def formattedDate = new Date().format('yyyy-MM-dd HH-mm')
+                    def newName = "Your App Name " + formattedDate
+                    output.outputFile = new File(output.outputFile.parent, newName)
         }
     }
 }
