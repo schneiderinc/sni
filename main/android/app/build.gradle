@@ -26,6 +26,13 @@ buildTypes {
         }
     }
 }
+productFlavors {
+    flavor1 {
+    }
+    flavor2 {
+        proguardFile 'flavor2-rules.pro'
+    }
+}
 
 repositories {
     maven {
