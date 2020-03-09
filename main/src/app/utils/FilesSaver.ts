@@ -7,7 +7,7 @@ export const FileSaver = (
   location: FilesystemDirectory = FilesystemDirectory.Documents,
   fileName: string = ''
 ) => {
-  const writeFileToDisk = async () => {
+  const writeFile_Mobile = async () => {
     console.log('PDf', _data);
 
     try {
@@ -23,13 +23,30 @@ export const FileSaver = (
         path: fileName
       });
 
-      console.log('PDF URL', Capacitor.convertFileSrc(path.uri));
       return Capacitor.convertFileSrc(path.uri);
-      //setFilePath(Capacitor.convertFileSrc(path.uri));
     } catch (e) {
       console.error('File System Error', e);
       throw e;
     }
   };
-  return { writeFileToDisk };
+
+  const writeFile_Web = () => {
+    var startIndex = _data.indexOf('base64,') + 7;
+
+    var b64 = _data.substring(startIndex);
+
+    var byteCharacters = atob(b64);
+
+    var byteNumbers = new ArrayBuffer(byteCharacters.length);
+
+    var byteArray = new Uint8Array(byteNumbers);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteArray[i] = byteCharacters.charCodeAt(i);
+    }
+
+    const fileBlob = new Blob([byteArray], { type: 'application/pdf' });
+    return URL.createObjectURL(fileBlob);
+  };
+  return { writeFile_Mobile, writeFile_Web };
 };

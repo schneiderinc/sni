@@ -118,11 +118,11 @@ body {
   margin-top: 1px;
   font-family: $font-roboto-regular;
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-      margin-top: -17px;
-      margin-left: 17px;
-      font-size: 14px;
-      text-transform: uppercase;
-    }
+    margin-top: -17px;
+    margin-left: 17px;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
 }
 .search_label {
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
@@ -171,7 +171,7 @@ ion-tab-bar {
   height: 8.37vh;
   --background: linear-gradient(180deg, #ffffff, #f3f3f3);
   box-shadow: 0px 0px 27px #bdbaba;
-  ion-tab-button{
+  ion-tab-button {
     color: #000000 !important;
   }
   ion-icon {
@@ -220,7 +220,7 @@ ion-content {
     --padding-end: 20px !important;
   }
 }
-.home-page{
+.home-page {
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
     --padding-start: 0px !important;
     --padding-end: 0px !important;
@@ -249,77 +249,84 @@ ion-back-button {
 //   background: background-image(linear-gradient(to bottom, rgba(255,132,71,1) 0%, rgba(255,110,37,1) 100%));
 // }
 :host {
-  --bar-background: rgba(var(--ion-color-primary-rgb,255,100,24),1);
+  --bar-background: rgba(var(--ion-color-primary-rgb, 255, 100, 24), 1);
 }
-ion-select{
-  .select-icon{
-    .select-icon-inner{
+ion-select {
+  .select-icon {
+    .select-icon-inner {
       opacity: 0 !important;
     }
   }
 }
 .select-icon-inner {
-  border-top: transparent!important;
+  border-top: transparent !important;
 }
 
-.select-alert{
+.select-alert {
   .alert-wrapper {
     height: 259px !important;
     min-width: 205px !important;
   }
-  .alert-head{
+  .alert-head {
     padding: 0 !important;
   }
-  .alert-title{
+  .alert-title {
     font-family: $font-roboto-regular;
     font-size: 14px !important;
   }
-  .alert-button{
+  .alert-button {
     font-size: 14px !important;
     font-family: $font-roboto-regular;
   }
-  .alert-button-group{
-    button:first-child{
+  .alert-button-group {
+    button:first-child {
       color: black;
     }
   }
   .alert-radio-group {
     font-size: 13px;
     button {
-      border-bottom: 0.25px solid #0000003F !important;
+      border-bottom: 0.25px solid #0000003f !important;
     }
   }
 }
-.rdt_TableHeadRow{
-  background: #EDEDED !important;
+.rdt_TableHeadRow {
+  background: #ededed !important;
   font-family: $font-roboto-medium;
   font-size: 14px;
   color: #000000;
 }
-.rdt_TableRow{
-  border: 0.5px solid #DEDEDE !important;
+.rdt_TableRow {
+  border: 0.5px solid #dedede !important;
 }
+
+// PDF Viewer
+.mobile__pdf__container footer {
+  background-image: linear-gradient(180deg, #fca364, #fd7d4f) !important;
+}
+
 @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-  .desktop-header-desc{
-    ion-grid{
+  .desktop-header-desc {
+    ion-grid {
       padding: 0;
       font-size: 12px;
       font-family: $font-roboto-regular;
       display: flex;
       height: 16px;
-      div{
+      div {
         display: contents;
       }
-      .desktop-title, .breadcrumb-devider {
+      .desktop-title,
+      .breadcrumb-devider {
         color: #666666;
         font-size: 11px;
         margin-top: 7px;
       }
-      .desktop-title{
+      .desktop-title {
         padding-left: 3px;
       }
     }
-    .header-title{
+    .header-title {
       margin-top: 20px;
     }
   }
