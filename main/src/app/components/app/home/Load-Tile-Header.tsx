@@ -24,7 +24,7 @@ class LoadTileHeader extends React.Component<any, any> {
         <IonCol className="card-col card-col-modal">
           <div className="card-dt card-dt-modal">{this.props.origin_from_date}, {this.props.origin_to_date_time}</div>
           <div className="card-dist card-dist-modal">{this.props.origin_deadhead} Mile Deadhead</div>
-          <div className="card-dist card-dist-modal">Unload</div>
+          <div className="card-load card-dist-modal">Unload</div>
         </IonCol>
         <IonCol className="card-col card-col-modal card-col-modalPopUp">
           <div className="card-dt card-dt-modal">{this.props.destination_from_date}, {this.props.destination_to_date_time}</div>

@@ -4,7 +4,7 @@ import AddDriver from 'app/pages/Execute/AddDriver/AddDriver';
 
 class AddDriverContainer extends Component {
     render() {
-        return (<AddDriver  />)
+        return (<AddDriver  {...this.props} />)
     }
 }
 

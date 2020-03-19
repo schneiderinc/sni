@@ -14,22 +14,33 @@
         height: 3.46vh;
         // margin-left: 4.13vw;
         ion-segment-button{
-            //margin-top: -1.23vh;
+            margin-top: -0.53vh;
             --background-checked:none;
             opacity: 0.84;
             --padding-start:0;
             --padding-end:2.67vw;
             border: none;
+            @media (max-height: map-get($grid-height-breakpoints, xs)) {
+                margin-top:0.5vh;
+            }
+            @media (max-height: map-get($grid-height-breakpoints, sm)) {
+                margin-top:-1.2vh;
+            }
+            @media (max-height: map-get($grid-height-breakpoints, md)) {
+                margin-top:-1.3vh;
+            }
         }
     }
     .search_floating_badge {
-        height: 13px;
+        // height: 13px;
+        height: 20px;
+        padding-top: 5px;
         background-color: #f1eded;
         color: #666666;
         font-size: 10px;
         font-family: $font-roboto-regular;
         opacity: 0.84;
-        padding-top: 6px;
+        // padding-top: 6px;
         border-radius: 0;
     }
     .sort_container{
@@ -47,6 +58,7 @@
         padding: 5px 0;
         .short-row{
             padding: 0;
+            margin-bottom: 10.5px;
         }
     }
     .search-desktop-view{

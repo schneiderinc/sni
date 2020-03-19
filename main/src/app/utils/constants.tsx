@@ -33,6 +33,9 @@ export const GET_MYLOAD_CARD_DATA = "GET_MYLOAD_CARD_DATA";
 export const CLOSE_PERMISSION_ALERT = "CLOSE_PERMISSION_ALERT";
 export const GET_CARRIER_CONTACT_DATA="GET_CARRIER_CONTACT_DATA";
 export const CARRIER_CONTACT_DATA ="CARRIER_CONTACT_DATA"; 
+export const HIDE_TAB_BAR ="HIDE_TAB_BAR";  
+export const GET_HIDE_TAB_BAR ="GET_HIDE_TAB_BAR";  
+
 
 export const UPDATE_GPS_COORDS = "UPDATE_GPS_COORDS";
 export const UPDATE_NETWORK_STATUS = "UPDATE_NETWORK_STATUS";
@@ -43,11 +46,26 @@ export const GPS_TIME = 30000;
 export const USER_PROFILE_DATA = "USER_PROFILE_DATA";
 export const GET_USER_PROFILE_DATA = "GET_USER_PROFILE_DATA";
 
+export const SHOW_TOASTER_VALUE = "SHOW_TOASTER_VALUE";
+export const TOKEN_DATA ="TOKEN_DATA";  
 
+export const Anywhere="Anywhere";
+export const DryVan ="dry_van";
+export const PickUpdateError ="Kindly Provide Correct  Pickup Date";
+export const dropUpdateError ="Kindly Provide Correct Delivery Date";
+export const CityError ="Kindly Provide Your Correct City Name";
+export const origin_Radius ="originRadius";
+export const destination_Radius ="Destination_Radius";
+export const PickUpdate ="pickUpdate";
 
+export const Dropdate ="dropdate";
+export const Origin ="origin";
+export const Destination ="destination";
+export const Trailer ="TrailerType";
+export const NewHeader="Enter criteria and click apply to see matching loads."
 
-
-
+export const AddFavorite ="Add as Favorite"
+export const addDriverHeader="Carry and update the status of loads"
 
 
 

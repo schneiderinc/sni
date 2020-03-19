@@ -11,7 +11,7 @@
   @media (max-height: map-get($grid-height-breakpoints, xs)) {
     height: 75%;
   }
-  @media (max-height: map-get($grid-height-breakpoints, md)) {
+  @media (max-height: map-get($grid-height-breakpoints, sm)) {
     height: 85%;
   }
   @media (min-width: map-get($grid-breakpoints, lg)) {
@@ -25,7 +25,7 @@
   .EnterLoad {
     padding: 2.5vh 1.8vw 2.5vh 0.5vw;
     font-size: 14px;
-    color: #4a4a4a;
+    color: #000000;
     font-family: $font-roboto-regular;
     @media (min-width: map-get($grid-breakpoints, lg)) {
       padding: 2vh 0 2vh 5px;
@@ -40,14 +40,33 @@
       background-color: #fcfcfc;
       margin-bottom: 5px;
       padding: 0px;
+      .origin-ion-item .originLabel{
+        margin-bottom: 3px !important;
+      }
+      .origin-ion-item .destinationLabel{
+        margin-bottom: 3px !important;
+        margin-top: 20.5px;
+      }
+      .trailer-ion-item .trailer_type_label{
+        margin-top: 22px !important;
+      }
+    
       .ion-item {
         margin: 0px 5px 0px -11px;
         --background: #fcfcfc;
         bottom: 12px;
         letter-spacing: 0.6px;
         --min-height: 5.42vh;
+        
+       
+      }
+      .ion-field-validation{
         --border-color: #e2dcdc;
       }
+      .ion-error-field-validation{
+        --border-color: #FF0000;
+      }
+    
       .ion-item1 {
         margin: 8px 5px 0px 1px;
         --background: #fcfcfc;
@@ -61,12 +80,13 @@
         --placeholder-opacity: #000000;
       }
       ion-label {
-        color: #9B9B9B !important;
+        color: #666666 !important;
         font-family: $font-roboto-regular !important;
         font-size: 15px !important;
         opacity: 0.84;
         margin-top: 17px;
       }
+      
       ion-input {
         margin-top: -1.23vh;
         @media (min-width: map-get($grid-breakpoints, lg)) {
@@ -82,16 +102,20 @@
       }
 
       .position_icon {
-        width: 20px;
+        width: 18px;
         float: left;
         margin-right: 10px;
+
+     
       }
       .suggestions_input_item {
         padding-left: 10px;
         padding-right: 25px;
         --border-color: #0000003f;
         ion-label{
-          margin-top: 0;
+          margin-top: 9px !important;
+          font-size: 16px !important;
+          color: #333333 !important;
         }
         ion-input{
           margin-top: 0;
@@ -122,9 +146,9 @@
             .suggestions_list {
               font-size: 12px;
 
-              font-family: $font-stack;
+              font-family: $font-roboto-regular;
               letter-spacing: 0.7px;
-              color: #4a4a4a;
+              color:#666666;
             }
           }
         }
@@ -138,6 +162,7 @@
         padding-top: 5px;
         margin-left: 3px;
         @media (min-width: map-get($grid-breakpoints, lg)) {
+        
          padding-bottom: 10px;
         }
       }
@@ -162,7 +187,7 @@
         --padding-top: 0px;
         --padding-bottom: 0px;
         --placeholder-color: #000000;
-        font-size: 15px;
+        font-size: 15px !important;
         @media (min-width: map-get($grid-breakpoints, lg)) {
           --padding-bottom: 5px;
         }
@@ -266,7 +291,7 @@ ion-footer {
   @media (max-height: map-get($grid-height-breakpoints, xs)) {
     bottom: 25%;
   }
-  @media (max-height: map-get($grid-height-breakpoints, md)) {
+  @media (max-height: map-get($grid-height-breakpoints, sm)) {
     bottom: 32%;
   }
   @media (min-width: map-get($grid-breakpoints, lg)) {
@@ -355,4 +380,17 @@ ion-footer {
   padding-left: 0;
   padding-right: 0;
   text-align: right;
+}
+.pickupdate-error{
+  margin-top: -9px;
+  margin-left: 4px;
+  padding-left: 0;
+  color: #FF0000;
+  font-size: 11px;
+}
+.pick-error{
+  display: block;
+}
+.pick-without-error{
+  display: none;
 }

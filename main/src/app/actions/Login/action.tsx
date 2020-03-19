@@ -54,3 +54,12 @@ export const updateDevicInfo = (data: any) => ({
     type: constants.UPDATE_DEVICE_INFO,
     data: data
 })
+export const HideTabBar = () => ({
+    type: constants.HIDE_TAB_BAR
+})
+export const tokenData = (data: any) => {
+    return ({
+        type: constants.TOKEN_DATA,
+        data: data
+    })
+}

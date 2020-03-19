@@ -19,6 +19,7 @@
     background-color: #ffffff;
     padding-left: 3.86vw;
     margin-bottom: 0px;
+    height: 23px;
 }
 .driver-card-content{
     padding: 0;
@@ -26,19 +27,21 @@
 .add-driver-ionitem {
     padding-right: 4vw;
     ion-label{
-      margin-top: 3.32vh;
+      margin-top: 2.32vh;
     }
   }
   .driver-form-control{
-    font-size: 14px;
+    font-size: 15px;
     color: #000000;
     font-family: "Roboto Regular";
     --padding-top: 0;
     --padding-bottom: 0;
     --padding-start: 0;
-    max-height: 2.5vh;
+    // max-height: 2.5vh;
     input{
     padding-top: 0 !important;
+    --placeholder-opacity: #000000;
+    --placeholder-color: #000000;
     }
   }
   .add-save-btn {
@@ -51,9 +54,36 @@
     box-shadow: 0px 3px 6px #00000029;
     margin:2.9vh 6.4vw 2.7vh 7.2vw;
   }
+  .disabled-save {
+    --background:#B6B6B6 !important;
+    --border-radius: 22px;
+    height: 12vw;
+    font-size: 15px;
+    margin:2.9vh 6.4vw 2.7vh 7.2vw;
+    .button-solid {
+      background: #B6B6B6 !important;
+      --background-focused: #B6B6B6 !important;
+      --background-hover: #B6B6B6 !important;
+      border-radius: 22px;
+      background-color: #B6B6B6 !important;
+    }
+  }
   .driver-form{
+
     padding-top: 0px;
     .add-driver-ionitem:first-child{
       margin-top: -0.86vh;
+   
     }
   }
+  .feild-level-error{
+    margin-left: 4vw;
+    padding-left: 0;
+    color: #FF0000;
+    font-size: 11px;
+    display: none;
+  }
+  .show-error{
+    display: block;
+  }
+  

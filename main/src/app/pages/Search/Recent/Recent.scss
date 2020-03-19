@@ -15,10 +15,13 @@
             background-color: #f8f8f8;
         }
     }
+    .recent-card{
+        margin: 0px 1px 6px 1px !important;
+    }
 .header-text{
     padding: 1.85vh 2.13vw;
     font-size: 14px;
-    color:#4A4A4A;
+    color:#000000;
     font-family: $font-roboto-regular;
     @media (min-width: map-get($grid-breakpoints, lg)) {
         background-color: #f8f8f8;
@@ -28,6 +31,9 @@
   .recent_row{
       line-height: 2;
       letter-spacing: 0.5px;
+  }
+  .card-col{
+      padding-top: 0px !important;
   }
   .card-dt-recent{
       font-size:12px;

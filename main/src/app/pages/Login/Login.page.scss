@@ -179,6 +179,14 @@ ion-toggle{
   zoom: 0.8;
   // float: right;
 }
+.ion-toggle-checked{
+  --background-checked: #F6D679;
+  zoom: 0.8;
+  border-radius: 35px;
+  background: #F6D679;
+  --background-activated: #F6D679;
+ 
+}
 
 #errorMsg
 {

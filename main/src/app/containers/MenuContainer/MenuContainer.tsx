@@ -25,7 +25,7 @@ class MenuContainer extends Component {
                 'sub_heading':["About Schneider","Becoming a Carrier","Becoming a Driver for Schneider"]
             }
         ]
-        return (<MenuPage menuHeadingList={menuHeadingList}/>)
+        return (<MenuPage menuHeadingList={menuHeadingList} {...this.props}/>)
     }
 }
 

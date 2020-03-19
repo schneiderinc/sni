@@ -7,7 +7,7 @@
     
     --padding-end: 4.53vw;
     --border-color: #DEDEDE; 
-    margin-top: 1.23vh;
+    margin-top: 1.1vh;
     --background: #FCFCFC;
    
     .DriverName{
@@ -16,11 +16,12 @@
         font-family: $font-roboto-regular;
     }
     .DriverPara{
-        margin-top: 0;
+        margin-top: 2px;
         padding-left: 0;
         font-size: 10px;
         color: #000000;
         margin-bottom: 0;
+        font-family: $font-roboto-regular;
     }
     .DriverImage{
         width: 14.7vw !important;
@@ -28,24 +29,28 @@
     }
     .driverRow{
         margin-bottom: 0.5vh;
-        width: 91.65vw;
+        width: 91.7vw;
+        height: 71px;
   
     }
     .DriverCol{
         padding-top: 1.35vh;
       
     }
-   .add-driver-icon{
-       width: 5.48vw;
-       height: 2.8vh;
-   }
-   .add-driver-circle{
-    width: 12vw;
-    height: 5.54vh;
-}
+    .DriverImageCol{
+        padding-left:0px;
+    }
 }
 .driverList-page{
     .page-header{
         height: 9.8vh;
     }
+} 
+.add-driver-icon{
+    width: 5.48vw;
+    height: 2.8vh;
+}
+.add-driver-circle{
+    width: 12vw;
+    height: 5.54vh;
 }

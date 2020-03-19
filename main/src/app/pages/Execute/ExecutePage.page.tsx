@@ -5,111 +5,42 @@ import MapView from "app/components/shared/MapView";
 import { Link } from 'react-router-dom'
 import './ExecutePage.page.scss';
 class ExecutePage extends Component<any, any> {
-	constructor(props: any) {
-		super(props);
-	}
-	render() {
-		const { myLoadCard } = this.props;
-		return (
-             <IonPage className="desktop-page">
-             <AppHeader title="MyLoad" />
-             <IonContent>
-                 <div style={{ padding: '20px' }}>
-                     <IonGrid>
-                         <IonRow >
-                             <IonCol className="thumbnail-item-col">
-                                 <IonCard class="myload-tab-card">
-                                         <Link to="/app/MyLoad/CarrierAssigned">
-                                             <div className="circle-div">
-                                                 99
-                                             </div>
-                                             <IonGrid className="item-dev">
-                                                 <img className="thumbnail-img" alt="assign" src="assets/icon/carrier.svg" />
-                                                 <div className="itemlabel">Carrier Assigned</div>
-                                             </IonGrid>
-                                         </Link>
-                                 </IonCard>
-
-                             </IonCol>
-                             <IonCol className="thumbnail-item-col">
-                                 <IonCard class="myload-tab-card">
-                                     <div className="thumbnail-item-card">
-                                         <Link to="/app/MyLoad/CarrierAssigned">
-                                             <div className="circle-div">5
-                                             </div>
-                                             <IonGrid className="item-dev">
-                                                 <img className="thumbnail-img" alt="assign" src="assets/icon/assign.svg" />
-                                                 <div className="itemlabel">Driver {"\n"}Assigned</div>
-                                             </IonGrid>
-                                         </Link>
-                                     </div>
-                                 </IonCard>
-                             </IonCol>
-                         </IonRow>
-                         <IonRow >
-                             <IonCol className="thumbnail-item-col">
-                                 <IonCard class="myload-tab-card">
-                                    
-                                         <Link to="/app/MyLoad/CarrierAssigned">
-                                             <div className="circle-div">8</div>
-                                            
-                                             <IonGrid className="item-dev">
-                                                 <img className="thumbnail-img" alt="assign" src="assets/icon/tr.svg" />
-                                                <div className="itemlabel">In-Transit</div>
-                                             </IonGrid>
-                                         </Link>
+    constructor(props: any) {
+        super(props);
+    }
+    render() {
+        const { myLoadCard } = this.props;
+        let cardDetails = [];
+        for (let index = 0; index < myLoadCard.length; index += 2) {
+            let cards = myLoadCard.slice(index, index + 2);
+            cardDetails.push(cards);
+        }
+        return (
+            <IonPage className="desktop-page">
+                <AppHeader title="MyLoad" />
+                <IonContent className="myload-content">
+                    {cardDetails.map((cardData: any, index: number) => (
+                        <IonRow key={index}>
+                            {cardData.map((card: any, index: number) => (
+                                <IonCol className="thumbnail-item-col" key={index}>
+                                    <IonCard class="myload-tab-card">
+                                        <Link to={card.myLoadRouting}>
+                                           
+                                            <IonGrid className="item-dev">
+                                            <div className="circle-div">{card.count}</div>
+                                                <img className="thumbnail-img" alt="assign" src={card.cradImg} />
+                                                <div className="itemlabel">{card.title}</div>
+                                            </IonGrid>
+                                        </Link>
                                     </IonCard>
-                             </IonCol>
-                             <IonCol className="thumbnail-item-col">
-                                 <IonCard class="myload-tab-card">
-                                  
-                                         <Link to="/app/MyLoad/CarrierAssigned">
-                                             <div className="circle-div">99</div>
-                                            
-                                             <IonGrid className="item-dev">
-                                                 <img className="thumbnail-img" alt="assign" src="assets/icon/invoice.svg" />
-                                                 <div className="itemlabel">Delivered {"\n"}Needs PPWK</div>
-                                             </IonGrid>
-                                         </Link>
-
-                                 </IonCard>
-                             </IonCol>
-                         </IonRow>
-                         <IonRow >
-                             <IonCol className="thumbnail-item-col">
-                                 <IonCard class="myload-tab-card">
-                                   
-                                         <Link to="/app/MyLoad/CarrierAssigned">
-                                             <div className="circle-div">99</div>
-                                            
-                                             <IonGrid className="item-dev">
-                                                 <img className="thumbnail-img" alt="assign" src="assets/icon/delivered.svg" />
-                                                 <div className="itemlabel">Recently{"\n"}Delivered Loads</div>
-                                             </IonGrid>
-                                         </Link>
-                                    
-                                 </IonCard>
-                             </IonCol>
-                             <IonCol className="thumbnail-item-col">
-                                 <IonCard class="myload-tab-card"> 
-                                         <Link to="/app/MyLoad/CarrierAssigned">
-                                             <div className="circle-div">6</div>
-                
-                                             <IonGrid className="item-dev">
-                                                 <img className="thumbnail-img" alt="assign" src="assets/icon/paid.svg" />
-                                                 <div className="itemlabel">Manage{"\n"} Financials</div>
-                                             </IonGrid>
-                                         </Link>
-                        
-                                 </IonCard>
-                             </IonCol>
-                         </IonRow>
-                     </IonGrid>
-                 </div>
-             </IonContent>
-         </IonPage>
-		);
-	}
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                    ))}
+                </IonContent>
+            </IonPage>
+        );
+    }
 }
 
 export default ExecutePage;

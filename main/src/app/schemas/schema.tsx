@@ -12,6 +12,8 @@ export interface GlobalState {
     alertError?: boolean; //Not using
     networkStatus: Object;
     deviceInfo: Object;
+    Hidden?: boolean;
+    loginToken?: string
 }
 
 export interface Location {

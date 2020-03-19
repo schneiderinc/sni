@@ -11,8 +11,8 @@ $grid-breakpoints: (
 );
 $grid-height-breakpoints: (
  xs: 568px, // Phone (0px - 575px)
- 
- md: 667px, // Tablet vertical (768px - 991px)
+ sm: 667px,
+ md: 771px, // Tablet vertical (768px - 991px)
 );
 /*
 $grid-max-widths: (

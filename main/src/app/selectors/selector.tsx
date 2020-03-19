@@ -19,8 +19,15 @@ export const getShowPermissionAlert = () => createSelector([selectGlobal], globa
 export const getPermissionAlertMessage = () => createSelector([selectGlobal], global => global.permissionAlertMessage);
 
 export const getPermissionAlertTitle = () => createSelector([selectGlobal], global => global.permissionAlertTitle);
+export const makeDriverAssign = () => createSelector([selectGlobal], global => global.Hidden);
 
 export const getGPSDetails = () => createSelector([selectApp], App => App.GPSData);
 
 export const getPlatform = () => createSelector([selectGlobal], global => global.deviceInfo['platform']);
+
+export const getLoginToken = () => createSelector([selectGlobal], global => {
+    return global.loginToken
+});
+
+
 

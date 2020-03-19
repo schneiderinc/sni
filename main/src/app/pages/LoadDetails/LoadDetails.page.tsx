@@ -14,7 +14,7 @@ import { MobilePDFReader, PDFReader } from 'reactjs-pdf-reader';
 import TermsAndCondition from 'app/components/app/StopDetails/termAndConditionCard';
 import StopDetailContent from 'app/components/app/StopDetails/stopDetailsCard';
 import { LoadTile } from 'app/components/app/home/Load-Tile';
-// import DocumentCard from 'app/components/app/StopDetails/documentDetailsCard';
+import DocumentCard from 'app/components/app/StopDetails/documentDetailsCard';
 
 const mock_document_details = [
 	{
@@ -120,7 +120,6 @@ class LoadDetailsPage extends Component<any, any> {
 
 
 	render() {
-
 		const loadDetails = this.props.loadDetails;
 		const stopCount = this.props.stopCount;
 		const stop_details = this.props.stopDetails;
@@ -184,7 +183,7 @@ class LoadDetailsPage extends Component<any, any> {
 								</IonCardContent>
 							</IonCard>
 							<StopDetailContent stopCount={this.props.stopCount} stopDetails={this.props.stopDetails} pageName={pageName} />
-							{/* <DocumentCard mock_document_details={mock_document_details} /> */}
+							{ this.props.module === "MyLoad/CarrierAssigned" ? <DocumentCard mock_document_details={mock_document_details} />:null}
 							<TermsAndCondition />
 
 							<IonButton onClick={this.showPdf} >Show PDF</IonButton>

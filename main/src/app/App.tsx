@@ -18,6 +18,7 @@ import { updateGpsCoordinates } from './actions/App/action';
 import { useGeolocation } from 'app/utils/useGeolocation';
 import { PermissionAlert } from 'app/components/PermissionsAlert/PermissionAlert'
 import { getShowPermissionAlert, getPermissionAlertMessage, getPermissionAlertTitle } from 'app/selectors/selector'
+import {makeDriverAssign} from 'app/selectors/selector'
 import { closePermissionAlert, showPermissionAlert } from 'app/actions/Login/action';
 const key = "App";
 const App: React.FC = (props: any) => {
@@ -27,6 +28,7 @@ const App: React.FC = (props: any) => {
   const { isAvailable, state: appState } = useAppState();
   const { watchCurrentPosition, currentPosition, errorMessage } = useGeolocation();
 
+  console.log( props.hiddenbarBottom,'heloo')
   useEffect(() => {
     console.log("MOUNT");
     try {
@@ -77,7 +79,7 @@ const App: React.FC = (props: any) => {
           close={props.closePermissionAlert} />
         : null}
 
-      <RootLevelTabs />
+      <RootLevelTabs isBarBottom={props.hiddenbarBottom} />
 
     </React.Fragment>
   );
@@ -88,7 +90,7 @@ const mapStateToProps = createStructuredSelector({
   isShowPermissionAlert: getShowPermissionAlert(),
   permissionAlertMessage: getPermissionAlertMessage(),
   permissionAlertTitle: getPermissionAlertTitle(),
-
+  hiddenbarBottom: makeDriverAssign()
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({

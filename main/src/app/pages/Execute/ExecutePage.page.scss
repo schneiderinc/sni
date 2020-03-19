@@ -9,12 +9,14 @@
 
   .itemlabel{
     width: auto;
-    padding: 5px;
+    padding: 6px;
     text-align: center;
     font-size: 14px;
     color: #545454;
   }
-
+  .itemlabel-loads{
+    padding:4px;
+  }
   .thumbnail-item-card{
       width: 140px;
       height: 140px;
@@ -22,7 +24,8 @@
   }
 
   .thumbnail-item-col{
-    width: 140px;
+    // width: 132px;
+    padding: 0px !important;
   }
   
   .circle-div{
@@ -53,4 +56,19 @@
 .myload-tab-card {
   height: 123px;
   width: 123px;
+  box-shadow: 0px 2px 6px #0000000F;
+  border: 0.25px solid #B5B5B5;
+  color:#FFFFFF;
+  margin: 0;
+  margin-bottom: 24px;
+}
+.myload-content{
+  --padding-start: 14.13vw;
+  --padding-end: 14.13vw;
+  --padding-top:40px;
+  ion-row{
+    ion-col:first-child{
+      margin-right: 23px;
+    }
+  }
 }

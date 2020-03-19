@@ -8,34 +8,39 @@ class Dropdown extends Component<any, any>{
         this.state = {
             selectedOption: this.props.options[0],
             clickedOption: this.props.options[0],
-            asc: false,
+            asc: true,
             isDropdown: false,
             loadData: this.props.loadData,
-            upArrow: "assets/icon/up_arrow.svg",
-            downArrow: "assets/icon/down_arrow.svg"
+            upArrowActivate: "assets/icon/sortarrow_up_active.svg",
+            downArrowActivate: "assets/icon/sortarrow_down_active.svg",
+            upArrowDeactive: "assets/icon/sortarrow_up_deactive.svg",
+            downArrowDeactive: "assets/icon/sortarrow_down_deactive.svg",
+            slectedValue: this.props.options[0].value   
         }
     }
     hideDropdownMenu = (option: any) => {
         this.setState({ clickedOption: option });
+        if(this.state.slectedValue !== option.value){
+            this.setState({asc: true});
+        }
     }
     onConfrim=(value: any)=>{
-         this.setState({selectedOption:this.state.clickedOption, upArrow:this.state.downArrow, downArrow: this.state.upArrow});
+         this.setState({selectedOption:this.state.clickedOption, downArrowDeactive: this.state.downArrowActivate, downArrowActivate: this.state.downArrowDeactive, upArrowActivate: this.state.upArrowDeactive, upArrowDeactive: this.state.upArrowActivate, slectedValue: value});
         this.sortBy(value);
+
     }
     dropdownClick = () => {
         this.setState({ isDropdown: true })
     }
     sortBy = (x: any) => {
-      
         const {asc,loadData}= this.state;
         this.setState({ asc: !asc })
         if (asc) {
+            console.log("asc");
             let sortedList = [...loadData].sort((a: any, b: any) => (a[x] > b[x] ? 1 : -1));
            this.setState({ isDropdown:false})
             this.props.sortedData(sortedList);
-        }
-
-        else {
+        } else {
             let sortedList = [...loadData].sort((a: any, b: any) => (a[x] > b[x] ? -1 : 1));
             this.setState({isDropdown: false })
             this.props.sortedData(sortedList);
@@ -46,37 +51,33 @@ class Dropdown extends Component<any, any>{
         return (
             <>
                 <div className="search_sortby_select">
-                    <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name.length <= 10 ? this.state.selectedOption.name : this.state.selectedOption.name.slice(0,7)+"..." }<i className="down"></i></IonButton>
+                    <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name.length <= 10 ? this.state.selectedOption.name : this.state.selectedOption.name.slice(0, 7) + "..."}<i className="down"></i></IonButton>
                 </div>
                 <div className="search_sortby_select desktop-sort">
                     <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name}<i className="down"></i></IonButton>
                 </div>
-                <div className="sortArrows" onClick={()=>{
+                <div className="sortArrows" onClick={() => {
 
-                     this.onConfrim(this.state.clickedOption.value)
+                    this.onConfrim(this.state.clickedOption.value)
                 }
                }>
-                  {/* <div className="line"></div>
-                  <i className="downArrow"></i>
-                  <div className="line1"></div>
-                  <i className="upArrow"></i> */}
-                  <IonIcon src={this.state.downArrow}></IonIcon>
-                  <IonIcon src={this.state.upArrow}></IonIcon>
+                  <IonIcon src={this.state.downArrowDeactive}></IonIcon>
+                  <IonIcon src={this.state.upArrowActivate}></IonIcon>
                 </div>
                 <IonModal isOpen={this.state.isDropdown} cssClass="dropdown-modal">
                     <div className="search_options">
                         <IonRow><IonCol> <b>Sort By</b> </IonCol></IonRow>
-                        { sortByOptions.map((option: any, k: any) => (
+                        {sortByOptions.map((option: any, k: any) => (
 
-                            <IonRow  key={k} onClick={()=>this.hideDropdownMenu(option)}>
+                            <IonRow key={k} onClick={() => this.hideDropdownMenu(option)}>
                                 <IonCol class={option.name === this.state.clickedOption.name ? 'checked' : ''}>{option.name} <i className="check"></i> </IonCol></IonRow>
                         ))}
                         <IonRow>
                             <IonCol size="6">
-                                <span onClick={() => (this.setState({isDropdown:false,clickedOption: this.state.selectedOption}))}>Cancel</span>
+                                <span onClick={() => (this.setState({ isDropdown: false, clickedOption: this.state.selectedOption }))}>Cancel</span>
                             </IonCol>
                             <IonCol size="6">
-                                <span onClick={()=>this.onConfrim(this.state.clickedOption.value)}><b>OK</b></span>
+                                <span onClick={() => this.onConfrim(this.state.clickedOption.value)}><b>OK</b></span>
                             </IonCol>
                         </IonRow>
                     </div>
@@ -86,4 +87,4 @@ class Dropdown extends Component<any, any>{
     }
 }
 
- export default Dropdown;
+export default Dropdown;

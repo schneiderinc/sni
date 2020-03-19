@@ -4,6 +4,7 @@ import { Loads } from 'app/components/app/home/Loads';
 import { LoadTile } from 'app/components/app/home/Load-Tile';
 import Dropdown from 'app/components/core/Dropdown/dropdown';
 import AppHeader from 'app/components/app/Bars/Bar-header';
+import { sortByOptions } from 'app/utils/mock_Data';
 import './SearchResults.page.scss';
 
 class SearchResultPage extends PureComponent<any, any> {
@@ -12,20 +13,25 @@ class SearchResultPage extends PureComponent<any, any> {
 
         this.state = {
             tab: true,
-            loadData: this.props.results,
+            loadData: [],
             editSearch: true,
             searchVariables: ["1 Stop-off", "Dry Van", "Pick Up Date : Nov 16", "Drop off Date : Nov 16"]
         };
     }
-    componentDidMount() {
+
+    componentDidUpdate() {
         this.setState({ loadData: this.props.results });
     }
+
     sortedData = (data: any) => {
-        this.setState({ loadData: data });
+        console.log(data, "dataaa")
+        this.setState({ loadData: data })
+        //  this.setState(() => {
+        //     return {loadData:data};
+
+        //     }) 
     }
     render() {
-
-        const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
         return (
             <IonPage className="desktop-page search-result-page">
                 <AppHeader title="Search Results" editData={() => this.props.history.push("/app/search", { data: this.props.params })} />
@@ -42,7 +48,7 @@ class SearchResultPage extends PureComponent<any, any> {
                     <div className="short-div">
                         <IonRow class="short-row">
                             <IonCol size="5" class="rec_text">
-                                <span className="recommendations_num">10 </span> Matches
+                                <span className="recommendations_num">{this.props.results.length} </span> Matches
                             </IonCol>
                             <IonCol size="7" class="sort_select">
                                 <div className="select_div">
@@ -74,7 +80,7 @@ class SearchResultPage extends PureComponent<any, any> {
                             </div>
                         </IonCol>
                     </IonRow>
-                    <Loads loads={this.props.results} >{
+                    <Loads loads={this.state.loadData} >{
                         ({ loads }: { loads?: any }) => {
                             return <IonList>
                                 {loads.map((load: any, index: number) => <LoadTile key={index} {...load} module="search" />)}

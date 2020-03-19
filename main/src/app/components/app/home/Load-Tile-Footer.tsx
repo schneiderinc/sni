@@ -15,7 +15,7 @@ class LoadTileFooter extends React.Component<any, any> {
       <IonRow className="loadCardFooter">
         <IonCol size="9" >
         
-          <IonBadge class="card_filter_badge">{this.props.stops} stop-offs </IonBadge>
+        {this.props.stops > 0 ? <IonBadge class="card_filter_badge">{this.props.stops} stop-offs </IonBadge>:null} 
           <IonBadge class="card_filter_badge">{this.props.trailer} </IonBadge>
           <IonBadge class="card_filter_badge">{this.props.total_distance} miles</IonBadge>
         </IonCol>

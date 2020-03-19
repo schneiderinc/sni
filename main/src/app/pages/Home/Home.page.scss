@@ -171,7 +171,7 @@ ion-header {
   padding-left: 0px;
   padding-right: 0px;
   ion-grid:first-child{
-    padding: 12px 10px 5px 5px;
+    padding: 5px 10px 5px 5px;
   }
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
     background-color: #ffffff;
@@ -203,7 +203,12 @@ ion-header {
   color: #666;
   font-family: $font-roboto-regular;
 }
-
+.card-load{
+  padding-bottom: 10px;
+  font-size: 12px;
+  color: #666;
+  font-family: $font-roboto-regular;
+}
 .card-icon {
   font-size: 30px;
   margin-top: 13px;
@@ -448,7 +453,7 @@ a {
   float: right;
 }
 .sortArrows {
-  border: 1px solid #999999;
+  border: 0.5px solid #999999;
   border-radius: 9px;
   width: 40px;
   height: 20px;

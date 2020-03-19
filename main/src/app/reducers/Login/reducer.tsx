@@ -13,7 +13,9 @@ const initalState: GlobalState = {
   permissionAlertTitle: "",
   alertError: false,//  not using this.
   networkStatus: {},
-  deviceInfo: {}
+  deviceInfo: {},
+  Hidden:true,
+  loginToken: ""
 };
 
 const appReducer = (state = initalState, action: any) =>
@@ -45,6 +47,10 @@ const appReducer = (state = initalState, action: any) =>
       case constants.LOGIN_ERROR:
         draft.error = true;
         break;
+        case constants.HIDE_TAB_BAR:
+          draft.Hidden = false;
+          console.log(  draft.Hidden, "draft.Hidden")
+          break;
       case constants.LOGOUT:
         draft.currentUser = false;
         break;
@@ -56,6 +62,9 @@ const appReducer = (state = initalState, action: any) =>
         console.log("DVC DATA", action.data);
         draft.deviceInfo = action.data
         break;
+        case constants.TOKEN_DATA:
+          draft.loginToken = action.data.access_token;
+          break;
     }
   });
 

@@ -11,8 +11,6 @@ import {
   IonRow,
   IonCol,
   IonFooter
-
-
 } from "@ionic/react";
 import Home from "app/pages/Home/Home.page";
 import { SearchContainer } from "app/containers/SearchContainer";
@@ -31,9 +29,11 @@ import { ManageLaneContainer } from "app/containers/ManageContainer/ManageLaneCo
 import { CarrierAssignedContainer } from "app/containers/ExecuteContainer/CarrierAssignedContainer";
 import { AddDriverContainer } from "app/containers/ExecuteContainer/AddDriverContainer";
 import { AssignDriverContainer } from "app/containers/ExecuteContainer/AssignDriverContainer";
-interface MainTabsProps { }
 
-const RootLevelTabs: React.FC<MainTabsProps> = () => {
+interface MainTabsProps { isBarBottom: boolean }
+
+const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
+  console.log(isBarBottom, 'isBarBottom')
   return (
 
     <IonRouterOutlet class="desktop-page-container">
@@ -56,16 +56,10 @@ const RootLevelTabs: React.FC<MainTabsProps> = () => {
                   <Route path="/app/manage/ManageTruck" component={ManageTruckContainer} />
                   <Route path="/app/manage/ManageUser" component={ManageUserContainer} />
                   <Route path="/app/manage/ManageLane" component={ManageLaneContainer} />
-                  <Route
-                    path="/app/execute"
-                    component={ExecuteContainer}
-                    exact={true} />
+                  <Route path="/app/execute" component={ExecuteContainer} sexact={true} />
                   <Route path="/app/MyLoad/CarrierAssigned" render={(props: any) => <CarrierAssignedContainer {...props} />} exact={true} />
                   <Route path="/app/MyLoad/addDriver" render={(props: any) => <AddDriverContainer {...props} />} exact={true} />
                   <Route path="/app/MyLoad/driverAssign" render={(props: any) => <AssignDriverContainer {...props} />} exact={true} />
-
-
-
                   <Route
                     path="/app/MyLoad"
                     render={(props: any) => <ExecuteContainer {...props} />} exact={true}
@@ -76,18 +70,15 @@ const RootLevelTabs: React.FC<MainTabsProps> = () => {
                     exact={true}
                   />
                   <Route
-                    path="/app/more"
-                    component={MenuContainer}
-                    exact={true}
-                  />
+                    path="/app/more" render={(props: any) => <MenuContainer {...props} />} exact={true} />
 
                   <Route path="/app" render={() => <Redirect to="/app/home" />} />
 
                 </IonRouterOutlet>
-                <IonTabBar slot="bottom">
+                {isBarBottom? <IonTabBar slot="bottom">
                   <IonTabButton tab="home" href="/app/home" >
                     <IonIcon src="assets/icon/nav_home.svg"></IonIcon>
-                    <IonLabel class="tab_footer_label">Home</IonLabel>
+        <IonLabel class="tab_footer_label">Home {isBarBottom}</IonLabel>
 
                   </IonTabButton>
                   <IonTabButton tab="search" href="/app/search">
@@ -108,7 +99,7 @@ const RootLevelTabs: React.FC<MainTabsProps> = () => {
                     <IonLabel class="tab_footer_label_more">More</IonLabel>
                   </IonTabButton>
 
-                </IonTabBar>
+                </IonTabBar> : null}
               </IonTabs>
               <div className="tab-bar-profile">
                 <IonRow>

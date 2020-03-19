@@ -122,7 +122,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
               </IonCol>
             </IonRow>}
         </div>}
-        <IonFab vertical="bottom" horizontal="end" slot="fixed">
+        {/* <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton onClick={() => setShowGpsModal(true)}>
             <IonIcon icon={add} />
           </IonFabButton>
@@ -141,7 +141,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
             )}
           </IonList>
           <IonButton onClick={() => setShowGpsModal(false)}>Close Modal</IonButton>
-        </IonModal> : null}
+        </IonModal> : null} */}
         <SegmentContent type={segment.name} isloaded={loading} recommendedloads={RecommendedloadData} watchedLoad={WatchedLoad} load={segment.data} setView={(load: any) => { setSegment({ name: "View", data: load }) }} />
       </IonContent>
     </IonPage>

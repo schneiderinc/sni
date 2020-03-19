@@ -46,7 +46,7 @@ const AllComponents: React.FC = () => {
                         <h6 className="ion-text-center">Toggle</h6>
                         <IonList>
                             <IonToggle value="pepperoni" onChange={() => { }} />
-                            <IonLabel>Remember me</IonLabel>
+                            <IonLabel>Remember Me</IonLabel>
                         </IonList>
                     </div>
                     {/* BADGES */}

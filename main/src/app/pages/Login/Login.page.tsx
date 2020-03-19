@@ -102,10 +102,10 @@ class LoginPage extends Component<propTypes> {
                                 <IonCol>
                                     <IonRow>
                                         <IonCol size="3">
-                                            <IonToggle checked={this.state.rememberme} mode="ios" name="rememberme" onIonChange={this.onRememberMe}>
+                                            <IonToggle checked={this.state.rememberme} class={ !this.state.username || this.state.password.length < 3 ? 'ion-toggle' : 'ion-toggle-checked'}  disabled={!this.state.username || !this.state.password} mode="ios" name="rememberme" onIonChange={this.onRememberMe}>
                                             </IonToggle>
                                         </IonCol>
-                                        <IonCol size="9"><span className="login_remember_text"> Remember me</span></IonCol>
+                                        <IonCol size="9"><span className="login_remember_text"> Remember Me</span></IonCol>
                                     </IonRow>
                                 </IonCol>
                                 <IonCol> <span>Forgot Password?</span></IonCol>
