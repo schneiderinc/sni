@@ -39,6 +39,7 @@
   text-align: right;
   background: var(--ion-item-background, transparent);
 }
+
 .certification-header {
   font-size: 14px;
   color: var(--ion-color-primary);
@@ -87,7 +88,10 @@
   padding-bottom: 8px;
 }
 .Approved {
-  margin-top: 8px !important;
+  margin-top: 7px !important;
+}
+.date_approved{
+  margin-top: 8px !important ;
 }
 .accordianCardContent{
   padding: 0;

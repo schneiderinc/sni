@@ -43,7 +43,7 @@ class FAQMenuPage extends Component<any,any> {
                                 </IonRow>
                             </IonCol>
                         </IonRow>
-                        <IonRow class="list_row">
+                        <IonRow class="list_row menuList_row">
                             <IonCol>
                                 <IonRow>
                                     <IonCol class="list_row_heading">
@@ -60,7 +60,7 @@ class FAQMenuPage extends Component<any,any> {
                         <IonRow>
                             <IonCol>
                                 <IonRow>
-                                    <IonCol class="list_row_heading">
+                                    <IonCol class="menuList_row list_row_heading">
                                         How to search loads
                                     </IonCol>
                                 </IonRow>

@@ -4,7 +4,7 @@ import { IonItem, IonLabel, IonInput, IonImg } from '@ionic/react';
 import 'app/pages/Search/New/NewPage.scss';
 interface NewInputProps {
     Error: any,
-    labelClassName: any,
+    labelClassName: any, 
     labelValue: any,
     InputValue: any,
     handleCityEvent: any,
@@ -18,8 +18,9 @@ export const NewInput: React.FC<NewInputProps> = ({ Error, labelClassName, label
         <>
             <IonItem mode="ios" className={`ion-item origin-ion-item ${Error ? "ion-error-field-validation" : "ion-field-validation"}`}>
                 <IonLabel mode="ios" position="floating" className={labelClassName}>{labelValue}</IonLabel>
-                <IonInput type="text" className="cts-form-control" name={InputName} value={InputValue} onIonChange={(event) => handleCityEvent(event)} />
-                <IonImg slot="end" alt="logo" src="/assets/icon/search_icon.svg" className="input_icon" />
+                <IonInput type="text" className="cts-form-control" name={InputName} value={InputValue} onIonChange={(event) => handleCityEvent(event)}>
+                    <IonImg slot="end" alt="logo" src="/assets/icon/search_icon.svg" className="origin-input_icon" />
+                </IonInput>
             </IonItem>
             <p className={`pickupdate-error  ${Error ? "pick-error" : "pick-without-error"}`} >{Error}</p>
 

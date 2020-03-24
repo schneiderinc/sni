@@ -58,33 +58,33 @@ class AddDriver extends Component<any, any> {
                             <IonList class="driver-form">
 
                                 <IonItem mode="ios" className="add-driver-ionitem " >
-                                    <IonLabel mode="ios" position="floating" >FirstName</IonLabel>
+                                    <IonLabel mode="ios" position="floating" className="add-driver_Label" >FirstName</IonLabel>
                                     <IonInput type="text" className="driver-form-control" name="firstName" value={this.state.firstName}
                                         pattern="[A-Za-z]" onIonChange={(e) => this.driverHandler(e)} placeholder="Type Your First Name" />
                                 </IonItem>
                                 <IonItem mode="ios" className="add-driver-ionitem " >
-                                    <IonLabel mode="ios" position="floating" >LastName</IonLabel>
+                                    <IonLabel mode="ios" position="floating" className="add-driver_Label">LastName</IonLabel>
                                     <IonInput type="text" className="driver-form-control" name="lastName" value={this.state.lastName} onIonChange={(e) => this.driverHandler(e)} placeholder="Type Your Last Name" />
                                 </IonItem>
                                 <IonItem mode="ios" className="add-driver-ionitem " >
-                                    <IonLabel mode="ios" position="floating" >Primary Email Address</IonLabel>
+                                    <IonLabel mode="ios" position="floating" className="add-driver_Label">Primary Email Address</IonLabel>
                                     <IonInput type="email" className="driver-form-control" name="primaryEmailAddress" value={this.state.primaryEmailAddress} onIonBlur={(e) => this.driverHandler(e)} placeholder="Type Your Primary Email Address" />
                                 </IonItem>
                                 <p className={`feild-level-error ${this.state.showError ? 'show-error' :null}`}>Please Enter an Valid Email</p>
                                 <IonItem mode="ios" className="add-driver-ionitem " >
-                                    <IonLabel mode="ios" position="floating" >Mobile Number</IonLabel>
+                                    <IonLabel mode="ios" position="floating" className="add-driver_Label">Mobile Number</IonLabel>
                                     <IonInput type="number" className="driver-form-control" name="mobileNumber" value={this.state.mobileNumber} onIonChange={(e) => this.driverHandler(e)} placeholder="Type Your Mobile Number" />
                                 </IonItem>
                                 <IonItem mode="ios" className="add-driver-ionitem " >
-                                    <IonLabel mode="ios" position="floating" >Park Location Address (Optional)</IonLabel>
+                                    <IonLabel mode="ios" position="floating" className="add-driver_Label" >Park Location Address (Optional)</IonLabel>
                                     <IonInput type="text" className="driver-form-control" name="parkLocationAddress" value={this.state.parkLocationAddress} onIonChange={(e) => this.driverHandler(e)} placeholder="Type Your Park Location Address" />
                                 </IonItem>
                                 <IonItem mode="ios" className="add-driver-ionitem " >
-                                    <IonLabel mode="ios" position="floating" >Tractor No (Optional)</IonLabel>
+                                    <IonLabel mode="ios" position="floating" className="add-driver_Label" >Tractor No (Optional)</IonLabel>
                                     <IonInput type="number" className="driver-form-control" name="trackNo" value={this.state.trackNo} onIonChange={(e) => this.driverHandler(e)} placeholder="Type Your Tractor No" />
                                 </IonItem>
                                 <IonItem mode="ios" className="add-driver-ionitem " lines='none'>
-                                    <IonLabel mode="ios" position="floating" >Carrier ID</IonLabel>
+                                    <IonLabel mode="ios" position="floating" className="add-driver_Label" >Carrier ID</IonLabel>
                                     <IonInput type="number" className="driver-form-control" name="carrierID" value="123569" readonly />
                                 </IonItem>
 

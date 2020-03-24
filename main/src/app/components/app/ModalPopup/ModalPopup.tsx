@@ -8,7 +8,7 @@ export const ModalPopUp: React.FC<any> = (props) => {
     const YesModal = () => {
         props.getShowToasterValue();
         props.history.push('/app/MyLoad/CarrierAssigned');
-    }
+}
 
     return (
         <IonModal isOpen={props.showModal}>

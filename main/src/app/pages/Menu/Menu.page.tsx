@@ -43,7 +43,7 @@ class MenuPage extends Component<any, any> {
 			<IonPage className="desktop-page menu_page">
 				<AppHeader title="Menu" />
 				<IonContent class="menu_page_content">
-				
+						<LogOutContainer {...this.props}/>
 						{
 							menuHeadingList.map((headings: any, index: any) => (
 								<ListItem key={index} headings={headings} />
@@ -51,11 +51,6 @@ class MenuPage extends Component<any, any> {
 							))
 
 						}
-						<LogOutContainer {...this.props}/>
-					
-
-
-
 				</IonContent>
 			</IonPage>
 		);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonLabel, IonItem, IonDatetime, IonImg } from '@ionic/react';
+import { IonLabel, IonItem, IonDatetime, IonImg, IonGrid, IonRow, IonCol } from '@ionic/react';
 
 import 'app/pages/Search/New/NewPage.scss';
 interface DatePickerProps{
@@ -15,10 +15,16 @@ return (
         <>
             <IonItem mode="ios" className={`ion-item  ${Error ? "ion-error-field-validation" : "ion-field-validation"}`}>
                 <IonLabel mode="ios" position="floating" className="new_page_label">{labelName}</IonLabel>
-                <IonDatetime displayFormat="MMM DD,YYYY" name={name} value={InputValue}
-                    onIonChange={handleChange} mode="ios" placeholder={placeholder}></IonDatetime>
-                <IonImg slot="end" alt="logo" src="/assets/icon/calender.svg" item-right className="input_icon" />
-
+                <IonGrid class="date-feild">
+                    <IonRow>
+                        <IonCol size="10">
+                            <IonDatetime displayFormat="MMM DD,YYYY" name={name} value={InputValue} onIonChange={handleChange} mode="ios" placeholder={placeholder}></IonDatetime>
+                        </IonCol>
+                        <IonCol size="2">
+                            <IonImg alt="logo" src="/assets/icon/calender.svg" item-right className="input_icon" />
+                        </IonCol>
+                    </IonRow> 
+                </IonGrid>
             </IonItem>
             <p className={`pickupdate-error  ${Error ? "pick-error" : "pick-without-error"}`} >{Error}</p>
         </>

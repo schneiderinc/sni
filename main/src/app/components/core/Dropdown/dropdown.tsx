@@ -66,13 +66,13 @@ class Dropdown extends Component<any, any>{
                 </div>
                 <IonModal isOpen={this.state.isDropdown} cssClass="dropdown-modal">
                     <div className="search_options">
-                        <IonRow><IonCol> <b>Sort By</b> </IonCol></IonRow>
+                        <IonRow class="dropdown-heading"><IonCol> <b>Sort By</b> </IonCol></IonRow>
                         {sortByOptions.map((option: any, k: any) => (
 
                             <IonRow key={k} onClick={() => this.hideDropdownMenu(option)}>
                                 <IonCol class={option.name === this.state.clickedOption.name ? 'checked' : ''}>{option.name} <i className="check"></i> </IonCol></IonRow>
                         ))}
-                        <IonRow>
+                        <IonRow class="dropdown-handler">
                             <IonCol size="6">
                                 <span onClick={() => (this.setState({ isDropdown: false, clickedOption: this.state.selectedOption }))}>Cancel</span>
                             </IonCol>

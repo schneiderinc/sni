@@ -127,12 +127,12 @@ body {
 .search_label {
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
     margin-top: -19px;
-    margin-left: 32px;
+    margin-left: 32px !important;
   }
 }
 .execute_label {
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-    margin-left: 40px;
+    margin-left: 40px !important;
   }
 }
 .tab_footer_label_manage {
@@ -143,7 +143,7 @@ body {
     font-size: 14px;
     text-transform: uppercase;
     margin-top: -26px;
-    margin-left: 35px;
+    margin-left: 35px !important;
   }
 }
 .tab_footer_label_more {
@@ -290,15 +290,6 @@ ion-select {
     }
   }
 }
-.rdt_TableHeadRow {
-  background: #ededed !important;
-  font-family: $font-roboto-medium;
-  font-size: 14px;
-  color: #000000;
-}
-.rdt_TableRow {
-  border: 0.5px solid #dedede !important;
-}
 
 // PDF Viewer
 .mobile__pdf__container footer {
@@ -330,4 +321,50 @@ ion-select {
       margin-top: 20px;
     }
   }
+}
+
+/* styels for data tabel */
+.rdt_TableHeadRow {
+  background: #ededed !important;
+  color: #000000;
+}
+.rdt_TableCol_Sortable
+{
+  font-size: 14px;
+  font-family: $font-roboto-medium;
+}
+.rdt_TableCell
+{
+  font-size: 14px;
+  font-family: $font-roboto-regular;
+}
+.rdt_TableRow {
+  border: 0.5px solid #dedede !important;
+}
+.rdt_TableHeader{
+  font-size: 22px !important;
+  color: #F57423 !important;
+  font-family: $font-roboto-regular !important;
+  padding: 0px !important;
+}
+.datatable-badge{
+  width: 22px;
+  height: 22px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 0.5px solid #D5D5D5;
+  border-radius: 50%;
+  padding-left: 0px;
+  i{
+    border: 1px solid #FF6418;
+    border-width: 1px 1px 0 0;
+    display: inline-block;
+    padding: 3px;
+    margin-top: -4px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+.sc-fzpans {
+  display: none;
 }

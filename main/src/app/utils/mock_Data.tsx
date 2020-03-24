@@ -16,7 +16,7 @@ export const LOAD_DATA = [
         "total_distance": "1185",
         "total_stops": "1",
         "trailer": "Dry van",
-        "price": "2300"
+        "price": 0
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -35,7 +35,7 @@ export const LOAD_DATA = [
         "total_distance": "1338",
         "total_stops": "2",
         "trailer": "Dry van",
-        "price": "TBD"
+        "price": 1000
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -54,7 +54,7 @@ export const LOAD_DATA = [
         "total_distance": "346",
         "total_stops": "0",
         "trailer": "Dry van",
-        "price": "690"
+        "price": 690
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -73,7 +73,7 @@ export const LOAD_DATA = [
         "total_distance": "631",
         "total_stops": "1",
         "trailer": "Dry van",
-        "price": "1240"
+        "price": 1240
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -92,7 +92,7 @@ export const LOAD_DATA = [
         "total_distance": "1334",
         "total_stops": "3",
         "trailer": "Reefer",
-        "price": "TBD"
+        "price": 500
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -111,7 +111,7 @@ export const LOAD_DATA = [
         "total_distance": "2410",
         "total_stops": "2",
         "trailer": "Dry van",
-        "price": "TBD"
+        "price": 200
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -130,7 +130,7 @@ export const LOAD_DATA = [
         "total_distance": "1571",
         "total_stops": "5",
         "trailer": "Dry van",
-        "price": "TBD"
+        "price": 300
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -149,7 +149,7 @@ export const LOAD_DATA = [
         "total_distance": "2514",
         "total_stops": "0",
         "trailer": "Reefer",
-        "price": "TBD"
+        "price": 500
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -168,7 +168,7 @@ export const LOAD_DATA = [
         "total_distance": "387",
         "total_stops": "0",
         "trailer": "Dry van",
-        "price": "TBD"
+        "price": 600
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -187,7 +187,7 @@ export const LOAD_DATA = [
         "total_distance": "93",
         "total_stops": "0",
         "trailer": "Reefer",
-        "price": "TBD"
+        "price": 450
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -206,7 +206,7 @@ export const LOAD_DATA = [
         "total_distance": "136",
         "total_stops": "0",
         "trailer": "Dry van",
-        "price": "TBD"
+        "price": 120
     },
     {
         "schneider_loads_id": "SNI_0000001",
@@ -225,7 +225,7 @@ export const LOAD_DATA = [
         "total_distance": "704",
         "total_stops": "1",
         "trailer": "Dry van",
-        "price": "TBD"
+        "price": 340
     }
 
 ];

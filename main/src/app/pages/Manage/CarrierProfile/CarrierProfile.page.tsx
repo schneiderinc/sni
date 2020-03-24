@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonLabel, IonCard, IonList, IonItem, IonInput, IonRow, IonCol, IonCardHeader, IonCardContent, IonIcon } from '@ionic/react';
+import { IonContent, IonPage, IonLabel, IonCard, IonList, IonItem, IonInput, IonRow, IonCol, IonCardHeader, IonCardContent, IonIcon, IonImg } from '@ionic/react';
 import AppHeader from 'app/components/app/Bars/Bar-header';
 import './carrierProfile.scss';
 import { CarrierInsuranceCard } from 'app/components/app/carrierInsuranceCard/carrierInsuranceCard';
@@ -55,9 +55,9 @@ class CarrierProfilePage extends Component<any, any> {
                     <div className="certification-header">CERTIFICATION</div>
                     <IonCard mode="md" className="certificate-card">
                         <IonRow>
-                            <IonCol size='2'><img alt="logo" src="assets/images/Certificate.png" className="certificate-png" /></IonCol>
+                            <IonCol size='2'><IonImg alt="logo" src="/assets/icon/Certificate.svg" className="certificate-png" /></IonCol>
                             <IonCol size='6'><IonList className="Hazmat Approved">HAZMAT</IonList></IonCol>
-                            <IonCol size='4'><IonList className="HazmatDate Approved ">06/30/2021</IonList></IonCol>
+                            <IonCol size='4'><IonList className="HazmatDate date_approved">06/30/2021</IonList></IonCol>
                         </IonRow>
                     </IonCard>
                     <div className="certification-header">QUALIFICATION STATUS</div>

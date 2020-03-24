@@ -8,7 +8,7 @@ import cross from "app/utils/crossIcon-js/cross";
 interface HeaderProps extends RouteComponentProps { title: any, getSegment?: any, segments?: any, activeSegment?: any, backUrl?: any, editData?: any, isMap?: any, isSearch?: any, tab?: any, isMyLoad?:any }
 const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeSegment, backUrl, isMap, editData, isSearch, tab, isMyLoad }) => {
 
-  return (<IonHeader class={ title === "Search Results" || title === "MyLoad" ? `page-header-searchResults` : `page-header`}>
+  return (<IonHeader class={ title === "Search Results" || title === "MyLoad" || title === "Carrier Profile" ? `page-header-searchResults` : `page-header`}>
 
     <IonRow class="header-desc">
      { title === "Select A Driver" ? <IonCol size="2">{backUrl && <IonBackButton class="cross_backbutton" icon={cross} text="" defaultHref={backUrl}  ></IonBackButton>}</IonCol>

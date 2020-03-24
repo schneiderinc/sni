@@ -1,0 +1,23 @@
+@import '../../../theme/variables.scss';
+@import '../../../theme/responsive-styles.scss';
+.menu_list_card {
+    margin: 0.74vh 0 1.85vh 0;
+    box-shadow: 0 3px 6px #3a4c8212;
+    border: 0.5px solid #dedede;
+    height:41px;
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      ion-list{
+        padding-left: 1.27vw;
+        padding-right: 0;
+      }
+    }
+  }
+  .Logout_item{
+      margin-top:-3px;
+      color:#FF6418;
+  }
+//   .logout_btn{
+//     margin: 0.74vh 0 1.85vh 0;
+//     box-shadow: 0 3px 6px #3a4c8212;
+//     border: 0.5px solid #dedede;
+// }
