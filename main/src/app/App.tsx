@@ -112,3 +112,4 @@ export default compose(
   withReducer,
   withConnect
 )(App);
+export { App };
