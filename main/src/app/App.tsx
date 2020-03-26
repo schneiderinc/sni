@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { IonLoading } from '@ionic/react';
 import { createStructuredSelector } from "reselect";
 import { getLoading } from "./selectors/selector";
+import { App } from '../App';
 
 import useInjectSaga from "app/utils/injectSaga";
 import useInjectReducer from "app/utils/injectReducer";
