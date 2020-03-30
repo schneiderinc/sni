@@ -33,19 +33,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':capacitor-cordova-android-plugins')
-    implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.google.firebase:firebase-messaging:17.3.4'
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
-}
-
-repositories {
-    maven {
-        url "https://dl.bintray.com/microsoftazuremobile/SDK"
-    }
 }
 
 apply from: 'capacitor.build.gradle'
-apply plugin: 'com.google.gms.google-services'
 
 try {
     def servicesJSON = file('google-services.json')
