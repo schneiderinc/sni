@@ -12,39 +12,48 @@ export const usePushNotification = () => {
     const [registrationStatus, setRegistration] = useState<any>({})
     const [registrationError, setRegistrationError] = useState<any>({})
 
-    PushNotifications.register()
-    //setRegistration(isRegisterd);
+    let registerPush = () => {
+        PushNotifications.register()
+        addPushListeners();
+        //setRegistration(isRegisterd);
+    }
 
-    // On success, we should be able to receive notifications
-    PushNotifications.addListener('registration',
-        (token: PushNotificationToken) => {
-            setRegistration(token);
-            alert('Push registration success, token: ' + token.value);
-        }
-    );
 
-    // Some issue with our setup and push will not work
-    PushNotifications.addListener('registrationError',
-        (error: any) => {
-            setRegistrationError(error);
-            alert('Error on registration: ' + JSON.stringify(error));
-        }
-    );
+    let addPushListeners = () => {
+        // On success, we should be able to receive notifications
+        PushNotifications.addListener('registration',
+            (token: PushNotificationToken) => {
+                setRegistration(token);
+                alert('Push registration success, token: ' + token.value);
+            }
+        );
 
-    PushNotifications.addListener('pushNotificationReceived',
-        (notification: PushNotification) => {
-            alert('Push received: ' + JSON.stringify(notification));
-        }
-    );
+        // Some issue with our setup and push will not work
+        PushNotifications.addListener('registrationError',
+            (error: any) => {
+                setRegistrationError(error);
+                alert('Error on registration: ' + JSON.stringify(error));
+            }
+        );
 
-    // Method called when tapping on a notification
-    PushNotifications.addListener('pushNotificationActionPerformed',
-        (notification: PushNotificationActionPerformed) => {
-            alert('Push action performed: ' + JSON.stringify(notification));
-        }
-    );
+        PushNotifications.addListener('pushNotificationReceived',
+            (notification: PushNotification) => {
+                alert('Push received: ' + JSON.stringify(notification));
+            }
+        );
+
+        // Method called when tapping on a notification
+        PushNotifications.addListener('pushNotificationActionPerformed',
+            (notification: PushNotificationActionPerformed) => {
+                alert('Push action performed: ' + JSON.stringify(notification));
+            }
+        );
+    }
+
 
     return {
+        registerPush,
+        addPushListeners,
         registrationStatus,
         registrationError
     }

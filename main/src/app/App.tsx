@@ -33,13 +33,13 @@ const App: React.FC = (props: any) => {
   const { Geolocation } = Plugins;
   const { isAvailable, state: appState } = useAppState();
   const { watchCurrentPosition, currentPosition, errorMessage } = useGeolocation();
-  const { registrationError, registrationStatus } = usePushNotification()
+  const { registrationError, registrationStatus, registerPush } = usePushNotification()
   console.log(props.hiddenbarBottom, 'heloo')
   useEffect(() => {
     console.log("MOUNT");
     try {
       watchCurrentPosition();
-
+      registerPush();
     }
     catch (error) {
       console.log("ERROR:", error);
