@@ -40,8 +40,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.1",
     "reselect": "^4.0.0",
-    "styled-components": "^5.0.1",
-    "typescript": "3.6.3"
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -63,11 +62,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -86,6 +80,7 @@
     "@types/googlemaps": "^3.39.2",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
+    "typescript": "3.6.3",
     "axios": "^0.19.0",
     "axios-mock-adapter": "^1.17.0",
     "eslint": "^6.6.0",
