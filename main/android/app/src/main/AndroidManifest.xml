@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cognizantmobilityenterprise.schneider">
+    package="com.cognizantmobilityenterprise.schneider"
+	android:versionCode="$(ProjectBuildNumber)"
+    android:versionName="1.0.$(ProjectBuildNumber)">
 
     <application
         android:allowBackup="true"
@@ -30,6 +32,17 @@
             </intent-filter>
 
         </activity>
+	<service
+                android:name=".RegistrationIntentService"
+                android:exported="false">
+        </service>
+        <service
+                android:name=".FirebaseService"
+                android:exported="false">
+         <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+         </intent-filter>
+        </service>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -39,6 +52,8 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"></meta-data>
+		android:name="com.google.android.gms.version"
+		android:value="@integer/google_play_services_version"
         </provider>
     </application>
 
@@ -60,4 +75,7 @@
     <!-- Audio -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 </manifest>
