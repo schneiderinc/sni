@@ -1,22 +1,21 @@
-import { IonContent, IonLabel, IonSelect, IonSelectOption, IonRow, IonCol, IonDatetime, IonInput, IonItem, IonRange, IonToggle, IonList, IonImg, IonFooter, IonBadge, IonGrid } from '@ionic/react';
+import { IonContent, IonRow, IonCol, IonGrid, IonIcon, IonButton, IonLabel, IonCard, IonCardHeader, IonCardContent, IonFooter } from '@ionic/react';
 import React, { PureComponent } from 'react';
 import './NewPage.scss';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { searchbarList } from 'app/utils/mock_Data';
-import { Anywhere, PickUpdateError, dropUpdateError, CityError, DryVan, origin_Radius, destination_Radius, PickUpdate, Dropdate, Origin, Destination, NewHeader } from 'app/utils/constants';
-import { NewInput } from 'app/components/shared/NewUIComponents/OriginInput';
-import { RadiusRange } from 'app/components/shared/NewUIComponents/RadiusRange';
-import { DatePicker } from 'app/components/shared/NewUIComponents/DatePicker';
-import { NewFooter } from 'app/components/shared/NewUIComponents/Footer';
+import { Anywhere, PickUpdateError, dropUpdateError, CityError, DryVan, origin_Radius, destination_Radius, PickUpdate, Dropdate,Destination } from 'app/utils/constants';
 import { NewDropDown } from 'app/components/shared/NewUIComponents/DropDown';
 import SearchResultDesktop from 'app/components/shared/NewUIComponents/searchResultsDesktop';
+import PickupData from 'app/components/app/Search/pickup-fields';
+import DeliverypData from 'app/components/app/Search/destilation-fileds';
 
-interface newProps extends RouteComponentProps { history: any, data: any };
+interface newProps extends RouteComponentProps { history: any, data: any, submitForm: any };
 const currentDate = new Date().toISOString();
 class NewPage extends PureComponent<newProps, any> {
   node: any = null;
 
   state = {
+    showDelivaryfields:false,
     origin: Anywhere,
     destination: Anywhere,
     originRadius: 100,
@@ -95,9 +94,6 @@ class NewPage extends PureComponent<newProps, any> {
     } else if (event.target.name === Dropdate && event.target.value < currentDate) {
       this.setState({ dropUpdateError: dropUpdateError });
     }
-    // if (event.target.name === Dropdate && event.target.value > currentDate) {
-
-    // }
   }
 
 
@@ -107,7 +103,7 @@ class NewPage extends PureComponent<newProps, any> {
 
   dropDownChange = (event: any) => {
     this.setState(() => ({
-      [event.target.name]: event.target.value
+      [event.name]: event.value
     }));
 
   }
@@ -120,8 +116,8 @@ class NewPage extends PureComponent<newProps, any> {
 
   }
 
-  Apply = (event: any) => {
-    let platform = event.platform;
+  Apply = (event: any,platform: string) => {
+    
     const { origin, originRadius, pickUpdate, TrailerType, dropdate, Destination_Radius, favorite, destination } = this.state;
     event.preventDefault();
     const __searchParams = {
@@ -134,7 +130,7 @@ class NewPage extends PureComponent<newProps, any> {
       Destination_Radius: Destination_Radius,
       favorite: favorite
     }
-    //this.props.search_Submit(__searchParams);
+    //this.props.submitForm(__searchParams);
     this.setState({ newSearch: Object.assign(__searchParams), searchResultPage: true })
     if (this.state.destinationError === ""
       && this.state.originError === ""
@@ -149,38 +145,6 @@ class NewPage extends PureComponent<newProps, any> {
     }
 
   };
-
-  Reset = () => {
-    this.setState({
-      destinationError: "",
-      originError: "",
-      pickUpdateError: '',
-      dropUpdateError: '',
-      origin: Anywhere,
-      destination: Anywhere,
-      originRadius: 100,
-      pickUpdate: currentDate,
-      dropdate: '',
-      TrailerType: DryVan,
-      Destination_Radius: 100,
-      favorite: false
-
-
-    })
-  }
-
-  CancelForm = () => {
-    this.setState({
-      origin: this.state.newSearch.origin,
-      destination: this.state.newSearch.destination,
-      originRadius: this.state.newSearch.originRadius,
-      pickUpdate: this.state.newSearch.pickUpdate,
-      dropdate: this.state.newSearch.dropdate,
-      TrailerType: this.state.newSearch.TrailerType,
-      Destination_Radius: this.state.newSearch.Destination_Radius,
-      favorite: this.state.newSearch.favorite,
-    })
-  }
 
   handleOrigin = (event: any) => {
 
@@ -286,64 +250,63 @@ class NewPage extends PureComponent<newProps, any> {
     }
     this.destinationHandle('out', false);
   }
+  addToFavoriteClicked = ()=>{
+    this.setState({
+      favorite: !this.state.favorite
+    });
+  }
   render() {
-    const { originError, origin, showSuggestions, originSearchResults, originRadius, origin_radious_change, pickUpdateError, pickUpdate,
-      destinationError, destination, showSuggestions2, destinationSearchResults, Destination_Radius, destination_radious_change, dropUpdateError, dropdate, TrailerType, favorite } = this.state;
-
     return (
       <>
         <IonContent className="ion-padding search_form_container" class="background">
-          <div className="EnterLoad">{NewHeader}</div>
-          <form className="search-form"  >
-            <IonList className="new_page_list mobile-view">
-              <NewInput Error={originError} labelClassName="originLabel" labelValue="Origin" InputValue={origin} InputName={Origin} handleCityEvent={(event: any) => this.handleOrigin(event)}
-                showSuggestions={showSuggestions} SearchResults={originSearchResults} SelectedCity={this.SelectedOrigin}
-              />
-              <RadiusRange labelName="Origin Radius" rangeDisabled={this.state.rangeOriginDisable} InputValue={originRadius} divClassName="pickRadius" name={origin_Radius} radious_change={origin_radious_change} handleChange={this.handleChange} />
-
-              <DatePicker Error={pickUpdateError} labelName="Pickup Date" name={PickUpdate} InputValue={pickUpdate} handleChange={this.handleChange}
-                placeholder="Choose Pickup Date" />
-
-              <NewInput Error={destinationError} labelClassName="destinationLabel" labelValue="Destination" InputValue={destination} InputName={Destination} handleCityEvent={(event: any) => this.handleDestination(event)}
-                showSuggestions={showSuggestions2} SearchResults={destinationSearchResults} SelectedCity={this.SelectedDestination}
-              />
-              <RadiusRange labelName="Destination Radius" rangeDisabled={this.state.rangeDisable} InputValue={Destination_Radius} divClassName="pickRadius" name={destination_Radius} radious_change={destination_radious_change} handleChange={this.handleChange} />
-              <DatePicker Error={dropUpdateError} labelName="Delivery Date" name={Dropdate} InputValue={dropdate} handleChange={this.handleChange}
-                placeholder="Choose Delivery Date" />
-              <NewDropDown dropDownChange={this.dropDownChange} TrailerType={TrailerType} labelName="Trailer Type" />
-            </IonList>
+           <form className="search-form"  >
+            <IonGrid class="new_page_list search-mobile">
+                <IonCard class="trailer-type-card">
+                    <NewDropDown labelName="Trailer Type" TrailerType={this.state.TrailerType} dropDownChange={this.dropDownChange}/>
+                </IonCard>
+                <IonGrid class="search-form-mobile">
+                    <IonRow class="pickup-row">
+                        Pick-up
+                    </IonRow>
+                    <PickupData {...this.state} handleChange={this.handleChange} SelectedCity={this.SelectedOrigin} rangeDisabled={this.state.rangeOriginDisable} handleCityEvent={this.handleOrigin}/>
+                    <IonCard class="delivery-type-card">
+                      <IonCardHeader class={`${this.state.showDelivaryfields ? '': 'changeColor'}`} onClick={()=>{this.setState({showDelivaryfields: !this.state.showDelivaryfields})}}>
+                        <span> Delivery</span>
+                        {
+                            this.state.showDelivaryfields ?
+                                <IonIcon src="assets/icon/minus.svg"/>
+                                :
+                                <div className="desitnation-city">{this.state.destination}  <IonIcon src="assets/icon/plus.svg"/></div>
+                        }
+                      </IonCardHeader>
+                      <IonCardContent class={`${this.state.showDelivaryfields ? 'fadein' : 'fadeout'}`}>
+                        <DeliverypData {...this.state} handleChange={this.handleChange} SelectedCity={this.SelectedDestination} rangeDisabled={this.state.rangeDisable} handleCityEvent={this.handleDestination}/>
+                      </IonCardContent>
+                    </IonCard>
+                </IonGrid>
+                <IonCard class="fav-card">
+                <IonLabel>Add as Favorite</IonLabel> <IonIcon src="assets/icon/star.svg" class={this.state.favorite? "fav-star":''} onClick={this.addToFavoriteClicked}/> 
+                </IonCard>     
+            </IonGrid>
             <IonGrid class="new_page_list search-desktop">
-              <IonRow>
-                <IonCol>
-                  <NewInput Error={originError} labelClassName="originLabel" labelValue="Origin" InputValue={origin} InputName={Origin} handleCityEvent={(event: any) => this.handleOrigin(event)}
-                    showSuggestions={showSuggestions} SearchResults={originSearchResults} SelectedCity={this.SelectedOrigin} />
-                </IonCol>
-                <IonCol>
-                  <RadiusRange labelName="Origin Radius" rangeDisabled={this.state.rangeOriginDisable} InputValue={originRadius} divClassName="pickRadius" name={origin_Radius} radious_change={origin_radious_change} handleChange={this.handleChange} />
-                </IonCol>
-                <IonCol>
-                  <DatePicker Error={pickUpdateError} labelName="Pickup Date" name={PickUpdate} InputValue={pickUpdate} handleChange={this.handleChange} placeholder="Choose Pickup Date" />
-                </IonCol>
-                <IonCol><NewDropDown dropDownChange={this.dropDownChange} TrailerType={TrailerType} labelName="Trailer Type" /></IonCol>
+              <IonRow class="data-type">
+                <IonCol>Pickup</IonCol>
+                <IonCol>Delivery <NewDropDown labelName="Trailer Type" TrailerType={this.state.TrailerType} dropDownChange={this.dropDownChange}/></IonCol>
               </IonRow>
               <IonRow>
-                <IonCol>
-                  <NewInput Error={destinationError} labelClassName="destinationLabel" labelValue="Destination" InputValue={destination} InputName={Destination} handleCityEvent={(event: any) => this.handleDestination(event)}
-                    showSuggestions={showSuggestions2} SearchResults={destinationSearchResults} SelectedCity={this.SelectedDestination} />
-                </IonCol>
-                <IonCol>
-                  <RadiusRange labelName="Destination Radius" rangeDisabled={this.state.rangeDisable} InputValue={Destination_Radius} divClassName="pickRadius" name={destination_Radius} radious_change={destination_radious_change} handleChange={this.handleChange} />
-                </IonCol>
-                <IonCol>
-                  <DatePicker Error={dropUpdateError} labelName="Delivery Date" name={Dropdate} InputValue={dropdate} handleChange={this.handleChange} placeholder="Choose Delivery Date" />
-                </IonCol>
-                <IonCol></IonCol>
+                <IonCol class="pickup-data-feilds"><PickupData {...this.state} handleChange={this.handleChange} SelectedCity={this.SelectedOrigin} rangeDisabled={this.state.rangeOriginDisable} handleCityEvent={this.handleOrigin}/></IonCol>
+                <IonCol class="delivery-data-feilds"><DeliverypData {...this.state} handleChange={this.handleChange} SelectedCity={this.SelectedDestination} rangeDisabled={this.state.rangeDisable} handleCityEvent={this.handleDestination}/></IonCol>
+              </IonRow>
+              <IonRow class="footer-row">
+                  <IonCol><IonIcon src="assets/icon/star.svg" class={this.state.favorite? "fav-star":''} onClick={this.addToFavoriteClicked}/> <IonLabel>Add as Favorite</IonLabel></IonCol>
+                  <IonCol><IonButton onClick={(event) => this.Apply(event,"desktop")}>See Results</IonButton></IonCol>
               </IonRow>
             </IonGrid>
           </form>
         </IonContent>
-        <NewFooter favorite={favorite} ToggleChange={(event: any) => this.ToggleChange(event)} CancelForm={this.CancelForm} Apply={(event: any) => this.Apply(event)} Reset={this.Reset} />
-        {this.state.showResults ? <SearchResultDesktop {...this.props.history} /> : null}
+        <IonFooter class="searchPageFooter" >
+            <IonButton expand="full" onClick={(event) => this.Apply(event,"mobile")}>See Results</IonButton>
+        </IonFooter>
       </>
     );
   }

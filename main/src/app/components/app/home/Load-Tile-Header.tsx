@@ -11,7 +11,16 @@ class LoadTileHeader extends React.Component<any, any> {
     return (
 
 <>
-      <IonRow>
+<div>
+  <p className="origin_city">{this.props.origin_city}, {this.props.origin_state}</p>
+  <p className="origin_milehead load_header_elements">Live load, {this.props.origin_deadhead} mi deadhead </p>
+  <p className="origin_dateTime load_header_elements">{this.props.origin_from_date}  {this.props.origin_to_date_time}</p>
+  
+  <p className="origin_city">{this.props.destination_city}, {this.props.destination_state}</p>
+  <p className="origin_milehead load_header_elements">Live unload, {this.props.destination_deadhead} Mile Deadhead</p>
+  <p className="origin_dateTime load_header_elements">{this.props.destination_from_date}, {this.props.destination_to_date_time}</p>
+</div>
+      {/* <IonRow>
         <IonCol className="card-col loadCardArrow-modal card-col-modal">
           <div className="card-name">{this.props.origin_city}, {this.props.origin_state}</div>
         </IonCol>
@@ -31,7 +40,7 @@ class LoadTileHeader extends React.Component<any, any> {
           <div className="card-dist card-dist-modal">{this.props.destination_deadhead} Mile Deadhead</div>
           <div className="card-dist card-dist-modal">Live Load</div>
         </IonCol>
-      </IonRow>
+      </IonRow> */}
       </>
       // <IonRow>
       //   <IonCol className="card-col">

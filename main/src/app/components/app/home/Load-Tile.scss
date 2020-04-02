@@ -1,0 +1,88 @@
+@import '../../../../theme/variables.scss';
+@import '../../../../theme/responsive-styles.scss';
+.card-price-col{
+    padding-top:3px;
+    padding-left:3px;
+}
+.card_p-elements{
+    padding:0px;
+    font-size:13px !important;
+    color:#645A53;
+    //margin-bottom:0px !important;
+    margin-bottom: -2px !important;
+    font-family: $font-gtamerica-regular;
+}
+.card-price{
+    text-align: left;
+    padding:0px;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+    font-family: $font-gtamerica-bold;
+    font-size: 24px !important;
+    margin-bottom:4px !important;
+}
+.card-contact_for_price{
+    font-size:16px !important;
+    padding:0px;
+    text-align: left;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+    font-family: $font-gtamerica-bold;
+    padding-right:24px;
+    line-height:17px;
+}
+.load_header_elements{
+    padding:0px 0 0 21px;
+    font-size:13px !important;
+    color: #645A53;
+    font-family: $font-gtamerica-regular;
+}
+.card-distance{
+    font-family: $font-segoi-semi-bold;
+}
+.card-stopOffs{
+    font-family: $font-segoi-semi-bold;
+}
+.card-city-col{
+    padding-top:0px;
+}
+.origin_city{
+    color: #000000;
+    font-size:16px !important;
+    font-family: $font-gtamerica-bold;
+    padding:0px 0 0 21px;
+    margin:1px 0 3px 0 !important;
+}
+// .origin_milehead{
+// }
+.origin_dateTime{
+    margin-bottom:12px !important;
+    font-family:$font-segoi-semi-bold;
+}
+.ellipse-row{
+    width:5px;
+    height:5px;
+}
+.ellipse_icon{
+    width:5px;
+    height:5px;
+}
+.ellipse-col{
+    padding-top: 15px;
+    padding-left: 8px;
+}
+.stops_border{
+    width:0px;
+    height:68px;
+    border:1px solid #F3F1EF;
+    margin-left: 4.4px;
+    margin-top:-10px;
+}
+.path_icon{
+    width:10px;
+    height:8px;
+    margin-left: 1px;
+    margin-top:-10px;
+}

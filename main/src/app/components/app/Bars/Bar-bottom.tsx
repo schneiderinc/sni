@@ -41,7 +41,6 @@ const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
         path="/app"
         render={() => (
           <>
-            <hr className="tab-bar-heighlater"></hr>
             <div className="tab-bar-div">
               <img src="assets/icon/Logo.png" className="tab-bar-logo" />
               <IonTabs>
@@ -77,26 +76,26 @@ const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
                 </IonRouterOutlet>
                 {isBarBottom? <IonTabBar slot="bottom">
                   <IonTabButton tab="home" href="/app/home" >
-                    <IonIcon src="assets/icon/nav_home.svg"></IonIcon>
-        <IonLabel class="tab_footer_label">Home {isBarBottom}</IonLabel>
+                    <IonIcon src="assets/icon/nav_home icon.svg" class="home_icon"></IonIcon>
+                    <IonLabel class="tab_footer_label">Home {isBarBottom}</IonLabel>
 
                   </IonTabButton>
                   <IonTabButton tab="search" href="/app/search">
-                    <IonIcon src="assets/icon/nav_search.svg"></IonIcon>
+                    <IonIcon src="assets/icon/bottom_search_icon.svg" class="search_icon"></IonIcon>
                     <IonLabel class="tab_footer_label search_label">Search</IonLabel>
                   </IonTabButton>
 
                   <IonTabButton tab="execute" href="/app/MyLoad" >
-                    <IonIcon src="assets/icon/nav_execute.svg"></IonIcon>
-                    <IonLabel class="tab_footer_label execute_label">My Load</IonLabel>
+                    <IonIcon src="assets/icon/My Load.svg" class="my_load_icon"></IonIcon>
+                    <IonLabel class="tab_footer_label execute_label">My Loads</IonLabel>
                   </IonTabButton>
                   <IonTabButton tab="manage" href="/app/manage">
-                    <IonIcon src="assets/icon/nav_manage.svg" class="manage_icon"></IonIcon>
-                    <IonLabel class="tab_footer_label_manage">Profile</IonLabel>
+                    <IonIcon src="assets/icon/manag icon.svg" class="manage_icon"></IonIcon>
+                    <IonLabel class="tab_footer_label tab_footer_label_manage">Profile</IonLabel>
                   </IonTabButton>
                   <IonTabButton tab="more" href="/app/more">
-                    <IonIcon src="assets/icon/nav_more.svg" class="more_icon"></IonIcon>
-                    <IonLabel class="tab_footer_label_more">More</IonLabel>
+                    <IonIcon src="assets/icon/more icon.svg" class="more_icon"></IonIcon>
+                    <IonLabel class="tab_footer_label tab_footer_label_more">More</IonLabel>
                   </IonTabButton>
 
                 </IonTabBar> : null}

@@ -96,7 +96,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
 
 
 
-  const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup date" }, { value: "total_distance", name: "Distance" }];
+  const sortByOptions = [{ value: "origin_deadhead", name: "By origin deadhead" }, { value: "destination_deadhead", name: "By destination deadhead" }, { value: "price", name: "By price" }, { value: "origin_from_date", name: "By pickup date" }, { value: "total_distance", name: "By distance" }];
 
 
 
@@ -116,7 +116,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
               </IonCol>
               <IonCol size="7" class="sort_select">
                 <div className="select_div">
-                  <IonLabel className="sort_label">Sort:</IonLabel>
+                  {/* <IonLabel className="sort_label">Sort:</IonLabel> */}
                   <Dropdown options={sortByOptions} loadData={data} sortedData={sortedData} />
                 </div>
               </IonCol>

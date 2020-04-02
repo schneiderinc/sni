@@ -67,6 +67,7 @@ export const NewHeader="Enter criteria and click apply to see matching loads."
 export const AddFavorite ="Add as Favorite"
 export const addDriverHeader="Carry and update the status of loads"
 
+export const FETCH_SEARCH_RESULTS = "FETCH_SEARCH_RESULTS";
 
 
 

@@ -94,6 +94,10 @@ $font-roboto: 'Helvetica Neue';
 $font-roboto-regular: 'Roboto Regular';
 $font-roboto-medium: 'Roboto Medium';
 $font-roboto-bold: 'Roboto Bold';
+$font-gtamerica-regular: 'GT America Regular';
+$font-gtamerica-bold: 'GT America Bold';
+$font-segoi-semi-bold: 'Segoi Semi Bold';
+
 /*
 body {
   font: 100% $font-stack;
@@ -118,15 +122,17 @@ body {
   margin-top: 1px;
   font-family: $font-roboto-regular;
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-    margin-top: -17px;
+    //margin-top: -17px;
     margin-left: 17px;
     font-size: 14px;
     text-transform: uppercase;
+    display:block;
+    margin-top: -17px;
   }
 }
 .search_label {
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-    margin-top: -19px;
+    //margin-top: -19px;
     margin-left: 32px !important;
   }
 }
@@ -144,6 +150,7 @@ body {
     text-transform: uppercase;
     margin-top: -26px;
     margin-left: 35px !important;
+    margin-top: -17px;
   }
 }
 .tab_footer_label_more {
@@ -152,33 +159,51 @@ body {
   font-family: $font-roboto-regular;
   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
     font-size: 14px;
-    margin-top: -15px;
     text-transform: uppercase;
     margin-left: 20px;
+    margin-top: -18px;
   }
 }
-.tab-selected {
-  color: $primary !important;
-  @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
-    background: white;
-    border-radius: 27px;
-    height: 41px;
-    box-shadow: 0px 3px 6px #00000029;
-    --ripple-color: transparent;
+// .tab-selected {
+//   @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
+//     background: white;
+//     border-radius: 0x;
+//     height: 41px;
+//     box-shadow: none;
+//     --ripple-color: transparent;
+//   }
+// }
+.tab-selected{
+  .home_icon{
+    content: url('/assets/icon/nav-home-select.svg');
+  }
+  .search_icon{
+    content: url('/assets/icon/nav-search-select.svg');
+  }
+  .my_load_icon{
+    content: url('/assets/icon/nav-myloads-select.svg');
+  }
+  .manage_icon{
+    content: url('/assets/icon/manage_select.svg');
+  }
+  .more_icon{
+    content: url('/assets/icon/more_select.svg');
   }
 }
 ion-tab-bar {
-  height: 8.37vh;
-  --background: linear-gradient(180deg, #ffffff, #f3f3f3);
-  box-shadow: 0px 0px 27px #bdbaba;
+  height: 83px;
+  //--background: linear-gradient(180deg, #ffffff, #f3f3f3);
+  --background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px -2px 4px #0000000F;
+  opacity: 1;
   ion-tab-button {
     color: #000000 !important;
   }
   ion-icon {
-    height: 25px;
+    height: 18px;
     margin-bottom: 0;
-    width: 37px;
-
+    width: 21px;
+    margin-top:-35px;
     @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
       height: 18px;
       margin-left: -55px;
@@ -186,16 +211,35 @@ ion-tab-bar {
     }
   }
   .manage_icon {
-    height: 28px;
+    height: 18px;
+    width:18px;
+  }
+  .my_load_icon{
+    width:16.62px;
+    height:16.62px;
+  }
+  .search_icon{
+    height: 18.38px;
+    width: 17.72px;
+    margin-top: -36px;
   }
   .more_icon {
-    height: 20px;
+    height: 5.18px;
+    margin-top:-30px;
     @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
       height: 11px;
       width: 14px;
-      margin-top: 10px;
+      margin-top: -30px;
     }
   }
+}
+.ion-card-updated{
+  margin: 0px 1px 15px 1px !important;
+  border-radius: 0px;
+  width: 100%;
+  height: 160px; 
+  box-shadow: 0px 3px 6px #645A531A;
+  opacity: 1;
 }
 .ion-card {
   margin: 0px 1px 10px 1px !important;
@@ -207,13 +251,14 @@ ion-tab-bar {
     box-shadow: none;
   }
 }
-ion-content {
-  --background: #fcfcfc;
-}
+// ion-content {
+//   --background: #fcfcfc;
+// }
 .custom-padding {
   --padding-top: 1px !important;
   --padding-start: 10px !important;
   --padding-end: 10px !important;
+  --background:#E9E5E1;
   @media (min-width: map-get($grid-breakpoints, lg)) {
     --padding-top: 0 !important;
     --padding-start: 20px !important;
@@ -248,9 +293,9 @@ ion-back-button {
 //   background:  filter-gradient(#ff8447, #ff6e25, vertical);
 //   background: background-image(linear-gradient(to bottom, rgba(255,132,71,1) 0%, rgba(255,110,37,1) 100%));
 // }
-:host {
-  --bar-background: rgba(var(--ion-color-primary-rgb, 255, 100, 24), 1);
-}
+// :host {
+//   --bar-background: rgba(var(--ion-color-primary-rgb, 255, 100, 24), 1);
+// }
 ion-select {
   .select-icon {
     .select-icon-inner {

@@ -7,12 +7,7 @@ import useInjectSaga from "app/utils/injectSaga";
 import useInjectReducer from "app/utils/injectReducer";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import {
-  Plugins, PushNotification,
-  PushNotificationToken,
-  PushNotificationActionPerformed
-} from '@capacitor/core';
-
+import { Plugins } from '@capacitor/core';
 
 import reducer from "app/reducers/App/reducer";
 import saga from "app/saga/App/saga";
@@ -21,10 +16,9 @@ import RootLevelTabs from 'app/components/app/Bars/Bar-bottom'
 import { useAppState } from '@ionic/react-hooks/app/useApp'
 import { updateGpsCoordinates } from './actions/App/action';
 import { useGeolocation } from 'app/utils/useGeolocation';
-import { usePushNotification } from 'app/utils/usePushNotification';
 import { PermissionAlert } from 'app/components/PermissionsAlert/PermissionAlert'
 import { getShowPermissionAlert, getPermissionAlertMessage, getPermissionAlertTitle } from 'app/selectors/selector'
-import { makeDriverAssign } from 'app/selectors/selector'
+import {makeDriverAssign} from 'app/selectors/selector'
 import { closePermissionAlert, showPermissionAlert } from 'app/actions/Login/action';
 const key = "App";
 const App: React.FC = (props: any) => {
@@ -33,13 +27,12 @@ const App: React.FC = (props: any) => {
   const { Geolocation } = Plugins;
   const { isAvailable, state: appState } = useAppState();
   const { watchCurrentPosition, currentPosition, errorMessage } = useGeolocation();
-  const { registrationError, registrationStatus, registerPush } = usePushNotification()
-  console.log(props.hiddenbarBottom, 'heloo')
+
+  console.log( props.hiddenbarBottom,'heloo')
   useEffect(() => {
     console.log("MOUNT");
     try {
       watchCurrentPosition();
-      registerPush();
     }
     catch (error) {
       console.log("ERROR:", error);

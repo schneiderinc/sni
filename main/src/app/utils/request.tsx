@@ -10,10 +10,9 @@ import Service from 'app/services/common.services';
  */
 export default function request(args: any) {
   var commonService = new Service();
-  if ((args[0] !== "LOGIN") && (args[0] !== "MANAGE") && (args[0] !== "APP")) {
+  if ((args[0] !== "LOGIN") && (args[0] !== "MANAGE") && (args[0] !== "APP") && (args[1] !== "FETCH_SEARCH_LOADS")) {
     return commonService.get(args[0], args[1]);
   } else {
     return commonService.post(args[0], args[1], args[2], args[3], args[4], args[5]);
-
   }
 } 

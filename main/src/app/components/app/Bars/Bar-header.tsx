@@ -3,7 +3,7 @@ import { IonHeader, IonRow, IonCol, IonImg, IonBackButton, IonSegment, IonSegmen
 import { IonLabel } from '@ionic/react';
 import './search-header.scss';
 import { withRouter, RouteComponentProps } from 'react-router';
-import arrowright from 'app/utils/icon-js/arrowright';
+import BackIcon from 'app/utils/BackIcon-js/Back';
 import cross from "app/utils/crossIcon-js/cross";
 interface HeaderProps extends RouteComponentProps { title: any, getSegment?: any, segments?: any, activeSegment?: any, backUrl?: any, editData?: any, isMap?: any, isSearch?: any, tab?: any, isMyLoad?:any }
 const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeSegment, backUrl, isMap, editData, isSearch, tab, isMyLoad }) => {
@@ -12,11 +12,11 @@ const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeS
 
     <IonRow class="header-desc">
      { title === "Select A Driver" ? <IonCol size="2">{backUrl && <IonBackButton class="cross_backbutton" icon={cross} text="" defaultHref={backUrl}  ></IonBackButton>}</IonCol>
-      : <IonCol size="2">{backUrl && <IonBackButton icon={arrowright} text="" defaultHref={backUrl}  ></IonBackButton>}</IonCol>}
-      <IonCol size="8"><div id="header-title">{title}</div></IonCol>
-      {isMap && <IonCol size="2"><div id="header-icon"><img src="assets/icon/map.svg" alt="icon" /></div></IonCol>}
-      {editData && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/edit.svg" onClick={() => editData()} /></div></IonCol>}
-      {isSearch && <IonCol size="2"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_white.svg" /></div></IonCol>}
+      : <IonCol size="2">{backUrl && <IonBackButton icon={BackIcon} text="" defaultHref={backUrl}  ></IonBackButton>}</IonCol>}
+      <IonCol size="7"><div id={title === "Search Results"? `header-title-sm` : `header-title`}>{title}</div></IonCol>
+      {isMap && <IonCol size="3"><div id="header-icon"><img src="assets/icon/map.svg" alt="icon" /></div></IonCol>}
+      {editData && <IonCol size="3"><div id="header-icon" className="edit_icon"><IonImg alt="logo" src="assets/icon/Edit.svg" onClick={() => editData()} /></div><div className="edit_text">Edit</div></IonCol>}
+      {isSearch && <IonCol size="3"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_white.svg" /></div></IonCol>}
     </IonRow>
     <div className="desktop-header-desc">
       {backUrl && <IonGrid>

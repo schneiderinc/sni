@@ -34,7 +34,7 @@ class SearchResultPage extends PureComponent<any, any> {
     render() {
         return (
             <IonPage className="desktop-page search-result-page">
-                <AppHeader title="Search Results" editData={() => this.props.history.push("/app/search", { data: this.props.params })} />
+                <AppHeader title="Search Results"  backUrl={"/app/" + this.props.params} editData={() => this.props.history.push("/app/search", { data: this.props.params })} />
                 <IonContent class="search_results_container">
                     {this.props.params && <IonSegment scrollable className="ion-segment">
                         {
@@ -48,11 +48,11 @@ class SearchResultPage extends PureComponent<any, any> {
                     <div className="short-div">
                         <IonRow class="short-row">
                             <IonCol size="5" class="rec_text">
-                                <span className="recommendations_num">{this.props.results.length} </span> Matches
+                                <span className="recommendations_num">{this.props.results.length} Matches</span> 
                             </IonCol>
                             <IonCol size="7" class="sort_select">
                                 <div className="select_div">
-                                    <IonLabel className="sort_label">Sort:</IonLabel>
+                                    {/* <IonLabel className="sort_label">Sort:</IonLabel> */}
                                     <Dropdown options={sortByOptions} loadData={this.state.loadData} sortedData={this.sortedData} />
                                 </div>
                             </IonCol>
@@ -82,13 +82,16 @@ class SearchResultPage extends PureComponent<any, any> {
                     </IonRow>
                     <Loads loads={this.state.loadData} >{
                         ({ loads }: { loads?: any }) => {
-                            return <IonList>
+                            return <IonList className="searchResults_list">
                                 {loads.map((load: any, index: number) => <LoadTile key={index} {...load} module="search" />)}
                             </IonList>
+                           
                         }
                     }
                     </Loads>
+                    <p className="end_of_list">End of list</p>
                 </IonContent>
+                
             </IonPage>
         );
     }

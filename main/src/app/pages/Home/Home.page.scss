@@ -7,7 +7,6 @@ ion-toolbar {
     color: $white;
   }
 }
-
 ion-header {
   background-color: $wildSand;
   height: 150px;
@@ -60,8 +59,8 @@ ion-header {
   font-weight: bold;
 }
 .short-div {
-  padding: 20px 0 10px 0;
-  background-color: #fcfcfc;
+  padding: 0px 0 10px 0;
+  background-color: #E9E5E1;
   @media only screen  and (min-width :map-get($grid-breakpoints, lg)) {
     background-color: #f8f8f8;
     padding: 20px 20px 10px 20px;
@@ -69,22 +68,26 @@ ion-header {
    }
   ion-col {
     padding: 0;
+    margin-top: -21px;
   }
   .short-row {
     padding-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 22px;
     @media only screen  and (min-width :map-get($grid-breakpoints, lg)) {
       padding-top: 0;
     }
   }
   .rec_text {
-    font-size: 12px;
+    font-size: 13px;
     color: #666666 !important;
-    padding-top: 0.5px;
+    padding-top: 14px;
     padding-bottom: 0;
-    font-family: $font-roboto-regular;
+    font-family: $font-gtamerica-regular;
     .recommendations_num {
       font-size: 13px;
-      font-family: $font-roboto-bold;
+      color: #645A53;
+      //font-family: $font-roboto-bold;
     }
   }
   ion-badge {
@@ -152,12 +155,19 @@ ion-header {
   width: 0%;
 }
 #header-title {
-  font-size: 22px;
-  color: #ffffff;
+  font-size: 18px;
+  color: #F85F14;
   text-align: center;
-  font-family: $font-roboto-medium;
+  font-family: $font-gtamerica-bold;
 }
-
+#header-title-sm{
+  padding-left:30px;
+  font-size: 18px;
+  color: #F85F14;
+  text-align: center;
+  font-family:$font-gtamerica-bold;
+    padding: 33px 0 12px 0;
+}
 .card_arrow_img {
   width: 24px !important;
   content: url("/assets/icon/arrow.svg");
@@ -170,6 +180,9 @@ ion-header {
 .card-content {
   padding-left: 0px;
   padding-right: 0px;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(105deg, #F3F1EF 31%, #F3F1EF 32%, #F3F1EF 32%, #FFFFFF 21%, #FFFFFF 10%);
   ion-grid:first-child{
     padding: 5px 10px 5px 5px;
   }
@@ -362,6 +375,7 @@ ion-segment-button {
 }
 .loadTilePad {
   padding-top: 0;
+  background: #E9E5E1;
   @media (min-width: map-get($grid-breakpoints, lg)) {
     background-color: #f8f8f8;
     --padding-start: 20px !important;
@@ -386,40 +400,45 @@ a {
   }
 }
 .segment_control_tabs {
-  position: relative;
-  border-radius: 25px;
-  padding: 0px 5px 0px 5px;
-  margin: -4.5vw auto;
-  width: 63.74vw;
-  background: #f4f5f8;
-  border: 0.5px solid #fba464;
-  height: 10.13vw;
-  padding-top: 1.25vw;
-  z-index: 1;
+  // position: relative;
+  // border-radius: 25px;
+  // padding: 0px 5px 0px 5px;
+  // margin: -4.5vw auto;
+  // width: 63.74vw;
+  // background: #f4f5f8;
+  // border: 0.5px solid #fba464;
+  // height: 10.13vw;
+  // padding-top: 1.25vw;
+  // z-index: 1;
   ion-segment-button {
-    --color: #000000;
-    --background-checked: #ffffff;
-    --color-checked: #000000;
-    border: none;
-    height: 7.62vw;
-    font-family: $font-roboto-regular;
-    --background-activated: #e5e5ed;
-    transition: 0.3s ease-in-out;
-    --background-hover: #e5e5ed;
-    ion-label {
-      font-size: 14px;
-      color: #000000;
-    }
-    border-radius: 25px;
+    // --color: #000000;
+     --background-checked: #ffffff;
+     --color-checked: #000000;
+     border: none;
+     font-size: 15px;
+     color:#81766E;
+     font-family:$font-gtamerica-regular;
+    // height: 7.62vw;
+    // font-family: $font-roboto-regular;
+    // --background-activated: #e5e5ed;
+    // transition: 0.3s ease-in-out;
+    // --background-hover: #e5e5ed;
+    // ion-label {
+     
+    // }
+    // border-radius: 25px;
   }
   .segment-button-checked {
-    box-shadow: 0 2px 5px #00000038;
+   // box-shadow: 0 2px 5px #00000038;
+   border-bottom: 3px solid red;
+   border-radius:1px;
+   color: #04081E;
   }
   .segment_recommended {
     width: 34.5vw;
   }
   @media only screen  and (min-width : map-get($grid-breakpoints, lg) ) {
-    width: 17.82vw;
+    width: 21.82vw;
     height: 3.9vh;
     padding-top: 0.25vw;
     margin: 0vw auto;
@@ -427,22 +446,23 @@ a {
     border: none;
     padding: 0;
     margin-left: 0;
-    background: #EDEDED;
+    background: #FFFFFF;
     ion-segment-button{
       height: 99%;
-      max-width: 9vw;
+      // max-width: 9vw;
       border-radius: 0;
-      --background-hover: #EDEDED;
+      --background-hover: #FFFFFF;
+      padding: 0 29px;
       ion-label {
         font-size: 1.53vmin;
+        color: #81766E;
       }
     }
-    .segment-button-checked {
-      box-shadow: -5px 0 5px -5px #00000038, 5px 0 5px -5px #00000038;
-      border-top: 3px solid #F57423;
-      border-radius: 5px 5px 0 0;
+    .segment-button-checked { 
+      box-shadow:none;
+      border-bottom: 3px solid #F57423;
       ion-label {
-        color: #FF6418;
+        color: #000000;
       }
     }
   }
@@ -453,15 +473,28 @@ a {
   float: right;
 }
 .sortArrows {
-  border: 0.5px solid #999999;
-  border-radius: 9px;
-  width: 40px;
-  height: 20px;
-  margin-top: 1px;
-  padding-left: 8px;
+  // border: 0.5px solid #999999;
+  // border-radius: 9px;
+  // width: 40px;
+  // height: 20px;
+  // margin-top: 1px;
+  // padding-left: 8px;
+  top: 109px;
+left: 318px;
+width: 42px;
+height: 42px;
+background: #FFFFFF;
+border: 1px solid #F4F4F4;
+margin-top: 5px;
+opacity: 1;
   ion-icon{
-    height: 11.41px;
-    width: 9.8px;
+    height: 9.67px;
+    width: 16.02px;
+    top: 24%;
+    left: 30%;
+    // margin-left:auto;
+    // margin-right:auto;
+    position: relative;
   }
 }
 // .downArrow {
@@ -534,7 +567,7 @@ a {
 }
 @media only screen and (min-width: map-get($grid-breakpoints, lg)) {
   .tab-bar-div {
-    background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+    background: #ffffff;
     height: 10.4vh;
     padding: 0 7vw;
     .tab-bar-logo {
@@ -580,14 +613,10 @@ a {
       }
     }
   }
-  .tab-bar-heighlater{
-    background: linear-gradient(180deg, #FA934F 0%, #F5560F 100%);
-    height: 6px;
-    margin-bottom: 0;
-  }
   .desktop-page-container{
     margin: auto;
     border: 1px solid #f3f3f3;
+    background: #E9E5E1;
     .desktop-page{
       padding: 0 7vw;
     }
@@ -604,4 +633,7 @@ a {
       float: right;
     }
   }
+}
+.sort_select{
+  margin-left:-4px;
 }

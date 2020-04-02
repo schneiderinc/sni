@@ -14,8 +14,8 @@ const TermsAndCondition = () =>{
                 }
             </IonCardHeader>
             <IonCardContent class={`term-class ${showTerms ? 'fadein' : 'fadeout'}`}>
-                <p>A shipment tender document will be sent to you once assigned within the Schneider Transportation Management System. The carrier must follow this shipment tender documentation, any changes to the shipment will cause an updated tender which would include updated payment information.</p>
-                <p>This transaction is subject to and governed by the written agreement between you and Schneider Transportation Management, a division of Schneider National Carriers, Inc. and the terms of this site.</p>
+                <p className="terms_conditions_p">A shipment tender document will be sent to you once assigned within the Schneider Transportation Management System. The carrier must follow this shipment tender documentation, any changes to the shipment will cause an updated tender which would include updated payment information.</p>
+                <p className="terms_conditions_p">This transaction is subject to and governed by the written agreement between you and Schneider Transportation Management, a division of Schneider National Carriers, Inc. and the terms of this site.</p>
             </IonCardContent>
         </IonCard>
     )

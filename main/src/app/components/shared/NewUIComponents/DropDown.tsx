@@ -19,26 +19,20 @@ export const NewDropDown: React.FC<dropDownProps> = ({labelName,TrailerType ,dro
     const onConfrim = (option: any) => {
         setselectedOption(option);
         setShowOptions(false);
+        let event = {name:'trailer_type', value: option.name}
+        dropDownChange(event);
     }
      return (
         <>
             <IonGrid  class=" trailer-ion-item">
-                <IonLabel mode="ios" position="floating" class="trailer_type_label">{labelName}</IonLabel>
-                {/* <IonSelect mode="ios" okText="Ok" cancelText="Cancel" interface="alert" className="search_select" name={Trailer} value={TrailerType} onIonChange={dropDownChange}>
-                    {NewDropDownData.map((select, index) => (
-                        <IonSelectOption key={index} value={select.name}>{select.value}</IonSelectOption>
-                    ))}
-                </IonSelect> */}
+                <IonLabel mode="ios" class="trailer_type_label">{labelName}</IonLabel>
                 <IonButton type="button" class="dropdown-button trailer_type_dropdown" onClick={() => (setShowOptions(true))}>
-                    <IonRow>
-                        <IonCol>{selectedOption.value}</IonCol>
-                        <IonCol> <i className="down"></i></IonCol>
-                    </IonRow>
-                    </IonButton>
+                    {selectedOption.value} <i className="down"></i>
+                </IonButton>
             </IonGrid>
             <IonModal isOpen={showOptions} cssClass="dropdown-modal">
                 <div className="search_options">
-                    <IonRow class="dropdown-heading"><IonCol> <b>{labelName}</b> </IonCol></IonRow>
+                    <IonRow class="dropdown-heading"><IonCol> <p className="sortBy_text">{labelName}</p> </IonCol></IonRow>
                     <div className="options_content">
                         {NewDropDownData.map((option: any, k: any) => (
                             <IonRow key={k} onClick={() => hideDropdownMenu(option)}>
@@ -47,12 +41,15 @@ export const NewDropDown: React.FC<dropDownProps> = ({labelName,TrailerType ,dro
                     </div>
 
                     <IonRow class="dropdown-handler">
-                        <IonCol size="6">
+                        <IonCol size="1"></IonCol>
+                        <IonCol  className="dropdown_cancel" size="5">
                             <span onClick={() => { setShowOptions(false); setclickedOption(selectedOption) }}>Cancel</span>
                         </IonCol>
-                        <IonCol size="6">
+                        <IonCol  className="dropdown_cancel" size="5">
                             <span onClick={() => onConfrim(clickedOption)}><b>OK</b></span>
                         </IonCol>
+                        <IonCol size="1"></IonCol>
+
                     </IonRow>
                 </div>
             </IonModal>

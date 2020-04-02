@@ -18,3 +18,7 @@ export const FavoriteLoads = () => ({
     type: Constants.FAVORITE_LOADS
     
 })
+export const fetchResults = (searchParams: any) => ({
+    type: Constants.FETCH_SEARCH_RESULTS,
+    payload: searchParams
+})

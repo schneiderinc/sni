@@ -4,7 +4,6 @@ import { IonItem, IonLabel, IonInput, IonImg } from '@ionic/react';
 import 'app/pages/Search/New/NewPage.scss';
 interface NewInputProps {
     Error: any,
-    labelClassName: any, 
     labelValue: any,
     InputValue: any,
     handleCityEvent: any,
@@ -13,16 +12,22 @@ interface NewInputProps {
     showSuggestions: any,
     InputName:any
 }
-export const NewInput: React.FC<NewInputProps> = ({ Error, labelClassName, labelValue, InputValue, handleCityEvent, SelectedCity, SearchResults, showSuggestions,InputName }) => {
+export const NewInput: React.FC<NewInputProps> = ({ Error, labelValue, InputValue, handleCityEvent, SelectedCity, SearchResults, showSuggestions,InputName }) => {
+    const selectCity =(index:any)=>{
+        SelectedCity(index);
+    }
     return (
         <>
-            <IonItem mode="ios" className={`ion-item origin-ion-item ${Error ? "ion-error-field-validation" : "ion-field-validation"}`}>
-                <IonLabel mode="ios" position="floating" className={labelClassName}>{labelValue}</IonLabel>
+            <IonItem mode="ios" className={`typeahead-item ${Error ? "ion-error-field-validation" : "ion-field-validation"}`}>
+                <IonLabel mode="ios" position="floating">{labelValue}</IonLabel>
                 <IonInput type="text" className="cts-form-control" name={InputName} value={InputValue} onIonChange={(event) => handleCityEvent(event)}>
                     <IonImg slot="end" alt="logo" src="/assets/icon/search_icon.svg" className="origin-input_icon" />
                 </IonInput>
             </IonItem>
-            <p className={`pickupdate-error  ${Error ? "pick-error" : "pick-without-error"}`} >{Error}</p>
+            <div className="pickupdate-error">
+                <p>{Error}</p>
+            </div>
+            
 
             {showSuggestions ? <div className="suggestions_div" ref={node => { node = node; }}>
                 <IonItem className="suggestions_input_item">
@@ -31,11 +36,10 @@ export const NewInput: React.FC<NewInputProps> = ({ Error, labelClassName, label
                 </IonItem>
                 <ul className="suggestions">
                     {SearchResults.map((SearchCity: any, index: number) => (<IonItem className="suggestions_item" key={index}>
-                        <li className="suggestions_list" onClick={() => SelectedCity(index)}>{SearchCity.city}</li> </IonItem>
+                        <li className="suggestions_list" onClick={() => selectCity(index)}>{SearchCity.city}</li> </IonItem>
                     ))}
                 </ul>
             </div> : null}
         </>
     );
 };
-

@@ -7,7 +7,6 @@ import { GetRecent } from 'app/actions/Recent/action'
 
 import { getFavorite } from 'app/actions/Favorite/action'
 
-//const __model:Recommended = new Recommended();
 export function* searchData(data: any) {
   try {
     yield put(showLoading());
@@ -46,12 +45,21 @@ export function* favoriteData() {
   }
 
 }
+export function* fetchSearchResults(data: any) {
+  try {
+     const fetchSearchResults = yield call(request, ["SEARCH","FETCH_SEARCH_LOADS",null,"Content-Type", data, "application/x-www-form-urlencoded"]);
+     yield loadSearchData(fetchSearchResults);
+  } catch (e) {
+  } 
+  
+}
 
 export default function* rootSaga() {
   yield all([
     takeLatest(constants.SEARCH_DATA, searchData),
     takeLatest(constants.RECENT_LOADS, recentData),
-    takeLatest(constants.FAVORITE_LOADS, favoriteData)
+    takeLatest(constants.FAVORITE_LOADS, favoriteData),
+    takeLatest(constants.FETCH_SEARCH_RESULTS, fetchSearchResults)
 
   ]);
 }

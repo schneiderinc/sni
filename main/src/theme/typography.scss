@@ -39,4 +39,23 @@ medium
   src: local('Roboto Bold'), local('Roboto Bold'), url("/assets/fonts/Roboto-Bold.ttf") format('truetype');
 }
 
+@font-face {
+  font-family:'GT America Bold';
+  font-style: regular;
+  font-weight: 100;
+  src: local('GT America Bold'), local('GT America Bold'), url("/assets/fonts/GT America Bold.ttf") format('truetype');
+}
+@font-face {
+  font-family:'GT America Regular';
+  font-style: regular;
+  font-weight: 100;
+  src: local('GT America Regular'), local('GT America Regular'), url("/assets/fonts/GT America Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family:'Segoi Semi Bold';
+  font-style: regular;
+  font-weight: 100;
+  src: local('Segoi Semi Bold'), local('Segoi Semi Bold'), url("/assets/fonts/seguisb.ttf") format('truetype');
+}
   

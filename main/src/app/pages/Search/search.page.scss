@@ -14,19 +14,25 @@ ion-card-content {
     padding-top: 0 !important;
 }
 .search-page{
+  .desktop-header-desc {
+    display: none;
+  }
   .segment_control_tabs{
-    width: 82.8vw;
     @media (min-width: map-get($grid-breakpoints, lg)) {
-      width: 16vw;
-      ion-segment-button{
-        max-width: 5.2vw;
-      }
+      width: 25vw;
+      height: 45px;
     }
   }
 }
 @media only screen and (min-width: map-get($grid-breakpoints, lg )){
+  .search-page{
+  .page-header {
+    margin-top: 10.5vh;
+    height: 3.5vh;
+}
+  }
   .search-page-content{
-    --background: #ffffff !important;
-    // --padding-top: 0px !important;
+    --background: #E9E5E1 !important;
+    --padding-top: 0px !important;
   }
 }

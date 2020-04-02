@@ -28,7 +28,8 @@ export const URL_ENDPOINTS: EndPoints = {
         RECOMMENDED_LOADS: "/loads"
     },
     SEARCH: {
-        SEARCH_LOADS: "/search-results"
+        SEARCH_LOADS: "/search-results",
+        FETCH_SEARCH_LOADS: "/api"
     },
     RECENT: {
         RECENT_LOADS: "/recent"

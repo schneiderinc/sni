@@ -51,7 +51,10 @@ class Dropdown extends Component<any, any>{
         return (
             <>
                 <div className="search_sortby_select">
-                    <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name.length <= 10 ? this.state.selectedOption.name : this.state.selectedOption.name.slice(0, 7) + "..."}<i className="down"></i></IonButton>
+                    
+                    <IonButton type="button" expand="full" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name.length <= 18 ? this.state.selectedOption.name : this.state.selectedOption.name.slice(0, 20) + "..."}
+                    </IonButton>
+                   <i className="down"></i>
                 </div>
                 <div className="search_sortby_select desktop-sort">
                     <IonButton type="button" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name}<i className="down"></i></IonButton>
@@ -61,24 +64,27 @@ class Dropdown extends Component<any, any>{
                     this.onConfrim(this.state.clickedOption.value)
                 }
                }>
-                  <IonIcon src={this.state.downArrowDeactive}></IonIcon>
-                  <IonIcon src={this.state.upArrowActivate}></IonIcon>
+                  {/* <IonIcon src={this.state.downArrowDeactive}></IonIcon>
+                  <IonIcon src={this.state.upArrowActivate}></IonIcon> */}
+                  <IonIcon src="assets/icon/sort icon.svg"></IonIcon>
                 </div>
                 <IonModal isOpen={this.state.isDropdown} cssClass="dropdown-modal">
                     <div className="search_options">
-                        <IonRow class="dropdown-heading"><IonCol> <b>Sort By</b> </IonCol></IonRow>
+                        <IonRow class="dropdown-heading"><IonCol> <p className="sortBy_text">Sort By</p> </IonCol></IonRow>
                         {sortByOptions.map((option: any, k: any) => (
 
                             <IonRow key={k} onClick={() => this.hideDropdownMenu(option)}>
                                 <IonCol class={option.name === this.state.clickedOption.name ? 'checked' : ''}>{option.name} <i className="check"></i> </IonCol></IonRow>
                         ))}
                         <IonRow class="dropdown-handler">
-                            <IonCol size="6">
+                            <IonCol size="1"></IonCol>
+                            <IonCol size="5" className="dropdown_cancel">
                                 <span onClick={() => (this.setState({ isDropdown: false, clickedOption: this.state.selectedOption }))}>Cancel</span>
                             </IonCol>
-                            <IonCol size="6">
+                            <IonCol size="5" className="dropdown_cancel">
                                 <span onClick={() => this.onConfrim(this.state.clickedOption.value)}><b>OK</b></span>
                             </IonCol>
+                             <IonCol size="1"></IonCol>
                         </IonRow>
                     </div>
                 </IonModal>
