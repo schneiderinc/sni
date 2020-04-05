@@ -8,11 +8,11 @@ import request from 'app/utils/request';
 export function* doLogin(data: any) {
   const { username, password } = data.payload;
   try {
-    var body = "username=" + username + "&password=" + password + "&grant_type=password&scope=openid+c3cd05f1-ee91-4dc0-a916-52868681800b+offline_access&client_id=c3cd05f1-ee91-4dc0-a916-52868681800b&response_type=token+id_token";
-    yield put(showLoading());
-     const loginResponse = yield call(request, ["LOGIN","LOGIN",null,"Content-Type", body, "application/x-www-form-urlencoded"]);
-    yield put(hideLoading());
-    yield put(tokenData(loginResponse))
+   // var body = "username=" + username + "&password=" + password + "&grant_type=password&scope=openid+c3cd05f1-ee91-4dc0-a916-52868681800b+offline_access&client_id=c3cd05f1-ee91-4dc0-a916-52868681800b&response_type=token+id_token";
+    //yield put(showLoading());
+    //const loginResponse = yield call(request, ["LOGIN","LOGIN",null,"Content-Type", body, "application/x-www-form-urlencoded"]);
+    //yield put(hideLoading());
+    //yield put(tokenData({}))
     yield put(loginSuccess(data.payload));
   } catch (e) {
     yield put(hideLoading());

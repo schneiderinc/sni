@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { IonApp, IonRouterOutlet } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-
-
+import { Redirect, Route } from "react-router";
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -36,12 +34,7 @@ const AppContainer: React.FC = () => {
   return (
     <Provider store={store}>
       <IonApp>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            <Route exact path="/login" component={LoginContainer} />
-            <PrivateRoute path="/" component={App} />
-          </IonRouterOutlet>
-        </IonReactRouter>
+            <PrivateRoute component={App}/>
       </IonApp>
     </Provider>
   );

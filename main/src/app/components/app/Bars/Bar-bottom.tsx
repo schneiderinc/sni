@@ -35,16 +35,12 @@ interface MainTabsProps { isBarBottom: boolean }
 const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
   console.log(isBarBottom, 'isBarBottom')
   return (
-
-    <IonRouterOutlet class="desktop-page-container">
-      <Route
-        path="/app"
-        render={() => (
           <>
+            <hr className="tab-bar-heighlater"></hr>
             <div className="tab-bar-div">
               <img src="assets/icon/Logo.png" className="tab-bar-logo" />
               <IonTabs>
-                <IonRouterOutlet>
+                <IonRouterOutlet class="desktop-page-container">
                   <Route path="/app/search" render={(props: any) => <SearchContainer {...props} />} exact />
                   <Route path="/app/search/results" component={SearchResultContainer} exact />
                   <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
@@ -71,8 +67,8 @@ const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
                   <Route
                     path="/app/more" render={(props: any) => <MenuContainer {...props} />} exact={true} />
 
-                  <Route path="/app" render={() => <Redirect to="/app/home" />} />
-
+                  <Route path="/app" render={() => <Redirect to="/app/home" />} exact={true} />
+                  <Route path="/" render={() => <Redirect to="/app/home" />} exact={true} />
                 </IonRouterOutlet>
                 {isBarBottom? <IonTabBar slot="bottom">
                   <IonTabButton tab="home" href="/app/home" >
@@ -121,9 +117,6 @@ const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
               <span>Home | Sitemap | Privacy Policy</span>
             </IonFooter>
           </>
-        )}
-        exact={true} />
-    </IonRouterOutlet>
 
   );
 }

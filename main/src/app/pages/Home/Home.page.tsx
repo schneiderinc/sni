@@ -19,7 +19,7 @@ import { getGPSDetails } from 'app/selectors/selector';
 import { Recommended } from 'app/models/home/Loads.model';
 import { watchedOfflineData } from 'app/utils/mock_Data';
 import { useNetwork } from 'app/utils/useNetwork';
-
+//import { AuthenticationService } from 'app/services/authentication.service';
 
 const key = "carrier";
 
@@ -28,7 +28,6 @@ interface HomeProps { data: [], loading: any, updateData: any, gpsData?: any }
 const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
 
   const _model = new Recommended()
-
   const [segment, setSegment] = useState<any>({ name: 'Recommended', data: {} });
   const [RecommendedloadData, setRecommendedLoad] = useState<any>([]);
   const [WatchedLoad, setWatchedLoad] = useState<any>([{
@@ -77,7 +76,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
 
   useEffect(() => {
     getNetworkStatus();
-    _setOfflineWatched(watchedOfflineData)
+    _setOfflineWatched(watchedOfflineData);
   }, [])
 
   useEffect(() => {

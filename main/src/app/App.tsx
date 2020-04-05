@@ -28,11 +28,11 @@ const App: React.FC = (props: any) => {
   const { isAvailable, state: appState } = useAppState();
   const { watchCurrentPosition, currentPosition, errorMessage } = useGeolocation();
 
-  console.log( props.hiddenbarBottom,'heloo')
+  // console.log( props.hiddenbarBottom,'heloo')
   useEffect(() => {
     console.log("MOUNT");
     try {
-      watchCurrentPosition();
+      //watchCurrentPosition();
     }
     catch (error) {
       console.log("ERROR:", error);
