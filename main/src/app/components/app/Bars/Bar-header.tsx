@@ -15,7 +15,7 @@ const AppHeader: React.FC<HeaderProps> = ({ title, getSegment, segments, activeS
       : <IonCol size="2">{backUrl && <IonBackButton icon={BackIcon} text="" defaultHref={backUrl}  ></IonBackButton>}</IonCol>}
       <IonCol size="7"><div id={title === "Search Results"? `header-title-sm` : `header-title`}>{title}</div></IonCol>
       {isMap && <IonCol size="3"><div id="header-icon"><img src="assets/icon/map.svg" alt="icon" /></div></IonCol>}
-      {editData && <IonCol size="3"><div id="header-icon" className="edit_icon"><IonImg alt="logo" src="assets/icon/Edit.svg" onClick={() => editData()} /></div><div className="edit_text">Edit</div></IonCol>}
+      {editData && <IonCol size="3"><div id="header-icon" className="edit_icon"><IonImg alt="logo" src="assets/icon/edit.svg" onClick={() => editData()} /></div><div className="edit_text">Edit</div></IonCol>}
       {isSearch && <IonCol size="3"><div id="header-icon"><IonImg alt="logo" src="assets/icon/search_white.svg" /></div></IonCol>}
     </IonRow>
     <div className="desktop-header-desc">

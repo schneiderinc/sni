@@ -67,7 +67,7 @@ class NewPage extends PureComponent<newProps, any> {
     } else if (event.target.name === Destination && event.target.value.length === 0) {
       this.setState({ destinationError: CityError });
     } else if (event.target.name === Destination && event.target.value.length) {
-      this.setState({ destinationError: "" });
+      this.setState({ destinationError: "" ,rangeDisable: false});
     }
   }
 
@@ -156,7 +156,7 @@ class NewPage extends PureComponent<newProps, any> {
               </IonRow>
             </IonGrid>
           </form>
-          { this.state.showResults ? <SearchResultDesktop  data ={this.props.results}/> : null}
+          { this.state.showResults ? <SearchResultDesktop  data ={this.props.results} {...this.props.history}/> : null}
         </IonContent>
         <IonFooter class="searchPageFooter" >
             <IonButton expand="full" onClick={(event) => this.Apply(event,"mobile")}>See Results</IonButton>

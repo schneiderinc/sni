@@ -13,7 +13,7 @@ class SearchResultPage extends PureComponent<any, any> {
 
         this.state = {
             tab: true,
-            loadData: [],
+            loadData: props.results,
             editSearch: true,
             searchVariables: ["1 Stop-off", "Dry Van", "Pick Up Date : Nov 16", "Drop off Date : Nov 16"]
         };
@@ -24,7 +24,6 @@ class SearchResultPage extends PureComponent<any, any> {
     }
 
     sortedData = (data: any) => {
-        console.log(data, "dataaa")
         this.setState({ loadData: data })
         //  this.setState(() => {
         //     return {loadData:data};

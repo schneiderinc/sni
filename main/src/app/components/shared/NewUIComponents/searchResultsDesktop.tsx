@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { LOAD_DATA } from 'app/utils/mock_Data';
 import { IonBadge, IonIcon, IonImg, IonGrid } from '@ionic/react';
@@ -18,24 +18,28 @@ const customSort = (rows: any, field: any, direction: any) => {
     return sortedList;
 };
 
-
-const src="assets/icon/star.svg";
-const star_visible =false;
 const SearchResultDesktop = (props: any) => {
     const showLoadDetails = (row: any) => {
         let url = '/app/search/' + row.schneider_loads_id;
         props.push(url);
     }
+    const [star_visible, setStar_visible] =useState(false);
+    const [src, setSrc]=useState("assets/icon/star.svg");
     const favorite = (row:any) => {
-    // star_visible= !star_visible;
-        const src="assets/icon/star-color.svg"
+        setStar_visible (!(star_visible));
+        if(!(star_visible)){
+            setSrc("assets/icon/star-color.svg");
+        }
+        else{
+            setSrc("assets/icon/star.svg");
+        }
     }
     const columns = [
         {
             name: 'Origin',
             selector: 'origin_city',
             sortable: true,
-            width:'110px',
+            width:'91',
             style: {
                 fontWeight: 800,
                 fontSize: 14,
@@ -54,7 +58,7 @@ const SearchResultDesktop = (props: any) => {
             name: 'DH-O',
             selector: 'origin_deadhead',
             sortable: true,
-            width: '79px'
+            width: '79'
         },
         // {
         // 	name: 'Origin Load Type',
@@ -66,14 +70,14 @@ const SearchResultDesktop = (props: any) => {
             name: 'Origin Load Type',
             selector: '',
             sortable: false,
-            width:'93px',
+            width:'93',
             cell: (row: any) =><div>Live load</div> 
         },
         {
             name: 'Destination',
             selector: 'destination_city',
             sortable: true,
-            width:'110px',
+            width:'91',
             style: {
                 fontWeight: 800,
                 fontSize: 14,
@@ -91,7 +95,7 @@ const SearchResultDesktop = (props: any) => {
             name: 'DH-D',
             selector: 'destination_deadhead',
             sortable: true,
-            width: '79px'
+            width: '79'
         },
         // {
         // 	name: 'Destination Load Type',
@@ -104,20 +108,20 @@ const SearchResultDesktop = (props: any) => {
             name: 'Destination Load Type',
             selector: '',
             sortable: false,
-            width:'110px',
-            cell: (row: any) =><div>Live Unload</div> 
+            width:'93',
+            cell: (row: any) =><div>Live Load</div> 
         },
         {
             name: 'Trailer Type',
             selector: 'trailer',
             sortable: true,
-            width: '84px',
+            width: '84',
         },
         {
             name: 'Rate ($)',
             selector: 'price',
             sortable: true,
-            width:'92px',
+            width:'92',
             cell: (row: any) => row.price === 0 ? <div className="price_text">Contact for Price</div> : row.price,
             style: {
                 fontWeight: 800,
@@ -143,7 +147,7 @@ const SearchResultDesktop = (props: any) => {
             name: '',
             selector: '',
             sortable: false,
-            width: "70px",
+            width: "50px",
             cell: (row: any) => <IonGrid class="datatable-badge" onClick={() => showLoadDetails(row)}><i></i></IonGrid>   }
     ];
     return (
