@@ -35,12 +35,16 @@ interface MainTabsProps { isBarBottom: boolean }
 const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
   console.log(isBarBottom, 'isBarBottom')
   return (
+
+    <IonRouterOutlet class="desktop-page-container">
+      <Route
+        path="/app"
+        render={() => (
           <>
-            <hr className="tab-bar-heighlater"></hr>
             <div className="tab-bar-div">
               <img src="assets/icon/Logo.png" className="tab-bar-logo" />
               <IonTabs>
-                <IonRouterOutlet class="desktop-page-container">
+                <IonRouterOutlet>
                   <Route path="/app/search" render={(props: any) => <SearchContainer {...props} />} exact />
                   <Route path="/app/search/results" component={SearchResultContainer} exact />
                   <Route path="/app/home" render={(props: any) => <Home {...props} />} exact={true} />
@@ -67,12 +71,12 @@ const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
                   <Route
                     path="/app/more" render={(props: any) => <MenuContainer {...props} />} exact={true} />
 
-                  <Route path="/app" render={() => <Redirect to="/app/home" />} exact={true} />
-                  <Route path="/" render={() => <Redirect to="/app/home" />} exact={true} />
+                  <Route path="/app" render={() => <Redirect to="/app/home" />} />
+
                 </IonRouterOutlet>
                 {isBarBottom? <IonTabBar slot="bottom">
                   <IonTabButton tab="home" href="/app/home" >
-                    <IonIcon src="assets/icon/nav_home icon.svg" class="home_icon"></IonIcon>
+                    <IonIcon src="assets/icon/nav-home-icon.svg" class="home_icon"></IonIcon>
                     <IonLabel class="tab_footer_label">Home {isBarBottom}</IonLabel>
 
                   </IonTabButton>
@@ -87,7 +91,7 @@ const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
                   </IonTabButton>
                   <IonTabButton tab="manage" href="/app/manage">
                     <IonIcon src="assets/icon/manag icon.svg" class="manage_icon"></IonIcon>
-                    <IonLabel class="tab_footer_label tab_footer_label_manage">Profile</IonLabel>
+                    <IonLabel class="tab_footer_label tab_footer_label_manage">Manage</IonLabel>
                   </IonTabButton>
                   <IonTabButton tab="more" href="/app/more">
                     <IonIcon src="assets/icon/more icon.svg" class="more_icon"></IonIcon>
@@ -117,6 +121,9 @@ const RootLevelTabs: React.FC<MainTabsProps> = ({isBarBottom}) => {
               <span>Home | Sitemap | Privacy Policy</span>
             </IonFooter>
           </>
+        )}
+        exact={true} />
+    </IonRouterOutlet>
 
   );
 }

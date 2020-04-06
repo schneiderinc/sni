@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
+import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { IonApp, IonRouterOutlet } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { Redirect, Route } from "react-router";
+
+
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -29,12 +31,23 @@ import { LoginContainer } from "app/containers/LoginContainer";
 import { PrivateRoute } from 'app/containers/PrivateRoute';
 import { App } from 'app';
 
+import { usePushNotification } from 'app/utils/usePushNotification';
+
 const AppContainer: React.FC = () => {
+  const { addPushListeners } = usePushNotification();
+  useEffect(() => {
+    addPushListeners();
+  })
   const store = configureStore();
   return (
     <Provider store={store}>
       <IonApp>
-            <PrivateRoute component={App}/>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/login" component={LoginContainer} />
+            <PrivateRoute path="/" component={App} />
+          </IonRouterOutlet>
+        </IonReactRouter>
       </IonApp>
     </Provider>
   );

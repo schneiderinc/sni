@@ -19,7 +19,7 @@ import { getGPSDetails } from 'app/selectors/selector';
 import { Recommended } from 'app/models/home/Loads.model';
 import { watchedOfflineData } from 'app/utils/mock_Data';
 import { useNetwork } from 'app/utils/useNetwork';
-//import { AuthenticationService } from 'app/services/authentication.service';
+
 
 const key = "carrier";
 
@@ -28,6 +28,7 @@ interface HomeProps { data: [], loading: any, updateData: any, gpsData?: any }
 const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
 
   const _model = new Recommended()
+
   const [segment, setSegment] = useState<any>({ name: 'Recommended', data: {} });
   const [RecommendedloadData, setRecommendedLoad] = useState<any>([]);
   const [WatchedLoad, setWatchedLoad] = useState<any>([{
@@ -76,7 +77,7 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
 
   useEffect(() => {
     getNetworkStatus();
-    _setOfflineWatched(watchedOfflineData);
+    _setOfflineWatched(watchedOfflineData)
   }, [])
 
   useEffect(() => {
@@ -95,13 +96,14 @@ const Home: React.FC<HomeProps> = ({ data, loading, updateData, gpsData }) => {
 
 
 
-  const sortByOptions = [{ value: "origin_deadhead", name: "By origin deadhead" }, { value: "destination_deadhead", name: "By destination deadhead" }, { value: "price", name: "By price" }, { value: "origin_from_date", name: "By pickup date" }, { value: "total_distance", name: "By distance" }];
+  const sortByOptions = [{ value: "origin_deadhead", name: "Origin DeadHead" }, { value: "destination_deadhead", name: "Destination DeadHead" }, { value: "price", name: "Price" }, { value: "origin_from_date", name: "Pickup Date" }, { value: "total_distance", name: "Distance" }];
 
 
 
   return (
     <IonPage className="desktop-page">
-      <AppHeader title={segment.name === "Recommended" ? "Recommended Loads" : "Watched Loads"} getSegment={(e: any) => setSegment({ name: e.detail.value as any, data: {} })} segments={['Recommended', 'Watched']} activeSegment={segment.name} />
+      <AppHeader title={segment.name === "Recommended" ? "Loads" : "Loads"} getSegment={(e: any) => setSegment({ name: e.detail.value as any, data: {} })} segments={['Recommended', 'Watched']} activeSegment={segment.name} />
+      {/* <AppHeader title="Loads" getSegment={(e: any) => setSegment({ name: e.detail.value as any, data: {} })} segments={['Recommended', 'Watched']} activeSegment={segment.name} /> */}
 
 
       <IonContent className="ion-padding custom-padding load-page-content home-page">

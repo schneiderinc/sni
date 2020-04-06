@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonButton } from '@ionic/react';
-import AppHeader from 'app/components/app/Bars/Bar-header';
-import { useAuthService } from 'app/services/Auth';
+import './Logout.scss';
+import { IonCard, IonItem, IonImg } from '@ionic/react';
 
-type logout = { logout:any };
-const LogOutPage: React.FC<logout> = ({logout}) => {
-	logout();
-	const authService = useAuthService();
+
+class LogOutPage extends Component<any, any> {
+	constructor(props: any) {
+		super(props);
+		this.state = {
+			showLogoutModal: false
+		}
+	}
+	logout = () => {
+		this.props.logout();
+		this.props.history.push("/login");
+	}
+	render() {
+
 		return (
-			<IonButton onClick={() => authService.logout()} class="logout_btn" >Logout</IonButton>
+			 <IonCard onClick={() => this.logout()} class="menu_list_card">
+			 	<IonItem lines="none" class="Logout_item" >Logout
+			 		<IonImg slot="end" alt="logo" src="assets/icon/logout.svg" />
+			 	</IonItem>
+			</IonCard>
 		);
-
+	}
 }
 export default LogOutPage;

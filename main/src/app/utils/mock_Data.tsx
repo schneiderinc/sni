@@ -539,9 +539,9 @@ export const NewDropDownData = [{
 }
 ]
 export const sortByOptions = [
-    { value: "origin_deadhead", name: "By origin deadhead" },
-    { value: "destination_deadhead", name: "By destination deadhead" },
-    { value: "price", name: "By price" },
-    { value: "origin_from_date", name: "By pickup date" },
-    { value: "total_distance", name: "By distance" }
+    { value: "origin_deadhead", name: "Origin DeadHead" },
+    { value: "destination_deadhead", name: "Destination DeadHead" },
+    { value: "price", name: "Price" },
+    { value: "origin_from_date", name: "Pickup Date" },
+    { value: "total_distance", name: "Distance" }
 ];

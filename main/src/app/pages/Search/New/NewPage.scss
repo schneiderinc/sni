@@ -28,6 +28,11 @@
   ion-col{
     padding: 0px;
   }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .pickupdate-error:last-child{
+      height: 16px !important;
+    }
+  }
   .pickupdate-error:last-child{
     height: auto;
   }
@@ -36,7 +41,7 @@
   padding: 0px;
   background-color: #FFFFFF;
   margin-top: 2px;
-  box-shadow: 0 3px 6px #645A531A;
+  box-shadow: 0px 3px 6px #645A531A;
   .pickup-row{
     padding-top: 18px;
     padding-left: 11px;
@@ -65,7 +70,7 @@
 }
 .typeahead-item{
   --inner-padding-end:  0px;
-  --inner-padding-start:  9px;
+  --inner-padding-start: 10px;
   --padding-start: 0px;
   --border-color: #e2dcdc;
   --min-height: 46px;
@@ -110,15 +115,18 @@
 .ion-item1{
   border-bottom: 1px solid #e2dcdc;
   height: 76px;
-  padding: 0 16px;
+  padding: 0 10px;
   margin-top: 11px;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    padding: 0 16px;
+  }
 }
 .ion-error-field-validation{
   --border-color: #FF0000;
 }
 .date-picker-item{
   --inner-padding-end: 0px;
-  --inner-padding-start: 9px;
+  --inner-padding-start: 10px;
   --padding-start: 0px;
   letter-spacing: 0.6px;
   --min-height: 50px;
@@ -153,6 +161,7 @@
     background: white;
     z-index: 9;
     position: absolute;
+    margin-top: -20px;
   .suggestions {
     list-style: none;
     width: 100%;
@@ -173,6 +182,12 @@
 .rc-slider {
   height: 1px !important;
   padding: 1px 0 !important;
+  width:92% !important;
+  margin-left: 15px;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    width:100% !important;
+    margin-left: 0px !important;
+  }
 }
 .rc-slider-rail {
   background-color: #E9E5E1 !important;
@@ -289,7 +304,7 @@
           font-family: $font-gtamerica-bold;
           color: #000000;
           font-size: 15px;
-          padding-left: 9px;
+          padding-left: 10px;
           .desitnation-city{
             width: auto;
             float: right;
@@ -313,7 +328,7 @@
           margin-top: -15px;
         }
         .ion-item1{
-          height: 82px !important;
+          height: 85px !important;
         }
       }
     }
@@ -323,7 +338,7 @@
       input {
         --padding-top: 0px;
         margin-top: 8px;
-        padding-bottom: 4px;
+        // padding-bottom: 4px;
         font-size: 15px;
         --placeholder-color: #000000;
       }
@@ -398,10 +413,6 @@ ion-footer {
   margin-top: 9px;
   border-top: 0.5px solid #dedede;
  }
-// ion-picker{
-//   background: #000000;
-//   opacity: 0.7;
-// }
 .picker-wrapper.sc-ion-picker-ios {
   height: 32.2vh;
   bottom: 33% ;
@@ -464,6 +475,8 @@ ion-footer {
   padding-left: 14px;
   padding-right: 14px;
   border-bottom: .25px solid #e8e8e8 !important;
+  padding-bottom: 9px;
+    margin-top: -3px;
 }
 .picker-columns{
   background-color: #FAFAFA;
@@ -583,8 +596,11 @@ ion-footer {
   }
 }
 .options_content{
-  height: 177px;
+  height: 182px;
   overflow: scroll;
+  ion-row:last-child{
+    border-bottom: none;
+  }
 }
 .range-pin{
   background: black;
@@ -607,7 +623,7 @@ ion-footer {
   }
 }
 .footer-row{
-  margin-bottom: 22px;
+  padding-bottom: 22px;
   ion-icon{
     height: 16px;
       width: 16px;

@@ -6,10 +6,10 @@ import {NewDropDownData} from 'app/utils/mock_Data';
 interface dropDownProps{
     labelName:string,
     TrailerType:string,
-    dropDownChange:any
+    handleChange: any,
 
 }
-export const NewDropDown: React.FC<dropDownProps> = ({labelName,TrailerType ,dropDownChange }) => {
+export const NewDropDown: React.FC<dropDownProps> = ({labelName,TrailerType ,handleChange }) => {
     const [showOptions, setShowOptions] = useState(false);
     const [clickedOption, setclickedOption] = useState(NewDropDownData[0]);
     const [selectedOption, setselectedOption] = useState(NewDropDownData[0]);
@@ -19,15 +19,15 @@ export const NewDropDown: React.FC<dropDownProps> = ({labelName,TrailerType ,dro
     const onConfrim = (option: any) => {
         setselectedOption(option);
         setShowOptions(false);
-        let event = {name:'trailer_type', value: option.name}
-        dropDownChange(event);
+        let event = {target:{name:'trailer_type', value: option.name}}
+        handleChange(event);
     }
      return (
         <>
             <IonGrid  class=" trailer-ion-item">
                 <IonLabel mode="ios" class="trailer_type_label">{labelName}</IonLabel>
                 <IonButton type="button" class="dropdown-button trailer_type_dropdown" onClick={() => (setShowOptions(true))}>
-                    {selectedOption.value} <i className="down"></i>
+                    By {selectedOption.value} <i className="down"></i>
                 </IonButton>
             </IonGrid>
             <IonModal isOpen={showOptions} cssClass="dropdown-modal">

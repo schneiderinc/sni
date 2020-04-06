@@ -4,7 +4,8 @@ import { ILoads } from "app/schemas/Loads/Loads.schema";
 
 export interface child {
   children?:any,
-  loads : ILoads[]
+  loads : ILoads[],
+  segmentName: any,
 }
 class Loads extends React.Component<child, any> {
  // eslint-disable-next-line
@@ -13,10 +14,12 @@ class Loads extends React.Component<child, any> {
   } 
   
   public render() {
+    console.log(this.props.segmentName);  
       return (
         <div>
             {this.props.children({
-                loads: this.props.loads
+                loads: this.props.loads,
+                segmentName: this.props.segmentName
             })}
         </div>
     );

@@ -430,7 +430,7 @@ a {
   }
   .segment-button-checked {
    // box-shadow: 0 2px 5px #00000038;
-   border-bottom: 3px solid red;
+   border-bottom: 3px solid #F85F14;
    border-radius:1px;
    color: #04081E;
   }
@@ -460,7 +460,7 @@ a {
     }
     .segment-button-checked { 
       box-shadow:none;
-      border-bottom: 3px solid #F57423;
+      border-bottom: 3px solid #F85F14;
       ion-label {
         color: #000000;
       }

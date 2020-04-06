@@ -1,16 +1,7 @@
 {
   "name": "Schneider",
   "integrations": {
-    "capacitor": {},
-    "enterprise": {
-      "keyId": 1212,
-      "productKey": "key_cc49e13a4cbb4fa3a97d7aa671d83da8",
-      "appId": "e3719d7b",
-      "orgId": "295488ae-6ce3-4ce5-8872-f8e5ff3f5362",
-      "registries": [
-        "@ionic-enterprise;https://registry.ionicframework.com/"
-      ]
-    }
+    "capacitor": {}
   },
   "type": "react"
 }

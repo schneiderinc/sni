@@ -21,7 +21,7 @@ const SegmentContent: React.FC<SegmentProps> = ({ type, recommendedloads, setVie
 
 
   return (<div>{type === "Recommended" && (<div>
-    {recommendedloads.length ? <Loads loads={recommendedloads} >{
+    {recommendedloads.length ? <Loads segmentName={type} loads={recommendedloads} >{
       ({ loads }: { loads?: any }) => {
         return <IonList className="loadTilePad">
           {loads.map((load: ILoads, index: number) => <LoadTile key={index} {...load} details={() => { getDetails(load) }} module="home/recommended"/>)}
@@ -31,7 +31,7 @@ const SegmentContent: React.FC<SegmentProps> = ({ type, recommendedloads, setVie
     </Loads> : !isloaded ? (<RecommendedError loads={newSearch()} />) : ""}
   </div>)}
     {type === "Watched" && (<div>
-      {watchedLoad.length ? <Loads loads={watchedLoad} >{
+      {watchedLoad.length ? <Loads segmentName={type} loads={watchedLoad} >{
        
         ({ loads }: { loads?: any }) => {
           return <IonList className="loadTilePad">

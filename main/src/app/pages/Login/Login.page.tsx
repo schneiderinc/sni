@@ -33,15 +33,6 @@ class LoginPage extends Component<propTypes> {
             password: props.userData.password,
             rememberme: props.userData.rememberme
         }))
-        // var authentication: AuthenticationService;
-  
-       
-        // authentication = new AuthenticationService();
-        // try {
-        //     authentication.login();
-        //  } catch (e) {
-        //    console.error(e);
-        //  }
     }
 
 
@@ -50,13 +41,17 @@ class LoginPage extends Component<propTypes> {
         this.setState({
             [name]: value
         });
+        if(this.state.username && this.state.password.length > 2){
+            this.setState({rememberme: true});
+        } else {
+            this.setState({rememberme: false})
+        }
     }
     onRememberMe = (event: any) => {
-        console.log(event);
         const { name, checked } = event.target;
         this.setState({
             [name]: checked
-        }); 
+        });
     }
 
     handleSubmit = (event: any) => {

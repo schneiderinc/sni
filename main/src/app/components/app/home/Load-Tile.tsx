@@ -14,12 +14,13 @@ class LoadTile extends React.Component<any, any> {
     super(props);
     this.state={
       stopCount: this.props.stopCount,
-      pageName: "loadPage"
+      pageName: "loadPage",
     }
     this.__updatedLoads = DomainConverter.dataToDomain<Recommended>(Recommended, this.props);
   }
   // const stopCount = this.props.stopCount;
   public render() {
+    console.log(this.props.module);
     return (
       <>
         {/* <IonCard className="ion-card"> */}
@@ -28,7 +29,7 @@ class LoadTile extends React.Component<any, any> {
             <IonGrid>
               <IonRow>
                 <IonCol className="card-price-col" size="4">
-              <LoadTileFooter price={this.props.price} stops={this.props.total_stops} trailer={this.props.trailer} total_distance={this.props.total_distance} />
+                  <LoadTileFooter price={this.props.price} stops={this.props.total_stops} trailer={this.props.trailer} total_distance={this.props.total_distance} />
                 </IonCol>
                 <IonCol className="card-city-col">
                   <IonRow className="ellipse-row">
@@ -49,6 +50,9 @@ class LoadTile extends React.Component<any, any> {
                   </IonRow> */}
                   <LoadTileHeader {...this.props}/>
                 </IonCol>
+                {this.props.module ==="home/watched" ? <IonCol size="0.5" className="star_icon_col">
+                  <IonImg className="star_icon" src="assets/icon/star-color.svg" />
+                </IonCol>: null}
               </IonRow>
               {/* <LoadTileHeader {...this.props} />
               <IonItemDivider no-padding />

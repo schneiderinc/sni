@@ -47,7 +47,7 @@ class CarrierAssignedPage extends Component<any, any> {
 			<IonPage className="desktop-page">
 				<AppHeader title="My Loads" isMyLoad={this.state.isMyLoad} backUrl={"/app/" + this.props.module} />
 				<IonContent className="carrierContent">
-					<Loads loads={this.props.data} >{
+					<Loads segmentName={""} loads={this.props.data} >{
 						({ loads }: { loads?: any }) => {
 							return <IonList className="loadTilePad">
 								{loads.map((load: any, index: number) =>

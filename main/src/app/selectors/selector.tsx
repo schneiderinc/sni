@@ -8,7 +8,7 @@ export const makeSelectGlobal = () => createSelector([selectGlobal], global => g
 
 export const getLoading = () => createSelector([selectGlobal], global => global.loading);
 
-export const getCurrentUser = () => createSelector([selectGlobal], global => (global.userData));
+export const getCurrentUser = () => createSelector([selectGlobal], global => global.currentUser);
 
 export const getLoginError = () => createSelector([selectGlobal], global => global.error);
 

@@ -6,14 +6,13 @@ import { RadiusRange } from 'app/components/shared/NewUIComponents/RadiusRange';
 import { DatePicker } from 'app/components/shared/NewUIComponents/DatePicker';
 
 const PickupData = (props: any) => {
-  const { originError, origin, showSuggestions, originSearchResults, originRadius, pickUpdateError, pickUpdate } = props;
+  const { originError, origin, originRadius, pickUpdateError, pickUpdate } = props;
 
   return(
     <IonGrid className="pickup-data">
     <IonRow>
       <IonCol>
-        <NewInput Error={originError}  labelValue="Origin" InputValue={origin} InputName={Origin} handleCityEvent={(event: any) => props.handleCityEvent(event)}
-          showSuggestions={showSuggestions} SearchResults={originSearchResults} SelectedCity={props.SelectedCity} />
+        <NewInput Error={originError}  labelValue="Origin" InputValue={origin} InputName={Origin} handleChange={props.handleChange}/>
       </IonCol>
     </IonRow>
     <IonRow>
@@ -23,7 +22,7 @@ const PickupData = (props: any) => {
     </IonRow>
     <IonRow>
       <IonCol>
-        <DatePicker Error={pickUpdateError} labelName="Pickup Date" name={PickUpdate} InputValue={pickUpdate} handleChange={props.handleChange} placeholder="Choose Pickup Date" />
+        <DatePicker Error={pickUpdateError} labelName="Pickup Date" name={PickUpdate} InputValue={pickUpdate} handleChange={props.handleChange} placeholder="Choose Pickup Date" platform=""/>
       </IonCol>
     </IonRow>
   </IonGrid>

@@ -80,7 +80,7 @@ class SearchResultPage extends PureComponent<any, any> {
                             </div>
                         </IonCol>
                     </IonRow>
-                    <Loads loads={this.state.loadData} >{
+                    <Loads segmentName={""} loads={this.state.loadData} >{
                         ({ loads }: { loads?: any }) => {
                             return <IonList className="searchResults_list">
                                 {loads.map((load: any, index: number) => <LoadTile key={index} {...load} module="search" />)}

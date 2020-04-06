@@ -52,7 +52,7 @@ class Dropdown extends Component<any, any>{
             <>
                 <div className="search_sortby_select">
                     
-                    <IonButton type="button" expand="full" onClick={this.dropdownClick} class="search_sort_button">{this.state.selectedOption.name.length <= 18 ? this.state.selectedOption.name : this.state.selectedOption.name.slice(0, 20) + "..."}
+                    <IonButton type="button" expand="full" onClick={this.dropdownClick} class="search_sort_button">By {this.state.selectedOption.name.length <= 18 ? this.state.selectedOption.name : this.state.selectedOption.name.slice(0, 20) + "..."}
                     </IonButton>
                    <i className="down"></i>
                 </div>

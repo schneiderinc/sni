@@ -5,14 +5,13 @@ import { NewInput } from 'app/components/shared/NewUIComponents/OriginInput';
 import { RadiusRange } from 'app/components/shared/NewUIComponents/RadiusRange';
 import { DatePicker } from 'app/components/shared/NewUIComponents/DatePicker';
 const DeliverypData = (props: any) => {
-  const { destinationError, destination, showSuggestions2, destinationSearchResults, Destination_Radius, destination_radious_change, dropUpdateError, dropdate } = props;
+  const { destinationError, destination, Destination_Radius, dropUpdateError, dropdate, platform } = props;
 
   return (
     <IonGrid className="delivery-data">
     <IonRow>
       <IonCol>
-        <NewInput Error={destinationError} labelValue="Destination" InputValue={destination} InputName={Destination} handleCityEvent={(event: any) => props.handleCityEvent(event)}
-                    showSuggestions={showSuggestions2} SearchResults={destinationSearchResults} SelectedCity={props.SelectedCity} />
+        <NewInput Error={destinationError} labelValue="Destination" InputValue={destination} InputName={Destination} handleChange={props.handleChange}/>
       </IonCol>
     </IonRow>
     <IonRow>
@@ -22,7 +21,7 @@ const DeliverypData = (props: any) => {
     </IonRow>
     <IonRow>
       <IonCol>
-        <DatePicker Error={dropUpdateError} labelName="Delivery Date" name={Dropdate} InputValue={dropdate} handleChange={props.handleChange} placeholder="Choose Delivery Date" />
+        <DatePicker Error={dropUpdateError} labelName="Delivery Date" name={Dropdate} InputValue={dropdate} handleChange={props.handleChange} placeholder="Choose Delivery Date" platform={platform}/>
       </IonCol>
     </IonRow>
   </IonGrid>
