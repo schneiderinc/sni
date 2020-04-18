@@ -2,12 +2,40 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+    def versionPropsFile = file('version.properties')
+    def versionBuild
+
+    /*Setting default value for versionBuild which is the last incremented value stored in the file */
+    if (versionPropsFile.canRead()) {
+        def Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+        versionBuild = versionProps['VERSION_BUILD'].toInteger()
+    } else {
+        throw new FileNotFoundException("Could not read version.properties!")
+    }
+
+
+    /*Wrapping inside a method avoids auto incrementing on every gradle task run. Now it runs only when we build apk*/
+    ext.autoIncrementBuildNumber = {
+
+        if (versionPropsFile.canRead()) {
+            def Properties versionProps = new Properties()
+            versionProps.load(new FileInputStream(versionPropsFile))
+            versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+            versionProps['VERSION_BUILD'] = versionBuild.toString()
+            versionProps.store(versionPropsFile.newWriter(), null)
+        } else {
+            throw new FileNotFoundException("Could not read version.properties!")
+        }
+    }
+
+    
     defaultConfig {
         applicationId "com.cognizantmobilityenterprise.schneider"
         minSdkVersion 21
         targetSdkVersion 28
-        def version = getIncrementationVersionName()
-        versionName "1.7.1"
+        versionCode 1
+        versionName "1.0" + versionBuild
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,46 +45,6 @@ android {
         }
     }
 }
-def getIncrementedVersionName() {
-    List<String> runTasks = gradle.startParameter.getTaskNames();
-
-    //find version name in manifest
-    def manifestFile = file('src/main/AndroidManifest.xml')
-    def matcher = Pattern.compile('versionName=\"(\\d+)\\.(\\d+)\\.(\\d+)\"').matcher(manifestFile.getText())
-    matcher.find()
-
-    //extract versionName parts
-    def firstPart = Integer.parseInt(matcher.group(1))
-    def secondPart = Integer.parseInt(matcher.group(2))
-    def thirdPart = Integer.parseInt(matcher.group(3))
-
-    //check is runTask release or not
-    // if release - increment version
-    for (String item : runTasks) {
-        if (item.contains("assemble") && item.contains("Release")) {
-            thirdPart++
-            if (thirdPart == 10) {
-                thirdPart = 0;
-                secondPart++
-                if (secondPart == 10) {
-                    secondPart = 0;
-                    firstPart++
-                }
-            }
-        }
-    }
-
-    def versionName = firstPart + "." + secondPart + "." + thirdPart
-
-    // update manifest
-    def manifestContent = matcher.replaceAll('versionName=\"' + versionName + '\"')
-    manifestFile.write(manifestContent)
-
-    println "incrementVersionName = " + versionName
-
-    return versionName
-}
-
 repositories {
     maven {
         url  "https://dl.bintray.com/ionic-team/capacitor"
