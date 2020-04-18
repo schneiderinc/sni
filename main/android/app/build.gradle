@@ -6,6 +6,8 @@ android {
         applicationId "com.cognizantmobilityenterprise.schneider"
         minSdkVersion 21
         targetSdkVersion 28
+        def version = getIncrementationVersionName()
+        versionName version
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -14,6 +16,45 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+def getIncrementedVersionName() {
+    List<String> runTasks = gradle.startParameter.getTaskNames();
+
+    //find version name in manifest
+    def manifestFile = file('src/main/AndroidManifest.xml')
+    def matcher = Pattern.compile('versionName=\"(\\d+)\\.(\\d+)\\.(\\d+)\"').matcher(manifestFile.getText())
+    matcher.find()
+
+    //extract versionName parts
+    def firstPart = Integer.parseInt(matcher.group(1))
+    def secondPart = Integer.parseInt(matcher.group(2))
+    def thirdPart = Integer.parseInt(matcher.group(3))
+
+    //check is runTask release or not
+    // if release - increment version
+    for (String item : runTasks) {
+        if (item.contains("assemble") && item.contains("Release")) {
+            thirdPart++
+            if (thirdPart == 10) {
+                thirdPart = 0;
+                secondPart++
+                if (secondPart == 10) {
+                    secondPart = 0;
+                    firstPart++
+                }
+            }
+        }
+    }
+
+    def versionName = firstPart + "." + secondPart + "." + thirdPart
+
+    // update manifest
+    def manifestContent = matcher.replaceAll('versionName=\"' + versionName + '\"')
+    manifestFile.write(manifestContent)
+
+    println "incrementVersionName = " + versionName
+
+    return versionName
 }
 
 repositories {
