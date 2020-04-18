@@ -7,7 +7,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         def version = getIncrementationVersionName()
-        versionName version
+        versionName "1.7.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
