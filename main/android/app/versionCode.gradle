@@ -6,7 +6,7 @@ task('increaseVersionCode') << {
 }
 
 tasks.whenTaskAdded { task ->
-    if (task.name == 'generateReleaseBuildConfig) {
+    if (task.name == 'generateReleaseBuildConfig') {
         task.dependsOn 'increaseVersionCode'
     }
 }
