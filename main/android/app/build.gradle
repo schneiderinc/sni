@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
+apply from: 'versionCode.gradle'
+
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.cognizantmobilityenterprise.schneider"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0" + versionBuild
+        versionName VERSION_NAME
+        versionCode Integer.parseInt(VERSION_CODE)
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
