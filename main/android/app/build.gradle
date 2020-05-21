@@ -2,28 +2,43 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    
+
     def versionPropsFile = file('version.properties')
-    def Properties versionProps = new Properties()
+    def value = 0
+    Properties versionProps = new Properties()
+    if (!versionPropsFile.exists()) {
+        versionProps['VERSION_PATCH'] = "0"
+        versionProps['VERSION_NUMBER'] = "0"
+        versionProps['VERSION_BUILD'] = "-1" // I set it to minus one so the first build is 0 which isn't super important. 
+        versionProps.store(versionPropsFile.newWriter(), null)
+    }
+
+    def runTasks = gradle.startParameter.taskNames
+    if ('assembleRelease' in runTasks) {
+        value = 1
+    }
+
+    def mVersionName = ""
+    def mFileName = ""
 
     if (versionPropsFile.canRead()) {
         versionProps.load(new FileInputStream(versionPropsFile))
-    }
-    else {
-        versionProps['VERSION_CODE']='0'
-    }
 
-    def code = versionProps['VERSION_CODE'].toInteger() + 1
+        versionProps['VERSION_PATCH'] = (versionProps['VERSION_PATCH'].toInteger() + value).toString()
+        versionProps['VERSION_NUMBER'] = (versionProps['VERSION_NUMBER'].toInteger() + value).toString()
+        versionProps['VERSION_BUILD'] = (versionProps['VERSION_BUILD'].toInteger() + 1).toString()
 
-    versionProps['VERSION_CODE']=code.toString()
-    versionProps.store(versionPropsFile.newWriter(), null)
+        versionProps.store(versionPropsFile.newWriter(), null)
 
-    defaultConfig {
+        // 1: change major and minor version here
+        mVersionName = "v1.0.${versionProps['VERSION_PATCH']}"
+    
+       defaultConfig {
         applicationId "com.cognizantmobilityenterprise.schneider"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode code
-	versionName "1.1"
+        versionCode versionProps['VERSION_NUMBER'].toInteger()
+        versionName "${mVersionName} Build: ${versionProps['VERSION_BUILD']}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
