@@ -2,12 +2,28 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+    
+    def versionPropsFile = file('version.properties')
+    def Properties versionProps = new Properties()
+
+    if (versionPropsFile.canRead()) {
+        versionProps.load(new FileInputStream(versionPropsFile))
+    }
+    else {
+        versionProps['VERSION_CODE']='0'
+    }
+
+    def code = versionProps['VERSION_CODE'].toInteger() + 1
+
+    versionProps['VERSION_CODE']=code.toString()
+    versionProps.store(versionPropsFile.newWriter(), null)
+
     defaultConfig {
         applicationId "com.cognizantmobilityenterprise.schneider"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 
-	versionName 
+        versionCode code
+	versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
